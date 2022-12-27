@@ -1,0 +1,235 @@
+/* uYou tab */
+"Welcome" = "The best tweak for the YouTube app";
+"WelcomeSubtitle1" = "Download Videos/Audio";
+"WelcomeSubtitle2" = "Save your favorite videos for offline playback.";
+"WelcomeSubtitle3" = "Play Saved Media";
+"WelcomeSubtitle4" = "Play your saved media in a custom player with background playback support and mini player.";
+"WelcomeSubtitle5" = "More Options";
+"WelcomeSubtitle6" = "Play YouTube videos in the background and more, You can configure options from the settings.";
+"Twitter" = "Follow me on Twitter";
+"Continue" = "Continue";
+
+/* uYou tab */
+"DownloadingTab" = "Downloading";
+"All" = "All";
+"Video" = "Video";
+"Videos" = "Videos";
+"Audio" = "Audio";
+"Audios" = "Audios";
+"TOTAL" = "TOTAL";
+"DOWNLOADING" = "DOWNLOADING";
+
+"Sorting" = "Sorting"; 
+"VideoTitleAscending" = "Video Title (Ascending)";
+"VideoTitleDescending" = "Video Title (Descending)";
+"DownloadDateAscending" = "Download Date (Ascending)";
+"DownloadDateDescending" = "Download Date (Descending)";
+
+"AudioOnly" = "Audio Only";
+"AudioOnlymp4" = "Audio Only (mp4)";
+"DownloadingInfo" = "Downloading...";
+"AddingMetadata" = "Adding Metadata to the M4A...";
+"WaitingInfo" = "Waiting...";
+"WaitingDownloadInfo" = "Waiting for download...";
+"Paused" = "Paused";
+"Completed" = "Completed";
+"PlayonYouTube" = "Play on YouTube";
+"OpenChannel" = "Open Channel";
+"Rename" = "Rename";
+"Cancel" = "Cancel";
+"Done" = "Done";
+"Share" = "Share";
+"ImportToMusic" = "Import to Music";
+"ExportToCameraRoll" = "Export to Camera Roll";
+"ChangeImage" = "Change Image";
+"SaveAlbumToCameraRoll" = "Save Album Art to Camera Roll";
+"OpenInFilza" = "Open in Filza";
+"Delete" = "Delete";
+"Confirm" = "Confirm";
+"CopyVideoLink" = "Copy Video Link";
+"CopyAudioLink" = "Copy Audio Link";
+"CancelDownload" = "Cancel Download";
+"DeleteVideo" = "Are you sure you want to delete"; //Output text will look like: Are you sure you want to delete (Video name)?
+"DeleteFilesCount" = "Are you sure you want to delete selected files"; //Output text will look like: Are you sure you want to delete selected files (5)?
+"SelectedFilesCount" = "Selected files"; //Output text will look like: Selected files (5).
+"Understand" = "I Understand";
+"SaveImage" = "Save Image";
+"SaveGif" = "Save Gif";
+
+/* Import to Music */
+"Import" = "Import";
+"ChangeArtworkImage" = "Change Artwork Image";
+"IMPORTINFO" = "IMPORT INFO";
+"Explicit" = "Explicit";
+"Kind" = "Kind";
+"Title" = "Title";
+"Album" = "Album";
+"Artist" = "Artist";
+"Year" = "Year";
+
+/* + button */
+"PasteYouTubeLink" = "Please, paste the YouTube link or Video ID to start download";
+"YouTubeURL" = "YouTube URL or Video ID";
+"Download" = "Download";
+
+/* Popups */
+"Loading" = "Loading";
+"DownloadStarted" = "Download started";
+"Saved" = "Saved!";
+"ExportedSuccessfully" = "Exported successfully";
+"RenamedSuccessfully" = "Renamed successfully";
+"InvalidLink" = "Invalid YouTube link";
+
+/* Settings */
+"QUALITY_AND_FORMAT" = "QUALITY AND FORMAT";
+"ShowFormats" = "Show Formats";
+
+"DownloadQuality" = "Download Quality";
+"AlwaysAsk" = "Always Ask";
+
+"PiPQuality" = "PiP Quality";
+"HighestQuality" = "Highest Quality";
+"LowestQuality" = "Lowest Quality";
+
+"PlaylistQuality" = "Playlist Quality";
+
+"WiFiVideoQuality" = "YT Video Quality on WiFi";
+"CellularVideoQuality" = "YT Video Quality on Cellular";
+"Auto" = "Auto";
+
+"QualityInfo" = "If the selected quality is not available, then uYou will choose a lower quality than the one you choose.";
+
+"UYOU_SETTINGS" = "UYOU SETTINGS";
+"DownloadLocation" = "Videos Download Location";
+"uYouFolderOnly" = "uYou Folder Only";
+"CameraRollOnly" = "Camera Roll Only";
+"Both" = "Both";
+
+"MaxDownloadsCount" = "Max Concurrent Downloads Count";
+"Unlimited" = "Unlimited";
+
+"YT_SETTINGS" = "YT SETTINGS";
+"StartupPage" = "Startup Page";
+"Home" = "Home";
+"Create" = "Create";
+"Subscriptions" = "Subscriptions";
+"Library" = "Library";
+"Explore" = "Explore";
+"Trending" = "Trending";
+
+"VideoControlsOverlay" = "Video Controls Overlay";
+"RelatedVideos" = "Related Videos at the end the videos";
+"CastButton" = "Cast Button";
+"uYouRepeat" = "uYou Repeat";
+"uYouFullscreenToTheRight" = "uYou Fullscreen to The Right";
+"PlaybackSpeedControls" = "Playback Speed Controls";
+"uYouGesturesControls" = "Enable \"uYou Gestures Controls\"";
+"uYouGesturesControlsInfo" = "uYou Gestures Controls: It can let you drag your finger left/right on the top/bottom of the video screen to adjust the volume/brightness/seek.\n\nChanging settings require restarting the YouTube app.";
+
+"ButtonsUnderVideo" = "Buttons Under the Video Player";
+"HideuYouButton" = "Hide uYou Button";
+"HideuYouLocalButton" = "Hide uYouLocal Button";
+"HideuYouPiPButton" = "Hide uYouPiP Button";
+"HideDislikeButton" = "Hide Dislike Button";
+"HideDownloadButton" = "Hide Download Button";
+"HideShareButton" = "Hide Share Button";
+"HideSaveButton" = "Hide Save Button";
+"HideLiveChatButton" = "Hide Live Chat Button";
+"HideReportButton" = "Hide Report Button";
+"HideCreateShortsButton" = "Hide Create Shorts Button";
+"HideCreateClipButton" = "Hide Create Clip Button";
+"RestartYouTubeInfo" = "Changing settings require restarting the YouTube app.";
+
+"NavigationBar" = "Navigation Bar";
+"HideCastButton" = "Hide Cast Button";
+"HideNotificationButton" = "Hide Notification Button";
+
+"HideTabs" = "Hide Tabs";
+"YTTabs" = "YT Tabs";
+"HideShortsTab" = "Hide Shorts Tab";
+"HideCreateTab" = "Hide Create Tab";
+"HideSubscriptionsTab" = "Hide Subscriptions Tab";
+"HideLibraryTab" = "Hide Library Tab";
+"HideTrendingTab" = "Hide Trending Tab";
+"HideExploreTab" = "Hide Explore Tab";
+
+"ReorderTabs" = "Reorder Tabs";
+
+"OtherSettings" = "Other Settings";
+"RemoveYouTubeAds" = "Remove YouTube Ads";
+"BackgroundPlayback" = "Background Playback";
+"AllowHDOnCellularData" = "Allow HD On Cellular Data";
+"DisableAgeRestriction" = "Disable Age Restriction";
+"iPadLayout" = "iPad Layout";
+"RemoveShortsSectionInYTHome" = "Remove Shorts Section in YT Home";
+"DisableVideoAutoPlay" = "Disable Video Auto Play";
+"DisableContinueWatching" = "Disable \"Video paused. Continue watching?\"";
+"DisableAutoCaption" = "Disable Auto Caption";
+"FullscreenVideosOnTheRight" = "Fullscreen Videos on The Right";
+"CustomDoubleTapToSeekTime" = "Custom Double Tap To Seek Time";
+"DoubleTapToSeekTime" = "Double Tap To Seek Time";
+
+"GESTURES_CONTROLS_SETTINGS" = "GESTURES CONTROLS SETTINGS";
+"TopArea" = "Top Area";
+"BottomArea" = "Bottom Area";
+"Volume" = "Volume";
+"Brightness" = "Brightness";
+"Seek" = "Seek";
+
+"Speed" = "Speed";
+"ActivationSensitivity" = "Activation Sensitivity (Activation Distance)";
+"GesturesControlsInfo" = "Default Speed = 250.\nDefault Sensitivity = 70.\nSensitivity: How much you want to move your finger on the video until the gesture activates.";
+
+"OTHERS" = "OTHERS";
+"OpenDownloadsFolderInFilza" = "Open Downloads Folder in Filza";
+"ImportFromCercube" = "Import From Cercube";
+"ImportFromCercubeInfo" = "You can easily migrate all of your videos/audios from \"Cercube\" to \"uYou\" with a tap of a button!\n\nPlease choose one of the following:";
+"ImportFromDLEasy" = "Import From DLEasy";
+"ImportFromDLEasyInfo" = "You can easily migrate all of your videos/audios from \"DLEasy\" to \"uYou\" with a tap of a button!\n\nPlease choose one of the following:";
+"CopyAll" = "Copy all";
+"MoveAll" = "Move all";
+
+"ClearDownloading" = "Clear Downloading";
+"ClearDownloadingInfo" = "Are you sure you want to clear all current downloading videos/audios?";
+
+"ClearDownloads" = "Clear Downloads";
+"ClearDownloadsInfo" = "Are you sure you want to clear all downloaded videos/audios?";
+
+"ClearAll" = "Clear All";
+"ClearAllInfo" = "Are you sure you want to clear all downloading/downloaded videos/audios?";
+
+"Video144p" = "Video • 144p";
+"Video240p" = "Video • 240p";
+"Video360p" = "Video • 360p";
+"Video480p" = "Video • 480p";
+"Video720p" = "Video • 720p";
+"Video720p50" = "Video • 720p50";
+"Video720p60" = "Video • 720p60";
+"Video1080p" = "Video • 1080p";
+"Video1080p50" = "Video • 1080p50";
+"Video1080p60" = "Video • 1080p60";
+"Video1440p" = "Video • 1440p";
+"Video1440p60" = "Video • 1440p60";
+"Video2160p" = "Video • 2160p";
+"Video2160p60" = "Video • 2160p60";
+"Video4320p" = "Video • 4320p";
+"Video4320p60" = "Video • 4320p60";
+
+"UYOU_UPDATES" = "UYOU UPDATES";
+"AutomaticallyCheckForUpdates" = "Automatically Check For Updates";
+"CheckForUpdate" = "Check For Update";
+"UpToDateVersion" = "You're using v%@ which is the latest version."; 
+
+"DONT_SHOW" = "DON'T SHOW";
+"DISMISS" = "DISMISS";
+"UPDATE_NOW" = "UPDATE NOW";
+
+"SOCIAL_MEDIA" = "SOCIAL MEDIA";
+"Developer" = "Developer";
+"SupportMy" = "Support my";
+"DevelopmentsBy" = "developments by";
+"Donating" = "Donating";
+"DonateInfo" = "You can support my iOS development by donating 🥰\n\n\"It’s not how much we give, but how much love we put into giving.\"\nMother Teresa";
+"Designer" = "Designer"; 
+"FollowMeSocMedia" = "Follow me on social media.";
+"CodedWithLove" = "Coded with ❤️ by MiRO\nCopyright © 2021";
