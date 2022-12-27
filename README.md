@@ -9,4 +9,4 @@ How to:
 
 Note that current uYou.dylib bit modified to be able to translate some strings.
 
-![](https://github.com/dayanch96/uYouLocalization/blob/main/Screenshot1.PNG?raw=true)
+![](https://github.com/dayanch96/uYouLocalization/blob/main/Screenshot.PNG?raw=true)
