@@ -99,7 +99,7 @@
 
 "QualityInfo" = "Если выбранное качество недоступно, uYou выберет ближайшее доступное качество.";
 
-"UYOU_SETTINGS" = "UYOU НАСТРОЙКИ UYOU";
+"UYOU_SETTINGS" = "НАСТРОЙКИ UYOU";
 "DownloadLocation" = "Сохранять видео";
 "uYouFolderOnly" = "В папке uYou";
 "CameraRollOnly" = "В Галерее";
