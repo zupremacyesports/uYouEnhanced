@@ -9,5 +9,5 @@ How to:
 
 Note that current uYou.dylib bit modified to be able to translate some strings.
 
-![Alt text](uYouLocalization/Screenshot1.PNG?raw=true)
-![Alt text](uYouLocalization/Screenshot2.PNG?raw=true)
+![](https://github.com/dayanch96/uYouLocalization/blob/main/Screenshot1.PNG?raw=true)
+![](https://github.com/dayanch96/uYouLocalization/blob/main/Screenshot2.PNG?raw=true)
