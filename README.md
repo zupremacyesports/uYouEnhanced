@@ -7,4 +7,7 @@ How to:
 3. Unzip uYou.zip and inject all files using Azule or alternatives.
 4. Done.
 
-Note that current uYou.dylib bit modified to be able to translate some stringsю
+Note that current uYou.dylib bit modified to be able to translate some strings.
+
+![Alt text](uYouLocalization/Screenshot1.PNG?raw=true)
+![Alt text](uYouLocalization/Screenshot2.PNG?raw=true)
