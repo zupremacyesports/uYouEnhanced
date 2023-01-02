@@ -38,12 +38,14 @@
 "Rename" = "Rename";
 "Cancel" = "Cancel";
 "Done" = "Done";
+"SelectAll" = "Select All";
 "Share" = "Share";
 "ImportToMusic" = "Import to Music";
 "ExportToCameraRoll" = "Export to Camera Roll";
 "ChangeImage" = "Change Image";
 "SaveAlbumToCameraRoll" = "Save Album Art to Camera Roll";
 "OpenInFilza" = "Open in Filza";
+"Lyrics" = "Lyrics feature will be available soon";
 "Delete" = "Delete";
 "Confirm" = "Confirm";
 "CopyVideoLink" = "Copy Video Link";
@@ -220,6 +222,7 @@
 "CheckForUpdate" = "Check For Update";
 "UpToDateVersion" = "You're using v%@ which is the latest version."; 
 
+"SKIP" = "SKIP";
 "DONT_SHOW" = "DON'T SHOW";
 "DISMISS" = "DISMISS";
 "UPDATE_NOW" = "UPDATE NOW";
