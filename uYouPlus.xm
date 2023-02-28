@@ -160,8 +160,9 @@ static BOOL pinkContrastMode() {
 - (void)didTapOverflowButton:(id)sender {}
 %end
 
-%subclass YTReelPlayerBottomButton : YTReelPlayerButton
-%end
+// Not Compatible for the releases 16.42.3 LTS + 17.49.6 LTS because this code will crash shorts in those versions since the app can't recognize some of the subclasses now.
+// %subclass YTReelPlayerBottomButton : YTReelPlayerButton
+// %end
 
 %hook NSLayoutConstraint
 + (instancetype)constraintWithItem:(UIView *)view1
