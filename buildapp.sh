@@ -21,6 +21,24 @@ else
 	echo "> \033[1mCouldn't extract uYou\033[0m"
 fi
 
+# Check Reborn
+if 	[ ! -f Tweaks/uYou/YouTube.Reborn.v4.0.9.deb ]
+then
+	echo -e "==> \033[1mReborn v4.0.9 is not found. Downloading Reborn (v4.0.9)...\033[0m"
+	(set -x ; curl https://github.com/LillieH1000/YouTube-Reborn/releases/download/4.0.9/YouTube.Reborn.v4.0.9.deb --output Tweaks/uYou/YouTube.Reborn.v4.0.9.deb)
+else
+	echo -e "==> \033[1mFounded Reborn (v4.0.9)!\033[0m"
+fi
+
+# Extract Reborn
+	echo -e "==> \033[1mExtracting Reborn...\033[0m"
+if 	(cd Tweaks/uYou && tar -xf YouTube.Reborn.v4.0.9.deb && tar -xf data.tar.*)
+then
+	echo -e "\033[1m> Extracted Reborn!\033[0m"
+else
+	echo "> \033[1mCouldn't extract Reborn\033[0m"
+fi
+
 # Makefile
 if 	[ -d tmp ]
 then

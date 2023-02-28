@@ -14,6 +14,7 @@
 #import "Tweaks/YouTubeHeader/YTIPivotBarSupportedRenderers.h"
 #import "Tweaks/YouTubeHeader/YTIPivotBarRenderer.h"
 #import "Tweaks/YouTubeHeader/YTIBrowseRequest.h"
+#import "Tweaks/YouTubeHeader/YTColorPalette.h"
 #import "Tweaks/YouTubeHeader/YTCommonColorPalette.h"
 #import "Tweaks/YouTubeHeader/ASCollectionView.h"
 #import "Tweaks/YouTubeHeader/YTPlayerOverlay.h"
@@ -23,6 +24,7 @@
 #import "Tweaks/YouTubeHeader/YTReelPlayerViewController.h"
 #import "Tweaks/YouTubeHeader/YTAlertView.h"
 #import "Tweaks/YouTubeHeader/YTISectionListRenderer.h"
+#import "Tweaks/YouTubeHeader/YTPivotBarItemView.h"
 
 // Tweak's bundle for Localizations support - @PoomSmart - https://github.com/PoomSmart/YouPiP/commit/aea2473f64c75d73cab713e1e2d5d0a77675024f
 NSBundle *uYouPlusBundle() {
@@ -70,6 +72,33 @@ static BOOL oledDarkTheme() {
 }
 static BOOL oldDarkTheme() {
     return ([[NSUserDefaults standardUserDefaults] integerForKey:@"appTheme"] == 2);
+}
+static int colorContrastMode() {
+    return [[NSUserDefaults standardUserDefaults] integerForKey:@"lcmColor"];
+}
+static BOOL defaultContrastMode() {
+    return IsEnabled(@"lowContrastMode_enabled") && colorContrastMode() == 0;
+}
+static BOOL redContrastMode() {
+    return IsEnabled(@"lowContrastMode_enabled") && colorContrastMode() == 1;
+}
+static BOOL blueContrastMode() {
+    return IsEnabled(@"lowContrastMode_enabled") && colorContrastMode() == 2;
+}
+static BOOL greenContrastMode() {
+    return IsEnabled(@"lowContrastMode_enabled") && colorContrastMode() == 3;
+}
+static BOOL yellowContrastMode() {
+    return IsEnabled(@"lowContrastMode_enabled") && colorContrastMode() == 4;
+}
+static BOOL orangeContrastMode() {
+    return IsEnabled(@"lowContrastMode_enabled") && colorContrastMode() == 5;
+}
+static BOOL purpleContrastMode() {
+   return IsEnabled(@"lowContrastMode_enabled") && colorContrastMode() == 6;
+}
+static BOOL pinkContrastMode() {
+    return IsEnabled(@"lowContrastMode_enabled") && colorContrastMode() == 7;
 }
 
 //
@@ -447,6 +476,19 @@ static BOOL didFinishLaunching;
 - (BOOL)mainAppCoreClientIosTransientVisualGlitchInPivotBarFix { return NO; } // Fix uYou's label glitching - qnblackcat/uYouPlus#552
 %end
 
+// Hide Upgrade Dialog
+%hook YTGlobalConfig
+- (BOOL)shouldBlockUpgradeDialog { return YES;}
+- (BOOL)shouldForceUpgrade { return NO;}
+- (BOOL)shouldShowUpgrade { return NO;}
+- (BOOL)shouldShowUpgradeDialog { return NO;}
+%end
+
+// Disable Autoplay Settings Section - @qnblackcat
+%hook YTSettingsSectionItemManager
+- (void)updateAutoplaySectionWithEntry:(id)arg1 {}
+%end
+
 // NOYTPremium - https://github.com/PoomSmart/NoYTPremium/
 %hook YTCommerceEventGroupHandler
 - (void)addEventHandlers {}
@@ -494,6 +536,88 @@ static BOOL didFinishLaunching;
 
 %hook YTHotConfig
 - (BOOL)enablePlayerBarForVerticalVideoWhenControlsHiddenInFullscreen { return YES; }
+%end
+
+// YTNoModernUI - arichorn
+%group gYTNoModernUI
+%hook YTColdConfig
+// Disable Modern Content - YTNoModernUI
+- (BOOL)creatorClientConfigEnableStudioModernizedMdeThumbnailPickerForClient { return NO; }
+- (BOOL)cxClientEnableModernizedActionSheet { return NO; }
+- (BOOL)enableClientShortsSheetsModernization { return NO; }
+- (BOOL)enableTimestampModernizationForNative { return NO; }
+- (BOOL)mainAppCoreClientIosEnableModernOssPage { return NO; }
+// Disable Rounded Content - YTNoModernUI
+- (BOOL)iosEnableRoundedSearchBar { return NO; }
+- (BOOL)enableIosRoundedSearchBar { return NO; }
+- (BOOL)iosDownloadsPageRoundedThumbs { return NO; }
+- (BOOL)iosRoundedSearchBarSuggestZeroPadding { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigEnableRoundedThumbnailsForNative { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigEnableRoundedThumbnailsForNativeLongTail { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigEnableRoundedTimestampForNative { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigEnableRoundedDialogForNative { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigEnableModernButtonsForNative { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigEnableModernButtonsForNativeLongTail { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigEnableModernTabsForNative { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigIosEnableSnackbarModernization { return NO; }
+// Disable Darker Dark Mode - YTNoModernUI
+- (BOOL)enableDarkerDarkMode { return NO; }
+- (BOOL)modernizeElementsTextColor { return NO; }
+- (BOOL)modernizeElementsBgColor { return NO; }
+- (BOOL)modernizeCollectionLockups { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigUseDarkerPaletteTextColorForNative { return NO; }
+- (BOOL)uiSystemsClientGlobalConfigUseDarkerPaletteBgColorForNative { return NO; }
+// Disable Ambient Mode
+- (BOOL)enableCinematicContainer { return NO; }
+- (BOOL)enableCinematicContainerOnClient { return NO; }
+- (BOOL)iosCinematicContainerClientImprovement { return NO; }
+// 16.42.3 Styled YouTube Channel Page Interface - YTNoModernUI
+- (BOOL)channelsClientConfigIosChannelNavRestructuring { return NO; }
+%end
+%end
+
+// Hide YouTube Logo
+%group gHideYouTubeLogo
+%hook YTHeaderLogoController
+- (YTHeaderLogoController *)init {
+    return NULL;
+}
+%end
+%end
+
+// Hide YouTube Heatwaves in Video Player (YouTube v17.19.2-present) - @level3tjg - https://www.reddit.com/r/jailbreak/comments/v29yvk/
+%group gHideHeatwaves
+%hook YTInlinePlayerBarContainerView
+- (BOOL)canShowHeatwave { return NO; }
+%end
+%end
+
+%group gHideuYouTab
+%hook YTPivotBarView
+- (void)setRenderer:(YTIPivotBarRenderer *)renderer {
+    NSMutableArray <YTIPivotBarSupportedRenderers *> *items = [renderer itemsArray];
+
+    NSUInteger index = [items indexOfObjectPassingTest:^BOOL(YTIPivotBarSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
+        return [[[renderers pivotBarItemRenderer] pivotIdentifier] isEqualToString:@"com.miro.uyou"];
+    }];
+    if (index != NSNotFound) [items removeObjectAtIndex:index];
+
+    %orig;
+}
+%end
+%end
+
+# pragma mark - Hide Notification Button && SponsorBlock Button
+%hook YTRightNavigationButtons
+- (void)layoutSubviews {
+    %orig;
+    if (IsEnabled(@"hideNotificationButton_enabled")) {
+        self.notificationButton.hidden = YES;
+    }
+    if (IsEnabled(@"hideSponsorBlockButton_enabled")) { 
+        self.sponsorBlockButton.hidden = YES;
+    }
+}
 %end
 
 // YTNoPaidPromo: https://github.com/PoomSmart/YTNoPaidPromo
@@ -781,8 +905,8 @@ void DEMC_centerRenderingView() {
 - (id)init {
 	id result = %orig;
 
-	const int size = 12;
-	float speeds[] = {0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0};
+	const int size = 16;
+	float speeds[] = {0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0, 3.25, 3.5, 3.75, 4.0};
 	id varispeedSwitchControllerOptions[size];
 
 	for (int i = 0; i < size; ++i) {
@@ -880,6 +1004,18 @@ void DEMC_centerRenderingView() {
 - (BOOL)removeNextPaddleForSingletonVideos { return YES; }
 - (BOOL)removePreviousPaddleForSingletonVideos { return YES; }
 %end
+
+// %hook YTMainAppControlsOverlayView // this is only used for v16.42.3 (incompatible with YouTube v17.22.3-newer)
+// - (void)layoutSubviews { // hide Next & Previous legacy buttons
+//     %orig;
+//     if (IsEnabled(@"hidePreviousAndNextButton_enabled")) { 
+//    	      MSHookIvar<YTMainAppControlsOverlayView *>(self, "_nextButton").hidden = YES;
+//         MSHookIvar<YTMainAppControlsOverlayView *>(self, "_previousButton").hidden = YES;
+//        MSHookIvar<YTTransportControlsButtonView *>(self, "_nextButtonView").hidden = YES;
+//    MSHookIvar<YTTransportControlsButtonView *>(self, "_previousButtonView").hidden = YES;
+//     }
+// }
+// %end
 %end
 
 // Replace Next & Previous button with Fast forward & Rewind button
@@ -887,6 +1023,25 @@ void DEMC_centerRenderingView() {
 %hook YTColdConfig
 - (BOOL)replaceNextPaddleWithFastForwardButtonForSingletonVods { return YES; }
 - (BOOL)replacePreviousPaddleWithRewindButtonForSingletonVods { return YES; }
+%end
+%end
+
+%group gHideOverlayDarkBackground
+%hook YTMainAppVideoPlayerOverlayView
+- (void)setBackgroundVisible:(BOOL)arg1 {
+    %orig(NO);
+}
+%end
+%end
+
+%group gHideVideoPlayerShadowOverlayButtons
+%hook YTMainAppControlsOverlayView
+- (void)layoutSubviews {
+	%orig();
+    MSHookIvar<YTTransportControlsButtonView *>(self, "_previousButtonView").backgroundColor = nil;
+    MSHookIvar<YTTransportControlsButtonView *>(self, "_nextButtonView").backgroundColor = nil;
+    	MSHookIvar<YTPlaybackButton *>(self, "_playPauseButton").backgroundColor = nil;
+}
 %end
 %end
 
@@ -908,6 +1063,10 @@ void DEMC_centerRenderingView() {
 %hook YTReelWatchPlaybackOverlayView
 - (void)setNativePivotButton:(id)arg1 {
     if (IsEnabled(@"hideShortsChannelAvatar_enabled")) {}
+    else { return %orig; }
+}
+- (void)setReelLikeButton:(id)arg1 {
+    if (IsEnabled(@"hideShortsLikeButton_enabled")) {}
     else { return %orig; }
 }
 - (void)setReelDislikeButton:(id)arg1 {
@@ -1153,18 +1312,18 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
 - (void)didMoveToWindow {
     %orig;
     if (isDarkMode()) {
-        if ([self.nextResponder isKindOfClass:%c(ASScrollView)]) { self.backgroundColor = [UIColor clearColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"eml.cvr"]) { self.backgroundColor = [UIColor blackColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) { self.backgroundColor = [UIColor blackColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"rich_header"]) { self.backgroundColor = [UIColor blackColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment_cell"]) { self.backgroundColor = [UIColor blackColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.ui.cancel.button"]) { self.superview.backgroundColor = [UIColor clearColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.comment_composer"]) { self.backgroundColor = [UIColor blackColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.video_list_entry"]) { self.backgroundColor = [UIColor blackColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.guidelines_text"]) { self.superview.backgroundColor = [UIColor blackColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.channel_guidelines_bottom_sheet_container"]) { self.backgroundColor = [UIColor blackColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.channel_guidelines_entry_banner_container"]) { self.backgroundColor = [UIColor blackColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.comment_group_detail_container"]) { self.backgroundColor = [UIColor clearColor]; }
+        if ([self.nextResponder isKindOfClass:%c(ASScrollView)]) self.backgroundColor = [UIColor clearColor];
+        if ([self.accessibilityIdentifier isEqualToString:@"eml.cvr"]) self.backgroundColor = [UIColor blackColor];
+        if ([self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) self.backgroundColor = [UIColor blackColor];
+        if ([self.accessibilityIdentifier isEqualToString:@"rich_header"]) self.backgroundColor = [UIColor blackColor];
+        if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment_cell"]) self.backgroundColor = [UIColor blackColor];
+        if ([self.accessibilityIdentifier isEqualToString:@"id.ui.cancel.button"]) self.superview.backgroundColor = [UIColor clearColor];
+        if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.comment_composer"]) self.backgroundColor = [UIColor blackColor];
+        if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.video_list_entry"]) self.backgroundColor = [UIColor blackColor];
+        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.guidelines_text"]) self.superview.backgroundColor = [UIColor blackColor];
+        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.channel_guidelines_bottom_sheet_container"]) self.backgroundColor = [UIColor blackColor];
+        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.channel_guidelines_entry_banner_container"]) self.backgroundColor = [UIColor blackColor];
+	if ([self.accessibilityIdentifier isEqualToString:@"id.comment.comment_group_detail_container"]) { self.backgroundColor = [UIColor clearColor]; }
     }
 }
 %end
@@ -1196,6 +1355,749 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
 // Incompatibility with the new YT Dark theme
 %hook YTColdConfig
 - (BOOL)uiSystemsClientGlobalConfigUseDarkerPaletteBgColorForNative { return NO; }
+%end
+%end
+
+%group gLowContrastMode // Low Contrast Mode v1.2.2 (Compatible with only v15.02.1-present)
+%hook UIColor
++ (UIColor *)whiteColor { // Dark Theme Color
+         return [UIColor colorWithRed: 0.56 green: 0.56 blue: 0.56 alpha: 1.00];
+}
++ (UIColor *)textColor {  // Light Theme Color
+         return [UIColor colorWithRed: 0.56 green: 0.56 blue: 0.56 alpha: 1.00];
+}
++ (UIColor *)dynamicLabelColor {
+         return [UIColor colorWithRed: 0.56 green: 0.56 blue: 0.56 alpha: 1.00];
+}
+%end
+
+%hook YTColorPalette // Changes Texts & Icons in YouTube Bottom Bar + Text Icons under Video Player
+- (UIColor *)textPrimary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+    }
+        return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
+}
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+    }
+        return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
+}
+%end
+
+%hook YTCommonColorPalette // Changes Texts & Icons in YouTube Bottom Bar (Doesn't change Texts & Icons under the video player)
+- (UIColor *)textPrimary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+    }
+        return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
+}
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+    }
+        return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
+}
+- (UIColor *)badgeChipBackground {
+    if (self.pageStyle == 1) {
+        return [UIColor blackColor];
+    }
+        return [UIColor blackColor];
+}
+- (UIColor *)buttonChipBackgroundHover {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+    }
+        return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
+}
+- (UIColor *)overlayButtonPrimary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+    }
+        return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
+}
+- (UIColor *)overlayButtonSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+    }
+        return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
+}
+- (UIColor *)staticBrandWhite {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+    }
+        return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
+}
+- (UIColor *)staticBrandBlack {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+    }
+        return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
+}
+- (UIColor *)brandIconActive {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+    }
+        return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
+}
+- (UIColor *)brandIconInactive {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+    }
+        return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
+}
+- (UIColor *)brandButtonBackground {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+    }
+        return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
+}
+%end
+
+%hook YTCollectionView  // Changes Live Chat Texts
+ - (void)setTintColor:(UIColor *)color { 
+     return isDarkMode() ? %orig([UIColor whiteColor]) : %orig;
+ }
+ %end
+
+%hook YTQTMButton // Changes Tweak Icons/Texts/Images
+- (UIColor *)whiteColor {
+         return [UIColor whiteColor];
+}
+- (UIColor *)sponsorBlockButton {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook ELMAnimatedVectorView // Changes the Like Button Animation Color. 
+- (UIColor *)_ASDisplayView {
+         return [UIColor whiteColor];
+}
+- (UIColor *)ELMAnimatedVectorView {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook _ASDisplayView
+- (void)didMoveToWindow {
+    %orig;
+    // LCM Button Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.chip.primary_tap_container"]) self.backgroundColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) self.backgroundColor = [UIColor whiteColor];
+    // LCM Icon & Text Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.share.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.add_to.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.author_container"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.content.label"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_teaser"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.reply.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.dislike_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.comment_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.metadata"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.overflow_button"]) self.tintColor = [UIColor whiteColor];
+}
+%end
+%end
+
+%group gRedContrastMode // Red Contrast Mode
+%hook UIColor
++ (UIColor *)whiteColor {
+         return [UIColor colorWithRed: 0.97 green: 0.15 blue: 0.15 alpha: 1.00];
+}
++ (UIColor *)textColor {
+         return [UIColor colorWithRed: 0.97 green: 0.15 blue: 0.15 alpha: 1.00];
+}
++ (UIColor *)dynamicLabelColor {
+         return [UIColor colorWithRed: 0.97 green: 0.15 blue: 0.15 alpha: 1.00];
+}
+%end
+
+%hook YTColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.97 green: 0.15 blue: 0.15 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.97 green: 0.15 blue: 0.15 alpha: 1.00]; // Light Theme
+ }
+%end
+
+%hook YTCommonColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.97 green: 0.15 blue: 0.15 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.97 green: 0.15 blue: 0.15 alpha: 1.00]; // Light Theme
+ }
+%end
+
+%hook YTQTMButton // Changes Tweak Icons/Texts/Images
+- (UIColor *)whiteColor {
+         return [UIColor whiteColor];
+}
+- (UIColor *)sponsorBlockButton {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook ELMAnimatedVectorView // Changes the Like Button Animation Color. 
+- (UIColor *)_ASDisplayView {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook _ASDisplayView
+- (void)didMoveToWindow {
+    %orig;
+    // LCM Button Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.chip.primary_tap_container"]) self.backgroundColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) self.backgroundColor = [UIColor whiteColor];
+    // LCM Icon & Text Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.share.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.add_to.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.author_container"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.content.label"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_teaser"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.reply.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.dislike_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.comment_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.metadata"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.overflow_button"]) self.tintColor = [UIColor whiteColor];
+}
+%end
+%end
+
+%group gBlueContrastMode // Blue Contrast Mode
+%hook UIColor
++ (UIColor *)whiteColor {
+         return [UIColor colorWithRed: 0.04 green: 0.47 blue: 0.72 alpha: 1.00];
+}
++ (UIColor *)textColor {
+         return [UIColor colorWithRed: 0.04 green: 0.47 blue: 0.72 alpha: 1.00];
+}
++ (UIColor *)dynamicLabelColor {
+         return [UIColor colorWithRed: 0.04 green: 0.47 blue: 0.72 alpha: 1.00];
+}
+%end
+
+%hook YTColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.04 green: 0.41 blue: 0.62 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.04 green: 0.41 blue: 0.62 alpha: 1.00]; // Light Theme
+ }
+%end
+
+%hook YTCommonColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.04 green: 0.41 blue: 0.62 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.04 green: 0.41 blue: 0.62 alpha: 1.00]; // Light Theme
+ }
+%end
+
+%hook YTQTMButton // Changes Tweak Icons/Texts/Images
+- (UIColor *)whiteColor {
+         return [UIColor whiteColor];
+}
+- (UIColor *)sponsorBlockButton {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook ELMAnimatedVectorView // Changes the Like Button Animation Color. 
+- (UIColor *)_ASDisplayView {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook _ASDisplayView
+- (void)didMoveToWindow {
+    %orig;
+    // LCM Button Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.chip.primary_tap_container"]) self.backgroundColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) self.backgroundColor = [UIColor whiteColor];
+    // LCM Icon & Text Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.share.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.add_to.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.author_container"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.content.label"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_teaser"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.reply.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.dislike_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.comment_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.metadata"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.overflow_button"]) self.tintColor = [UIColor whiteColor];
+}
+%end
+%end
+
+%group gGreenContrastMode // Green Contrast Mode
+%hook UIColor
++ (UIColor *)whiteColor {
+         return [UIColor colorWithRed: 0.01 green: 0.66 blue: 0.18 alpha: 1.00];
+}
++ (UIColor *)textColor {
+         return [UIColor colorWithRed: 0.01 green: 0.66 blue: 0.18 alpha: 1.00];
+}
++ (UIColor *)dynamicLabelColor {
+         return [UIColor colorWithRed: 0.01 green: 0.66 blue: 0.18 alpha: 1.00];
+}
+%end
+
+%hook YTColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.00 green: 0.50 blue: 0.13 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.00 green: 0.50 blue: 0.13 alpha: 1.00]; // Light Theme
+ }
+%end
+
+%hook YTCommonColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.00 green: 0.50 blue: 0.13 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.00 green: 0.50 blue: 0.13 alpha: 1.00]; // Light Theme
+ }
+%end
+
+%hook YTQTMButton // Changes Tweak Icons/Texts/Images
+- (UIColor *)whiteColor {
+         return [UIColor whiteColor];
+}
+- (UIColor *)sponsorBlockButton {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook ELMAnimatedVectorView // Changes the Like Button Animation Color. 
+- (UIColor *)_ASDisplayView {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook _ASDisplayView
+- (void)didMoveToWindow {
+    %orig;
+    // LCM Button Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.chip.primary_tap_container"]) self.backgroundColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) self.backgroundColor = [UIColor whiteColor];
+    // LCM Icon & Text Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.share.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.add_to.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.author_container"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.content.label"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_teaser"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.reply.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.dislike_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.comment_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.metadata"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.overflow_button"]) self.tintColor = [UIColor whiteColor];
+}
+%end
+%end
+
+%group gYellowContrastMode // Yellow Contrast Mode
+%hook UIColor
++ (UIColor *)whiteColor {
+         return [UIColor colorWithRed: 0.89 green: 0.82 blue: 0.20 alpha: 1.00];
+}
++ (UIColor *)textColor {
+         return [UIColor colorWithRed: 0.89 green: 0.82 blue: 0.20 alpha: 1.00];
+}
++ (UIColor *)dynamicLabelColor {
+         return [UIColor colorWithRed: 0.89 green: 0.82 blue: 0.20 alpha: 1.00];
+}
+%end
+
+%hook YTColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.77 green: 0.71 blue: 0.14 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.77 green: 0.71 blue: 0.14 alpha: 1.00]; // Light Theme
+ }
+%end
+
+%hook YTCommonColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.77 green: 0.71 blue: 0.14 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.77 green: 0.71 blue: 0.14 alpha: 1.00]; // Light Theme
+ }
+%end
+
+%hook YTQTMButton // Changes Tweak Icons/Texts/Images
+- (UIColor *)whiteColor {
+         return [UIColor whiteColor];
+}
+- (UIColor *)sponsorBlockButton {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook ELMAnimatedVectorView // Changes the Like Button Animation Color. 
+- (UIColor *)_ASDisplayView {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook _ASDisplayView
+- (void)didMoveToWindow {
+    %orig;
+    // LCM Button Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.chip.primary_tap_container"]) self.backgroundColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) self.backgroundColor = [UIColor whiteColor];
+    // LCM Icon & Text Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.share.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.add_to.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.author_container"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.content.label"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_teaser"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.reply.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.dislike_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.comment_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.metadata"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.overflow_button"]) self.tintColor = [UIColor whiteColor];
+}
+%end
+%end
+
+%group gOrangeContrastMode // Orange Contrast Mode
+%hook UIColor
++ (UIColor *)whiteColor {
+         return [UIColor colorWithRed: 0.73 green: 0.45 blue: 0.05 alpha: 1.00];
+}
++ (UIColor *)textColor {
+         return [UIColor colorWithRed: 0.73 green: 0.45 blue: 0.05 alpha: 1.00];
+}
++ (UIColor *)dynamicLabelColor {
+         return [UIColor colorWithRed: 0.73 green: 0.45 blue: 0.05 alpha: 1.00];
+}
+%end
+
+%hook YTColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.80 green: 0.49 blue: 0.05 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.80 green: 0.49 blue: 0.05 alpha: 1.00]; // Light Theme
+ }
+%end
+
+%hook YTCommonColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.80 green: 0.49 blue: 0.05 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.80 green: 0.49 blue: 0.05 alpha: 1.00]; // Light Theme
+ }
+%end
+
+%hook YTQTMButton // Changes Tweak Icons/Texts/Images
+- (UIColor *)whiteColor {
+         return [UIColor whiteColor];
+}
+- (UIColor *)sponsorBlockButton {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook ELMAnimatedVectorView // Changes the Like Button Animation Color. 
+- (UIColor *)_ASDisplayView {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook _ASDisplayView
+- (void)didMoveToWindow {
+    %orig;
+    // LCM Button Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.chip.primary_tap_container"]) self.backgroundColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) self.backgroundColor = [UIColor whiteColor];
+    // LCM Icon & Text Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.share.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.add_to.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.author_container"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.content.label"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_teaser"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.reply.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.dislike_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.comment_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.metadata"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.overflow_button"]) self.tintColor = [UIColor whiteColor];
+}
+%end
+%end
+
+%group gPurpleContrastMode // Purple Contrast Mode
+%hook UIColor
++ (UIColor *)whiteColor {
+         return [UIColor colorWithRed: 0.62 green: 0.01 blue: 0.73 alpha: 1.00];
+}
++ (UIColor *)textColor {
+         return [UIColor colorWithRed: 0.62 green: 0.01 blue: 0.73 alpha: 1.00];
+}
++ (UIColor *)dynamicLabelColor {
+         return [UIColor colorWithRed: 0.62 green: 0.01 blue: 0.73 alpha: 1.00];
+}
+%end
+
+%hook YTColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.44 green: 0.00 blue: 0.52 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.44 green: 0.00 blue: 0.52 alpha: 1.00]; // Light Theme
+ }
+%end
+
+%hook YTCommonColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.44 green: 0.00 blue: 0.52 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.44 green: 0.00 blue: 0.52 alpha: 1.00]; // Light Theme
+ }
+%end
+
+%hook YTQTMButton // Changes Tweak Icons/Texts/Images
+- (UIColor *)whiteColor {
+         return [UIColor whiteColor];
+}
+- (UIColor *)sponsorBlockButton {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook ELMAnimatedVectorView // Changes the Like Button Animation Color. 
+- (UIColor *)_ASDisplayView {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook _ASDisplayView
+- (void)didMoveToWindow {
+    %orig;
+    // LCM Button Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.chip.primary_tap_container"]) self.backgroundColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) self.backgroundColor = [UIColor whiteColor];
+    // LCM Icon & Text Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.share.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.add_to.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.author_container"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.content.label"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_teaser"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.reply.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.dislike_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.comment_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.metadata"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.overflow_button"]) self.tintColor = [UIColor whiteColor];
+}
+%end
+%end
+
+%group gPinkContrastMode // Pink Contrast Mode
+%hook UIColor
++ (UIColor *)whiteColor {
+         return [UIColor colorWithRed: 1.00 green: 0.57 blue: 0.94 alpha: 1.00];
+}
++ (UIColor *)textColor {
+         return [UIColor colorWithRed: 1.00 green: 0.57 blue: 0.94 alpha: 1.00];
+}
++ (UIColor *)dynamicLabelColor {
+         return [UIColor colorWithRed: 1.00 green: 0.57 blue: 0.94 alpha: 1.00];
+}
+%end
+
+%hook YTColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.75 green: 0.42 blue: 0.71 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.75 green: 0.42 blue: 0.71 alpha: 1.00]; // Light Theme
+ }
+%end
+
+%hook YTCommonColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.75 green: 0.42 blue: 0.71 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.75 green: 0.42 blue: 0.71 alpha: 1.00]; // Light Theme
+ }
+%end
+
+%hook YTQTMButton // Changes Tweak Icons/Texts/Images
+- (UIColor *)whiteColor {
+         return [UIColor whiteColor];
+}
+- (UIColor *)sponsorBlockButton {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook ELMAnimatedVectorView // Changes the Like Button Animation Color. 
+- (UIColor *)_ASDisplayView {
+         return [UIColor whiteColor];
+}
+%end
+
+%hook _ASDisplayView
+- (void)didMoveToWindow {
+    %orig;
+    // LCM Button Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.chip.primary_tap_container"]) self.backgroundColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) self.backgroundColor = [UIColor whiteColor];
+    // LCM Icon & Text Elements
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.share.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.add_to.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.author_container"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.comment.content.label"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_teaser"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.like.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.dislike.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment.reply.button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.dislike_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"id.ui.backstage.comment_button"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.metadata"]) self.tintColor = [UIColor whiteColor];
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.overflow_button"]) self.tintColor = [UIColor whiteColor];
+}
 %end
 %end
 
@@ -1255,6 +2157,12 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
 %end
 %end
 
+// Won't Work Yet - Bump uYou Version
+// %hook _UITableViewHeaderFooterViewLabel
+// - (void)setNeedsLayout
+// NSString "uYou v2.1" = "uYou v2.3~1";
+// %end
+
 // Hide the Chip Bar (Upper Bar) in Home feed
 %group gHideChipBar
 %hook YTMySubsFilterHeaderView 
@@ -1278,6 +2186,16 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
 // %end
 %end
 
+%group gHideTabBarLabels // https://github.com/LillieH001/YouTube-Reborn
+%hook YTPivotBarItemView
+- (void)layoutSubviews {
+    %orig();
+    [[self navigationButton] setTitle:@"" forState:UIControlStateNormal];
+    [[self navigationButton] setTitle:@"" forState:UIControlStateSelected];
+}
+%end
+%end
+
 %group giPhoneLayout
 %hook UIDevice
 - (long long)userInterfaceIdiom {
@@ -1291,12 +2209,12 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
 %end
 %hook UIKBTree
 - (long long)nativeIdiom {
-    return YES;
+    return NO;
 } 
 %end
 %hook UIKBRenderer
 - (long long)assetIdiom {
-    return YES;
+    return NO;
 } 
 %end
 %end
@@ -1332,11 +2250,17 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
     if (IsEnabled(@"replacePreviousAndNextButton_enabled")) {
        %init(gReplacePreviousAndNextButton);
     }
-    if (oledDarkTheme()) {
-       %init(gOLED);
+    if (IsEnabled(@"hideOverlayDarkBackground_enabled")) {
+       %init(gHideOverlayDarkBackground);
+    }
+    if (IsEnabled(@"hideVideoPlayerShadowOverlayButtons_enabled")) {
+       %init(gHideVideoPlayerShadowOverlayButtons);
     }
     if (oldDarkTheme()) {
        %init(gOldDarkTheme)
+    }
+    if (oledDarkTheme()) {
+        %init(gOLED)
     }
     if (IsEnabled(@"oledKeyBoard_enabled")) {
        %init(gOLEDKB);
@@ -1350,14 +2274,54 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
     if (IsEnabled(@"iPhoneLayout_enabled") && (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)) {
        %init(giPhoneLayout);
     }
+    if (IsEnabled(@"hideTabBarLabels")) {
+       %init(gHideTabBarLabels);
+    }
+    if (IsEnabled(@"hideYouTubeLogo_enabled")) {
+       %init(gHideYouTubeLogo);
+    }
+    if (IsEnabled(@"hideuYouTab_enabled")) {
+       %init(gHideuYouTab);
+    }
+    if (IsEnabled(@"hideHeatwaves_enabled")) {
+       %init(gHideHeatwaves);
+    }
+    if (IsEnabled(@"ytNoModernUI_enabled")) {
+       %init(gYTNoModernUI);
+    }
+    if (defaultContrastMode()) {
+       %init(gLowContrastMode);
+    }
+    if (redContrastMode()) {
+       %init(gRedContrastMode);
+    }
+    if (blueContrastMode()) {
+       %init(gBlueContrastMode);
+    }
+    if (greenContrastMode()) {
+       %init(gGreenContrastMode);
+    }
+    if (yellowContrastMode()) {
+       %init(gYellowContrastMode);
+    }
+    if (orangeContrastMode()) {
+       %init(gOrangeContrastMode);
+    }
+    if (purpleContrastMode()) {
+       %init(gPurpleContrastMode);
+    }
+    if (pinkContrastMode()) {
+       %init(gPinkContrastMode);
+    }
 
     // Disable updates
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"automaticallyCheckForUpdates"];
  
     // Disable broken options of uYou
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"removeYouTubeAds"];
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"disableAgeRestriction"];
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"showedWelcomeVC"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"removeYouTubeAds"]; // Remove YouTube Ads Disabled - Reason was due because it stopped working.
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"disableAgeRestriction"]; // Disable Age Restriction Disabled - Reason is the same as above.
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"showedWelcomeVC"]; // uYou Welcome Screen Disabled - Reason is because you can't hide the prompt in iOS 16.1-present.
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"removeShortsSection"]; // Remove Shorts Section Disabled - reason was due to not being consistent enough.
     
     // Change the default value of some options
     NSArray *allKeys = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];
