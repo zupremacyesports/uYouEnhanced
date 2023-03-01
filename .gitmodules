@@ -38,3 +38,6 @@
 	path = Tweaks/FLEX
 	url = https://github.com/qnblackcat/FLEX-Classes.git
 	branch = main
+[submodule "Tweaks/YouMute"]
+	path = Tweaks/YouMute
+	url = https://github.com/PoomSmart/YouMute.git
