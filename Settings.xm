@@ -160,16 +160,6 @@ extern NSBundle *uYouPlusBundle();
                     return YES;
                 }
                 settingItemId:0],
-		
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide Shadow Overlay Buttons")
-                titleDescription:LOC(@"Hide the Shadow Overlay on the Play/Pause, Previous & Next Buttons")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideVideoPlayerShadowOverlayButtons_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideVideoPlayerShadowOverlayButtons_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
 
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_PREVIOUS_AND_NEXT_BUTTON")
                 titleDescription:LOC(@"HIDE_PREVIOUS_AND_NEXT_BUTTON_DESC")
