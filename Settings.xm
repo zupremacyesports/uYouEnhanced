@@ -479,7 +479,6 @@ extern NSBundle *uYouPlusBundle();
                     return YES;
                 }
                 settingItemId:0], lowContrastModeSection];
-            ];
             YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"THEME_OPTIONS") pickerSectionTitle:nil rows:rows selectedItemIndex:GetSelection(@"appTheme") parentResponder:[self parentResponder]];
             [settingsViewController pushViewController:picker];
             return YES;
@@ -508,11 +507,6 @@ extern NSBundle *uYouPlusBundle();
                     return YES;
                 }
                 settingItemId:0], lowContrastModeSection];
-            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:@"Customization Options" pickerSectionTitle:nil rows:rows selectedItemIndex:GetSelection(@"UITheme") parentResponder:[self parentResponder]];
-            [settingsViewController pushViewController:picker];
-            return YES;
-        }];
-    [sectionItems addObject:CustomizationGroup];
 
 # pragma mark - Miscellaneous
     YTSettingsSectionItem *miscellaneousGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"MISCELLANEOUS") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
