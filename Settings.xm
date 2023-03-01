@@ -191,16 +191,6 @@ extern NSBundle *uYouPlusBundle();
                 }
                 settingItemId:0],
 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"RED_PROGRESS_BAR")
-                titleDescription:LOC(@"RED_PROGRESS_BAR_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"redProgressBar_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"redProgressBar_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_HOVER_CARD")
                 titleDescription:LOC(@"HIDE_HOVER_CARD_DESC")
                 accessibilityIdentifier:nil
@@ -217,26 +207,6 @@ extern NSBundle *uYouPlusBundle();
                 switchOn:IsEnabled(@"hideRightPanel_enabled")
                 switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
                     [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideRightPanel_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"DONT_EAT_MY_CONTENT")
-                titleDescription:LOC(@"DONT_EAT_MY_CONTENT_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"dontEatMyContent_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"dontEatMyContent_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide Heatwaves")
-                titleDescription:LOC(@"Should hide the Heatwaves in the video player. App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideHeatwaves_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideHeatwaves_enabled"];
                     return YES;
                 }
                 settingItemId:0],
@@ -435,8 +405,6 @@ extern NSBundle *uYouPlusBundle();
             switch (GetSelection(@"appTheme")) {
                 case 1:
                     return LOC(@"OLED_DARK_THEME_2");
-                case 2:
-                    return LOC(@"OLD_DARK_THEME");
                 case 0:
                 default:
                     return LOC(@"DEFAULT_THEME");
@@ -454,11 +422,6 @@ extern NSBundle *uYouPlusBundle();
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"OLD_DARK_THEME") titleDescription:LOC(@"OLD_DARK_THEME_DESC") selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"appTheme"];
-                    [settingsViewController reloadData];
-                    return YES;
-                }],
 
                 [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"OLED_KEYBOARD")
                 titleDescription:LOC(@"OLED_KEYBOARD_DESC")
@@ -468,7 +431,7 @@ extern NSBundle *uYouPlusBundle();
                     [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"oledKeyBoard_enabled"];
                     return YES;
                 }
-                settingItemId:0]
+                settingItemId:0],
 
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Low Contrast Mode")
                 titleDescription:LOC(@"this will Low Contrast texts and buttons just like how the old YouTube Interface did. App restart is required.")
@@ -514,16 +477,6 @@ extern NSBundle *uYouPlusBundle();
                 switchOn:IsEnabled(@"ytStartupAnimation_enabled")
                 switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
                     [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"ytStartupAnimation_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Remove Modern Interface (YTNoModernUI)")
-                titleDescription:LOC(@"Toggle this on to remove any Modern Element added to YouTube. Removes Ambient Mode, Rounded Design & More. App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"ytNoModernUI_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"ytNoModernUI_enabled"];
                     return YES;
                 }
                 settingItemId:0],
@@ -584,16 +537,6 @@ extern NSBundle *uYouPlusBundle();
                 switchOn:IsEnabled(@"bigYTMiniPlayer_enabled")
                 switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
                     [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"bigYTMiniPlayer_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide Notifcation button in the Navigation bar")
-                titleDescription:LOC(@"")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideNotificationButton_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideNotificationButton_enabled"];
                     return YES;
                 }
                 settingItemId:0],

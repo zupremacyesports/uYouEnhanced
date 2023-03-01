@@ -160,8 +160,9 @@ static BOOL pinkContrastMode() {
 - (void)didTapOverflowButton:(id)sender {}
 %end
 
-%subclass YTReelPlayerBottomButton : YTReelPlayerButton
-%end
+// Not Compatible for the releases 16.42.3 LTS + 17.49.6 LTS because this code will crash shorts in those versions since the app can't recognize some of the subclasses now.
+// %subclass YTReelPlayerBottomButton : YTReelPlayerButton
+// %end
 
 %hook NSLayoutConstraint
 + (instancetype)constraintWithItem:(UIView *)view1
@@ -484,10 +485,10 @@ static BOOL didFinishLaunching;
 - (BOOL)shouldShowUpgradeDialog { return NO;}
 %end
 
-// Disable Autoplay Settings Section - @qnblackcat
-%hook YTSettingsSectionItemManager
-- (void)updateAutoplaySectionWithEntry:(id)arg1 {}
-%end
+// Disable Autoplay Settings Section - @qnblackcat (not needed, autoplay section works normal on v16.42.3)
+// %hook YTSettingsSectionItemManager
+// - (void)updateAutoplaySectionWithEntry:(id)arg1 {}
+// %end
 
 // NOYTPremium - https://github.com/PoomSmart/NoYTPremium/
 %hook YTCommerceEventGroupHandler
@@ -1005,17 +1006,17 @@ void DEMC_centerRenderingView() {
 - (BOOL)removePreviousPaddleForSingletonVideos { return YES; }
 %end
 
-// %hook YTMainAppControlsOverlayView // this is only used for v16.42.3 (incompatible with YouTube v17.22.3-newer)
-// - (void)layoutSubviews { // hide Next & Previous legacy buttons
-//     %orig;
-//     if (IsEnabled(@"hidePreviousAndNextButton_enabled")) { 
-//    	      MSHookIvar<YTMainAppControlsOverlayView *>(self, "_nextButton").hidden = YES;
-//         MSHookIvar<YTMainAppControlsOverlayView *>(self, "_previousButton").hidden = YES;
-//        MSHookIvar<YTTransportControlsButtonView *>(self, "_nextButtonView").hidden = YES;
-//    MSHookIvar<YTTransportControlsButtonView *>(self, "_previousButtonView").hidden = YES;
-//     }
-// }
-// %end
+%hook YTMainAppControlsOverlayView // this is only used for v16.42.3 (incompatible with YouTube v17.22.3-newer)
+- (void)layoutSubviews { // hide Next & Previous legacy buttons
+    %orig;
+    if (IsEnabled(@"hidePreviousAndNextButton_enabled")) { 
+   	      MSHookIvar<YTMainAppControlsOverlayView *>(self, "_nextButton").hidden = YES;
+        MSHookIvar<YTMainAppControlsOverlayView *>(self, "_previousButton").hidden = YES;
+       MSHookIvar<YTTransportControlsButtonView *>(self, "_nextButtonView").hidden = YES;
+   MSHookIvar<YTTransportControlsButtonView *>(self, "_previousButtonView").hidden = YES;
+    }
+}
+%end
 %end
 
 // Replace Next & Previous button with Fast forward & Rewind button
@@ -1150,7 +1151,7 @@ void DEMC_centerRenderingView() {
 // OLED dark mode by BandarHL
 UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:1.0];
 %group gOLED
-%hook YTCommonColorPalette
+%hook YTColorPalette
 - (UIColor *)brandBackgroundSolid {
     return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
