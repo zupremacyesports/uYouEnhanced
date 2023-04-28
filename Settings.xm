@@ -101,6 +101,16 @@ extern NSBundle *uYouPlusBundle();
                     return YES;
                 }
                 settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"STOCK_VOLUME_HUD")
+                titleDescription:LOC(@"STOCK_VOLUME_HUD_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"stockVolumeHUD_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"stockVolumeHUD_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
         ];        
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"VIDEO_PLAYER_OPTIONS") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];
@@ -334,6 +344,8 @@ extern NSBundle *uYouPlusBundle();
                 case 6:
                     return LOC(@"Purple UI");
                 case 7:
+                    return LOC(@"Violet UI");
+                case 8:
                     return LOC(@"Pink UI");
                 case 0:
                 default:
@@ -377,8 +389,13 @@ extern NSBundle *uYouPlusBundle();
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"Pink UI") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"Violet UI") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:7 forKey:@"lcmColor"];
+                    [settingsViewController reloadData];
+                    return YES;
+                }],
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"Pink UI") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                    [[NSUserDefaults standardUserDefaults] setInteger:8 forKey:@"lcmColor"];
                     [settingsViewController reloadData];
                     return YES;
                 }]
@@ -461,16 +478,6 @@ extern NSBundle *uYouPlusBundle();
                 }
                 settingItemId:0],
 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"ENABLE_YT_STARTUP_ANIMATION")
-                titleDescription:LOC(@"ENABLE_YT_STARTUP_ANIMATION_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"ytStartupAnimation_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"ytStartupAnimation_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
 	    [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide YouTube Logo")
                 titleDescription:LOC(@"Toggle this to hide the YouTube Logo in the YouTube App.")
                 accessibilityIdentifier:nil
@@ -500,26 +507,6 @@ extern NSBundle *uYouPlusBundle();
                     return YES;
                 }
                 settingItemId:0],
-		
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide uYou Tab")
-                titleDescription:LOC(@"Toggle this on to remove the uYou Tab added by MiRO's YouTube Tweak. App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideuYouTab_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideuYouTab_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-		
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide Labels in the Tab Bar")
-                titleDescription:LOC(@"this will Hide all of the labels in the Tab Bar. App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideTabBarLabels_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideTabBarLabels_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
 
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"NEW_MINIPLAYER_STYLE")
                 titleDescription:LOC(@"NEW_MINIPLAYER_STYLE_DESC")
@@ -541,6 +528,16 @@ extern NSBundle *uYouPlusBundle();
                 }
                 settingItemId:0],
 
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Disable Wifi Related Settings ")
+                titleDescription:LOC(@"This will disable the following sections which will be Autoplay, Purchases and memberships, Notifications, Connected apps, Manage all history, Privacy & Live chat.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableWifiRelatedSettings_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableWifiRelatedSettings_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"YT_RE_EXPLORE")
                 titleDescription:LOC(@"YT_RE_EXPLORE_DESC")
                 accessibilityIdentifier:nil
@@ -549,7 +546,17 @@ extern NSBundle *uYouPlusBundle();
                     [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"reExplore_enabled"];
                     return YES;
                 }
-                settingItemId:0], 
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable YTSpeed")
+                titleDescription:LOC(@"Enable YTSpeed to have more Playback Speed Options. App restart is required.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"ytSpeed_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"ytSpeed_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
 		
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"ENABLE_FLEX")
                 titleDescription:LOC(@"ENABLE_FLEX_DESC")
