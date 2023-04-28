@@ -930,6 +930,7 @@ void DEMC_centerRenderingView() {
 	%orig;
 }
 %end
+%end
 
 # pragma mark - uYouPlus
 // Video Player Options
