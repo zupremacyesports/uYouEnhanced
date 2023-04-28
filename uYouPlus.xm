@@ -1557,10 +1557,10 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"automaticallyCheckForUpdates"];
  
     // Disable broken options of uYou
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"removeYouTubeAds"]; // Remove YouTube Ads Disabled - Reason was due because it stopped working.
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"disableAgeRestriction"]; // Disable Age Restriction Disabled - Reason is the same as above.
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"showedWelcomeVC"]; // uYou Welcome Screen Disabled - Reason is because you can't hide the prompt in iOS 16.1-present.
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"removeShortsSection"]; // Remove Shorts Section Disabled - reason was due to not being consistent enough.
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"removeYouTubeAds"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"disableAgeRestriction"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"showedWelcomeVC"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"removeShortsSection"];
     
     // Change the default value of some options
     NSArray *allKeys = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];
