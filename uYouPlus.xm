@@ -1453,16 +1453,6 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
 // %end
 %end
 
-%group gHideTabBarLabels // https://github.com/LillieH001/YouTube-Reborn
-%hook YTPivotBarItemView
-- (void)layoutSubviews {
-    %orig();
-    [[self navigationButton] setTitle:@"" forState:UIControlStateNormal];
-    [[self navigationButton] setTitle:@"" forState:UIControlStateSelected];
-}
-%end
-%end
-
 %group giPhoneLayout
 %hook UIDevice
 - (long long)userInterfaceIdiom {
