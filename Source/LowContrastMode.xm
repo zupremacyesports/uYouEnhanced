@@ -51,6 +51,21 @@ static BOOL pinkContrastMode() {
 }
 %end
 
+%hook YTColorPalette // Changes Texts & Icons in YouTube Bottom Bar (Doesn't change Texts & Icons under the video player)
+- (UIColor *)textPrimary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+    }
+        return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
+}
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+    }
+        return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
+}
+%end
+
 %hook YTCommonColorPalette // Changes Texts & Icons in YouTube Bottom Bar (Doesn't change Texts & Icons under the video player)
 - (UIColor *)textPrimary {
     if (self.pageStyle == 1) {
@@ -105,6 +120,21 @@ static BOOL pinkContrastMode() {
 + (UIColor *)dynamicLabelColor {
          return [UIColor colorWithRed: 1.00 green: 0.31 blue: 0.27 alpha: 1.00];
 }
+%end
+
+%hook YTColorPalette // Changes Texts & Icons in YouTube Bottom Bar (Doesn't change Texts & Icons under the video player)
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.84 green: 0.25 blue: 0.23 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.84 green: 0.25 blue: 0.23 alpha: 1.00]; // Light Theme
+ }
 %end
 
 %hook YTCommonColorPalette
@@ -169,6 +199,21 @@ static BOOL pinkContrastMode() {
 }
 %end
 
+%hook YTColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.04 green: 0.41 blue: 0.62 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.04 green: 0.41 blue: 0.62 alpha: 1.00]; // Light Theme
+ }
+%end
+
 %hook YTCommonColorPalette
 - (UIColor *)textPrimary {
      if (self.pageStyle == 1) {
@@ -229,6 +274,21 @@ static BOOL pinkContrastMode() {
 + (UIColor *)dynamicLabelColor {
          return [UIColor colorWithRed: 0.01 green: 0.66 blue: 0.18 alpha: 1.00];
 }
+%end
+
+%hook YTColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.00 green: 0.50 blue: 0.13 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.00 green: 0.50 blue: 0.13 alpha: 1.00]; // Light Theme
+ }
 %end
 
 %hook YTCommonColorPalette
@@ -293,6 +353,21 @@ static BOOL pinkContrastMode() {
 }
 %end
 
+%hook YTColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.77 green: 0.71 blue: 0.14 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.77 green: 0.71 blue: 0.14 alpha: 1.00]; // Light Theme
+ }
+%end
+
 %hook YTCommonColorPalette
 - (UIColor *)textPrimary {
      if (self.pageStyle == 1) {
@@ -353,6 +428,21 @@ static BOOL pinkContrastMode() {
 + (UIColor *)dynamicLabelColor {
          return [UIColor colorWithRed: 0.73 green: 0.45 blue: 0.05 alpha: 1.00];
 }
+%end
+
+%hook YTColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.77 green: 0.71 blue: 0.14 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.77 green: 0.71 blue: 0.14 alpha: 1.00]; // Light Theme
+ }
 %end
 
 %hook YTCommonColorPalette
@@ -417,6 +507,21 @@ static BOOL pinkContrastMode() {
 }
 %end
 
+%hook YTColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.42 green: 0.05 blue: 0.68 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.42 green: 0.05 blue: 0.68 alpha: 1.00]; // Light Theme
+ }
+%end
+
 %hook YTCommonColorPalette
 - (UIColor *)textPrimary {
      if (self.pageStyle == 1) {
@@ -479,6 +584,21 @@ static BOOL pinkContrastMode() {
 }
 %end
 
+%hook YTColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.29 green: 0.00 blue: 0.51 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.29 green: 0.00 blue: 0.51 alpha: 1.00]; // Light Theme
+ }
+%end
+
 %hook YTCommonColorPalette
 - (UIColor *)textPrimary {
      if (self.pageStyle == 1) {
@@ -539,6 +659,21 @@ static BOOL pinkContrastMode() {
 + (UIColor *)dynamicLabelColor {
          return [UIColor colorWithRed: 0.74 green: 0.02 blue: 0.46 alpha: 1.00];
 }
+%end
+
+%hook YTColorPalette
+- (UIColor *)textPrimary {
+     if (self.pageStyle == 1) {
+         return [UIColor whiteColor]; // Dark Theme
+     }
+         return [UIColor colorWithRed: 0.81 green: 0.56 blue: 0.71 alpha: 1.00]; // Light Theme
+ }
+- (UIColor *)textSecondary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+     }
+        return [UIColor colorWithRed: 0.81 green: 0.56 blue: 0.71 alpha: 1.00]; // Light Theme
+ }
 %end
 
 %hook YTCommonColorPalette
