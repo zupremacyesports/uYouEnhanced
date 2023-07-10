@@ -18,8 +18,7 @@ jobs:
 
       - name: Update submodules
         run: |
-          git config submodule.Tweaks/FLEXing.ignore all
-          git submodule update --init --recursive --remote --ignore
+          git submodule update --init --recursive --remote --merge --force
           git add .
           git commit -m "updated submodules"
           git push origin
