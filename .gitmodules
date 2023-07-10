@@ -29,6 +29,7 @@
 [submodule "Tweaks/FLEXing"]
 	path = Tweaks/FLEXing
 	url = https://github.com/NSExceptional/FLEXing
+        ignore = all
 [submodule "Tweaks/Alderis"]
 	path = Tweaks/Alderis
 	url = https://github.com/arichorn/Alderis.git
