@@ -16,18 +16,9 @@ jobs:
           git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
           git config --global user.name "arichorn"
 
-      - name: Add uYouPlusExtra submodules
-        run: |
-          git submodule add https://github.com/PoomSmart/YouMute.git Tweaks/YouMute
-          git submodule add https://github.com/PoomSmart/YouQuality.git Tweaks/YouQuality
-          git submodule add https://github.com/PoomSmart/YTVideoOverlay.git Tweaks/YTVideoOverlay
-          git submodule add https://github.com/arichorn/YTNoCommunityPosts.git Tweaks/YTNoCommunityPosts
-          git add .
-          git commit -m "added uYouPlusExtra submodules"
-          git push origin
-
       - name: Update submodules
         run: |
+          git update-index --skip-worktree Tweaks/FLEXing
           git submodule update --init --recursive --remote
           git add .
           git commit -m "updated submodules"
