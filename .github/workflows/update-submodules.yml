@@ -18,6 +18,7 @@ jobs:
 
       - name: Update submodules
         run: |
+          git add .gitmodules
           git submodule update --init --recursive --remote --merge --force
           git add .
           git commit -m "updated submodules"
