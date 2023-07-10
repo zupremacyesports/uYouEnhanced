@@ -31,13 +31,13 @@
 	url = https://github.com/NSExceptional/FLEXing
 [submodule "Tweaks/Alderis"]
 	path = Tweaks/Alderis
-	url = https://github.com/hbang/Alderis.git
+	url = https://github.com/arichorn/Alderis.git
 [submodule "Tweaks/RemoteLog"]
 	path = Tweaks/RemoteLog
 	url = https://github.com/Muirey03/RemoteLog
 [submodule "Tweaks/DontEatMyContent"]
 	path = Tweaks/DontEatMyContent
-	url = https://github.com/therealFoxster/DontEatMyContent
+	url = https://github.com/therealFoxster/DontEatMyContent.git
 [submodule "Tweaks/iSponsorBlock"]
 	path = Tweaks/iSponsorBlock
 	url = https://github.com/Galactic-Dev/iSponsorBlock.git
