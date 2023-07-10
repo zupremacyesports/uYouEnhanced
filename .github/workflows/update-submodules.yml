@@ -19,9 +19,9 @@ jobs:
       - name: Update submodules
         run: |
           git add .gitmodules
-          git submodule update --init --recursive --remote Tweaks/YouTubeHeader
+          git submodule update --init --recursive --remote
           git add .
-          git commit -m "updated YouTubeHeader"
+          git commit -m "updated submodules"
           git push origin
         continue-on-error: true
 
