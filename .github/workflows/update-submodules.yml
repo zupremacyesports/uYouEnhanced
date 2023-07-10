@@ -19,7 +19,7 @@ jobs:
       - name: Update submodules
         run: |
           git update-index --skip-worktree Tweaks/FLEXing
-          git submodule update --init --recursive --remote
+          git submodule update --init --recursive --remote --ignore
           git add .
           git commit -m "updated submodules"
           git push origin
