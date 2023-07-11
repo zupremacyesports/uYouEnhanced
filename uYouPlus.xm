@@ -155,6 +155,7 @@ static BOOL oldDarkTheme() {
 %end
 
 // Reposition "Create" Tab to the Center in the Pivot Bar - qnblackcat/uYouPlus#107
+/*
 static void repositionCreateTab(YTIGuideResponse *response) {
     NSMutableArray<YTIGuideResponseSupportedRenderers *> *renderers = [response itemsArray];
     for (YTIGuideResponseSupportedRenderers *guideRenderers in renderers) {
@@ -181,6 +182,7 @@ static void repositionCreateTab(YTIGuideResponse *response) {
     %orig(response, error, completion);
 }
 %end
+*/
 
 # pragma mark - Tweaks
 // IAmYouTube - https://github.com/PoomSmart/IAmYouTube/
