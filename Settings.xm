@@ -65,12 +65,12 @@ extern NSBundle *uYouPlusBundle();
 # pragma mark - VideoPlayer
     YTSettingsSectionItem *videoPlayerGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"VIDEO_PLAYER_OPTIONS") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Disable tap to skip")
-                titleDescription:LOC(@"Disable tap to skip functions in the video player. App restart is required.")
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"DISABLE_DOUBLE_TAP_TO_SEEK")
+                titleDescription:LOC(@"DISABLE_DOUBLE_TAP_TO_SEEK_DESC")
                 accessibilityIdentifier:nil
                 switchOn:IsEnabled(@"tapToSkip_enabled")
                 switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"tapToSkip_enabled"];
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableDoubleTapToSkip_enabled"];
                     return YES;
                 }
                 settingItemId:0],
@@ -1386,6 +1386,16 @@ extern NSBundle *uYouPlusBundle();
                 }
                 settingItemId:0],
 
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide uYou Tab")
+                titleDescription:LOC(@"When Enabled it will hide the uYou Tab added by MiRO92's uYou Tweak. App restart is required.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"hideuYouTab_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideuYouTab_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
 	    [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide YouTube Logo")
                 titleDescription:LOC(@"Toggle this to hide the YouTube Logo in the YouTube App.")
                 accessibilityIdentifier:nil
@@ -1406,22 +1416,22 @@ extern NSBundle *uYouPlusBundle();
                 }
                 settingItemId:0],
 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_CHIP_BAR")
-                titleDescription:LOC(@"HIDE_CHIP_BAR_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideChipBar_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideChipBar_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide iSponsorBlock button in the Navigation bar")
                 titleDescription:LOC(@"")
                 accessibilityIdentifier:nil
                 switchOn:IsEnabled(@"hideSponsorBlockButton_enabled")
                 switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
                     [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideSponsorBlockButton_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_CHIP_BAR")
+                titleDescription:LOC(@"HIDE_CHIP_BAR_DESC")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"hideChipBar_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideChipBar_enabled"];
                     return YES;
                 }
                 settingItemId:0],
