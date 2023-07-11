@@ -510,6 +510,36 @@ BOOL isAd(id node) {
 %end
 %end
 
+%group gHideuYouTab
+%hook YTPivotBarView
+- (void)setRenderer:(YTIPivotBarRenderer *)renderer {
+    NSMutableArray<YTIPivotBarSupportedRenderers *> *items = [renderer itemsArray];
+
+    NSUInteger index = [items indexOfObjectPassingTest:^BOOL(YTIPivotBarSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
+        return [[[renderers pivotBarItemRenderer] pivotIdentifier] isEqualToString:@"com.miro.uyou"];
+    }];
+    if (index != NSNotFound) {
+        [items removeObjectAtIndex:index];
+    }
+
+    %orig;
+}
+- (void)layoutSubviews {
+    %orig;
+
+    NSMutableArray<YTIPivotBarSupportedRenderers *> *items = [[self renderer] itemsArray];
+
+    NSUInteger index = [items indexOfObjectPassingTest:^BOOL(YTIPivotBarSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
+        return [[[renderers pivotBarItemRenderer] pivotIdentifier] isEqualToString:@"com.miro.uyou"];
+    }];
+    if (index != NSNotFound) {
+        YTIPivotBarSupportedRenderers *renderers = [items objectAtIndex:index];
+        [renderers setHidden:YES];
+    }
+}
+%end
+%end
+
 # pragma mark - Hide Notification Button && SponsorBlock Button
 %hook YTRightNavigationButtons
 - (void)layoutSubviews {
@@ -1451,6 +1481,9 @@ UIColor* raisedColor = [UIColor blackColor];
     }
     if (IsEnabled(@"hideHeatwaves_enabled")) {
         %init(gHideHeatwaves);
+    }
+    if (IsEnabled(@"hideuYouTab_enabled")) {
+        %init(gHideuYouTab);
     }
     if (IsEnabled(@"ytNoModernUI_enabled")) {
         %init(gYTNoModernUI);
