@@ -513,7 +513,7 @@ BOOL isAd(id node) {
 %end
 
 %group gHideuYouTab
-%hook YTPivotBarView
+%hook YTPivotBarItemView
 - (void)setRenderer:(YTIPivotBarRenderer *)renderer {
     NSMutableArray<YTIPivotBarSupportedRenderers *> *items = [renderer itemsArray];
 
@@ -525,19 +525,6 @@ BOOL isAd(id node) {
     }
 
     %orig;
-}
-- (void)layoutSubviews {
-    %orig;
-
-    NSMutableArray<YTIPivotBarSupportedRenderers *> *items = [[self renderer] itemsArray];
-
-    NSUInteger index = [items indexOfObjectPassingTest:^BOOL(YTIPivotBarSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
-        return [[[renderers pivotBarItemRenderer] pivotIdentifier] isEqualToString:@"com.miro.uyou"];
-    }];
-    if (index != NSNotFound) {
-        YTIPivotBarSupportedRenderers *renderers = [items objectAtIndex:index];
-        [renderers setHidden:YES];
-    }
 }
 %end
 %end
