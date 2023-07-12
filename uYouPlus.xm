@@ -512,17 +512,16 @@ BOOL isAd(id node) {
 %end
 %end
 
+// Hide uYou Tab
 %group gHideuYouTab
-%hook YTPivotBarItemView
+%hook YTPivotBarView
 - (void)setRenderer:(YTIPivotBarRenderer *)renderer {
     NSMutableArray<YTIPivotBarSupportedRenderers *> *items = [renderer itemsArray];
 
     NSUInteger index = [items indexOfObjectPassingTest:^BOOL(YTIPivotBarSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
         return [[[renderers pivotBarItemRenderer] pivotIdentifier] isEqualToString:@"com.miro.uyou"];
     }];
-    if (index != NSNotFound) {
-        [items removeObjectAtIndex:index];
-    }
+    if (index != NSNotFound) [items removeObjectAtIndex:index];
 
     %orig;
 }
@@ -843,7 +842,31 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 }
 %end
 
-%hook YTInnerTubeCollectionViewController
+%hook YTAppView
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook YTPivotBarView
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook YTAsyncCollectionView
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook YTAppViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook YTNavigationBar
 - (UIColor *)backgroundColor:(NSInteger)pageStyle {
     return pageStyle == 1 ? customColor : %orig;
 }
@@ -860,19 +883,116 @@ BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
            (fabs(a1 - a2) <= tolerance);
 }
 
-// %hook UIView
-// - (void)setBackgroundColor:(UIColor *)color {
-//     UIColor *targetColor = [UIColor colorWithRed:0.0588235 green:0.0588235 blue:0.0588235 alpha:1];
-//     CGFloat tolerance = 0.01; // Adjust this value as needed
-// 
-//     if (areColorsEqual(color, targetColor, tolerance)) {
-//         color = customColor;
-//     }
-//     %orig(color);
-// }
-// %end
+%hook UIView
+- (void)setBackgroundColor:(UIColor *)color {
+    UIColor *targetColor1 = [UIColor colorWithRed:0.0588235 green:0.0588235 blue:0.0588235 alpha:1];
+    UIColor *targetColor2 = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0]; // Replace with the new target color values
+    CGFloat tolerance = 0.01; // Adjust this value as needed
+
+    if (areColorsEqual(color, targetColor1, tolerance) || areColorsEqual(color, targetColor2, tolerance)) {
+        color = customColor;
+    }
+    %orig(color);
+}
+%end
+
+// Hide separators
+%hook YTCollectionSeparatorView
+- (void)setHidden:(BOOL)arg1 {
+    %orig(YES);
+}
+%end
+
+// Testing OLED YTPlayerView for OldDarkmode (video background)
+%hook YTPlayerView
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
+// Hide broken YTCinematicContainerView
+%hook YTCinematicContainerView
+- (void)setHidden:(BOOL)arg1 {
+    %orig(YES);
+}
+%end
+
+%hook YTCollectionViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook YTWatchView
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook YTChannelMobileHeaderViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook YTELMView
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook _ASDisplayView
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
 
 %hook UIDeviceWhiteColor
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook YTHeaderViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+- (UIColor *)barTintColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook YTInnerTubeCollectionViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook YTSettingsCell
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook YTSearchViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook YTSectionListViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook YTWatchMiniBarViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? customColor : %orig;
+}
+%end
+
+%hook YTWrapperSplitViewController
 - (UIColor *)backgroundColor:(NSInteger)pageStyle {
     return pageStyle == 1 ? customColor : %orig;
 }
@@ -1076,23 +1196,59 @@ UIColor* raisedColor = [UIColor blackColor];
 }
 %end
 
-%hook YTInnerTubeCollectionViewController
+%hook YTAppView
 - (UIColor *)backgroundColor:(NSInteger)pageStyle {
     return pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
 %end
 
-// %hook UIView
-// - (void)setBackgroundColor:(UIColor *)color {
-//     UIColor *targetColor = [UIColor colorWithRed:0.0588235 green:0.0588235 blue:0.0588235 alpha:1];
-//     CGFloat tolerance = 0.01; // Adjust this value as needed
-// 
-//     if (areColorsEqual(color, targetColor, tolerance)) {
-//         color = [UIColor blackColor];
-//     }
-//     %orig(color);
-// }
-// %end
+%hook YTPivotBarView
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
+%hook YTAsyncCollectionView
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
+%hook YTAppViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
+%hook YTNavigationBar
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
+%hook UIView
+- (void)setBackgroundColor:(UIColor *)color {
+    UIColor *targetColor = [UIColor colorWithRed:0.0588235 green:0.0588235 blue:0.0588235 alpha:1];
+    CGFloat tolerance = 0.01; // Adjust this value as needed
+
+    if (areColorsEqual(color, targetColor, tolerance)) {
+        color = [UIColor blackColor];
+    }
+    %orig(color);
+}
+%end
+
+%hook YTCollectionViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
+%hook _ASDisplayView
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
 
 %hook UIDeviceWhiteColor
 - (UIColor *)backgroundColor:(NSInteger)pageStyle {
@@ -1100,14 +1256,68 @@ UIColor* raisedColor = [UIColor blackColor];
 }
 %end
 
+%hook YTChannelMobileHeaderViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
 // Hide separators
 %hook YTCollectionSeparatorView
-%property (nonatomic, assign, setter=setHidden:) BOOL hidden;
-
-- (void)setHidden:(BOOL)hidden {
-    %orig(hidden);
+- (void)setHidden:(BOOL)arg1 {
+    %orig(YES);
 }
+%end
 
+%hook YTELMView
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
+%hook YTHeaderViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+- (UIColor *)barTintColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
+%hook YTInnerTubeCollectionViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
+%hook YTSettingsCell
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
+%hook YTSearchViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
+%hook YTSectionListViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
+%hook YTWatchMiniBarViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+%end
+
+%hook YTWrapperSplitViewController
+- (UIColor *)backgroundColor:(NSInteger)pageStyle {
+    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
 %end
 
 // Explore
@@ -1486,7 +1696,7 @@ UIColor* raisedColor = [UIColor blackColor];
 
     // Disable broken options of uYou
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"disableAgeRestriction"]; // Disable Age Restriction Disabled - Reason is the same as above.
-    
+
     // Change the default value of some options
     NSArray *allKeys = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];
     if (![allKeys containsObject:@"relatedVideosAtTheEndOfYTVideos"]) { 
@@ -1500,5 +1710,8 @@ UIColor* raisedColor = [UIColor blackColor];
     }
     if (![allKeys containsObject:@"YouPiPEnabled"]) { 
        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"YouPiPEnabled"]; 
+    }
+    if (![allKeys containsObject:@"hideuYouTab_enabled"]) { 
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"hideuYouTab_enabled"];
     }
 }
