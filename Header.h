@@ -181,6 +181,10 @@
 - (void)customizeLabel:(UILabel *)label;
 @end
 
+@interface YTPivotBarIndicatorView : UIView
+@property (nonatomic, assign) BOOL hidden;
+@en
+
 @interface YTCommentDetailHeaderCell : UIView
 @end
 
