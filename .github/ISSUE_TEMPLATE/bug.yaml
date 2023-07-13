@@ -62,7 +62,8 @@ body:
     description: 'Select the box if you think this is an issue from uYou 2.1/3.0.'
     options:
       - label: uYou
-        value: uYou
+        labels:
+          - uYou
         required: false
 
 - type: dropdown
