@@ -8,17 +8,17 @@ body:
     label: Is there an existing issue for this?
     description: _Please search to see if an issue already exists for the bug you encountered. **I DON\'T MAKE THIS TICK BOX FOR COSMETIC.**_
     options:
-    - label: I have searched the existing issues
-      required: true
-      
+      - label: I have searched the existing issues
+        required: true
+
 - type: checkboxes
   attributes:
     label: Have you read the FAQ?
     description: _Make sure you actually visit the [**FAQ**](https://github.com/qnblackcat/uYouPlus/wiki/FAQ) page! **I DON\'T MAKE THIS TICK BOX FOR COSMETIC**_
     options:
-    - label: Yes, I did read the FAQ
-      required: true
-    
+      - label: Yes, I did read the FAQ
+        required: true
+
 - type: textarea
   attributes:
     label: Device info
@@ -62,7 +62,7 @@ body:
     description: 'Check the box if you think this is a uYou Issue'
     options:
       - label: uYou
-      required: false
+        required: false
 
 - type: dropdown
   attributes:
