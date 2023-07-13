@@ -1476,6 +1476,16 @@ extern NSBundle *uYouPlusBundle();
                 }
                 settingItemId:0],
 
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide Subscriptions Notification Badge")
+                titleDescription:LOC(@"Hides the Red Notification Badge shown in the Pivot Bar of the Subscriptions Tab.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"hideSubscriptionsNotificationBadge_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideSubscriptionsNotificationBadge_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable YTSpeed")
                 titleDescription:LOC(@"Enable YTSpeed to have more Playback Speed Options. App restart is required.")
                 accessibilityIdentifier:nil
