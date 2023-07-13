@@ -10,6 +10,13 @@ body:
     options:
       - label: I have searched the existing issues
         required: true
+- type: checkboxes
+  attributes:
+    label: Select uYou Label
+    description: 'Select the box if you think this is an issue from uYou 2.1/3.0.'
+    options:
+      - label: uYou
+        required: false
 
 - type: checkboxes
   attributes:
@@ -55,16 +62,6 @@ body:
     label: Crash log (if the app crashes)
     description: _If somehow the app crashes, **you must provide the crash log**. It can be found in your device's Settings App > Privacy > Analytics & Improvements > Analytics Data > Youtube-xxx-xxx.ips_
     render: shell
-
-- type: checkboxes
-  attributes:
-    label: Select uYou Label
-    description: 'Select the box if you think this is an issue from uYou 2.1/3.0.'
-    options:
-      - label: uYou
-        labels:
-          - uYou
-        required: false
 
 - type: dropdown
   attributes:
