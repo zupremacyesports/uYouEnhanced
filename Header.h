@@ -183,7 +183,7 @@
 
 @interface YTPivotBarIndicatorView : UIView
 @property (nonatomic, assign) BOOL hidden;
-@en
+@end
 
 @interface YTCommentDetailHeaderCell : UIView
 @end
