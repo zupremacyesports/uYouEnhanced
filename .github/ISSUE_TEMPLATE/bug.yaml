@@ -56,6 +56,14 @@ body:
     description: _If somehow the app crashes, **you must provide the crash log**. It can be found in your device's Settings App > Privacy > Analytics & Improvements > Analytics Data > Youtube-xxx-xxx.ips_
     render: shell
 
+- type: checkboxes
+  attributes:
+    label: Select uYou Label
+    description: 'Check the box if you think this is a uYou Issue'
+    options:
+      - label: uYou
+      required: false
+
 - type: dropdown
   attributes:
     label: Are you using the newest version of uYouPlus? If not, why?
