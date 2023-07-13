@@ -414,7 +414,7 @@ BOOL isAd(id node) {
 // YTNoModernUI - @arichorn
 %group gYTNoModernUI
 %hook YTVersionUtils // YTNoModernUI Version
-+ (NSString *)appVersion { return @"16.42.3"; }
++ (NSString *)appVersion { return @"17.11.2"; }
 %end
 
 %hook YTInlinePlayerBarContainerView // Red Progress Bar - YTNoModernUI
@@ -1608,6 +1608,14 @@ UIColor* raisedColor = [UIColor blackColor];
 %end
 %end
 
+%group gHideSubscriptionsNotificationBadge
+%hook YTPivotBarIndicatorView
+- (void)setHidden:(BOOL)hidden {
+    %orig(YES);
+}
+%end
+%end
+
 // YT startup animation
 %hook YTColdConfig
 - (BOOL)mainAppCoreClientIosEnableStartupAnimation {
@@ -1671,7 +1679,10 @@ UIColor* raisedColor = [UIColor blackColor];
     }
     if (IsEnabled(@"iPhoneLayout_enabled") && (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)) {
         %init(giPhoneLayout);
-    }  
+    }
+    if (IsEnabled(@"hideSubscriptionsNotificationBadge_enabled")) {
+        %init(gHideSubscriptionsNotificationBadge);
+    }
     if (IsEnabled(@"stockVolumeHUD_enabled")) {
         %init(gStockVolumeHUD);
     }
