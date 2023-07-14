@@ -699,7 +699,7 @@ static void replaceTab(YTIGuideResponse *response) {
 // Disable Double Tap to Skip (Legacy Version)
 %hook YTDoubleTapToSeekController
 - (void)enableDoubleTapToSeek:(BOOL)arg1 {
-    return IsEnabled(@"disableDoubleTapToSkipLegacy_disabled") ? %orig(NO) : %orig;
+    return IsEnabled(@"disableDoubleTapToSkipLegacy_enabled") ? %orig(NO) : %orig;
 }
 %end
 
