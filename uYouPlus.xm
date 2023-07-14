@@ -1191,17 +1191,15 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
 %end
 %end
 
-%group gHideSubscriptionsNotificationBadge
 %hook YTPivotBarIndicatorView
 - (void)setHidden:(BOOL)hidden {
-    if (hidden) {
-        self.alpha = 0.0;
-    } else {
-        self.hidden = 1;
-    } 
-    %orig(hidden);
+        if (IsEnabled(@"hideSubscriptionsNotificationBadge_enabled")) {
+            %orig(YES);
+        } else {
+            %orig(NO);
+        }
+    }
 }
-%end
 %end
 
 // YT startup animation
@@ -1267,9 +1265,6 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
     }
     if (IsEnabled(@"iPhoneLayout_enabled") && (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)) {
         %init(giPhoneLayout);
-    }
-    if (IsEnabled(@"hideSubscriptionsNotificationBadge_enabled")) {
-        %init(gHideSubscriptionsNotificationBadge);
     }
     if (IsEnabled(@"stockVolumeHUD_enabled")) {
         %init(gStockVolumeHUD);
