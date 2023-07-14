@@ -689,9 +689,17 @@ static void replaceTab(YTIGuideResponse *response) {
 %end
 %end
 
+// Disable Double Tap to Skip
 %hook YTMainAppVideoPlayerOverlayViewController
 - (BOOL)allowDoubleTapToSeekGestureRecognizer {
     return IsEnabled(@"disableDoubleTapToSkip_enabled") ? NO : %orig;
+}
+%end
+
+// Disable Double Tap to Skip (Legacy Version)
+%hook YTDoubleTapToSeekController
+- (void)enableDoubleTapToSeek:(BOOL)arg1 {
+    return IsEnabled(@"disableDoubleTapToSkipLegacy_disabled") ? %orig(NO) : %orig;
 }
 %end
 
@@ -759,6 +767,7 @@ static void replaceTab(YTIGuideResponse *response) {
 %end
 %end
 
+// Hide Shadow Overlay Buttons (Play/Pause, Next, previous, Fast forward & Rewind buttons)
 %group gHideVideoPlayerShadowOverlayButtons
 %hook YTMainAppControlsOverlayView
 - (void)layoutSubviews {
