@@ -1194,7 +1194,12 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
 %group gHideSubscriptionsNotificationBadge
 %hook YTPivotBarIndicatorView
 - (void)setHidden:(BOOL)hidden {
-    %orig(YES);
+    if (hidden) {
+        self.alpha = 0.0;
+    } else {
+        self.hidden = 1;
+    } 
+    %orig(hidden);
 }
 %end
 %end
