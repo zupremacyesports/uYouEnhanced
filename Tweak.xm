@@ -37,6 +37,7 @@ static inline NSString *LOC(NSString *key) {
     }
 }
 %end
+
 // Replace (translate) old text to the new one
 %hook UILabel
 - (void)setText:(NSString *)text {
@@ -105,7 +106,14 @@ static inline NSString *LOC(NSString *key) {
 }
 %end
 
-// WelcomeVC stuff
+// Continue button (mostly for notched devices)
+%hook uYouWelcome
+- (void)setButtonTitle:(id)arg1 {
+    %orig(arg1 = LOC(@"Continue"));
+}
+%end
+
+// Follow me on twitter
 %hook OBPrivacyLinkButton
 - (id)initWithCaption:(id)arg1 buttonText:(id)arg2 image:(id)arg3 imageSize:(CGSize)arg4 useLargeIcon:(BOOL)arg5 {
     return %orig(LOC(@"FollowMe"), arg2, arg3, arg4, arg5);
