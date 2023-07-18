@@ -20,21 +20,14 @@ static inline NSString *LOC(NSString *key) {
     return [tweakBundle localizedStringForKey:key value:nil table:nil];
 }
 
-@interface PKYStepper : UIControl
-@end
-
 // Fit speed controllers localized 'Normal' text into frame
 %hook PKYStepper
-- (void)layoutSubviews {
-    %orig;
-
-    for (UIView *subview in self.subviews) {
-        if ([subview isKindOfClass:[UILabel class]]) {
-            UILabel *label = (UILabel *)subview;
-            label.adjustsFontSizeToFitWidth = YES;
-            label.minimumScaleFactor = 0.5;
-        }
-    }
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = %orig;
+    if (self) {
+        UILabel *countLabel = [self valueForKey:@"countLabel"];
+        countLabel.adjustsFontSizeToFitWidth = YES;
+    } return self;
 }
 %end
 
