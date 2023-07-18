@@ -6,7 +6,7 @@
 "Play your saved media in a custom player with background playback support and mini player." = "Play your saved media in a custom player with background playback support and mini player.";
 "More Options" = "More Options";
 "Play YouTube videos in the background and more, You can configure options from the settings." = "Play YouTube videos in the background and more. You can configure options from the settings.";
-"Follow me on Twitter" = "Follow me on Twitter";
+"FollowMe" = "Follow me on Twitter";
 "Continue" = "Continue";
 
 /* uYou tab */
@@ -180,6 +180,7 @@
 "Hide Explore Tab" = "Hide Explore Tab";
 
 "Reorder Tabs" = "Reorder Tabs";
+"ReorderTabs" = "Reorder Tabs";
 
 "Other Settings" = "Other Settings";
 "Remove YouTube Ads" = "Remove YouTube Ads";
@@ -227,7 +228,8 @@
 "UYOU UPDATES" = "UYOU UPDATES";
 "Automatically Check For Updates" = "Automatically Check For Updates";
 "Check For Update" = "Check For Update";
-"You're using v.3.0 which is the latest version." = "You're using v.3.0 which is the latest version."; 
+"UpToDate" = "You're using v.%@ which is the latest version.";
+"NewVersion" = "v.%@ is now available. Please make sure to always updating to the latest version to ensure having a flawless/uninterrupted experience."; 
 
 "SKIP" = "SKIP";
 "DON'T SHOW" = "DON'T SHOW";
@@ -237,7 +239,7 @@
 "SOCIAL MEDIA" = "SOCIAL MEDIA";
 "Developer" = "Developer";
 "Support my" = "Support my";
-" developments by" = "developments by";
+"Developments" = "developments by";
 "Donating" = "Donating";
 "You can support my iOS development by donating 🥰\n\n\"It’s not how much we give, but how much love we put into giving.\"\nMother Teresa" = "You can support my iOS development by donating 🥰\n\n\"It’s not how much we give, but how much love we put into giving.\"\nMother Teresa";
 "Designer" = "Designer"; 
