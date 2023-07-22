@@ -10,8 +10,8 @@ If I verify a reported security vulnerability, my policy is:
 these versions of the project are
 currently being supported with security/feature updates.
 
-| Version | Tweak Supported by uYouPlusExtra | YT Version Supported by Google | Stability        |
-| ------- | -------------------------------- | ------------------------------ | ---------------- |
+| Version | LTS Support of the uYouPlusExtra Tweak | YT Version Supported by Google | App Stability        |
+| ------- | -------------------------------------- | ------------------------------ | -------------------- |
 | [latest](https://github.com/arichorn/uYouPlusExtra/releases/latest) | ❔ | ✅ | The latest version is stable, but uYou Tweak is unstable if using it on 18.19.1+ |
 | [18.14.1-3.0 LTS](https://github.com/arichorn/uYouPlusExtra/releases/tag/v18.14.1-3.0-F2) | ✅ | ✅ | this version is Stable, this version may be unstable to some if using it on iOS 17 Beta. |
 | [17.49.6-2.3.1 LTS](https://github.com/arichorn/uYouPlusExtra/releases/tag/v17.49.6-2.3.1-F4) | ✅ | ✅ | This version is Stable, this version may be unstable to some if using it on iOS 17 Beta. |
