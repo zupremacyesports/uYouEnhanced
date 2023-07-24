@@ -1,5 +1,5 @@
-# uYou 3.0 compatibility
-the uYou 3.0 Tweak only works fine with **YouTube v18.06.6-18.18.2**
+# uYou 3.0.1 compatibility
+the uYou 3.0.1 Tweak only works fine with **YouTube v18.06.6 up to the latest version!** 🎉
 
 # IPA Building
 you can build your own uYouPlusExtra ipa here https://github.com/arichorn/uYouPlusExtra/wiki/Building
