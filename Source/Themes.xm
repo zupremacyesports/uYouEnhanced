@@ -13,6 +13,15 @@ static BOOL oldDarkTheme() {
     return ([[NSUserDefaults standardUserDefaults] integerForKey:@"appTheme"] == 2);
 }
 
+YTUserDefaults *ytThemeSettings;
+
+%hook YTUserDefaults
+- (long long)appThemeSetting {
+    ytThemeSettings = self;
+    return %orig;
+}
+%end
+
 // Themes.xm - Theme Options
 // Old dark theme (gray)
 %group gOldDarkTheme
