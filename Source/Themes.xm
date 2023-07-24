@@ -1,5 +1,3 @@
-// Themes.xm file is disabled because it contains unfinished code (not recommended for use)
-
 #import "../Header.h"
 
 static BOOL IsEnabled(NSString *key) {
