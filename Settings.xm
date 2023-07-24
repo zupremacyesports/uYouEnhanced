@@ -75,16 +75,6 @@ extern NSBundle *uYouPlusBundle();
                 }
                 settingItemId:0],
 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Disable double tap to seek (Legacy)")
-                titleDescription:LOC(@"use this if the option above does not work.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableDoubleTapToSkipLegacy_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableDoubleTapToSkipLegacy_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"SNAP_TO_CHAPTER")
                 titleDescription:LOC(@"SNAP_TO_CHAPTER_DESC")
                 accessibilityIdentifier:nil
