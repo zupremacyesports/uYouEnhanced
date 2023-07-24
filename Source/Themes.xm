@@ -110,45 +110,12 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 }
 %end
 
-BOOL areColorsEqual(UIColor *color1, UIColor *color2, CGFloat tolerance) {
-    CGFloat r1, g1, b1, a1, r2, g2, b2, a2;
-    [color1 getRed:&r1 green:&g1 blue:&b1 alpha:&a1];
-    [color2 getRed:&r2 green:&g2 blue:&b2 alpha:&a2];
-
-    return (fabs(r1 - r2) <= tolerance) &&
-           (fabs(g1 - g2) <= tolerance) &&
-           (fabs(b1 - b2) <= tolerance) &&
-           (fabs(a1 - a2) <= tolerance);
-}
-
-%hook UIView
-- (void)setBackgroundColor:(UIColor *)color {
-    UIColor *targetColor1 = [UIColor colorWithRed:0.0588235 green:0.0588235 blue:0.0588235 alpha:1];
-    UIColor *targetColor2 = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0]; // Replace with the new target color values
-    CGFloat tolerance = 0.01; // Adjust this value as needed
-
-    if (areColorsEqual(color, targetColor1, tolerance) || areColorsEqual(color, targetColor2, tolerance)) {
-        color = customColor;
-    }
-    %orig(color);
-}
-%end
-
-// Hide separators
-%hook YTCollectionSeparatorView
-- (void)setHidden:(BOOL)arg1 {
-    %orig(YES);
-}
-%end
-
-// Testing OLED YTPlayerView for OldDarkmode (video background)
 %hook YTPlayerView
 - (UIColor *)backgroundColor:(NSInteger)pageStyle {
-    return pageStyle == 1 ? [UIColor blackColor] : %orig;
+    return pageStyle == 1 ? customColor : %orig;
 }
 %end
 
-// Hide broken YTCinematicContainerView
 %hook YTCinematicContainerView
 - (void)setHidden:(BOOL)arg1 {
     %orig(YES);
