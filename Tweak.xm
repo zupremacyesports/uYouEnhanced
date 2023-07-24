@@ -182,3 +182,11 @@ static inline NSString *LOC(NSString *key) {
     } %orig(newTitle, state);
 }
 %end
+
+%hook YTSettingsCell
+- (void)setTitleDescription:(id)arg1 {
+    if ([arg1 isEqualToString:@"Show uYou settings"]) {
+        arg1 = LOC(@"uYouSettings");
+    } %orig(arg1);
+}
+%end

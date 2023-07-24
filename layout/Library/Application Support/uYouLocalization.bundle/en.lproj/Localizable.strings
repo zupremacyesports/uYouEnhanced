@@ -104,7 +104,7 @@
 "ConversionFailedWithCode" = "Error: Conversion failed with code";
 
 /* Settings */
-"Show uYou settings" = "Show uYou settings";
+"uYouSettings" = "Show uYou settings";
 "QUALITY AND FORMAT" = "QUALITY AND FORMAT";
 "Show Formats" = "Show Formats";
 

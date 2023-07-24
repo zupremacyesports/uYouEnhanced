@@ -104,7 +104,7 @@
 "ConversionFailedWithCode" = "Ошибка: Конвертация не удалась. Код ошибки";
 
 /* Settings */
-"Show uYou settings" = "Перейти в настройки uYou";
+"uYouSettings" = "Перейти в настройки uYou";
 "QUALITY AND FORMAT" = "КАЧЕСТВО И ФОРМАТ";
 "Show Formats" = "Отображаемые форматы";
 
