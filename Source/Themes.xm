@@ -13,37 +13,70 @@ static BOOL oldDarkTheme() {
     return ([[NSUserDefaults standardUserDefaults] integerForKey:@"appTheme"] == 2);
 }
 
-YTUserDefaults *ytThemeSettings;
-
-%hook YTUserDefaults
-- (long long)appThemeSetting {
-    ytThemeSettings = self;
-    return %orig;
-}
-%end
-
 // Themes.xm - Theme Options
 // Old dark theme (gray)
 %group gOldDarkTheme
 UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:1.0];
-%hook YTCommonColorPalette
-- (UIColor *)brandBackgroundSolid {
-    return self.pageStyle == 1 ? customColor : %orig;
-}
-- (UIColor *)brandBackgroundPrimary {
-    return self.pageStyle == 1 ? customColor : %orig;
-}
-- (UIColor *)brandBackgroundSecondary {
-    return self.pageStyle == 1 ? [customColor colorWithAlphaComponent:0.9] : %orig;
-}
-- (UIColor *)raisedBackground {
-    return self.pageStyle == 1 ? customColor : %orig;
-}
-- (UIColor *)staticBrandBlack {
-    return self.pageStyle == 1 ? customColor : %orig;
-}
-- (UIColor *)generalBackgroundA {
-    return self.pageStyle == 1 ? customColor : %orig;
+%hook UIView
+- (void)setBackgroundColor:(UIColor *)color {
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPivotBarView")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSlideForActionsView")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTChipCloudCell")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEngagementPanelView")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistPanelProminentThumbnailVideoCell")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistHeaderView")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTAsyncCollectionView")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTLinkCell")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTMessageCell")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSearchView")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTDrawerAvatarCell")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFeedHeaderView")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTextCell")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatViewerEngagementCell")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTCommentsHeaderView")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatView")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTickerViewController")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTInnerTubeCollectionViewController")]) {
+        color = customColor;
+    }
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEditSheetControllerHeader")]) {
+        color = customColor;
+    }
+    %orig;
 }
 %end
 
@@ -726,25 +759,6 @@ UIColor* raisedColor = [UIColor blackColor];
 %end
 %hook YTSearchSuggestionCollectionViewCell
 - (void)updateColors {
-}
-%end
-%hook YTCreateCommentTextView
-- (void)setTextColor:(UIColor *)color {
-    long long ytDarkModeCheck = [ytThemeSettings appThemeSetting];
-    if (ytDarkModeCheck == 0 || ytDarkModeCheck == 1) {
-        if (UIScreen.mainScreen.traitCollection.userInterfaceStyle == UIUserInterfaceStyleLight) {
-            color = [UIColor blackColor];
-        } else {
-            color = [UIColor whiteColor];
-        }
-    }
-    if (ytDarkModeCheck == 2) {
-        color = [UIColor blackColor];
-    }
-    if (ytDarkModeCheck == 3) {
-        color = [UIColor whiteColor];
-    }
-    %orig;
 }
 %end
 %hook YTShareMainView
