@@ -26,7 +26,8 @@ static inline NSString *LOC(NSString *key) {
     self = %orig;
     if (self) {
         UILabel *countLabel = [self valueForKey:@"countLabel"];
-        countLabel.adjustsFontSizeToFitWidth = YES;
+        countLabel.font = [UIFont systemFontOfSize:15.0];
+        countLabel.adjustsFontSizeToFitWidth = YES; //in case if your text still doesnt fit
     } return self;
 }
 %end
@@ -36,7 +37,7 @@ static inline NSString *LOC(NSString *key) {
 - (void)setText:(NSString *)text {
     NSBundle *tweakBundle = uYouLocalizationBundle();
     NSString *localizedText = [tweakBundle localizedStringForKey:text value:nil table:nil];
-    NSArray *centered = @[@"SKIP", @"DISMISS", @"UPDATE NOW", @"DON'T SHOW"];
+    NSArray *centered = @[@"SKIP", @"DISMISS", @"UPDATE NOW", @"DON'T SHOW", @"Cancel", @"Copy all", @"Move all"];
 
     %orig;
     if (localizedText && ![localizedText isEqualToString:text]) {
@@ -66,8 +67,14 @@ static inline NSString *LOC(NSString *key) {
     if ([text containsString:@"Video •"]) {
         %orig([NSString stringWithFormat:@"%@ %@", LOC(@"Video"), [text substringFromIndex:[text rangeOfString:@"•"].location]]);
     }
-    if ([text containsString:@"Completed :"]) {
-        %orig([NSString stringWithFormat:@"%@ %@", LOC(@"Completed"), [text substringFromIndex:[text rangeOfString:@":"].location]]);
+    if ([text containsString:@"Completed: "]) {
+        text = [text stringByReplacingOccurrencesOfString:@"Completed" withString:LOC(@"Completed")];
+    }
+    if ([text containsString:@"Importing ("]) {
+        text = [text stringByReplacingOccurrencesOfString:@"Importing" withString:LOC(@"Importing")];
+    }
+    if ([text containsString:@"Error: Conversion failed with code "]) {
+        text = [text stringByReplacingOccurrencesOfString:@"Error: Conversion failed with code" withString:LOC(@"ConversionFailedWithCode")];
     }
     if ([text containsString:@"Are you sure you want to delete ("]) {
         NSRange parenthesesRange = [text rangeOfString:@"("];
@@ -129,18 +136,33 @@ static inline NSString *LOC(NSString *key) {
 }
 %end
 
-// Translate update messages
+// Translate update messages from https://miro92.com/repo/check.php?id=com.miro.uyou&v=3.0 (3.0 - tweak version)
 %hook uYouCheckUpdate
 - (id)initWithTweakName:(id)arg1 tweakID:(id)arg2 version:(id)arg3 message:(id)arg4 tintColor:(id)arg5 showAllButtons:(BOOL)arg6 {
+    NSString *tweakVersion = arg3;
+    
+    // Up to date
     if ([arg4 containsString:@"which it\'s the latest version."]) {
-        NSString *version = arg3;
-        arg4 = [NSString stringWithFormat:LOC(@"UpToDate"), version];
+        arg4 = [NSString stringWithFormat:LOC(@"UpToDate"), tweakVersion];
+    }
+
+    // Update available (new msg)
+    else if ([arg4 containsString:@"Please update to the latest version for the best experience."]) {
+        NSString *startOfMsg = [NSString stringWithFormat:@"Current version v.%@\nAvailable version v.", tweakVersion];
+        NSString *endOfMsg = @"\n\nPlease update to the latest version for the best experience.";
+        NSArray *components = [arg4 componentsSeparatedByString:startOfMsg];
+
+        if (components.count > 1) {
+            NSString *newVersion = [components[1] componentsSeparatedByString:endOfMsg].firstObject;
+            arg4 = [NSString stringWithFormat:LOC(@"NewVersion"), tweakVersion, newVersion];
+        }
     }
     
-    else if ([arg4 containsString:@"is now available."]) {
-        NSRange oldVerion = [arg4 rangeOfString:@" is now available."];
-        NSString *version = [arg4 substringToIndex:oldVerion.location];
-        arg4 = [NSString stringWithFormat:LOC(@"NewVersion"), version];
+    // Update available (old msg)
+    else if ([arg4 containsString:@"is now available.\nPlease make sure"]) {
+        NSRange getNewVerion = [arg4 rangeOfString:@" is now available."];
+        NSString *newVersion = [arg4 substringToIndex:getNewVerion.location];
+        arg4 = [NSString stringWithFormat:LOC(@"NewVersionOld"), newVersion];
     } return %orig(arg1, arg2, arg3, arg4, arg5, arg6);
 }
 %end

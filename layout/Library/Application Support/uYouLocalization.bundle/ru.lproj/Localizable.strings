@@ -71,6 +71,7 @@
 "Explicit" = "Explicit-контент";
 "Kind" = "Тип";
 "Title" = "Название";
+"Channel"  = "Канал";
 "Album" = "Альбом";
 "Artist" = "Исполнитель";
 "Year" = "Год";
@@ -84,6 +85,9 @@
 "Loading" = "Загрузка";
 "Download started" = "Скачивается";
 "Saved!" = "Сохранено!";
+"Error!" = "Ошибка!";
+"uYou did not find any quality to download" = "uYou не смог найти ни одной скачиваемой версии";
+"No links found" = "Не удалось найти ссылки";
 "Exported successfully" = "Экспортировано";
 "Renamed successfully" = "Переименовано";
 "Downloading Thumbnail" = "Загрузка обложки";
@@ -91,7 +95,16 @@
 "Image updated successfully" = "Обложка обновлена";
 "Invalid YouTube link" = "Неверная ссылка";
 
+/* Download status */
+"Merging video with audio into MP4..." = "Слияние файлов в MP4...";
+"Adding Metadata to the M4A..." = "Добавление метаданных в M4A...";
+"Merging video with audio into MKV..." = "Слияние файлов в MKV...";
+"Converting MKV video into MP4..." = "Конвертация MKV в MP4...";
+"Error: Conversion cancelled by user" = "Ошибка: Конвертация отменена пользователем";
+"ConversionFailedWithCode" = "Ошибка: Конвертация не удалась. Код ошибки";
+
 /* Settings */
+"Show uYou settings" = "Перейти в настройки uYou";
 "QUALITY AND FORMAT" = "КАЧЕСТВО И ФОРМАТ";
 "Show Formats" = "Отображаемые форматы";
 
@@ -137,7 +150,7 @@
 "uYou Fullscreen to The Right" = "Поворот экрана вправо";
 "Playback Speed Controls" = "Кнопки управления скоростью";
 "Enable \"uYou Gestures Controls\"" = "Включить управление жестами";
-"uYou Gestures Controls: It can let you drag your finger left/right on the top/bottom of the video screen to adjust the volume/brightness/seek.\n\nChanging settings require restarting the YouTube app" = "Управление жестами «uYou» позволяет проводить пальцем влево и вправо по нижней и верхней части плеера для регулировки громкости, яркости и перемотки.\n\nДля вступления настроек в силу перезапустите YouTube.";
+"uYou Gestures Controls: It can let you drag your finger left/right on the top/bottom of the video screen to adjust the volume/brightness/seek.\n\nChanging settings require restarting the YouTube app." = "Управление жестами «uYou» позволяет проводить пальцем влево и вправо по нижней и верхней части плеера для регулировки громкости, яркости и перемотки.\n\nДля вступления настроек в силу перезапустите YouTube.";
 "Disable Auto Play Video" = "Запретить автовоспроизведение";
 "Hide Shorts Cells" = "Скрыть Shorts";
 "Hide Fullscreen Button" = "Скрыть кнопку полноэкранного режима";
@@ -172,6 +185,7 @@
 
 "Hide Tabs" = "Скрыть вкладки";
 "YT Tabs" = "Скрыть вкладки";
+"Hide uYou Tab" = "Скрыть вкладку uYou";
 "Hide Shorts Tab" = "Скрыть Shorts";
 "Hide Create Tab" = "Скрыть Создать (+)";
 "Hide Subscriptions Tab" = "Скрыть Подписки";
@@ -213,8 +227,10 @@
 "You can easily migrate all of your videos/audios from \"Cercube\" to \"uYou\" with a tap of a button!\n\nPlease choose one of the following:" = "Теперь вы с легкостью сможете перенести все свои медиафайлы с Cercube в uYou одним нажатием!\n\nВыберите вариант переноса данных:";
 "Import From DLEasy" = "Перенос файлов из DLEasy";
 "You can easily migrate all of your videos/audios from \"DLEasy\" to \"uYou\" with a tap of a button!\n\nPlease choose one of the following:" = "Теперь вы с легкостью сможете перенести все свои медиафайлы с DLEasy в uYou одним нажатием!\n\nВыберите вариант переноса данных:";
-"Copy all" = "Скопировать";
-"Move all" = "Переместить";
+"Please choose one of the following:" = "Выберите действие:";
+"Copy All" = "Скопировать";
+"Move All" = "Переместить";
+"Importing" = "Импортируется";
 
 "Clear Downloading" = "Удалить текущие загрузки";
 "Are you sure you want to clear all current downloading videos/audios?" = "Уверены, что хотите удалить все загружаемые медиафайлы?";
@@ -229,7 +245,8 @@
 "Automatically Check For Updates" = "Проверять обновления";
 "Check For Update" = "Проверить наличие обновлений";
 "UpToDate" = "Данная версия является актуальной. Версия: %@";
-"NewVersion" = "Доступна новая, %@ версия uYou. Не забывайте обновляться до последней версии для обеспечения плавного и бесперебойного опыта."; 
+"NewVersionOld" = "Доступна новая версия: %@. Не забывайте обновляться до последней версии для обеспечения плавного и бесперебойного опыта."; 
+"NewVersion" = "Текущая версия: %@\nДоступная версия: %@\n\nПожалуйста, обновитесь до последней версии для лучшей совместимости."; 
 
 "SKIP" = "Позже";
 "DON'T SHOW" = "Скрыть";

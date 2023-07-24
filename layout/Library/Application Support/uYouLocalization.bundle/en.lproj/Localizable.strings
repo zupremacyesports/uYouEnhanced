@@ -71,6 +71,7 @@
 "Explicit" = "Explicit";
 "Kind" = "Kind";
 "Title" = "Title";
+"Channel"  = "Channel";
 "Album" = "Album";
 "Artist" = "Artist";
 "Year" = "Year";
@@ -84,6 +85,9 @@
 "Loading" = "Loading";
 "Download Started" = "Download started";
 "Saved!" = "Saved!";
+"Error!" = "Error!";
+"uYou did not find any quality to download" = "uYou did not find any quality to download";
+"No links found" = "No links found";
 "Exported successfully" = "Exported successfully";
 "Renamed successfully" = "Renamed successfully";
 "Downloading Thumbnail" = "Downloading Thumbnail";
@@ -91,7 +95,16 @@
 "Image updated successfully" = "Image updated successfully";
 "Invalid YouTube link" = "Invalid YouTube link";
 
+/* Download status */
+"Merging video with audio into MP4..." = "Merging video with audio into MP4...";
+"Adding Metadata to the M4A..." = "Adding Metadata to the M4A...";
+"Merging video with audio into MKV..." = "Merging video with audio into MKV...";
+"Converting MKV video into MP4..." = "Converting MKV video into MP4...";
+"Error: Conversion cancelled by user" = "Error: Conversion cancelled by user";
+"ConversionFailedWithCode" = "Error: Conversion failed with code";
+
 /* Settings */
+"Show uYou settings" = "Show uYou settings";
 "QUALITY AND FORMAT" = "QUALITY AND FORMAT";
 "Show Formats" = "Show Formats";
 
@@ -172,6 +185,7 @@
 
 "Hide Tabs" = "Hide Tabs";
 "YT Tabs" = "YT Tabs";
+"Hide uYou Tab" = "Hide uYou Tab";
 "Hide Shorts Tab" = "Hide Shorts Tab";
 "Hide Create Tab" = "Hide Create Tab";
 "Hide Subscriptions Tab" = "Hide Subscriptions Tab";
@@ -213,8 +227,10 @@
 "You can easily migrate all of your videos/audios from \"Cercube\" to \"uYou\" with a tap of a button!\n\nPlease choose one of the following:" = "You can easily migrate all of your videos/audios from \"Cercube\" to \"uYou\" with a tap of a button!\n\nPlease choose one of the following:";
 "Import From DLEasy" = "Import From DLEasy";
 "You can easily migrate all of your videos/audios from \"DLEasy\" to \"uYou\" with a tap of a button!\n\nPlease choose one of the following:" = "You can easily migrate all of your videos/audios from \"DLEasy\" to \"uYou\" with a tap of a button!\n\nPlease choose one of the following:";
-"Copy all" = "Copy all";
-"Move all" = "Move all";
+"Please choose one of the following:" = "Please choose one of the following:";
+"Copy All" = "Copy All";
+"Move All" = "Move All";
+"Importing" = "Importing";
 
 "Clear Downloading" = "Clear Downloading";
 "Are you sure you want to clear all current downloading videos/audios?" = "Are you sure you want to clear all current downloading videos/audios?";
@@ -229,7 +245,8 @@
 "Automatically Check For Updates" = "Automatically Check For Updates";
 "Check For Update" = "Check For Update";
 "UpToDate" = "You're using v.%@ which is the latest version.";
-"NewVersion" = "v.%@ is now available. Please make sure to always updating to the latest version to ensure having a flawless/uninterrupted experience."; 
+"NewVersionOld" = "v.%@ is now available. Please make sure to always updating to the latest version to ensure having a flawless/uninterrupted experience."; 
+"NewVersion" = "Current version v.%@\nAvailable version v.%@\n\nPlease update to the latest version for the best experience."; 
 
 "SKIP" = "SKIP";
 "DON'T SHOW" = "DON'T SHOW";
