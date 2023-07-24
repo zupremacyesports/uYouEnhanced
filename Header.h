@@ -114,16 +114,6 @@
 - (void)setRate:(float)rate;
 @end
 
-// iOS16 fix
-@interface OBPrivacyLinkButton : UIButton
-- (instancetype)initWithCaption:(NSString *)caption
-                     buttonText:(NSString *)buttonText
-                          image:(UIImage *)image
-                      imageSize:(CGSize)imageSize
-                   useLargeIcon:(BOOL)useLargeIcon
-                displayLanguage:(NSString *)displayLanguage;
-@end
-
 // uYouLocal fix
 @interface YTLocalPlaybackController : NSObject
 - (id)activeVideo;
@@ -159,6 +149,9 @@
 @end
 
 @interface YTRelatedVideosView : UIView
+@end
+
+@interface YTTopAlignedView : UIView
 @end
 
 @interface ELMView : UIView

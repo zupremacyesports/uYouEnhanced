@@ -134,6 +134,26 @@ extern NSBundle *uYouPlusBundle();
 # pragma mark - Video Controls Overlay Options
     YTSettingsSectionItem *videoControlOverlayGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"VIDEO_CONTROLS_OVERLAY_OPTIONS") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable Share Button")
+                titleDescription:LOC(@"Enable the Share Button in video controls overlay.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"enableShareButton_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"enableShareButton_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable 'Save To Playlist' Button")
+                titleDescription:LOC(@"Enable the 'Save To Playlist' Button in video controls overlay.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"enableSaveToButton_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"enableSaveToButton_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_AUTOPLAY_SWITCH")
                 titleDescription:LOC(@"HIDE_AUTOPLAY_SWITCH_DESC")
                 accessibilityIdentifier:nil
@@ -244,16 +264,6 @@ extern NSBundle *uYouPlusBundle();
                 }
                 settingItemId:0],
 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"DONT_EAT_MY_CONTENT")
-                titleDescription:LOC(@"DONT_EAT_MY_CONTENT_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"dontEatMyContent_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"dontEatMyContent_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide Heatwaves")
                 titleDescription:LOC(@"Should hide the Heatwaves in the video player. App restart is required.")
                 accessibilityIdentifier:nil
@@ -270,6 +280,16 @@ extern NSBundle *uYouPlusBundle();
                 switchOn:IsEnabled(@"hideOverlayDarkBackground_enabled")
                 switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
                     [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideOverlayDarkBackground_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable YTSpeed")
+                titleDescription:LOC(@"Enable YTSpeed to have more Playback Speed Options. App restart is required.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"ytSpeed_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"ytSpeed_enabled"];
                     return YES;
                 }
                 settingItemId:0]
@@ -404,7 +424,7 @@ extern NSBundle *uYouPlusBundle();
         detailTextBlock:^NSString *() {
             switch (appVersionSpoofer()) {
                 case 1:
-                    return @"Latest Version";
+                    return @"v18.28.3";
                 case 2:
                     return @"v18.27.3";
                 case 3:
@@ -665,17 +685,17 @@ extern NSBundle *uYouPlusBundle();
                     return @"v16.05.7";
                 case 0:
                 default:
-                    return @"Custom Version";
+                    return @"Latest Version";
             }
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             NSArray <YTSettingsSectionItem *> *rows = @[
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"Custom Version" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"Latest Version" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"Latest Version" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:@"v18.28.3" titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"versionSpoofer"];
                     [settingsViewController reloadData];
                     return YES;
@@ -1431,12 +1451,12 @@ extern NSBundle *uYouPlusBundle();
                 }
                 settingItemId:0],
 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide uYou Tab")
-                titleDescription:LOC(@"When Enabled it will hide the uYou Tab added by MiRO92's uYou Tweak. App restart is required.")
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide 'Play next in queue'")
+                titleDescription:LOC(@"Hides 'Play Next In Queue' option from the menu. App restart is required.")
                 accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideuYouTab_enabled")
+                switchOn:IsEnabled(@"hidePlayNextInQueue_enabled")
                 switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideuYouTab_enabled"];
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hidePlayNextInQueue_enabled"];
                     return YES;
                 }
                 settingItemId:0],
@@ -1531,16 +1551,6 @@ extern NSBundle *uYouPlusBundle();
                 }
                 settingItemId:0],
 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable YTSpeed")
-                titleDescription:LOC(@"Enable YTSpeed to have more Playback Speed Options. App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"ytSpeed_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"ytSpeed_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-		
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"ENABLE_FLEX")
                 titleDescription:LOC(@"ENABLE_FLEX_DESC")
                 accessibilityIdentifier:nil

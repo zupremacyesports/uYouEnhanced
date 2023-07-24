@@ -1,7 +1,5 @@
 #import "../Header.h"
 
-NSString *customVersionNumber = @"18.28.3"; // Default version number
-
 //
 static BOOL IsEnabled(NSString *key) {
     return [[NSUserDefaults standardUserDefaults] boolForKey:key];
@@ -406,19 +404,17 @@ static BOOL version130() {
 %group gVersion0
 %hook YTVersionUtils // 0
 + (NSString *)appVersion {
-    return customVersionNumber;
+    NSURL *versionURL = [NSURL URLWithString:@"https://raw.githubusercontent.com/arichorn/YTAppVersionSpoofer-WIP/main/version.txt"];
+    NSString *latestVersion = [NSString stringWithContentsOfURL:versionURL encoding:NSUTF8StringEncoding error:nil];
+    
+    return latestVersion ?: @"18.29.1";
 }
 %end
 %end
 
 %group gVersion1
 %hook YTVersionUtils // 1
-+ (NSString *)appVersion {
-    NSURL *versionURL = [NSURL URLWithString:@"https://raw.githubusercontent.com/arichorn/YTAppVersionSpoofer-WIP/main/version.txt"];
-    NSString *latestVersion = [NSString stringWithContentsOfURL:versionURL encoding:NSUTF8StringEncoding error:nil];
-    
-    return latestVersion ?: @"18.28.3";
-}
++ (NSString *)appVersion { return @"18.28.3"; }
 %end
 %end
 
