@@ -50,6 +50,16 @@ jobs:
           git push origin
         continue-on-error: true
 
+      - name: Make .bundle files
+        run: |
+          cd Bundles
+          ln -s ../Tweaks/YTVideoOverlay/layout/Library/Application\ Support/YTVideoOverlay.bundle YTVideoOverlay.bundle
+          ln -s ../Tweaks/YouMute/layout/Library/Application\ Support/YouMute.bundle YouMute.bundle
+          ln -s ../Tweaks/YouQuality/layout/Library/Application\ Support/YouQuality.bundle YouQuality.bundle
+          git add .
+          git commit -m "Added bundles"
+          git push origin
+
       - name: Check exit code
         run: |
           exit_code=$?
