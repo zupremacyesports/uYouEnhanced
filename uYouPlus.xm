@@ -665,11 +665,6 @@ static void replaceTab(YTIGuideResponse *response) {
 
 // Hide Dark Overlay Background
 %group gHideOverlayDarkBackground
-%hook YTMainAppVideoPlayerOverlayView
-- (void)setBackgroundVisible:(BOOL)arg1 { // Deprecated Method
-    %orig(NO);
-}
-%end
 %hook UIView
 - (void)setBackgroundColor:(UIColor *)color {
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTMainAppVideoPlayerOverlayView")]) {
