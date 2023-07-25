@@ -42,14 +42,6 @@ static BOOL IsEnabled(NSString *key) {
 }
 %end
 
-// Workaround for issue #54
-%hook YTMainAppVideoPlayerOverlayViewController
-- (void)updateRelatedVideos {
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"relatedVideosAtTheEndOfYTVideos"] == NO) {}
-    else { return %orig; }
-}
-%end
-
 %hook YTAppDelegate
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions {
