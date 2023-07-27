@@ -48,14 +48,6 @@ jobs:
           git push origin
         continue-on-error: true
 
-      - name: Make .bundle files
-        run: |
-          cd Bundles
-          ln -s ../Tweaks/YTNoCommunityPosts/layout/Library/Application\ Support/YTNoCommunityPosts.bundle YTNoCommunityPosts.bundle
-          git add .
-          git commit -m "Added YTNoCommunityPost bundle"
-          git push origin
-
       - name: Check exit code
         run: |
           exit_code=$?
