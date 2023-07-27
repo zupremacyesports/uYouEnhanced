@@ -20,9 +20,9 @@ jobs:
 
       - name: Add uYouPlusExtra submodules
         run: |
+          git submodule add https://github.com/PoomSmart/YTVideoOverlay.git Tweaks/YTVideoOverlay
           git submodule add https://github.com/PoomSmart/YouMute.git Tweaks/YouMute
           git submodule add https://github.com/PoomSmart/YouQuality.git Tweaks/YouQuality
-          git submodule add https://github.com/PoomSmart/YTVideoOverlay.git Tweaks/YTVideoOverlay
           git submodule add https://github.com/arichorn/YTNoCommunityPosts.git Tweaks/YTNoCommunityPosts
 #         git submodule add https://github.com/arichorn/YTHoldForSpeed.git Tweaks/YTHoldForSpeed
           git add .
@@ -44,8 +44,6 @@ jobs:
           git submodule update --init --recursive --remote Tweaks/DontEatMyContent
           git add .
           git submodule update --init --recursive --remote Tweaks/PSHeader
-          git add .
-          git submodule update --init --recursive --remote Tweaks/RemoteLog
           git add .
           git submodule update --init --recursive --remote Tweaks/Return-YouTube-Dislikes
           git add .
@@ -77,6 +75,7 @@ jobs:
           ln -s ../Tweaks/YTVideoOverlay/layout/Library/Application\ Support/YTVideoOverlay.bundle YTVideoOverlay.bundle
           ln -s ../Tweaks/YouMute/layout/Library/Application\ Support/YouMute.bundle YouMute.bundle
           ln -s ../Tweaks/YouQuality/layout/Library/Application\ Support/YouQuality.bundle YouQuality.bundle
+          ln -s ../Tweaks/YTNoCommunityPosts/layout/Library/Application\ Support/YTNoCommunityPosts.bundle YTNoCommunityPosts.bundle
           git add .
           git commit -m "Added bundles"
           git push origin
