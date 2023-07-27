@@ -24,8 +24,6 @@ jobs:
           git add .
           git submodule update --init --recursive --remote Tweaks/PSHeader
           git add .
-          git submodule update --init --recursive --remote Tweaks/RemoteLog
-          git add .
           git submodule update --init --recursive --remote Tweaks/Return-YouTube-Dislikes
           git add .
           git submodule update --init --recursive --remote Tweaks/YTABConfig
@@ -49,6 +47,14 @@ jobs:
           git commit -m "updated submodules"
           git push origin
         continue-on-error: true
+
+      - name: Make .bundle files
+        run: |
+          cd Bundles
+          ln -s ../Tweaks/YTNoCommunityPosts/layout/Library/Application\ Support/YTNoCommunityPosts.bundle YTNoCommunityPosts.bundle
+          git add .
+          git commit -m "Added YTNoCommunityPost bundle"
+          git push origin
 
       - name: Check exit code
         run: |
