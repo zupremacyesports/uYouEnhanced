@@ -75,16 +75,10 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFeedHeaderView")]) {
         color = customColor;
     }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTextCell")]) {
-        color = customColor;
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatViewerEngagementCell")]) {
-        color = customColor;
-    }
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTCommentsHeaderView")]) {
         color = customColor;
     }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatView")]) {
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTextCell")]) {
         color = customColor;
     }
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTickerViewController")]) {
@@ -349,13 +343,6 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
     %orig(customColor);
 }
 %end
-%hook YCHLiveChatBannerCell
-- (void)layoutSubviews {
-    %orig();
-    MSHookIvar<UIImageView *>(self, "_bannerContainerImageView").hidden = YES;
-    MSHookIvar<UIView *>(self, "_bannerContainerView").backgroundColor = customColor;
-}
-%end
 %hook YTDialogContainerScrollView
 - (void)setBackgroundColor:(UIColor *)color {
     %orig(customColor);
@@ -379,10 +366,6 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 %hook YTActionSheetHeaderView
 - (void)setBackgroundColor:(UIColor *)color {
     %orig(customColor);
-}
-%end
-%hook YTSearchSuggestionCollectionViewCell
-- (void)updateColors {
 }
 %end
 %hook YTShareMainView
@@ -480,43 +463,37 @@ UIColor* raisedColor = [UIColor blackColor];
         color = [UIColor blackColor];
     }
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTAsyncCollectionView")]) {
-        color = [UIColor blackColor];
+        color = customColor;
     }
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTLinkCell")]) {
-        color = [UIColor blackColor];
+        color = customColor;
     }
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTMessageCell")]) {
-        color = [UIColor blackColor];
+        color = customColor;
     }
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSearchView")]) {
-        color = [UIColor blackColor];
+        color = customColor;
     }
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTDrawerAvatarCell")]) {
-        color = [UIColor blackColor];
+        color = customColor;
     }
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFeedHeaderView")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTextCell")]) {
-        color = [UIColor blackColor];
-    }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatViewerEngagementCell")]) {
-        color = [UIColor blackColor];
+        color = customColor;
     }
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTCommentsHeaderView")]) {
-        color = [UIColor blackColor];
+        color = customColor;
     }
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatView")]) {
-        color = [UIColor blackColor];
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTextCell")]) {
+        color = customColor;
     }
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTickerViewController")]) {
-        color = [UIColor blackColor];
+        color = customColor;
     }
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTInnerTubeCollectionViewController")]) {
-        color = [UIColor blackColor];
+        color = customColor;
     }
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEditSheetControllerHeader")]) {
-        color = [UIColor blackColor];
+        color = customColor;
     }
     %orig;
 }
@@ -771,13 +748,6 @@ UIColor* raisedColor = [UIColor blackColor];
     %orig([UIColor blackColor]);
 }
 %end
-%hook YCHLiveChatBannerCell
-- (void)layoutSubviews {
-    %orig();
-    MSHookIvar<UIImageView *>(self, "_bannerContainerImageView").hidden = YES;
-    MSHookIvar<UIView *>(self, "_bannerContainerView").backgroundColor = [UIColor blackColor];
-}
-%end
 %hook YTDialogContainerScrollView
 - (void)setBackgroundColor:(UIColor *)color {
     %orig([UIColor blackColor]);
@@ -801,10 +771,6 @@ UIColor* raisedColor = [UIColor blackColor];
 %hook YTActionSheetHeaderView
 - (void)setBackgroundColor:(UIColor *)color {
     %orig([UIColor blackColor]);
-}
-%end
-%hook YTSearchSuggestionCollectionViewCell
-- (void)updateColors {
 }
 %end
 %hook YTShareMainView
