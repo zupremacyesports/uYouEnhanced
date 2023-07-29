@@ -331,7 +331,7 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
     return isDarkMode() ? %orig(customColor) : %orig;
 }
 - (void)layoutSubviews {
-    return isDarkMode() ? %orig();
+    return isDarkMode() : %orig();
     MSHookIvar<YTTopAlignedView *>(self, "_contentView").backgroundColor = customColor;
 }
 %end
@@ -420,7 +420,7 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 %end
 %hook YTShareMainView
 - (void)layoutSubviews {
-    return isDarkMode() ? %orig();
+    return isDarkMode() : %orig();
     MSHookIvar<YTQTMButton *>(self, "_cancelButton").backgroundColor = customColor;
     MSHookIvar<UIControl *>(self, "_safeArea").backgroundColor = customColor;
 }
@@ -642,7 +642,7 @@ UIColor* raisedColor = [UIColor blackColor];
     %orig([UIColor blackColor]);
 }
 - (void)layoutSubviews {
-    return isDarkMode() ? %orig();
+    return isDarkMode() : %orig();
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTWatchNextResultsViewController")]) {
         self.subviews[0].subviews[0].backgroundColor = [UIColor blackColor];
     }
@@ -877,7 +877,7 @@ UIColor* raisedColor = [UIColor blackColor];
 %end
 %hook YTShareMainView
 - (void)layoutSubviews {
-    return isDarkMode() ? %orig();
+    return isDarkMode() : %orig();
     MSHookIvar<YTQTMButton *>(self, "_cancelButton").backgroundColor = [UIColor blackColor];
     MSHookIvar<UIControl *>(self, "_safeArea").backgroundColor = [UIColor blackColor];
 }
