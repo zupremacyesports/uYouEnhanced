@@ -57,12 +57,6 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
         }
     }
     %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEngagementPanelView")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
-    }
-    %orig(color);
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistPanelProminentThumbnailVideoCell")]) {
         if (isDarkMode()) {
             color = customColor;
@@ -168,21 +162,11 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 }
 %end
 %hook YTAsyncCollectionView
-- (void)setBackgroundColor:(UIColor *)color {
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTRelatedVideosCollectionViewController")]) {
-        color = [UIColor clearColor];
-    } else if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFullscreenMetadataHighlightsCollectionViewController")]) {
-        color = [UIColor clearColor];
-    } else {
-        color = customColor;
-    }
-    %orig;
-}
 - (UIColor *)darkBackgroundColor {
     return customColor;
 }
 - (void)setDarkBackgroundColor:(UIColor *)color {
-    %orig(customColor);
+    return isDarkMode() ? %orig(customColor) : %orig;
 }
 - (void)layoutSubviews {
     %orig();
@@ -272,11 +256,6 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 }
 %end
 %hook YTSearchView
-- (void)setBackgroundColor:(UIColor *)color {
-    return isDarkMode() ? %orig(customColor) : %orig;
-}
-%end
-%hook YTVideoView
 - (void)setBackgroundColor:(UIColor *)color {
     return isDarkMode() ? %orig(customColor) : %orig;
 }
@@ -514,12 +493,6 @@ UIColor* raisedColor = [UIColor blackColor];
         }
     }
     %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEngagementPanelView")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
-    }
-    %orig(color);
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistPanelProminentThumbnailVideoCell")]) {
         if (isDarkMode()) {
             color = [UIColor blackColor];
@@ -625,21 +598,11 @@ UIColor* raisedColor = [UIColor blackColor];
 }
 %end
 %hook YTAsyncCollectionView
-- (void)setBackgroundColor:(UIColor *)color {
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTRelatedVideosCollectionViewController")]) {
-        color = [UIColor clearColor];
-    } else if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFullscreenMetadataHighlightsCollectionViewController")]) {
-        color = [UIColor clearColor];
-    } else {
-        color = [UIColor blackColor];
-    }
-    %orig;
-}
 - (UIColor *)darkBackgroundColor {
     return [UIColor blackColor];
 }
 - (void)setDarkBackgroundColor:(UIColor *)color {
-    %orig([UIColor blackColor]);
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 - (void)layoutSubviews {
     %orig();
@@ -729,11 +692,6 @@ UIColor* raisedColor = [UIColor blackColor];
 }
 %end
 %hook YTSearchView
-- (void)setBackgroundColor:(UIColor *)color {
-    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
-}
-%end
-%hook YTVideoView
 - (void)setBackgroundColor:(UIColor *)color {
     return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
