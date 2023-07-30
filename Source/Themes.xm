@@ -24,6 +24,9 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 - (UIColor *)background2 {
     return self.pageStyle == 1 ? customColor : %orig;
 }
+- (UIColor *)background3 {
+    return self.pageStyle == 1 ? customColor : %orig;
+}
 - (UIColor *)brandBackgroundSolid {
     return self.pageStyle == 1 ? customColor : %orig;
 }
@@ -380,6 +383,9 @@ UIColor* raisedColor = [UIColor blackColor];
 - (UIColor *)background2 {
     return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
+- (UIColor *)background3 {
+    return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
 - (UIColor *)brandBackgroundSolid {
     return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
@@ -399,6 +405,12 @@ UIColor* raisedColor = [UIColor blackColor];
     return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
 - (UIColor *)generalBackgroundB {
+    return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+- (UIColor *)baseBackground {
+    return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+- (UIColor *)menuBackground {
     return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
 %end
