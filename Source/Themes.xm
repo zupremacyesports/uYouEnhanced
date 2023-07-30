@@ -48,6 +48,12 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 - (UIColor *)generalBackgroundB {
     return self.pageStyle == 1 ? customColor : %orig;
 }
+- (UIColor *)baseBackground {
+    return self.pageStyle == 1 ? customColor : %orig;
+}
+- (UIColor *)menuBackground {
+    return self.pageStyle == 1 ? customColor : %orig;
+}
 %end
 %hook SponsorBlockSettingsController
 - (void)viewDidLoad {
@@ -127,6 +133,11 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
     return isDarkMode() ? %orig(customColor) : %orig;
 }
 %end
+%hook YTSettingsCell
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig(customColor) : %orig;
+}
+%end
 %hook YTSlideForActionsView
 - (void)setBackgroundColor:(UIColor *)color {
     return isDarkMode() ? %orig(customColor) : %orig;
@@ -143,6 +154,11 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 }
 %end
 %hook YTPlaylistMiniBarView
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig(customColor) : %orig;
+}
+%end
+%hook YTEngagementPanelView
 - (void)setBackgroundColor:(UIColor *)color {
     return isDarkMode() ? %orig(customColor) : %orig;
 }
@@ -492,6 +508,11 @@ UIColor* raisedColor = [UIColor blackColor];
     return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
 %end
+%hook YTSettingsCell
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
+}
+%end
 %hook YTSlideForActionsView
 - (void)setBackgroundColor:(UIColor *)color {
     return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
@@ -508,6 +529,11 @@ UIColor* raisedColor = [UIColor blackColor];
 }
 %end
 %hook YTPlaylistMiniBarView
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
+}
+%end
+%hook YTEngagementPanelView
 - (void)setBackgroundColor:(UIColor *)color {
     return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
 }
