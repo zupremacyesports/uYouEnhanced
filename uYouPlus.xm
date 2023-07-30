@@ -84,26 +84,6 @@ static BOOL IsEnabled(NSString *key) {
 - (BOOL)disableAfmaIdfaCollection { return NO; }
 %end
 
-// Hide YouTube annoying banner in Home page? - @MiRO92 - YTNoShorts: https://github.com/MiRO92/YTNoShorts
-%hook YTAsyncCollectionView
-- (id)cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = %orig;
-    if ([cell isKindOfClass:NSClassFromString(@"_ASCollectionViewCell")]) {
-        _ASCollectionViewCell *cell = %orig;
-        if ([cell respondsToSelector:@selector(node)]) {
-            if ([[[cell node] accessibilityIdentifier] isEqualToString:@"statement_banner.view"]) { [self removeShortsAndFeaturesAdsAtIndexPath:indexPath]; }
-            if ([[[cell node] accessibilityIdentifier] isEqualToString:@"compact.view"]) { [self removeShortsAndFeaturesAdsAtIndexPath:indexPath]; }
-            // if ([[[cell node] accessibilityIdentifier] isEqualToString:@"id.ui.video_metadata_carousel"]) { [self removeShortsAndFeaturesAdsAtIndexPath:indexPath]; }
-        }
-    }
-    return %orig;
-}
-%new
-- (void)removeShortsAndFeaturesAdsAtIndexPath:(NSIndexPath *)indexPath {
-        [self deleteItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
-}
-%end
-
 // Remove “Play next in queue” from the menu (@PoomSmart) - qnblackcat/uYouPlus#1138
 %group gHidePlayNextInQueue
 %hook YTMenuItemVisibilityHandler
