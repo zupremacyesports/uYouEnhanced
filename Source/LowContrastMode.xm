@@ -67,6 +67,12 @@ static BOOL pinkContrastMode() {
     }
         return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
 }
+- (UIColor *)overlayTextPrimary {
+    if (self.pageStyle == 1) {
+        return [UIColor whiteColor]; // Dark Theme
+    }
+        return [UIColor colorWithRed: 0.38 green: 0.38 blue: 0.38 alpha: 1.00]; // Light Theme
+}
 %end
 %hook YTCollectionView
  - (void)setTintColor:(UIColor *)color { 
