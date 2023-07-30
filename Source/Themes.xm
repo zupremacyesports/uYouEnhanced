@@ -45,90 +45,112 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
         }
     }
     %orig(color);
+
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSlideForActionsView")]) {
         if (isDarkMode()) {
             color = customColor;
         }
     }
     %orig(color);
+
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTChipCloudCell")]) {
         if (isDarkMode()) {
             color = customColor;
         }
     }
     %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistPanelProminentThumbnailVideoCell")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistHeaderView")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTAsyncCollectionView")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTLinkCell")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTMessageCell")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSearchView")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTDrawerAvatarCell")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFeedHeaderView")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTCommentsHeaderView")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
-    }
-    %orig(color);
+
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTextCell")]) {
         if (isDarkMode()) {
             color = customColor;
         }
     }
     %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTickerViewController")]) {
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatView")]) {
         if (isDarkMode()) {
             color = customColor;
         }
     }
     %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTInnerTubeCollectionViewController")]) {
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatViewerEngagementCell")]) {
         if (isDarkMode()) {
             color = customColor;
         }
     }
     %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistPanelProminentThumbnailVideoCell")]) {
+        if (isDarkMode()) {
+            color = customColor;
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistHeaderView")]) {
+        if (isDarkMode()) {
+            color = customColor;
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTAsyncCollectionView")]) {
+        if (isDarkMode()) {
+            color = customColor;
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTLinkCell")]) {
+        if (isDarkMode()) {
+            color = customColor;
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTMessageCell")]) {
+        if (isDarkMode()) {
+            color = customColor;
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSearchView")]) {
+        if (isDarkMode()) {
+            color = customColor;
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTDrawerAvatarCell")]) {
+        if (isDarkMode()) {
+            color = customColor;
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEngagementPanelView")]) {
+        if (isDarkMode()) {
+            color = customColor;
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFeedHeaderView")]) {
+        if (isDarkMode()) {
+            color = customColor;
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTCommentsHeaderView")]) {
+        if (isDarkMode()) {
+            color = customColor;
+        }
+    }
+    %orig(color);
+
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEditSheetControllerHeader")]) {
         if (isDarkMode()) {
             color = customColor;
@@ -162,6 +184,16 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 }
 %end
 %hook YTAsyncCollectionView
+- (void)setBackgroundColor:(UIColor *)color {
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTRelatedVideosCollectionViewController")]) {
+    return isDarkMode() ? %orig([UIColor clearColor]) : %orig;
+    } else if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFullscreenMetadataHighlightsCollectionViewController")]) {
+    return isDarkMode() ? %orig([UIColor clearColor]) : %orig;
+    } else {
+    return isDarkMode() ? %orig(customColor) : %orig;
+    }
+    %orig;
+}
 - (UIColor *)darkBackgroundColor {
     return customColor;
 }
@@ -481,90 +513,112 @@ UIColor* raisedColor = [UIColor blackColor];
         }
     }
     %orig(color);
+
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSlideForActionsView")]) {
         if (isDarkMode()) {
             color = [UIColor blackColor];
         }
     }
     %orig(color);
+
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTChipCloudCell")]) {
         if (isDarkMode()) {
             color = [UIColor blackColor];
         }
     }
     %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistPanelProminentThumbnailVideoCell")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistHeaderView")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTAsyncCollectionView")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTLinkCell")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTMessageCell")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSearchView")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTDrawerAvatarCell")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFeedHeaderView")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
-    }
-    %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTCommentsHeaderView")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
-    }
-    %orig(color);
+
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTextCell")]) {
         if (isDarkMode()) {
             color = [UIColor blackColor];
         }
     }
     %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTickerViewController")]) {
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatView")]) {
         if (isDarkMode()) {
             color = [UIColor blackColor];
         }
     }
     %orig(color);
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTInnerTubeCollectionViewController")]) {
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatViewerEngagementCell")]) {
         if (isDarkMode()) {
             color = [UIColor blackColor];
         }
     }
     %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistPanelProminentThumbnailVideoCell")]) {
+        if (isDarkMode()) {
+            color = [UIColor blackColor];
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistHeaderView")]) {
+        if (isDarkMode()) {
+            color = [UIColor blackColor];
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTAsyncCollectionView")]) {
+        if (isDarkMode()) {
+            color = [UIColor blackColor];
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTLinkCell")]) {
+        if (isDarkMode()) {
+            color = [UIColor blackColor];
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTMessageCell")]) {
+        if (isDarkMode()) {
+            color = [UIColor blackColor];
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSearchView")]) {
+        if (isDarkMode()) {
+            color = [UIColor blackColor];
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTDrawerAvatarCell")]) {
+        if (isDarkMode()) {
+            color = [UIColor blackColor];
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEngagementPanelView")]) {
+        if (isDarkMode()) {
+            color = [UIColor blackColor];
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFeedHeaderView")]) {
+        if (isDarkMode()) {
+            color = [UIColor blackColor];
+        }
+    }
+    %orig(color);
+
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTCommentsHeaderView")]) {
+        if (isDarkMode()) {
+            color = [UIColor blackColor];
+        }
+    }
+    %orig(color);
+
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEditSheetControllerHeader")]) {
         if (isDarkMode()) {
             color = [UIColor blackColor];
@@ -598,6 +652,16 @@ UIColor* raisedColor = [UIColor blackColor];
 }
 %end
 %hook YTAsyncCollectionView
+- (void)setBackgroundColor:(UIColor *)color {
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTRelatedVideosCollectionViewController")]) {
+    return isDarkMode() ? %orig([UIColor clearColor]) : %orig;
+    } else if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFullscreenMetadataHighlightsCollectionViewController")]) {
+    return isDarkMode() ? %orig([UIColor clearColor]) : %orig;
+    } else {
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
+    }
+    %orig;
+}
 - (UIColor *)darkBackgroundColor {
     return [UIColor blackColor];
 }
@@ -866,15 +930,15 @@ UIColor* raisedColor = [UIColor blackColor];
     %orig;
     if (isDarkMode()) {
         if ([self.nextResponder isKindOfClass:%c(ASScrollView)]) { self.backgroundColor = [UIColor clearColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"eml.cvr"]) { self.backgroundColor = customColor; }
-        if ([self.accessibilityIdentifier isEqualToString:@"rich_header"]) { self.backgroundColor = customColor; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment_cell"]) { self.backgroundColor = customColor; }
+        if ([self.accessibilityIdentifier isEqualToString:@"eml.cvr"]) { self.backgroundColor = [UIColor blackColor]; }
+        if ([self.accessibilityIdentifier isEqualToString:@"rich_header"]) { self.backgroundColor = [UIColor blackColor]; }
+        if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment_cell"]) { self.backgroundColor = [UIColor blackColor]; }
         if ([self.accessibilityIdentifier isEqualToString:@"id.ui.cancel.button"]) { self.superview.backgroundColor = [UIColor clearColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.comment_composer"]) { self.backgroundColor = customColor; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.video_list_entry"]) { self.backgroundColor = customColor; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.guidelines_text"]) { self.superview.backgroundColor = customColor; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.channel_guidelines_bottom_sheet_container"]) { self.backgroundColor = customColor; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.channel_guidelines_entry_banner_container"]) { self.backgroundColor = customColor; }
+        if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.comment_composer"]) { self.backgroundColor = [UIColor blackColor]; }
+        if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.video_list_entry"]) { self.backgroundColor = [UIColor blackColor]; }
+        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.guidelines_text"]) { self.superview.backgroundColor = [UIColor blackColor]; }
+        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.channel_guidelines_bottom_sheet_container"]) { self.backgroundColor = [UIColor blackColor]; }
+        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.channel_guidelines_entry_banner_container"]) { self.backgroundColor = [UIColor blackColor]; }
 	if ([self.accessibilityIdentifier isEqualToString:@"id.comment.comment_group_detail_container"]) { self.backgroundColor = [UIColor clearColor]; }
     }
 }
