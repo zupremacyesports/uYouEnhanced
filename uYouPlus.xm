@@ -61,24 +61,6 @@ static BOOL IsEnabled(NSString *key) {
 }
 %end
 
-// Enable Share Button / Enable Save to Playlist Button
-%hook YTMainAppControlsOverlayView
-- (void)setShareButtonAvailable:(BOOL)arg1 {
-    if (IsEnabled(@"enableShareButton_enabled")) {
-        %orig(YES);
-    } else {
-        %orig(NO);
-    }
-}
-- (void)setAddToButtonAvailable:(BOOL)arg1 {
-    if (IsEnabled(@"enableSaveToButton_enabled")) {
-        %orig(YES);
-    } else {
-        %orig(NO);
-    }
-}
-%end
-
 # pragma mark - YouTube's patches
 %hook YTHotConfig
 - (BOOL)disableAfmaIdfaCollection { return NO; }
@@ -491,6 +473,15 @@ static void replaceTab(YTIGuideResponse *response) {
 %end
 %end
 
+// Hide Subscriptions Notification Badge
+%group gHideSubscriptionsNotificationBadge
+%hook YTPivotBarIndicatorView
+- (void)removeFromSuperview {
+   %orig(YES);
+}
+%end
+%end
+
 // BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
 %group Main
 %hook YTWatchMiniBarView
@@ -612,7 +603,7 @@ static void replaceTab(YTIGuideResponse *response) {
 %end
 
 // Video Controls Overlay Options
-// Hide CC / Autoplay switch
+// Hide CC / Autoplay switch / Enable Share Button / Enable Save to Playlist Button
 %hook YTMainAppControlsOverlayView
 - (void)setClosedCaptionsOrSubtitlesButtonAvailable:(BOOL)arg1 { // hide CC button
     return IsEnabled(@"hideCC_enabled") ? %orig(NO) : %orig;
@@ -620,6 +611,20 @@ static void replaceTab(YTIGuideResponse *response) {
 - (void)setAutoplaySwitchButtonRenderer:(id)arg1 { // hide Autoplay
     if (IsEnabled(@"hideAutoplaySwitch_enabled")) {}
     else { return %orig; }
+}
+- (void)setShareButtonAvailable:(BOOL)arg1 {
+    if (IsEnabled(@"enableShareButton_enabled")) {
+        %orig(YES);
+    } else {
+        %orig(NO);
+    }
+}
+- (void)setAddToButtonAvailable:(BOOL)arg1 {
+    if (IsEnabled(@"enableSaveToButton_enabled")) {
+        %orig(YES);
+    } else {
+        %orig(NO);
+    }
 }
 %end
 
@@ -811,16 +816,6 @@ static void replaceTab(YTIGuideResponse *response) {
 %end
 %end
 
-%hook YTPivotBarIndicatorView
-- (void)removeFromSuperview {
-        if (IsEnabled(@"hideSubscriptionsNotificationBadge_enabled")) {
-            %orig(YES);
-        } else {
-            %orig(NO);
-        }
-}
-%end
-
 // YT startup animation
 %hook YTColdConfig
 - (BOOL)mainAppCoreClientIosEnableStartupAnimation {
@@ -839,6 +834,9 @@ static void replaceTab(YTIGuideResponse *response) {
     }
     if (IsEnabled(@"bigYTMiniPlayer_enabled") && (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad)) {
         %init(Main);
+    }
+    if (IsEnabled(@"hideSubscriptionsNotificationBadge_enabled")) {
+        %init(gHideSubscriptionsNotificationBadge);
     }
     if (IsEnabled(@"hidePreviousAndNextButton_enabled")) {
         %init(gHidePreviousAndNextButton);
