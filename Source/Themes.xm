@@ -40,123 +40,56 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 %hook UIView
 - (void)setBackgroundColor:(UIColor *)color {
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPivotBarView")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSlideForActionsView")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTChipCloudCell")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTextCell")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatView")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatViewerEngagementCell")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistPanelProminentThumbnailVideoCell")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistHeaderView")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTAsyncCollectionView")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTLinkCell")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTMessageCell")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSearchView")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTDrawerAvatarCell")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEngagementPanelView")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFeedHeaderView")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTCommentsHeaderView")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEditSheetControllerHeader")]) {
-        if (isDarkMode()) {
-            color = customColor;
-        }
+    return isDarkMode() ? %orig(customColor) : %orig;
     }
-    %orig(color);
 }
 %end
 %hook SponsorBlockSettingsController
@@ -508,123 +441,56 @@ UIColor* raisedColor = [UIColor blackColor];
 %hook UIView
 - (void)setBackgroundColor:(UIColor *)color {
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPivotBarView")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSlideForActionsView")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTChipCloudCell")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatTextCell")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatView")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YCHLiveChatViewerEngagementCell")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistPanelProminentThumbnailVideoCell")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTPlaylistHeaderView")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTAsyncCollectionView")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTLinkCell")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTMessageCell")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTSearchView")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTDrawerAvatarCell")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEngagementPanelView")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTFeedHeaderView")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTCommentsHeaderView")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
-
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTEditSheetControllerHeader")]) {
-        if (isDarkMode()) {
-            color = [UIColor blackColor];
-        }
+    return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
     }
-    %orig(color);
 }
 %end
 %hook SponsorBlockSettingsController
