@@ -477,7 +477,7 @@ static void replaceTab(YTIGuideResponse *response) {
 %group gHideSubscriptionsNotificationBadge
 %hook YTPivotBarIndicatorView
 - (void)removeFromSuperview {
-   %orig(YES);
+   %orig();
 }
 %end
 %end
