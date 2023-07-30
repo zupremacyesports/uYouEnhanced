@@ -812,7 +812,7 @@ static void replaceTab(YTIGuideResponse *response) {
 %end
 
 %hook YTPivotBarIndicatorView
-- (void)setHidden:(BOOL)hidden {
+- (void)removeFromSuperview {
         if (IsEnabled(@"hideSubscriptionsNotificationBadge_enabled")) {
             %orig(YES);
         } else {
