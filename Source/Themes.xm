@@ -18,6 +18,12 @@ static BOOL oldDarkTheme() {
 %group gOldDarkTheme
 UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:1.0];
 %hook YTCommonColorPalette
+- (UIColor *)background1 {
+    return self.pageStyle == 1 ? customColor : %orig;
+}
+- (UIColor *)background2 {
+    return self.pageStyle == 1 ? customColor : %orig;
+}
 - (UIColor *)brandBackgroundSolid {
     return self.pageStyle == 1 ? customColor : %orig;
 }
@@ -34,6 +40,9 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
     return self.pageStyle == 1 ? customColor : %orig;
 }
 - (UIColor *)generalBackgroundA {
+    return self.pageStyle == 1 ? customColor : %orig;
+}
+- (UIColor *)generalBackgroundB {
     return self.pageStyle == 1 ? customColor : %orig;
 }
 %end
@@ -364,6 +373,12 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 UIColor* raisedColor = [UIColor blackColor];
 %group gOLED
 %hook YTCommonColorPalette
+- (UIColor *)background1 {
+    return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+- (UIColor *)background2 {
+    return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
 - (UIColor *)brandBackgroundSolid {
     return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
@@ -380,6 +395,9 @@ UIColor* raisedColor = [UIColor blackColor];
     return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
 - (UIColor *)generalBackgroundA {
+    return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
+}
+- (UIColor *)generalBackgroundB {
     return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
 }
 %end
