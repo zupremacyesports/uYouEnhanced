@@ -13,6 +13,13 @@ static BOOL oldDarkTheme() {
     return ([[NSUserDefaults standardUserDefaults] integerForKey:@"appTheme"] == 2);
 }
 
+// Patch - fix YouTube Dark Theme Header
+%hook YTHeaderView
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig([UIColor colorWithRed:0.06 green:0.06 blue:0.06 alpha:1.0];) : %orig;
+}
+%end
+
 // Themes.xm - Theme Options
 // Old dark theme (gray)
 %group gOldDarkTheme
@@ -91,7 +98,7 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
     %orig;
 }
 - (UIColor *)darkBackgroundColor {
-    return customColor;
+    return isDarkMode() ? customColor : %orig;
 }
 - (void)setDarkBackgroundColor:(UIColor *)color {
     return isDarkMode() ? %orig(customColor) : %orig;
@@ -99,7 +106,9 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 - (void)layoutSubviews {
     %orig();
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTWatchNextResultsViewController")]) {
-        self.subviews[0].subviews[0].backgroundColor = customColor;
+        if (isDarkMode()) {
+            self.subviews[0].subviews[0].backgroundColor = customColor;
+        }
     }
 }
 %end
@@ -249,7 +258,9 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 }
 - (void)layoutSubviews {
     %orig();
+    if (isDarkMode()) {
     MSHookIvar<YTTopAlignedView *>(self, "_contentView").backgroundColor = customColor;
+    }
 }
 %end
 %hook GOODialogView
@@ -338,8 +349,10 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 %hook YTShareMainView
 - (void)layoutSubviews {
     %orig();
+    if (isDarkMode()) {
     MSHookIvar<YTQTMButton *>(self, "_cancelButton").backgroundColor = customColor;
     MSHookIvar<UIControl *>(self, "_safeArea").backgroundColor = customColor;
+  }
 }
 %end
 %hook _ASDisplayView
@@ -389,7 +402,7 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 %end
 %end
 
-// OLED dark mode by BandarHL & LillieH1000
+// OLED dark mode by @BandarHL and modified by @arichorn
 UIColor* raisedColor = [UIColor blackColor];
 %group gOLED
 %hook YTCommonColorPalette
@@ -466,7 +479,7 @@ UIColor* raisedColor = [UIColor blackColor];
     %orig;
 }
 - (UIColor *)darkBackgroundColor {
-    return [UIColor blackColor];
+    return isDarkMode() ? [UIColor blackColor] : %orig;
 }
 - (void)setDarkBackgroundColor:(UIColor *)color {
     return isDarkMode() ? %orig([UIColor blackColor]) : %orig;
@@ -474,7 +487,9 @@ UIColor* raisedColor = [UIColor blackColor];
 - (void)layoutSubviews {
     %orig();
     if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTWatchNextResultsViewController")]) {
-        self.subviews[0].subviews[0].backgroundColor = [UIColor blackColor];
+        if (isDarkMode()) {
+            self.subviews[0].subviews[0].backgroundColor = [UIColor blackColor];
+        }
     }
 }
 %end
@@ -624,7 +639,9 @@ UIColor* raisedColor = [UIColor blackColor];
 }
 - (void)layoutSubviews {
     %orig();
+    if (isDarkMode()) {
     MSHookIvar<YTTopAlignedView *>(self, "_contentView").backgroundColor = [UIColor blackColor];
+    }
 }
 %end
 %hook GOODialogView
@@ -713,8 +730,10 @@ UIColor* raisedColor = [UIColor blackColor];
 %hook YTShareMainView
 - (void)layoutSubviews {
     %orig();
+    if (isDarkMode()) {
     MSHookIvar<YTQTMButton *>(self, "_cancelButton").backgroundColor = [UIColor blackColor];
     MSHookIvar<UIControl *>(self, "_safeArea").backgroundColor = [UIColor blackColor];
+  }
 }
 %end
 %hook _ASDisplayView
