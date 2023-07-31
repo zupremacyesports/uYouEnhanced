@@ -476,8 +476,9 @@ static void replaceTab(YTIGuideResponse *response) {
 // Hide Subscriptions Notification Badge
 %group gHideSubscriptionsNotificationBadge
 %hook YTPivotBarIndicatorView
-- (void)removeFromSuperview {
-   %orig();
+- (void)didMoveToWindow {
+    [self setHidden:YES];
+    %orig();
 }
 %end
 %end
@@ -561,6 +562,15 @@ static void replaceTab(YTIGuideResponse *response) {
 // Skips content warning before playing *some videos - @PoomSmart
 %hook YTPlayabilityResolutionUserActionUIController
 - (void)showConfirmAlert { [self confirmAlertDidPressConfirm]; }
+%end
+
+// Portrait Fullscreen by Dayanch96
+%group gPortraitFullscreen
+%hook YTWatchViewController
+- (unsigned long long)allowedFullScreenOrientations {
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+%end
 %end
 
 // Disable snap to chapter
@@ -870,6 +880,9 @@ static void replaceTab(YTIGuideResponse *response) {
     }
     if (IsEnabled(@"ytSpeed_enabled")) {
         %init(gYTSpeed);
+    }
+    if (IsEnabled(@"portraitFullscreen_enabled")) {
+        %init(gPortraitFullscreen);
     }
     if (IsEnabled(@"iPhoneLayout_enabled") && (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)) {
         %init(giPhoneLayout);
