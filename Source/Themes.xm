@@ -13,13 +13,6 @@ static BOOL oldDarkTheme() {
     return ([[NSUserDefaults standardUserDefaults] integerForKey:@"appTheme"] == 2);
 }
 
-// Patch - fix YouTube Dark Theme Header
-%hook YTHeaderView
-- (void)setBackgroundColor:(UIColor *)color {
-    return isDarkMode() ? %orig([UIColor colorWithRed:0.06 green:0.06 blue:0.06 alpha:1.0]) : %orig;
-}
-%end
-
 // Themes.xm - Theme Options
 // Old dark theme (gray)
 %group gOldDarkTheme
