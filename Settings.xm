@@ -65,6 +65,16 @@ extern NSBundle *uYouPlusBundle();
 # pragma mark - VideoPlayer
     YTSettingsSectionItem *videoPlayerGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"VIDEO_PLAYER_OPTIONS") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable Portrait Fullscreen")
+                titleDescription:LOC(@"Enables Portrait Fullscreen on the iPhone YouTube App.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"portraitFullscreen_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"portraitFullscreen_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"DISABLE_DOUBLE_TAP_TO_SEEK")
                 titleDescription:LOC(@"DISABLE_DOUBLE_TAP_TO_SEEK_DESC")
                 accessibilityIdentifier:nil
