@@ -16,7 +16,7 @@ static BOOL oldDarkTheme() {
 // Patch - fix YouTube Dark Theme Header
 %hook YTHeaderView
 - (void)setBackgroundColor:(UIColor *)color {
-    return isDarkMode() ? %orig([UIColor colorWithRed:0.06 green:0.06 blue:0.06 alpha:1.0];) : %orig;
+    return isDarkMode() ? %orig([UIColor colorWithRed:0.06 green:0.06 blue:0.06 alpha:1.0]) : %orig;
 }
 %end
 
@@ -81,9 +81,7 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
 %hook ELMView
 - (void)didMoveToWindow {
     %orig;
-    if (isDarkMode()) {
         self.subviews[0].backgroundColor = [UIColor clearColor];
-    }
 }
 %end
 %hook YTAsyncCollectionView
@@ -373,6 +371,9 @@ UIColor *customColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alpha:
         if ([responder isKindOfClass:NSClassFromString(@"YTEditSheetControllerElementsContentViewController")]) {
             self.backgroundColor = customColor;
         }
+        if ([responder isKindOfClass:NSClassFromString(@"YTMainAppEngagementPanelViewController")]) {
+            self.backgroundColor = customColor;
+        }
         responder = [responder nextResponder];
       }
    }
@@ -462,9 +463,7 @@ UIColor* raisedColor = [UIColor blackColor];
 %hook ELMView
 - (void)didMoveToWindow {
     %orig;
-    if (isDarkMode()) {
         self.subviews[0].backgroundColor = [UIColor clearColor];
-    }
 }
 %end
 %hook YTAsyncCollectionView
@@ -752,6 +751,9 @@ UIColor* raisedColor = [UIColor blackColor];
             self.backgroundColor = [UIColor blackColor];
         }
         if ([responder isKindOfClass:NSClassFromString(@"YTEditSheetControllerElementsContentViewController")]) {
+            self.backgroundColor = [UIColor blackColor];
+        }
+        if ([responder isKindOfClass:NSClassFromString(@"YTMainAppEngagementPanelViewController")]) {
             self.backgroundColor = [UIColor blackColor];
         }
         responder = [responder nextResponder];
