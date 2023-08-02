@@ -890,7 +890,7 @@ extern NSBundle *uYouPlusBundle();
                 settingItemId:0],
 
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable App Version Spoofer")
-                titleDescription:LOC(@"APP_VERSION_SPOOFER_DESC")
+                titleDescription:LOC(@"Enable this to use the Version Spoofer and select your perferred version below. App restart is required.")
                 accessibilityIdentifier:nil
                 switchOn:IsEnabled(@"enableVersionSpoofer_enabled")
                 switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
