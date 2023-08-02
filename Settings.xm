@@ -124,6 +124,26 @@ extern NSBundle *uYouPlusBundle();
 # pragma mark - Video Controls Overlay Options
     YTSettingsSectionItem *videoControlOverlayGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"VIDEO_CONTROLS_OVERLAY_OPTIONS") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable Share Button")
+                titleDescription:LOC(@"Enable the Share Button in video controls overlay.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"enableShareButton_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"enableShareButton_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable 'Save To Playlist' Button")
+                titleDescription:LOC(@"Enable the 'Save To Playlist' Button in video controls overlay.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"enableSaveToButton_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"enableSaveToButton_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HIDE_AUTOPLAY_SWITCH")
                 titleDescription:LOC(@"HIDE_AUTOPLAY_SWITCH_DESC")
                 accessibilityIdentifier:nil
