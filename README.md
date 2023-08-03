@@ -1,12 +1,9 @@
-# uYou 3.0.1 compatibility
-the uYou 3.0.1 Tweak only works fine with **YouTube v18.06.6 up to the latest version!** 🎉
+<h2>uYou 3.0.1 compatibility</h2>
+the uYou 3.0.1 Tweak only works fine with **YouTube v18.06.6 up to the latest version!**
 
-# IPA Building
-you can build your own uYouPlusExtra ipa here https://github.com/arichorn/uYouPlusExtra/wiki/Building
+<h2>uYouPlus Tweak Preview</h2>
 
-# uYouPlus Preview
 ![IMG_2196](https://user-images.githubusercontent.com/52943116/189822859-8a0952db-9264-4b5b-9cbe-d0a87b2db5a0.PNG)
-***
 
 <p align="center">
     <img src="https://img.shields.io/badge/Platform-iOS%20%7C%20iPadOS%2014.0%2B-yellow" alt="Badge"/>
@@ -53,6 +50,12 @@ you can build your own uYouPlusExtra ipa here https://github.com/arichorn/uYouPl
 </a>
 <h4 align='center'><a href='https://twitter.com/miro92'>MiRO92</a></h4>
 </td>
+<td id='qnblackcat'>
+<a href='https://github.com/qnblackcat'>
+<img src='https://github.com/qnblackcat.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://twitter.com/qnblackcat'>qnblackcat</a></h4>
+</td>
 <td id='poomsmart'>
 <a href='https://github.com/PoomSmart'>
 <img src='https://github.com/PoomSmart.png' width='140px;'>
@@ -71,15 +74,15 @@ you can build your own uYouPlusExtra ipa here https://github.com/arichorn/uYouPl
 </a>
 <h4 align='center'><a href='https://twitter.com/bandarhl'>BandarHelal</a></h4>
 </td>
+</tr>
+  
+<tr>
 <td id='galactic-dev'>
 <a href='https://github.com/Galactic-Dev'>
 <img src='https://github.com/Galactic-Dev.png' width='140px;'>
 </a>
 <h4 align='center'><a href='https://twitter.com/dev_galactic'>galactic</a></h4>
 </td>
-</tr>
-  
-<tr>
 <td id='julioverne'>
 <a href='https://github.com/julioverne'>
 <img src='https://github.com/julioverne.png' width='140px;'>
@@ -104,15 +107,15 @@ you can build your own uYouPlusExtra ipa here https://github.com/arichorn/uYouPl
 </a>
 <h4 align='center'><a href='https://twitter.com/therealFoxster'>Foxster</a></h4>
 </td>
+</tr>
+  
+<tr>
 <td id='ichitaso'>
 <a href='https://github.com/ichitaso'>
 <img src='https://github.com/ichitaso.png' width='140px;'>
 </a>
 <h4 align='center'><a href='https://twitter.com/ichitaso'>ichitaso</a></h4>
 </td>
-</tr>
-  
-<tr>
 <td id='ahmed-bafkir'>
 <a href='https://github.com/AhmedBafkir'>
 <img src='https://github.com/AhmedBafkir.png' width='140px;'>
@@ -167,13 +170,17 @@ you can build your own uYouPlusExtra ipa here https://github.com/arichorn/uYouPl
 
 11. **DontEatMyContent**: prevent the notch/Dynamic Island from munching on 2:1 video content in YouTube.
 
-12. **YTABConfig**: allow user to control over YouTube A/B testing flags.
+12. **YTNoCommunityPosts**: Tweak to disable all Community Posts on the YouTube app.
 
-13. **YTVideoOverlay**: A helper tweak to add buttons on YouTube video overlay.
+13 **LowContrastMode**: this tweak allows users to darken the text in the YouTube app.
 
-14. **YouMute**: Mute/unmute videos in iOS YouTube directly.
+14. **YTABConfig**: allow user to control over YouTube A/B testing flags.
 
-15. **YouQuality**: View and change video quality in YouTube app from the video overlay.
+15. **YTVideoOverlay**: A helper tweak to add buttons on YouTube video overlay.
+
+16. **YouMute**: Mute/unmute videos in iOS YouTube directly.
+
+17. **YouQuality**: View and change video quality in YouTube app from the video overlay.
 
 </details>
 
@@ -191,7 +198,7 @@ you can build your own uYouPlusExtra ipa here https://github.com/arichorn/uYouPl
 
   - My official AltStore repo: https://qnblackcat.github.io/AltStore/
 
-  - [Open in AltStore (v18.29.1-3.0.1)](https://tinyurl.com/4v2sucmc) - It will take a while to install because AltStore needs to download the IPA first.
+  - [Open in AltStore (v18.30.6-3.0.1)](https://tinyurl.com/3nuefscd) - It will take a while to install because AltStore needs to download the IPA first.
 
 - Version info: _(last update: Jul 24)_
 
@@ -217,7 +224,7 @@ you can build your own uYouPlusExtra ipa here https://github.com/arichorn/uYouPl
 | **YTABConfig** | [PoomSmart](https://twitter.com/poomsmart) | 1.5.0-1 | [✔︎](https://github.com/PoomSmart/YTABConfig) |
 | **YTReExplore** | [PoomSmart](https://twitter.com/poomsmart) | 1.0.2 | [✔︎](https://github.com/PoomSmart/YTReExplore) |
 | **NoYTPremium** | [PoomSmart](https://twitter.com/poomsmart) | 1.0.4 | [✔︎](https://github.com/PoomSmart/NoYTPremium) |
-| **YTNoCommunityPosts** | [michael-winay](https://github.com/michael-winay) | 1.0.0 | [✔︎](https://github.com/michael-winay/YTNoCommunityPosts) |
+| **YTNoCommunityPosts** | [michael-winay](https://github.com/michael-winay) | 0.0.2 | [✔︎](https://github.com/michael-winay/YTNoCommunityPosts) |
 | **YTNoPaidPromo** | [PoomSmart](https://twitter.com/poomsmart) | 1.0.0 | [✔︎](https://github.com/PoomSmart/YTNoPaidPromo) |
 | **YTVideoOverlay** | [PoomSmart](https://twitter.com/poomsmart) | 1.1.0-1 | [✔︎](https://github.com/PoomSmart/YTVideoOverlay) |
 | **YouQuality** | [PoomSmart](https://twitter.com/poomsmart) | 1.1.2-1 | [✔︎](https://github.com/PoomSmart/YouQuality) |
@@ -246,4 +253,5 @@ See [FAQ - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/FAQ).
 
 # Building (optional)
 
-See [Building - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/Building).
+See [qnblackcat/Building - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/Building)
+or [arichorn/Building - Wiki](https://github.com/arichorn/uYouPlusExtra/wiki/Building).
