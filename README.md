@@ -1,8 +1,3 @@
-<h2>uYou 3.0.1 compatibility</h2>
-the uYou 3.0.1 Tweak only works fine with **YouTube v18.06.6 up to the latest version!**
-
-<h2>uYouPlus Tweak Preview</h2>
-
 ![IMG_2196](https://user-images.githubusercontent.com/52943116/189822859-8a0952db-9264-4b5b-9cbe-d0a87b2db5a0.PNG)
 
 <p align="center">
@@ -233,6 +228,14 @@ the uYou 3.0.1 Tweak only works fine with **YouTube v18.06.6 up to the latest ve
 | **Return YouTube Dislike** | [PoomSmart](https://twitter.com/poomsmart) | 1.11.3 | [✔︎](https://github.com/PoomSmart/Return-YouTube-Dislikes) |
 
 </details>
+
+# uYou Tweak Compatibility List
+
+| Developer | Tweak Name and Version | App Version Compatibility |
+|-----------|:----------------------:|:-------------------------:|
+| MiRO92 | uYou 3.0.1 | Works on v18.06.6-latest |
+| MiRO92 | uYou 3.0 | Works on v18.06.6-18.18.2 |
+| MiRO92 | uYou 2.1/2.3~1 | Works on v16.42.3-18.01.6 |
 
 # Installation
 See [Installation - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/Installation).
