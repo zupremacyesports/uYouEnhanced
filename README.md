@@ -165,17 +165,17 @@
 
 11. **DontEatMyContent**: prevent the notch/Dynamic Island from munching on 2:1 video content in YouTube.
 
-12. **YTNoCommunityPosts**: Tweak to disable all Community Posts on the YouTube app.
+12. **YTABConfig**: allow user to control over YouTube A/B testing flags.
 
-13 **LowContrastMode**: this tweak allows users to darken the text in the YouTube app.
+13. **YouMute**: mute YouTube videos via a button.
 
-14. **YTABConfig**: allow user to control over YouTube A/B testing flags.
+14. **YouQuality**: change video quality via a button.
 
-15. **YTVideoOverlay**: A helper tweak to add buttons on YouTube video overlay.
+15. **YTVideoOverlay**: add buttons to overlay the video.
 
-16. **YouMute**: Mute/unmute videos in iOS YouTube directly.
+16. **YTNoCommunityPosts**: Tweak to disable all Community Posts on the YouTube app. **<-- uYouPlusExtra Exclusive Feature (may change)**
 
-17. **YouQuality**: View and change video quality in YouTube app from the video overlay.
+17. **LowContrastMode**: this tweak allows users to darken the text in the YouTube app. **<-- uYouPlusExtra Exclusive Feature (may change)**
 
 </details>
 
@@ -187,7 +187,7 @@
 
 # Download
 
-- **uYouPlus** (or you can call it uYou+) requires iOS or iPadOS 14.0 or later. The latest version of **uYouPlus** can be found in the [Release tab](https://github.com/arichorn/uYouPlusExtra/releases/latest).
+- **uYouPlusExtra** (or you can just call it uYou+) requires iOS or iPadOS 14.0 or later. The latest version of **uYouPlusExtra** ipa can be found in the [Release tab](https://github.com/arichorn/uYouPlusExtra/releases/latest).
 
 - For AltStore user: 
 
@@ -195,7 +195,7 @@
 
   - [Open in AltStore (v18.30.6-3.0.1)](https://tinyurl.com/3nuefscd) - It will take a while to install because AltStore needs to download the IPA first.
 
-- Version info: _(last update: Aug 3rd)_
+- Version info: _(last update: Aug 5)_
 
 <details>
   <summary>Expand ℹ️</summary>
@@ -219,13 +219,14 @@
 | **YTABConfig** | [PoomSmart](https://twitter.com/poomsmart) | 1.5.0-1 | [✔︎](https://github.com/PoomSmart/YTABConfig) |
 | **YTReExplore** | [PoomSmart](https://twitter.com/poomsmart) | 1.0.2 | [✔︎](https://github.com/PoomSmart/YTReExplore) |
 | **NoYTPremium** | [PoomSmart](https://twitter.com/poomsmart) | 1.0.4 | [✔︎](https://github.com/PoomSmart/NoYTPremium) |
-| **YTNoCommunityPosts** | [michael-winay](https://github.com/michael-winay) | 0.0.2 | [✔︎](https://github.com/michael-winay/YTNoCommunityPosts) |
 | **YTNoPaidPromo** | [PoomSmart](https://twitter.com/poomsmart) | 1.0.0 | [✔︎](https://github.com/PoomSmart/YTNoPaidPromo) |
-| **YTVideoOverlay** | [PoomSmart](https://twitter.com/poomsmart) | 1.1.0-1 | [✔︎](https://github.com/PoomSmart/YTVideoOverlay) |
-| **YouQuality** | [PoomSmart](https://twitter.com/poomsmart) | 1.1.2-1 | [✔︎](https://github.com/PoomSmart/YouQuality) |
-| **YouMute** | [PoomSmart](https://twitter.com/poomsmart) | 1.2.1-1 | [✔︎](https://github.com/PoomSmart/YouMute) |
 | **YouRememberCaption** | [PoomSmart](https://twitter.com/poomsmart) | 1.0.0 | [✔︎](https://poomsmart.github.io/repo/depictions/youremembercaption.html) |
 | **Return YouTube Dislike** | [PoomSmart](https://twitter.com/poomsmart) | 1.11.3 | [✔︎](https://github.com/PoomSmart/Return-YouTube-Dislikes) |
+| **YouMute** | [PoomSmart](https://twitter.com/poomsmart) | 1.2.1-2 | [✔︎](https://github.com/PoomSmart/YouMute) |
+| **YouQuality** | [PoomSmart](https://twitter.com/poomsmart) | 1.1.4 | [✔︎](https://github.com/PoomSmart/YouQuality) |
+| **YTVideoOverlay** | [PoomSmart](https://twitter.com/poomsmart) | 1.1.0-2 | [✔︎](https://github.com/PoomSmart/YTVideoOverlay) |
+| **YTNoCommunityPosts** | [michael-winay](https://github.com/michael-winay) | 0.0.2 | [✔︎](https://github.com/michael-winay/YTNoCommunityPosts) |
+| **LowContrastMode** | [arichorn](https://github.com/arichorn) | 1.3.1 | [✔︎](https://github.com/arichorn/YTLowContrastMode) |
 
 </details>
 
