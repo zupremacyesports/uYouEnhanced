@@ -855,4 +855,7 @@ UIColor* raisedColor = [UIColor blackColor];
     if (oldDarkTheme()) {
         %init(gOldDarkTheme);
     }
+    if (defaultDarkTheme()) {
+        %init(gDefaultDarkTheme);
+    }
 }
