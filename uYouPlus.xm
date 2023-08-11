@@ -1357,6 +1357,9 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
     if (IsEnabled(@"ytNoModernUI_enabled")) {
        %init(gYTNoModernUI);
     }
+    if (IsEnabled(@"ytAppPatcher_enabled")) {
+       %init(gYouTubeAppPatcher);
+    }
 
     // Disable updates
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"automaticallyCheckForUpdates"];
