@@ -937,6 +937,7 @@ static void replaceTab(YTIGuideResponse *response) {
 - (void)didMoveToWindow {
     %orig;
     if (isDarkMode()) {
+        if ([self.accessibilityIdentifier isEqualToString:@"brand.promo_view"]) self.superview.backgroundColor = [UIColor colorWithRed: 0.13 green: 0.13 blue: 0.13 alpha: 1.00];
         if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment_cell"]) self.backgroundColor = [UIColor colorWithRed: 0.09 green: 0.09 blue: 0.09 alpha: 1.00];
         if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.comment_composer"]) self.backgroundColor = [UIColor colorWithRed: 0.09 green: 0.09 blue: 0.09 alpha: 1.00];
         if ([self.accessibilityIdentifier isEqualToString:@"id.comment.guidelines_text"]) self.superview.backgroundColor = [UIColor colorWithRed: 0.09 green: 0.09 blue: 0.09 alpha: 1.00];
