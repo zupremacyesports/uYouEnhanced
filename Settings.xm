@@ -799,6 +799,16 @@ extern NSBundle *uYouPlusBundle();
 # pragma mark - Miscellaneous
     YTSettingsSectionItem *miscellaneousGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"MISCELLANEOUS") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"App Patcher - v16.42.3 Exclusive")
+                titleDescription:LOC(@"Enabling this Option will change the APIs, Functionality and it will also patch the app into removing the error 400 message for a little longer which is really useful.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"ytAppPatcher_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"ytAppPatcher_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"CAST_CONFIRM")
                 titleDescription:LOC(@"CAST_CONFIRM_DESC")
                 accessibilityIdentifier:nil
