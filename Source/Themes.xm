@@ -90,6 +90,41 @@ UIColor *defaultColor = [UIColor colorWithRed: 0.06 green: 0.06 blue: 0.06 alpha
     return isDarkMode() ? %orig(defaultColor) : %orig;
 }
 %end
+%hook YTHorizontalCardListView
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig(defaultColor) : %orig;
+}
+%end
+%hook YTWatchMiniBarView
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig(defaultColor) : %orig;
+}
+%end
+%hook YTCreateCommentAccessoryView
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig(defaultColor) : %orig;
+}
+%end
+%hook YTCreateCommentTextView
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig(defaultColor) : %orig;
+}
+%end
+%hook YTSearchView
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig(defaultColor) : %orig;
+}
+%end
+%hook YTSearchBoxView
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig(defaultColor) : %orig;
+}
+%end
+%hook YTTabTitlesView
+- (void)setBackgroundColor:(UIColor *)color {
+    return isDarkMode() ? %orig(defaultColor) : %orig;
+}
+%end
 %end
 
 // Old dark theme (gray)
@@ -434,6 +469,7 @@ UIColor *originalColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alph
     %orig;
     if (isDarkMode()) {
         if ([self.nextResponder isKindOfClass:%c(ASScrollView)]) { self.backgroundColor = [UIColor clearColor]; }
+        if ([self.accessibilityIdentifier isEqualToString:@"brand.promo_view"]) { self.superview.backgroundColor = originalColor }
         if ([self.accessibilityIdentifier isEqualToString:@"eml.cvr"]) { self.backgroundColor = originalColor; }
         if ([self.accessibilityIdentifier isEqualToString:@"rich_header"]) { self.backgroundColor = originalColor; }
         if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment_cell"]) { self.backgroundColor = originalColor; }
@@ -792,6 +828,7 @@ UIColor* raisedColor = [UIColor blackColor];
     %orig;
     if (isDarkMode()) {
         if ([self.nextResponder isKindOfClass:%c(ASScrollView)]) { self.backgroundColor = [UIColor clearColor]; }
+        if ([self.accessibilityIdentifier isEqualToString:@"brand.promo_view"]) { self.superview.backgroundColor = [UIColor blackColor]; }
         if ([self.accessibilityIdentifier isEqualToString:@"eml.cvr"]) { self.backgroundColor = [UIColor blackColor]; }
         if ([self.accessibilityIdentifier isEqualToString:@"rich_header"]) { self.backgroundColor = [UIColor blackColor]; }
         if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment_cell"]) { self.backgroundColor = [UIColor blackColor]; }
