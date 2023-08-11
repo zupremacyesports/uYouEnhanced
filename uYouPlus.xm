@@ -496,6 +496,23 @@ static BOOL didFinishLaunching;
 - (BOOL)enablePlayerBarForVerticalVideoWhenControlsHiddenInFullscreen { return YES; }
 %end
 
+%group gYouTubeAppPatcher // YTAppPatcher for 16.42.3 - @arichorn
+%hook YTVersionUtils
++ (NSString *)appVersion { return @"17.05.2"; }
+%end
+
+%hook YTSettingsCell // made by Dayanch96
+- (void)setDetailText:(id)arg1 {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *appVersion = infoDictionary[@"CFBundleShortVersionString"];
+
+    if ([arg1 isEqualToString:@"17.05.2"]) {
+        arg1 = appVersion;
+    } %orig(arg1);
+}
+%end
+%end
+
 // Disable Wifi Related Settings - @arichorn
 %group gDisableWifiRelatedSettings
 %hook YTSettingsSectionItemManager
