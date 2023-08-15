@@ -141,7 +141,7 @@ UIColor *originalColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alph
     return self.pageStyle == 1 ? originalColor : %orig;
 }
 - (UIColor *)baseBackground {
-    return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
+    return self.pageStyle == 1 ? originalColor : %orig;
 }
 - (UIColor *)brandBackgroundSolid {
     return self.pageStyle == 1 ? originalColor : %orig;
@@ -166,39 +166,6 @@ UIColor *originalColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alph
 }
 - (UIColor *)menuBackground {
     return self.pageStyle == 1 ? originalColor : %orig;
-}
-%end
-
-%hook UITableViewCell
-- (void)_layoutSystemBackgroundView {
-    %orig;
-    NSString *backgroundViewKey = class_getInstanceVariable(self.class, "_colorView") ? @"_colorView" : @"_backgroundView";
-    ((UIView *)[[self valueForKey:@"_systemBackgroundView"] valueForKey:backgroundViewKey]).backgroundColor = originalColor;
-}
-- (void)_layoutSystemBackgroundView:(BOOL)arg1 {
-    %orig;
-    ((UIView *)[[self valueForKey:@"_systemBackgroundView"] valueForKey:@"_colorView"]).backgroundColor = originalColor;
-}
-%end
-
-%hook settingsReorderTable
-- (void)viewDidLayoutSubviews {
-    %orig;
-    self.tableView.backgroundColor = originalColor;
-}
-%end
-
-%hook FRPSelectListTable
-- (void)viewDidLayoutSubviews {
-    %orig;
-    self.tableView.backgroundColor = originalColor;
-}
-%end
-
-%hook FRPreferences
-- (void)viewDidLayoutSubviews {
-    %orig;
-    self.tableView.backgroundColor = originalColor;
 }
 %end
 
