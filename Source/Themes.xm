@@ -613,7 +613,12 @@ UIColor* raisedColor = [UIColor blackColor];
 %end
 
 %hook UITableViewCell
-- (void)_layoutSystemBackgroundView:(BOOL)animated {
+- (void)_layoutSystemBackgroundView {
+    %orig;
+    NSString *backgroundViewKey = class_getInstanceVariable(self.class, "_colorView") ? @"_colorView" : @"_backgroundView";
+    ((UIView *)[[self valueForKey:@"_systemBackgroundView"] valueForKey:backgroundViewKey]).backgroundColor = [UIColor blackColor];
+}
+- (void)_layoutSystemBackgroundView:(BOOL)arg1 {
     %orig;
     ((UIView *)[[self valueForKey:@"_systemBackgroundView"] valueForKey:@"_colorView"]).backgroundColor = [UIColor blackColor];
 }
