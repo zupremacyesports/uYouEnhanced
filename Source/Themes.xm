@@ -20,6 +20,11 @@ static BOOL oldDarkTheme() {
 // Default Dark theme
 %group gDefaultDarkTheme
 UIColor *defaultColor = [UIColor colorWithRed: 0.06 green: 0.06 blue: 0.06 alpha: 1.00];
+%hook YTCommonColorPalette
+- (UIColor *)baseBackground {
+    return self.pageStyle == 1 ? defaultColor : %orig;
+}
+%end
 %hook YTPivotBarView
 - (void)setBackgroundColor:(UIColor *)color {
     return isDarkMode() ? %orig(defaultColor) : %orig;
