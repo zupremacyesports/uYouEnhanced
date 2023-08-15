@@ -170,7 +170,12 @@ UIColor *originalColor = [UIColor colorWithRed:0.129 green:0.129 blue:0.129 alph
 %end
 
 %hook UITableViewCell
-- (void)_layoutSystemBackgroundView:(BOOL)animated {
+- (void)_layoutSystemBackgroundView {
+    %orig;
+    NSString *backgroundViewKey = class_getInstanceVariable(self.class, "_colorView") ? @"_colorView" : @"_backgroundView";
+    ((UIView *)[[self valueForKey:@"_systemBackgroundView"] valueForKey:backgroundViewKey]).backgroundColor = originalColor;
+}
+- (void)_layoutSystemBackgroundView:(BOOL)arg1 {
     %orig;
     ((UIView *)[[self valueForKey:@"_systemBackgroundView"] valueForKey:@"_colorView"]).backgroundColor = originalColor;
 }
