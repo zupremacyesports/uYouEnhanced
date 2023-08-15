@@ -175,8 +175,6 @@
 @end
 
 @interface YTPivotBarIndicatorView : UIView
-@property (nonatomic, assign, readwrite, getter=isHidden) BOOL hidden;
-@property (nonatomic, assign, readwrite) CGFloat alpha;
 @end
 
 @interface YTCommentDetailHeaderCell : UIView
@@ -192,4 +190,14 @@
 @end
 
 @interface UIPredictionViewController : UIViewController
+@end
+
+@interface FRPreferences : UITableViewController
+@end
+
+@interface FRPSelectListTable : UITableViewController
+@end
+
+@interface settingsReorderTable : UIViewController
+@property(nonatomic, strong) UITableView *tableView;
 @end
