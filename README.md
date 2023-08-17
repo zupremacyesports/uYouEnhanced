@@ -193,16 +193,16 @@
 
   - My official AltStore repo: https://therealfoxster.github.io/altsource-viewer/index.html?source=https://raw.githubusercontent.com/arichorn/arichorn.github.io/main/apps.json
 
-  - [Open in AltStore (v18.30.6-3.0.1)](https://tinyurl.com/3nuefscd) - It will take a while to install because AltStore needs to download the IPA first.
+  - [Open in AltStore (v18.31.3-3.0.1)](https://tinyurl.com/4srfmcm2) - It will take a while to install because AltStore needs to download the IPA first.
 
-- Version info: _(last update: Aug 5)_
+- Version info: _(last update: Aug 15)_
 
 <details>
   <summary>Expand ℹ️</summary>
 
 | **Tweaks/App** | **Developer** | **Version** | **Open source** |
 | - | - | :-: | :-:  |
-| **YouTube** | Google Inc | 18.30.7 | ✖︎ |
+| **YouTube** | Google Inc | 18.31.3 | ✖︎ |
 | [uYou](https://github.com/MiRO92/uYou-for-YouTube) | [MiRO92](https://twitter.com/miro92) | 3.0.1 | ✖︎ |
 | **Open in YouTube** | [CokePokes](https://github.com/CokePokes) | 1.2 | [✔︎](https://github.com/CokePokes/YoutubeExtensions) |
 | **iSponsorBlock** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.2 | [✔︎](https://github.com/Galactic-Dev/iSponsorBlock) |
@@ -226,7 +226,7 @@
 | **YouQuality** | [PoomSmart](https://twitter.com/poomsmart) | 1.1.4 | [✔︎](https://github.com/PoomSmart/YouQuality) |
 | **YTVideoOverlay** | [PoomSmart](https://twitter.com/poomsmart) | 1.1.0-2 | [✔︎](https://github.com/PoomSmart/YTVideoOverlay) |
 | **YTNoCommunityPosts** | [michael-winay](https://github.com/michael-winay) | 0.0.2 | [✔︎](https://github.com/michael-winay/YTNoCommunityPosts) |
-| **LowContrastMode** | [arichorn](https://github.com/arichorn) | 1.3.1 | [✔︎](https://github.com/arichorn/YTLowContrastMode) |
+| **LowContrastMode** | [arichorn](https://github.com/arichorn) | 1.4.0 | [✔︎](https://github.com/arichorn/YTLowContrastMode) |
 
 </details>
 
@@ -234,16 +234,15 @@
 
 | Developer | Tweak Name and Version | App Version Compatibility |
 |-----------|:----------------------:|:-------------------------:|
-| MiRO92 | uYou 3.0.1 | Works on v18.06.6-latest |
-| MiRO92 | uYou 3.0 | Works on v18.06.6-18.18.2 |
 | MiRO92 | uYou 2.1/2.3~1 | Works on v16.42.3-18.01.6 |
+| MiRO92 | uYou 3.0 | Works on v18.06.6-18.18.2 |
+| MiRO92 | uYou 3.0.1 | Works on v18.06.6-latest |
 
 # Installation
 See [Installation - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/Installation).
 
 # Support the developers
 - [**MiRO92**](https://twitter.com/miro92): https://github.com/MiRO92/uYou-for-YouTube#support
-- [**Poomsmart**](https://twitter.com/poomsmart): https://poomsmart.github.io
 - [**level3tjg**](https://twitter.com/level3tjg): https://ko-fi.com/level3tjg
 - [**BandarHL**](https://twitter.com/bandarhl): https://www.paypal.com/paypalme/BandarHL
 - [**julioverne**](https://twitter.com/ijulioverne): https://www.patreon.com/julioverne
