@@ -1,9 +1,11 @@
 # Security Policy for uYouPlus Developers
 If I verify a reported security vulnerability, my policy is:
 
-- I will patch the current main branch, as well as the immediate prior minor release branch.
+- the uYouPlusExtra Developer will patch the current main branch, as well as the immediate prior minor release branch.
 
-- After fully patching the main branch, I will issue a new release for the main branch along with LTS release branches.
+- the Contributors are allowed to patch the current main branch with custom features and the ability to add new & updated Localizable Strings.
+
+- After fully patching the main branch, the uYouPlusExtra Developer will issue a new release for the main branch along with LTS release branches.
 
 ## Supported Versions
 
