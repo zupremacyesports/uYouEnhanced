@@ -258,3 +258,26 @@ See [FAQ - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/FAQ).
 
 See [qnblackcat/Building - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/Building)
 or [arichorn/Building - Wiki](https://github.com/arichorn/uYouPlusExtra/wiki/Building).
+
+<details>
+    <summary>Balackburn's YTLitePlus</summary>
+# change from uYouPlus/uYouPlusExtra to YTLitePlus (optional)
+
+hello, this is here to show yall this tweak. I've been seeing the YTLitePlus tweak on reddit for quite some time now and decided to join in. before you download the tweak you must look at the Pros and Cons below before downloading because it lets you know more about the tweak.
+
+https://github.com/Balackburn/YTLitePlus/releases
+
+**Pros**
+
+- YTLitePlus is stable and more tweakable then uYouPlus/uYouPlusExtra.
+
+- YTLitePlus has more features in YTLite Settings that uYouPlusExtra doesn't have.
+
+- YTLitePlus has a lightweight Version of the App Version Spoofer which makes it easier to use.
+
+**Cons**
+
+- No Video Downloading in YTLitePlus.
+
+- Video Quality on WiFi not in YTLitePlus.
+</details>
