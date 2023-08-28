@@ -136,6 +136,9 @@ static BOOL version41() {
 static BOOL version42() {
     return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 42;
 }
+static BOOL version43() {
+    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 43;
+}
 
 %group gVersion0
 %hook YTVersionUtils
@@ -143,259 +146,265 @@ static BOOL version42() {
     NSURL *versionURL = [NSURL URLWithString:@"https://raw.githubusercontent.com/arichorn/YTAppVersionSpoofer-WIP/main/version.txt"];
     NSString *latestVersion = [NSString stringWithContentsOfURL:versionURL encoding:NSUTF8StringEncoding error:nil];
     
-    return latestVersion ?: @"18.30.6";
+    return latestVersion ?: @"18.33.2";
 }
 %end
 %end
 
 %group gVersion1
 %hook YTVersionUtils // 1
-+ (NSString *)appVersion { return @"16.42.3"; }
++ (NSString *)appVersion { return @"17.38.10"; }
 %end
 %end
 
 %group gVersion2
 %hook YTVersionUtils // 2
-+ (NSString *)appVersion { return @"16.41.2"; }
++ (NSString *)appVersion { return @"16.42.3"; }
 %end
 %end
 
 %group gVersion3
 %hook YTVersionUtils // 3
-+ (NSString *)appVersion { return @"16.40.3"; }
++ (NSString *)appVersion { return @"16.41.2"; }
 %end
 %end
 
 %group gVersion4
 %hook YTVersionUtils // 4
-+ (NSString *)appVersion { return @"16.39.6"; }
++ (NSString *)appVersion { return @"16.40.3"; }
 %end
 %end
 
 %group gVersion5
 %hook YTVersionUtils // 5
-+ (NSString *)appVersion { return @"16.38.2"; }
++ (NSString *)appVersion { return @"16.39.6"; }
 %end
 %end
 
 %group gVersion6
 %hook YTVersionUtils // 6
-+ (NSString *)appVersion { return @"16.37.3"; }
++ (NSString *)appVersion { return @"16.38.2"; }
 %end
 %end
 
 %group gVersion7
 %hook YTVersionUtils // 7
-+ (NSString *)appVersion { return @"16.36.4"; }
++ (NSString *)appVersion { return @"16.37.3"; }
 %end
 %end
 
 %group gVersion8
 %hook YTVersionUtils // 8
-+ (NSString *)appVersion { return @"16.35.5"; }
++ (NSString *)appVersion { return @"16.36.4"; }
 %end
 %end
 
 %group gVersion9
 %hook YTVersionUtils // 9
-+ (NSString *)appVersion { return @"16.35.4"; }
++ (NSString *)appVersion { return @"16.35.5"; }
 %end
 %end
 
 %group gVersion10
 %hook YTVersionUtils // 10
-+ (NSString *)appVersion { return @"16.34.7"; }
++ (NSString *)appVersion { return @"16.35.4"; }
 %end
 %end
 
 %group gVersion11
 %hook YTVersionUtils // 11
-+ (NSString *)appVersion { return @"16.34.3"; }
++ (NSString *)appVersion { return @"16.34.7"; }
 %end
 %end
 
 %group gVersion12
 %hook YTVersionUtils // 12
-+ (NSString *)appVersion { return @"16.33.3"; }
++ (NSString *)appVersion { return @"16.34.3"; }
 %end
 %end
 
 %group gVersion13
 %hook YTVersionUtils // 13
-+ (NSString *)appVersion { return @"16.32.6"; }
++ (NSString *)appVersion { return @"16.33.3"; }
 %end
 %end
 
 %group gVersion14
 %hook YTVersionUtils // 14
-+ (NSString *)appVersion { return @"16.31.4"; }
++ (NSString *)appVersion { return @"16.32.6"; }
 %end
 %end
 
 %group gVersion15
 %hook YTVersionUtils // 15
-+ (NSString *)appVersion { return @"16.30.2"; }
++ (NSString *)appVersion { return @"16.31.4"; }
 %end
 %end
 
 %group gVersion16
 %hook YTVersionUtils // 16
-+ (NSString *)appVersion { return @"16.29.4"; }
++ (NSString *)appVersion { return @"16.30.2"; }
 %end
 %end
 
 %group gVersion17
 %hook YTVersionUtils // 17
-+ (NSString *)appVersion { return @"16.28.2"; }
++ (NSString *)appVersion { return @"16.29.4"; }
 %end
 %end
 
 %group gVersion18
 %hook YTVersionUtils // 18
-+ (NSString *)appVersion { return @"16.27.3"; }
++ (NSString *)appVersion { return @"16.28.2"; }
 %end
 %end
 
 %group gVersion19
 %hook YTVersionUtils // 19
-+ (NSString *)appVersion { return @"16.26.6"; }
++ (NSString *)appVersion { return @"16.27.3"; }
 %end
 %end
 
 %group gVersion20
 %hook YTVersionUtils // 20
-+ (NSString *)appVersion { return @"16.25.2"; }
++ (NSString *)appVersion { return @"16.26.6"; }
 %end
 %end
 
 %group gVersion21
 %hook YTVersionUtils // 21
-+ (NSString *)appVersion { return @"16.24.2"; }
++ (NSString *)appVersion { return @"16.25.2"; }
 %end
 %end
 
 %group gVersion22
 %hook YTVersionUtils // 22
-+ (NSString *)appVersion { return @"16.23.3"; }
++ (NSString *)appVersion { return @"16.24.2"; }
 %end
 %end
 
 %group gVersion23
 %hook YTVersionUtils // 23
-+ (NSString *)appVersion { return @"16.23.2"; }
++ (NSString *)appVersion { return @"16.23.3"; }
 %end
 %end
 
 %group gVersion24
 %hook YTVersionUtils // 24
-+ (NSString *)appVersion { return @"16.22.5"; }
++ (NSString *)appVersion { return @"16.23.2"; }
 %end
 %end
 
 %group gVersion25
 %hook YTVersionUtils // 25
-+ (NSString *)appVersion { return @"16.20.5"; }
++ (NSString *)appVersion { return @"16.22.5"; }
 %end
 %end
 
 %group gVersion26
 %hook YTVersionUtils // 26
-+ (NSString *)appVersion { return @"16.19.6"; }
++ (NSString *)appVersion { return @"16.20.5"; }
 %end
 %end
 
 %group gVersion27
 %hook YTVersionUtils // 27
-+ (NSString *)appVersion { return @"16.18.5"; }
++ (NSString *)appVersion { return @"16.19.6"; }
 %end
 %end
 
 %group gVersion28
 %hook YTVersionUtils // 28
-+ (NSString *)appVersion { return @"16.17.4"; }
++ (NSString *)appVersion { return @"16.18.5"; }
 %end
 %end
 
 %group gVersion29
 %hook YTVersionUtils // 29
-+ (NSString *)appVersion { return @"16.16.4"; }
++ (NSString *)appVersion { return @"16.17.4"; }
 %end
 %end
 
 %group gVersion30
 %hook YTVersionUtils // 30
-+ (NSString *)appVersion { return @"16.16.3"; }
++ (NSString *)appVersion { return @"16.16.4"; }
 %end
 %end
 
 %group gVersion31
 %hook YTVersionUtils // 31
-+ (NSString *)appVersion { return @"16.15.4"; }
++ (NSString *)appVersion { return @"16.16.3"; }
 %end
 %end
 
 %group gVersion32
 %hook YTVersionUtils // 32
-+ (NSString *)appVersion { return @"16.14.2"; }
++ (NSString *)appVersion { return @"16.15.4"; }
 %end
 %end
 
 %group gVersion33
 %hook YTVersionUtils // 33
-+ (NSString *)appVersion { return @"16.13.1"; }
++ (NSString *)appVersion { return @"16.14.2"; }
 %end
 %end
 
 %group gVersion34
 %hook YTVersionUtils // 34
-+ (NSString *)appVersion { return @"16.12.3"; }
++ (NSString *)appVersion { return @"16.13.1"; }
 %end
 %end
 
 %group gVersion35
 %hook YTVersionUtils // 35
-+ (NSString *)appVersion { return @"16.11.3"; }
++ (NSString *)appVersion { return @"16.12.3"; }
 %end
 %end
 
 %group gVersion36
 %hook YTVersionUtils // 36
-+ (NSString *)appVersion { return @"16.10.3"; }
++ (NSString *)appVersion { return @"16.11.3"; }
 %end
 %end
 
 %group gVersion37
 %hook YTVersionUtils // 37
-+ (NSString *)appVersion { return @"16.09.3"; }
++ (NSString *)appVersion { return @"16.10.3"; }
 %end
 %end
 
 %group gVersion38
 %hook YTVersionUtils // 38
-+ (NSString *)appVersion { return @"16.09.2"; }
++ (NSString *)appVersion { return @"16.09.3"; }
 %end
 %end
 
 %group gVersion39
 %hook YTVersionUtils // 39
-+ (NSString *)appVersion { return @"16.08.2"; }
++ (NSString *)appVersion { return @"16.09.2"; }
 %end
 %end
 
 %group gVersion40
 %hook YTVersionUtils // 40
-+ (NSString *)appVersion { return @"16.05.9"; }
++ (NSString *)appVersion { return @"16.08.2"; }
 %end
 %end
 
 %group gVersion41
 %hook YTVersionUtils // 41
-+ (NSString *)appVersion { return @"16.05.8"; }
++ (NSString *)appVersion { return @"16.05.9"; }
 %end
 %end
 
 %group gVersion42
 %hook YTVersionUtils // 42
++ (NSString *)appVersion { return @"16.05.8"; }
+%end
+%end
+
+%group gVersion43
+%hook YTVersionUtils // 43
 + (NSString *)appVersion { return @"16.05.7"; }
 %end
 %end
@@ -531,5 +540,8 @@ static BOOL version42() {
     }
     if (version42()) { // 42
         %init(gVersion42);
+    }
+    if (version43()) { // 43
+        %init(gVersion43);
     }
 }
