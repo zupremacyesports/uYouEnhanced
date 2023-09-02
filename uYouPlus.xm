@@ -420,15 +420,15 @@ static BOOL didFinishLaunching;
 %end
 
 // YTNoChannelLinks - crash fix for v16.42.3
-BOOL isButton(id node) {
-    if ([node isKindOfClass:NSClassFromString(@"ELMContainerNode")]) {
-        NSString *description = [[[node controller] owningComponent] description];
-        if ([description containsString:@"eml.channel_header_links"]) {
-            return YES;
-        }
+%hook _ASDisplayView
+- (void)removeFromSuperview {
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.channel_header_links"]) {
+        [self removeFromSuperview];
     }
-    return NO;
+    
+    %orig;
 }
+%end
 
 // YTClassicVideoQuality: https://github.com/PoomSmart/YTClassicVideoQuality
 %hook YTVideoQualitySwitchControllerFactory
