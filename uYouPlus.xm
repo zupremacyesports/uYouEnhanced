@@ -419,6 +419,17 @@ static BOOL didFinishLaunching;
 
 %end
 
+// YTNoChannelLinks - crash fix for v16.42.3
+BOOL isButton(id node) {
+    if ([node isKindOfClass:NSClassFromString(@"ELMContainerNode")]) {
+        NSString *description = [[[node controller] owningComponent] description];
+        if ([description containsString:@"eml.channel_header_links"]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 // YTClassicVideoQuality: https://github.com/PoomSmart/YTClassicVideoQuality
 %hook YTVideoQualitySwitchControllerFactory
 - (id)videoQualitySwitchControllerWithParentResponder:(id)responder {
@@ -494,6 +505,15 @@ static BOOL didFinishLaunching;
 
 %hook YTHotConfig
 - (BOOL)enablePlayerBarForVerticalVideoWhenControlsHiddenInFullscreen { return YES; }
+%end
+
+// YTNoTracking - https://github.com/arichorn/YTNoTracking/
+%hook YTICompactLinkRenderer
+- (BOOL)hasTrackingParams { return NO; }
+%end
+
+%hook YTIReelPlayerOverlayRenderer
+- (BOOL)hasTrackingParams { return NO; }
 %end
 
 %group gYouTubeAppPatcher // YTAppPatcher for 16.42.3 - @arichorn
