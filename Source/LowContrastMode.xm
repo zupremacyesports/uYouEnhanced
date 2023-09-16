@@ -124,6 +124,16 @@ UIColor *lcmHexColor;
     %orig(currentImage);
 }
 %end
+%hook WKCompositingView // YouTube Playables (v18.34.5+)
+- (void)layoutSubviews {
+    %orig;
+    for (UILabel *label in self.subviews) {
+        if ([label isKindOfClass:[UILabel class]]) {
+            label.textColor = [UIColor whiteColor];
+        }
+    }
+}
+%end
 %hook UIExtendedSRGColorSpace
 - (void)setTextColor:(UIColor *)textColor {
     textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9];
