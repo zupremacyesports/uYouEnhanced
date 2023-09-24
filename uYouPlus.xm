@@ -419,17 +419,6 @@ static BOOL didFinishLaunching;
 
 %end
 
-// YTNoChannelLinks - crash fix for v16.42.3
-%hook _ASDisplayView
-- (void)removeFromSuperview {
-    if ([self.accessibilityIdentifier isEqualToString:@"eml.channel_header_links"]) {
-        [self removeFromSuperview];
-    }
-    
-    %orig;
-}
-%end
-
 // YTClassicVideoQuality: https://github.com/PoomSmart/YTClassicVideoQuality
 %hook YTVideoQualitySwitchControllerFactory
 - (id)videoQualitySwitchControllerWithParentResponder:(id)responder {
@@ -958,6 +947,18 @@ static void replaceTab(YTIGuideResponse *response) {
     %orig;
     if ((IsEnabled(@"hideBuySuperThanks_enabled")) && ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.suggested_action"])) { 
         self.hidden = YES; 
+    }
+
+// YTNoChannelLinks - crash fix for v16.42.3
+%hook _ASDisplayView
+- (void)didMoveToWindow {
+    %orig;
+    if ([self.accessibilityIdentifier isEqualToString:@"eml.channel_header_links"]) {
+        self.hidden = YES;
+        self.opaque = YES;
+        self.userInteractionEnabled = NO;
+        [self setNeedsLayout];
+        [self layoutIfNeeded];
     }
 }
 %end
