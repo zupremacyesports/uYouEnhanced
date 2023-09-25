@@ -950,9 +950,6 @@ static void replaceTab(YTIGuideResponse *response) {
     }
 
 // YTNoChannelLinks - crash fix for v16.42.3
-%hook _ASDisplayView
-- (void)didMoveToWindow {
-    %orig;
     if ([self.accessibilityIdentifier isEqualToString:@"eml.channel_header_links"]) {
         self.hidden = YES;
         self.opaque = YES;
