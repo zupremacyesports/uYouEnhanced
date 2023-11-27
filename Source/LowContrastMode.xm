@@ -18,7 +18,7 @@ static BOOL customContrastMode() {
 
 UIColor *lcmHexColor;
 
-%group gLowContrastMode // Low Contrast Mode v1.5.0 (Compatible with only YouTube v16.05.7-v17.38.10)
+%group gLowContrastMode // Low Contrast Mode v1.5.1 (Compatible with only YouTube v16.05.7-v17.38.10)
 %hook UIColor
 + (UIColor *)whiteColor { // Dark Theme Color
          return [UIColor colorWithRed: 0.56 green: 0.56 blue: 0.56 alpha: 1.00];
@@ -181,6 +181,18 @@ UIColor *lcmHexColor;
 %hook UIExtendedSRGColorSpace
 - (void)setTextColor:(UIColor *)textColor {
     textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9];
+    %orig();
+}
+%end
+%hook UIExtendedSRGBColorSpace
+- (void)setTextColor:(UIColor *)textColor {
+    textColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0];
+    %orig();
+}
+%end
+%hook UIExtendedGrayColorSpace
+- (void)setTextColor:(UIColor *)textColor {
+    textColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0];
     %orig();
 }
 %end
@@ -443,6 +455,18 @@ UIColor *lcmHexColor;
 %hook UIExtendedSRGColorSpace
 - (void)setTextColor:(UIColor *)textColor {
     textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9];
+    %orig();
+}
+%end
+%hook UIExtendedSRGBColorSpace
+- (void)setTextColor:(UIColor *)textColor {
+    textColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0];
+    %orig();
+}
+%end
+%hook UIExtendedGrayColorSpace
+- (void)setTextColor:(UIColor *)textColor {
+    textColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0];
     %orig();
 }
 %end
