@@ -185,6 +185,22 @@ static void repositionCreateTab(YTIGuideResponse *response) {
 - (void)setTopbarLogoRenderer:(id)renderer {
 }
 %end
+
+// Workaround: fix YouTube Premium Logo not working on v18.35.4 or above.
+%hook YTVersionUtils // Working Version for Premium Logo
++ (NSString *)appVersion { return @"18.34.5"; }
+%end
+
+%hook YTSettingsCell // Remove v18.34.5 Version Number - @Dayanch96
+- (void)setDetailText:(id)arg1 {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *appVersion = infoDictionary[@"CFBundleShortVersionString"];
+
+    if ([arg1 isEqualToString:@"18.34.5"]) {
+        arg1 = appVersion;
+    } %orig(arg1);
+}
+%end
 %end
 
 # pragma mark - Tweaks
