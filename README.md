@@ -232,7 +232,7 @@
 
   - [Open in AltStore (v18.46.3-3.0.1)](https://tinyurl.com/36ww2n7f) - It will take a while to install because AltStore needs to download the IPA first.
 
-- Version info: _(last update: Nov 20 2023)_
+- Version info: _(last update: Nov 27 2023)_
 
 <details>
   <summary>Expand ℹ️</summary>
@@ -262,7 +262,7 @@
 | **YouMute** | [PoomSmart](https://twitter.com/poomsmart) | 1.2.1-2 | [✔︎](https://github.com/PoomSmart/YouMute) |
 | **YouQuality** | [PoomSmart](https://twitter.com/poomsmart) | 1.1.4 | [✔︎](https://github.com/PoomSmart/YouQuality) |
 | **YTVideoOverlay** | [PoomSmart](https://twitter.com/poomsmart) | 1.1.1-1 | [✔︎](https://github.com/PoomSmart/YTVideoOverlay) |
-| **LowContrastMode** | [arichorn](https://github.com/arichorn) | 1.5.0 | [✔︎](https://github.com/arichorn/YTLowContrastMode) |
+| **LowContrastMode** | [arichorn](https://github.com/arichorn) | 1.5.1 | [✔︎](https://github.com/arichorn/YTLowContrastMode) |
 
 </details>
 
@@ -272,7 +272,7 @@
 |-----------|-----------------------|--------------------------|--------------------------|
 | MiRO92 | uYou 2.1/2.3~1 | v16.42.3 - 18.01.6 | iOS 13 - iOS 15 |
 | MiRO92 | uYou 3.0 | v18.06.6 - 18.18.2 | iOS 14 - iOS 15 |
-| MiRO92 | uYou 3.0.1 | v18.08.1 - v18.41.5 | iOS 14 - iOS 17 |
+| MiRO92 | uYou 3.0.1 | v18.34.5 - v18.41.5 | iOS 14 - iOS 17 |
 
 # Installation
 See [Installation - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/Installation).
