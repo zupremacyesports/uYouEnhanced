@@ -612,7 +612,7 @@ int main(int argc, char * argv[]) {
 %end
 
 %hook YTCinematicContainerView // Disable Ambient Mode Container - YTNoModernUI
-- (void)didMoveToWindow {
+- (void)removeFromSuperview {
 }
 %end
 
@@ -680,7 +680,7 @@ int main(int argc, char * argv[]) {
 
 %group gDisableAmbientMode
 %hook YTCinematicContainerView
-- (void)didMoveToWindow {
+- (void)removeFromSuperview {
 }
 %end
 %hook YTColdConfig
