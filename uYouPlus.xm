@@ -1084,7 +1084,7 @@ static void replaceTab(YTIGuideResponse *response) {
 %group gRedSubscribeButton
 %hook ELMContainerNode
 - (void)setBackgroundColor:(id)color {
-  if ([self.accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"] || {
+  if ([self.accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) {
     color = [UIColor redColor];
   }
   %orig(color);
