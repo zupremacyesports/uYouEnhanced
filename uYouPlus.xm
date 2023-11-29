@@ -1084,7 +1084,7 @@ static void replaceTab(YTIGuideResponse *response) {
 %group gRedSubscribeButton
 %hook ELMContainerNode
 - (void)setBackgroundColor:(id)color {
-  if ([self.accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) {
+  if ([self.description isEqualToString:@"eml.compact_subscribe_button"]) {
     color = [UIColor redColor];
   }
   %orig(color);
@@ -1096,14 +1096,14 @@ static void replaceTab(YTIGuideResponse *response) {
 %group gHideButtonContainers
 %hook ELMContainerNode
 - (void)setBackgroundColor:(id)color {
-  if ([self.accessibilityIdentifier isEqualToString:@"id.video.like.button"] ||
-      [self.accessibilityIdentifier isEqualToString:@"id.video.dislike.button"] ||
-      [self.accessibilityIdentifier isEqualToString:@"id.video.share.button"] ||
-      [self.accessibilityIdentifier isEqualToString:@"id.video.remix.button"] ||
-      [self.accessibilityLabel isEqualToString:@"Thanks"] ||
-      [self.accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"] ||
-      [self.accessibilityLabel isEqualToString:@"Clip"] ||
-      [self.accessibilityLabel isEqualToString:@"Save to playlist"]) {
+  if ([self.description isEqualToString:@"id.video.like.button"] ||
+      [self.description isEqualToString:@"id.video.dislike.button"] ||
+      [self.description isEqualToString:@"id.video.share.button"] ||
+      [self.description isEqualToString:@"id.video.remix.button"] ||
+      [self.description isEqualToString:@"Thanks"] ||
+      [self.description isEqualToString:@"id.ui.add_to.offline.button"] ||
+      [self.description isEqualToString:@"Clip"] ||
+      [self.description isEqualToString:@"Save to playlist"]) {
     color = [UIColor clearColor];
   }
   %orig(color);
