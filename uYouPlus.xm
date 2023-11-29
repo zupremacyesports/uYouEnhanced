@@ -1078,6 +1078,16 @@ static void replaceTab(YTIGuideResponse *response) {
 }
 %end
 
+// Hide the Button Containers under the Video Player - 17.x.x and up - @arichorn
+%group gHideButtonContainers
+%hook ELMContainerNode
+- (void)setBackgroundColor:(id)color {
+  color = [UIColor clearColor];
+  %orig(color);
+}
+%end
+%end
+
 // Hide the (Remix / Thanks / Download / Clip / Save) Buttons under the Video Player - 17.x.x and up - @arichorn
 %hook _ASDisplayView
 - (void)layoutSubviews {
@@ -1458,6 +1468,9 @@ static void replaceTab(YTIGuideResponse *response) {
     }
     if (IsEnabled(@"hideVideoPlayerShadowOverlayButtons_enabled")) {
         %init(gHideVideoPlayerShadowOverlayButtons);
+    }
+    if (IsEnabled(@"hideButtonContainers_enabled")) {
+        %init(gHideButtonContainers);
     }
     if (IsEnabled(@"disableHints_enabled")) {
         %init(gDisableHints);
