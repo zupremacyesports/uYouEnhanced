@@ -603,12 +603,17 @@ int main(int argc, char * argv[]) {
 }
 %end
 
-%hook YTQTMButton // No Modern/Rounded Buttons - YTNoModernUI
+%hook YTQTMButton // Disable Modern/Rounded Buttons - YTNoModernUI
 + (BOOL)buttonModernizationEnabled { return NO; }
 %end
 
-%hook YTBubbleHintView // No Modern/Rounded Hints - YTNoModernUI
+%hook YTBubbleHintView // Disable Modern/Rounded Hints - YTNoModernUI
 + (BOOL)modernRoundedCornersEnabled { return NO; }
+%end
+
+%hook YTCinematicContainerView // Disable Ambient Mode Container - YTNoModernUI
+- (void)didMoveToWindow {
+}
 %end
 
 %hook YTColdConfig
@@ -674,6 +679,10 @@ int main(int argc, char * argv[]) {
 %end
 
 %group gDisableAmbientMode
+%hook YTCinematicContainerView
+- (void)didMoveToWindow {
+}
+%end
 %hook YTColdConfig
 - (BOOL)disableCinematicForLowPowerMode { return NO; }
 - (BOOL)enableCinematicContainer { return NO; }
@@ -1069,7 +1078,7 @@ static void replaceTab(YTIGuideResponse *response) {
 }
 %end
 
-// Hide the (Remix / Thanks / Download / Clip / Save) Buttons under the Video Player - @arichorn
+// Hide the (Remix / Thanks / Download / Clip / Save) Buttons under the Video Player - 17.x.x and up - @arichorn
 %hook _ASDisplayView
 - (void)layoutSubviews {
     %orig;
