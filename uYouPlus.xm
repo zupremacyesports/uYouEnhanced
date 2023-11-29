@@ -612,7 +612,8 @@ int main(int argc, char * argv[]) {
 %end
 
 %hook YTCinematicContainerView // Disable Ambient Mode Container - YTNoModernUI
-- (void)removeFromSuperview {
+- (instancetype)init {
+    return NULL;
 }
 %end
 
@@ -680,7 +681,8 @@ int main(int argc, char * argv[]) {
 
 %group gDisableAmbientMode
 %hook YTCinematicContainerView
-- (void)removeFromSuperview {
+- (instancetype)init {
+    return NULL;
 }
 %end
 %hook YTColdConfig
@@ -1082,7 +1084,16 @@ static void replaceTab(YTIGuideResponse *response) {
 %group gHideButtonContainers
 %hook ELMContainerNode
 - (void)setBackgroundColor:(id)color {
-  color = [UIColor clearColor];
+  if ([self.accessibilityIdentifier isEqualToString:@"id.video.like.button"] ||
+      [self.accessibilityIdentifier isEqualToString:@"id.video.dislike.button"] ||
+      [self.accessibilityIdentifier isEqualToString:@"id.video.share.button"] ||
+      [self.accessibilityIdentifier isEqualToString:@"id.video.remix.button"] ||
+      [self.accessibilityLabel isEqualToString:@"Thanks"] ||
+      [self.accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"] ||
+      [self.accessibilityLabel isEqualToString:@"Clip"] ||
+      [self.accessibilityLabel isEqualToString:@"Save to playlist"]) {
+    color = [UIColor clearColor];
+  }
   %orig(color);
 }
 %end
