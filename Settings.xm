@@ -352,6 +352,16 @@ extern NSBundle *uYouPlusBundle();
 # pragma mark - Video Player Buttons
     YTSettingsSectionItem *videoPlayerButtonsGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Video Player Button Options") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Red Subscribe Button")
+                titleDescription:LOC(@"Replaces the Subscribe Button color from being White to the color Red.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"redSubscribeButton_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"redSubscribeButton_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide Button Containers under player")
                 titleDescription:LOC(@"Hides Button Containers under the video player.")
                 accessibilityIdentifier:nil
@@ -1652,6 +1662,7 @@ extern NSBundle *uYouPlusBundle();
                 }
                 settingItemId:0],
 
+/*
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Center YouTube Logo")
                 titleDescription:LOC(@"Toggle this to move the official YouTube Logo to the Center. App restart is required.")
                 accessibilityIdentifier:nil
@@ -1661,6 +1672,7 @@ extern NSBundle *uYouPlusBundle();
                     return YES;
                 }
                 settingItemId:0],
+*/
 
 	    [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide YouTube Logo")
                 titleDescription:LOC(@"Toggle this to hide the YouTube Logo in the YouTube App.")
