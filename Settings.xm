@@ -350,8 +350,18 @@ extern NSBundle *uYouPlusBundle();
     [sectionItems addObject:shortsControlOverlayGroup];
 
 # pragma mark - Video Player Buttons
-    YTSettingsSectionItem *videoPlayerButtonsGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Video Player Buttons Options") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+    YTSettingsSectionItem *videoPlayerButtonsGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Video Player Button Options") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide all Button Containers under player (Experimental)")
+                 titleDescription:LOC(@"Hides all Button Containers under the video player.")
+                 accessibilityIdentifier:nil
+                 switchOn:IsEnabled(@"hideButtonContainers_enabled")
+                 switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                     [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideButtonContainers_enabled"];
+                     return YES;
+                 }
+                 settingItemId:0],
+
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide the Remix Button under player")
                 titleDescription:LOC(@"Hides the Remix Button under the video player.")
                 accessibilityIdentifier:nil
