@@ -14,10 +14,10 @@ MODULES = jailed
 endif
 
 ifndef YOUTUBE_VERSION
-YOUTUBE_VERSION = 18.46.3
+YOUTUBE_VERSION = 18.08.1
 endif
 ifndef UYOU_VERSION
-UYOU_VERSION = 3.0.1
+UYOU_VERSION = 3.0
 endif
 PACKAGE_VERSION = $(YOUTUBE_VERSION)-$(UYOU_VERSION)
 
@@ -61,7 +61,7 @@ before-all::
 	fi
 before-all::
 	@if [[ ! -f $(UYOU_DEB) ]]; then \
- 		curl -s -L "https://www.dropbox.com/scl/fi/5f0esi1en9so7t8lhmyjm/com.miro.uyou_$(UYOU_VERSION)_iphoneos-arm.deb?rlkey=00nncobda6tcfvhzid5or1lnn&dl=1" -o $(UYOU_DEB); \
+ 		curl -s -L "https://www.dropbox.com/s/36hn03b1iu2hcgf/com.miro.uyou_$(UYOU_VERSION)_iphoneos-arm.deb?dl=1" -o $(UYOU_DEB); \
     fi; \
 	if [[ ! -f $(UYOU_DYLIB) || ! -d $(UYOU_BUNDLE) ]]; then \
 		tar -xf Tweaks/uYou/com.miro.uyou_$(UYOU_VERSION)_iphoneos-arm.deb -C Tweaks/uYou; tar -xf Tweaks/uYou/data.tar* -C Tweaks/uYou; \
