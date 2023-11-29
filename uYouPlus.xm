@@ -1080,6 +1080,18 @@ static void replaceTab(YTIGuideResponse *response) {
 }
 %end
 
+// Red Subscribe Button - @arichorn
+%group gRedSubscribeButton
+%hook ELMContainerNode
+- (void)setBackgroundColor:(id)color {
+  if ([self.accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"] || {
+    color = [UIColor redColor];
+  }
+  %orig(color);
+}
+%end
+%end
+
 // Hide the Button Containers under the Video Player - 17.x.x and up - @arichorn
 %group gHideButtonContainers
 %hook ELMContainerNode
@@ -1479,6 +1491,9 @@ static void replaceTab(YTIGuideResponse *response) {
     }
     if (IsEnabled(@"hideVideoPlayerShadowOverlayButtons_enabled")) {
         %init(gHideVideoPlayerShadowOverlayButtons);
+    }
+    if (IsEnabled(@"redSubscribeButton_enabled")) {
+        %init(gRedSubscribeButton);
     }
     if (IsEnabled(@"hideButtonContainers_enabled")) {
         %init(gHideButtonContainers);
