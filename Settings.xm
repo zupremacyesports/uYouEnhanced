@@ -352,8 +352,8 @@ extern NSBundle *uYouPlusBundle();
 # pragma mark - Video Player Buttons
     YTSettingsSectionItem *videoPlayerButtonsGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Video Player Button Options") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide all Button Containers under player (Experimental)")
-                titleDescription:LOC(@"Hides all Button Containers under the video player.")
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide Button Containers under player")
+                titleDescription:LOC(@"Hides Button Containers under the video player.")
                 accessibilityIdentifier:nil
                 switchOn:IsEnabled(@"hideButtonContainers_enabled")
                 switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
