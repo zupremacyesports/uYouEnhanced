@@ -218,6 +218,9 @@
 @interface _ASDisplayView : UIView
 @end
 
+@interface ELMContainerNode : NSObject
+@end
+
 @interface YTAutonavEndscreenView : UIView
 @end
 
