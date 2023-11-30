@@ -612,8 +612,17 @@ int main(int argc, char * argv[]) {
 %end
 
 %hook YTCinematicContainerView // Disable Ambient Mode Container - YTNoModernUI
-- (instancetype)init {
-    return NULL;
+- (BOOL)watchFullScreenCinematicSupported {
+    return NO;
+}
+- (BOOL)watchFullScreenCinematicEnabled {
+    return NO;
+}
+- (CGFloat)cinematicWidthMultiplier {
+    return 0.0;
+}
+- (CGFloat)cinematicHeightMultiplier {
+    return 0.0;
 }
 %end
 
@@ -681,8 +690,17 @@ int main(int argc, char * argv[]) {
 
 %group gDisableAmbientMode
 %hook YTCinematicContainerView
-- (instancetype)init {
-    return NULL;
+- (BOOL)watchFullScreenCinematicSupported {
+    return NO;
+}
+- (BOOL)watchFullScreenCinematicEnabled {
+    return NO;
+}
+- (CGFloat)cinematicWidthMultiplier {
+    return 0.0;
+}
+- (CGFloat)cinematicHeightMultiplier {
+    return 0.0;
 }
 %end
 %hook YTColdConfig
