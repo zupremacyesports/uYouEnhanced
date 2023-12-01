@@ -1714,8 +1714,8 @@ extern NSBundle *uYouPlusBundle();
                 }
                 settingItemId:0],
 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Disable Ambient Mode")
-                titleDescription:LOC(@"When Enabled, this will Disable the functionality of Ambient Mode in the Video Player and even in Fullscreen. App restart is required.")
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Disable Ambient Mode in Fullscreen")
+                titleDescription:LOC(@"When Enabled, this will Disable the functionality of Ambient Mode from being used in the Video Player when in Fullscreen. App restart is required.")
                 accessibilityIdentifier:nil
                 switchOn:IsEnabled(@"disableAmbientMode_enabled")
                 switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
