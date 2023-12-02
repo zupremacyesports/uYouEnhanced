@@ -1074,10 +1074,7 @@ static void replaceTab(YTIGuideResponse *response) {
       [containerDescription containsString:@"id.video.dislike.button"] ||
       [containerDescription containsString:@"id.video.share.button"] ||
       [containerDescription containsString:@"id.video.remix.button"] ||
-//    [accessibilityLabel isEqualToString:@"Thanks"] ||
-      [containerDescription containsString:@"id.ui.add_to.offline.button"] ||
- //   [accessibilityLabel isEqualToString:@"Clip"] ||
- //   [accessibilityLabel isEqualToString:@"Save to playlist"]) {
+      [containerDescription containsString:@"id.ui.add_to.offline.button"]) {
       color = [UIColor clearColor];
     }
     %orig;
