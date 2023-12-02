@@ -310,30 +310,37 @@ static void repositionCreateTab(YTIGuideResponse *response) {
 
 // Work in Progress - main-nightly
 /*
+static YTPivotBarItemView *customTabView = nil;
+static CGFloat _tabWidth = 82;
+static CGFloat _tabHeight = 45;
+
 %hook YTPivotBarItemView
-@property (nonatomic, strong) YTPivotBarItemView *itemView7;
 - (void)layoutSubviews {
     %orig;
-    self.itemView7 = [[YTPivotBarItemView alloc] init];
-    [self.itemView7.navigationButton setTitle:@"Settings" forState:UIControlStateNormal];
-    [self.itemView7.navigationButton setImage:[self getCustomIcon] forState:UIControlStateNormal];
-
-    // [self.itemView7.navigationButton addTarget:self action:@selector(settingsButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-
-    NSMutableArray *modifiedItemViews = [[self valueForKey:@"itemViews"] mutableCopy];
-    [modifiedItemViews addObject:self.itemView7];
-
-    [self setValue:modifiedItemViews forKey:@"itemViews"];
+    if (!customTabView) {
+        customTabView = [[YTPivotBarItemView alloc] init];
+        customTabView.frame = CGRectMake(0, 0, _tabWidth, _tabHeight);
+        customTabView.navigationButton.accessibilityLabel = @"Settings";
+        
+        YTQTMButton *settingsButton = [YTQTMButton buttonWithType:UIButtonTypeCustom];
+        [settingsButton setTitle:@"SETTINGS" forState:UIControlStateNormal];
+        settingsButton.titleLabel.font = [UIFont systemFontOfSize:12];
+        [settingsButton addTarget:self action:@selector(customTabButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+        [customSettingsTabView.navigationButton addSubview:settingsButton];
+        settingsButton.frame = customSettingsTabView.navigationButton.bounds;
+    }   
+    [self addSubview:customSettingsTabView];
 }
-- (UIImage *)getCustomIcon {
-    return [UIImage imageNamed:@"SETTINGS"];
+- (void)openSettings {
+    Class settingsEndpointClass = NSClassFromString(@"YTIApplicationSettingsEndpointRoot");
+    SEL settingsEndpointSelector = NSSelectorFromString(@"applicationSettingsEndpoint");
+    
+    if ([settingsEndpointClass respondsToSelector:settingsEndpointSelector]) {
+        IMP imp = [settingsEndpointClass methodForSelector:settingsEndpointSelector];
+        void (*applicationSettingsEndpoint)(id, SEL) = (void *)imp;
+        applicationSettingsEndpoint(settingsEndpointClass, settingsEndpointSelector);
+    }
 }
-// You can remove this method if not needed - arichorn
-//- (id)getCustomSettingsEndpoint {
-//    YTINavigationEndpointRoot_applicationSettingsEndpoint *settingsEndpoint = [[YTINavigationEndpointRoot_applicationSettingsEndpoint alloc] init];
-//    [settingsEndpoint setHack:YES];
-//    return settingsEndpoint;
-//}
 %end
 
 %hook YTIPivotBarRenderer
@@ -516,44 +523,7 @@ static void repositionCreateTab(YTIGuideResponse *response) {
 + (BOOL)hasTrackingParams {
     return NO;
 }
-%new
-- (id)removeParameterFromURL:(id)arg1 {
-    NSURLComponents *components = [NSURLComponents componentsWithURL:arg1 resolvingAgainstBaseURL:NO];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"NOT (name == %@)", @"si"];
-    NSArray<NSURLQueryItem *> *filteredQueryItems = [components.queryItems filteredArrayUsingPredicate:predicate];
-    components.queryItems = filteredQueryItems;
-    
-    NSURL *modifiedURL = components.URL;
-    if (!modifiedURL) {
-        modifiedURL = arg1;
-    }
-    return modifiedURL;
-}
 %end
-
-int main(int argc, char * argv[]) {
-    @autoreleasepool {
-        NSURL *originalURL = [NSURL URLWithString:@"https://www.youtube.com/watch?v=your_video_id&si=abcd1234"];
-        NSURLComponents *components = [NSURLComponents componentsWithURL:originalURL resolvingAgainstBaseURL:NO];
-        NSMutableArray<NSURLQueryItem *> *queryItems = [NSMutableArray arrayWithArray:components.queryItems];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"NOT (name == 'si' OR name BEGINSWITH 'si=')"];
-        [queryItems filterUsingPredicate:predicate];
-        components.queryItems = queryItems;
-        NSURL *cleanedURL = components.URL;
-
-        if (cleanedURL) {
-            [[UIApplication sharedApplication] openURL:cleanedURL options:@{} completionHandler:^(BOOL success) {
-                if (success) {
-                    NSLog(@"URL opened successfully!");
-                } else {
-                    NSLog(@"Failed to open URL");
-                }
-            }];
-        }
-    }
-    return 0;
-}
 
 // YTNoPaidPromo: https://github.com/PoomSmart/YTNoPaidPromo
 %hook YTMainAppVideoPlayerOverlayViewController
@@ -611,18 +581,12 @@ int main(int argc, char * argv[]) {
 + (BOOL)modernRoundedCornersEnabled { return NO; }
 %end
 
-%hook YTCinematicContainerView // Disable Ambient Mode Container - YTNoModernUI
+%hook YTCinematicContainerView // Disable Ambient Mode in Fullscreen Container - YTNoModernUI
 - (BOOL)watchFullScreenCinematicSupported {
     return NO;
 }
 - (BOOL)watchFullScreenCinematicEnabled {
     return NO;
-}
-- (CGFloat)cinematicWidthMultiplier {
-    return 0.0;
-}
-- (CGFloat)cinematicHeightMultiplier {
-    return 0.0;
 }
 %end
 
@@ -688,6 +652,7 @@ int main(int argc, char * argv[]) {
 %end
 %end
 
+// Disable Ambient Mode in Fullscreen - @arichorn
 %group gDisableAmbientMode
 %hook YTCinematicContainerView
 - (BOOL)watchFullScreenCinematicSupported {
@@ -695,12 +660,6 @@ int main(int argc, char * argv[]) {
 }
 - (BOOL)watchFullScreenCinematicEnabled {
     return NO;
-}
-- (CGFloat)cinematicWidthMultiplier {
-    return 0.0;
-}
-- (CGFloat)cinematicHeightMultiplier {
-    return 0.0;
 }
 %end
 %hook YTColdConfig
@@ -912,19 +871,24 @@ static void replaceTab(YTIGuideResponse *response) {
 }
 %end
 
-// Hide Channel Watermark
+// Hide Channel Watermark - @arichorn & @iCrazeiOS
+%hook YTIElementRenderer
+- (NSData *)elementData {
+    if (IsEnabled(@"hideChannelWatermark_enabled")) {
+        NSString *description = [self description];
+        if ([description containsString:@"featured_channel_watermark_overlay.eml"]) {
+            return nil;
+        }
+    }
+    return %orig;
+}
+%end
 %hook YTMainAppVideoPlayerOverlayView
 - (BOOL)isWatermarkEnabled {
     if (IsEnabled(@"hideChannelWatermark_enabled")) {
         return NO;
     }
     return %orig;
-}
-- (void)setFeaturedChannelWatermarkImageView:(id)imageView {
-    if (IsEnabled(@"hideChannelWatermark_enabled")) {
-        return;
-    }
-    %orig(imageView);
 }
 %end
 // Hide Channel Watermark (for Backwards Compatibility)
@@ -1034,9 +998,9 @@ static void replaceTab(YTIGuideResponse *response) {
         self.hidden = YES;
         self.opaque = YES;
         self.userInteractionEnabled = NO;
-        CGRect removeGap = self.frame;
-        removeGap.size.height = 0;
-        self.frame = removeGap;
+        CGRect bounds = self.frame;
+        bounds.size.height = 0;
+        self.frame = bounds;
         [self setNeedsLayout];
         [self removeFromSuperview];
     }
@@ -1101,16 +1065,13 @@ static void replaceTab(YTIGuideResponse *response) {
 // Red Subscribe Button - @arichorn
 %group gRedSubscribeButton
 %hook ELMContainerNode
-- (void)setBackgroundColor:(id)redcolor {
+- (void)setBackgroundColor:(id)color {
     id displayView = [self valueForKey:@"_asDisplayView"];
     if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
         NSString *accessibilityIdentifier = [self accessibilityIdentifier];
         if ([accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) {
-            redcolor = [UIColor redColor];
+            color = [UIColor redColor];
         }
-        %orig(redcolor);
-    } else {
-        %orig(redcolor);
     }
 }
 %end
@@ -1119,8 +1080,7 @@ static void replaceTab(YTIGuideResponse *response) {
 // Hide the Button Containers under the Video Player - 17.x.x and up - @arichorn
 %group gHideButtonContainers
 %hook ELMContainerNode
-
-- (void)setBackgroundColor:(id)clearcolor 
+- (void)setBackgroundColor:(id)color 
   id displayView = [self valueForKey:@"_asDisplayView"];
 
 if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
@@ -1134,13 +1094,9 @@ if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
       [accessibilityLabel isEqualToString:@"Thanks"] ||
       [accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"] ||
       [accessibilityLabel isEqualToString:@"Clip"] ||
-      [accessibilityLabel isEqualToString:@"Save to playlist"]) {clearcolor = [UIColor clearColor];
-}
-clearcolor = [UIColor clearColor];
-}
-%orig(clearcolor);
-} else {
-%orig(clearcolor);
+      [accessibilityLabel isEqualToString:@"Save to playlist"]) {
+      color = [UIColor clearColor];
+        }
 }
 %end
 %end
@@ -1177,53 +1133,11 @@ clearcolor = [UIColor clearColor];
     return IsEnabled(@"hideAddToOfflineButton_enabled") ? NO : %orig;
 }
 %end
-%hook YTISlimMetadataButtonRenderer
-- (BOOL)isOfflineButtonPlaceholder {
-    return IsEnabled(@"hideAddToOfflineButton_enabled") ? NO : %orig;
-}
-- (BOOL)hasIsOfflineButtonPlaceholder {
-    return IsEnabled(@"hideAddToOfflineButton_enabled") ? NO : %orig;
-}
-- (BOOL)hasOfflineProgressText {
-    return IsEnabled(@"hideAddToOfflineButton_enabled") ? NO : %orig;
-}
-- (BOOL)hasOfflineCompleteText {
-    return IsEnabled(@"hideAddToOfflineButton_enabled") ? NO : %orig;
-}
-%end
 
 // App Settings Overlay Options
 %group gDisableAccountSection
 %hook YTSettingsSectionItemManager
 - (void)updateAccountSwitcherSectionWithEntry:(id)arg1 {} // Account
-%end
-%end
-
-%group gDisableDontEatMyContentSection // DontEatMyContent
-%hook YTSettingsSectionItemManager
-- (void)updateDEMCSectionWithEntry:(id)arg1 {
-    [arg1 setEnabled:YES];
-}
-%end
-%end
-
-%group gDisableReturnYouTubeDislikeSection // Return YouTube Dislike
-%hook YTSettingsSectionItemManager
-- (void)updateRYDSectionWithEntry:(id)arg1 {
-    [arg1 setEnabled:YES];
-}
-%end
-%end
-
-%group gDisableYouPiPSection
-%hook YTSettingsSectionItemManager
-- (void)updateYouPiPSectionWithEntry:(id)arg1 { // YouPiP
-    %orig;
-    NSMutableArray *sectionItems = [self valueForKey:@"_sectionItems"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", @"YouPiP"];
-    NSArray *itemsToRemove = [sectionItems filteredArrayUsingPredicate:predicate];
-    [sectionItems removeObjectsInArray:itemsToRemove];
-}
 %end
 %end
 
@@ -1466,30 +1380,6 @@ clearcolor = [UIColor clearColor];
 %end
 %end
 
-/*
-// Hide Suggested Videos in Video Player - @arichorn
-%hook YTAutonavEndscreenView
-- (void)didMoveToWindow {
-    %orig;
-    self.hidden = YES;
-    [self sizeToFit];
-    [self setNeedsLayout];
-    [self removeFromSuperview];
-}
-%end
-
-// Hide Preview Videos whenever video ends in Video Player - @arichorn
-%hook YTAutonavPreviewView
-- (void)didMoveToWindow {
-    %orig;
-    self.hidden = YES;
-    [self sizeToFit];
-    [self setNeedsLayout];
-    [self removeFromSuperview];
-}
-%end
-*/
-
 # pragma mark - ctor
 %ctor {
     // Load uYou first so its functions are available for hooks.
@@ -1573,15 +1463,6 @@ clearcolor = [UIColor clearColor];
     }
     if (IsEnabled(@"disableAccountSection_enabled")) {
         %init(gDisableAccountSection);
-    }
-    if (IsEnabled(@"disableDontEatMyContentSection_enabled")) {
-        %init(gDisableDontEatMyContentSection);
-    }
-    if (IsEnabled(@"disableReturnYouTubeDislikeSection_enabled")) {
-        %init(gDisableReturnYouTubeDislikeSection);
-    }
-    if (IsEnabled(@"disableYouPiPSection_enabled")) {
-        %init(gDisableYouPiPSection);
     }
     if (IsEnabled(@"disableAutoplaySection_enabled")) {
         %init(gDisableAutoplaySection);
