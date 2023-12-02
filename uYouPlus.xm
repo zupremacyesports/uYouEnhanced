@@ -1050,7 +1050,6 @@ static void replaceTab(YTIGuideResponse *response) {
 %end
 
 // Red Subscribe Button - @arichorn
-%group gRedSubscribeButton
 %hook ELMContainerNode
 - (void)setBackgroundColor:(id)color {
     NSString *containerDescription = [self description];
