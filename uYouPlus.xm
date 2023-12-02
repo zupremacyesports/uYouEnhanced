@@ -1054,32 +1054,23 @@ static void replaceTab(YTIGuideResponse *response) {
 %hook ELMContainerNode
 - (void)setBackgroundColor:(id)color {
     NSString *containerDescription = [self description];
-    NSString *containerDebugDescription = [self debugDescription];
-
-    if ([containerDescription containsString:@"eml.compact_subscribe_button"]) {
-        color = [UIColor redColor];
+    if (IsEnabled(@"redSubscribeButton_enabled")) {
+        if ([containerDescription containsString:@"eml.compact_subscribe_button"]) {
+            color = [UIColor redColor];
+        }
     }
-    %orig(color);
-}
-%end
-%end
-
 // Hide the Button Containers under the Video Player - 17.x.x and up - @arichorn
-%group gHideButtonContainers
-%hook ELMContainerNode
-- (void)setBackgroundColor:(id)color 
-    NSString *containerDescription = [self description];
-
-  if ([containerDescription containsString:@"id.video.like.button"] ||
-      [containerDescription containsString:@"id.video.dislike.button"] ||
-      [containerDescription containsString:@"id.video.share.button"] ||
-      [containerDescription containsString:@"id.video.remix.button"] ||
-      [containerDescription containsString:@"id.ui.add_to.offline.button"]) {
-      color = [UIColor clearColor];
+    if (IsEnabled(@"hideButtonContainers_enabled")) {
+        if ([containerDescription containsString:@"id.video.like.button"] ||
+            [containerDescription containsString:@"id.video.dislike.button"] ||
+            [containerDescription containsString:@"id.video.share.button"] ||
+            [containerDescription containsString:@"id.video.remix.button"] ||
+            [containerDescription containsString:@"id.ui.add_to.offline.button"]) {
+            color = [UIColor clearColor];
+        }
     }
     %orig(color);
 }
-%end
 %end
 
 // Hide the (Remix / Thanks / Download / Clip / Save) Buttons under the Video Player - 17.x.x and up - @arichorn
@@ -1396,12 +1387,6 @@ static void replaceTab(YTIGuideResponse *response) {
     }
     if (IsEnabled(@"hideVideoPlayerShadowOverlayButtons_enabled")) {
         %init(gHideVideoPlayerShadowOverlayButtons);
-    }
-    if (IsEnabled(@"redSubscribeButton_enabled")) {
-        %init(gRedSubscribeButton);
-    }
-    if (IsEnabled(@"hideButtonContainers_enabled")) {
-        %init(gHideButtonContainers);
     }
     if (IsEnabled(@"disableHints_enabled")) {
         %init(gDisableHints);
