@@ -1102,8 +1102,14 @@ static void replaceTab(YTIGuideResponse *response) {
 %group gRedSubscribeButton
 %hook ELMContainerNode
 - (void)setBackgroundColor:(id)color {
-  if ([self.description isEqualToString:@"eml.compact_subscribe_button"]) {
+  id displayView = [self valueForKey:@"_asDisplayView"];
+if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
+
+  NSString *accessibilityIdentifier = [self accessibilityIdentifier];
+
+  if ([accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) {
     color = [UIColor redColor];
+    }
   }
   %orig(color);
 }
@@ -1113,16 +1119,24 @@ static void replaceTab(YTIGuideResponse *response) {
 // Hide the Button Containers under the Video Player - 17.x.x and up - @arichorn
 %group gHideButtonContainers
 %hook ELMContainerNode
-- (void)setBackgroundColor:(id)color {
-  if ([self.description isEqualToString:@"id.video.like.button"] ||
-      [self.description isEqualToString:@"id.video.dislike.button"] ||
-      [self.description isEqualToString:@"id.video.share.button"] ||
-      [self.description isEqualToString:@"id.video.remix.button"] ||
-      [self.description isEqualToString:@"Thanks"] ||
-      [self.description isEqualToString:@"id.ui.add_to.offline.button"] ||
-      [self.description isEqualToString:@"Clip"] ||
-      [self.description isEqualToString:@"Save to playlist"]) {
-    color = [UIColor clearColor];
+
+- (void)setBackgroundColor:(id)color 
+  id displayView = [self valueForKey:@"_asDisplayView"];
+
+if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
+    NSString *accessibilityIdentifier = [displayView accessibilityIdentifier];
+    NSString *accessibilityLabel = [displayView accessibilityLabel];
+
+  if ([accessibilityIdentifier isEqualToString:@"id.video.like.button"] ||
+      [accessibilityIdentifier isEqualToString:@"id.video.dislike.button"] ||
+      [accessibilityIdentifier isEqualToString:@"id.video.share.button"] ||
+      [accessibilityIdentifier isEqualToString:@"id.video.remix.button"] ||
+      [accessibilityLabel isEqualToString:@"Thanks"] ||
+      [accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"] ||
+      [accessibilityLabel isEqualToString:@"Clip"] ||
+      [accessibilityLabel isEqualToString:@"Save to playlist"]) {
+      color = [UIColor clearColor];
+    }
   }
   %orig(color);
 }
