@@ -1103,12 +1103,10 @@ static void replaceTab(YTIGuideResponse *response) {
 %hook ELMContainerNode
 - (void)setBackgroundColor:(id)color {
   id displayView = [self valueForKey:@"_asDisplayView"];
-if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
-
-  NSString *accessibilityIdentifier = [self accessibilityIdentifier];
-
-  if ([accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) {
-    color = [UIColor redColor];
+  if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
+    NSString *accessibilityIdentifier = [self accessibilityIdentifier];
+    if ([accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) {
+      color = [UIColor redColor];
     }
   }
   %orig(color);
