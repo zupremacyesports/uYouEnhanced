@@ -1077,7 +1077,7 @@ static void replaceTab(YTIGuideResponse *response) {
       [containerDescription containsString:@"id.ui.add_to.offline.button"]) {
       color = [UIColor clearColor];
     }
-    %orig;
+    %orig(color);
 }
 %end
 %end
