@@ -1140,7 +1140,6 @@ if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
         %orig(clearcolor);
     } else {
         %orig(clearcolor);
-    }
 }
 %end
 %end
