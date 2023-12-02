@@ -1101,15 +1101,15 @@ static void replaceTab(YTIGuideResponse *response) {
 // Red Subscribe Button - @arichorn
 %group gRedSubscribeButton
 %hook ELMContainerNode
-- (void)setBackgroundColor:(id)color {
+- (void)setBackgroundColor:(id)redcolor {
   id displayView = [self valueForKey:@"_asDisplayView"];
   if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
     NSString *accessibilityIdentifier = [self accessibilityIdentifier];
     if ([accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) {
-      color = [UIColor redColor];
+      redcolor = [UIColor redColor];
     }
   }
-  %orig(color);
+  %orig(redcolor);
 }
 %end
 %end
@@ -1118,7 +1118,7 @@ static void replaceTab(YTIGuideResponse *response) {
 %group gHideButtonContainers
 %hook ELMContainerNode
 
-- (void)setBackgroundColor:(id)color 
+- (void)setBackgroundColor:(id)clearcolor 
   id displayView = [self valueForKey:@"_asDisplayView"];
 
 if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
@@ -1133,10 +1133,10 @@ if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
       [accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"] ||
       [accessibilityLabel isEqualToString:@"Clip"] ||
       [accessibilityLabel isEqualToString:@"Save to playlist"]) {
-      color = [UIColor clearColor];
+      clearcolor = [UIColor clearColor];
     }
   }
-  %orig(color);
+  %orig(clearcolor);
 }
 %end
 %end
