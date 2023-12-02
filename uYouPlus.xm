@@ -1102,14 +1102,16 @@ static void replaceTab(YTIGuideResponse *response) {
 %group gRedSubscribeButton
 %hook ELMContainerNode
 - (void)setBackgroundColor:(id)redcolor {
-  id displayView = [self valueForKey:@"_asDisplayView"];
-  if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
-    NSString *accessibilityIdentifier = [self accessibilityIdentifier];
-    if ([accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) {
-      redcolor = [UIColor redColor];
+    id displayView = [self valueForKey:@"_asDisplayView"];
+    if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
+        NSString *accessibilityIdentifier = [self accessibilityIdentifier];
+        if ([accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) {
+            redcolor = [UIColor redColor];
+        }
+        %orig(redcolor);
+    } else {
+        %orig(redcolor);
     }
-  }
-  %orig(redcolor);
 }
 %end
 %end
@@ -1134,9 +1136,11 @@ if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
       [accessibilityLabel isEqualToString:@"Clip"] ||
       [accessibilityLabel isEqualToString:@"Save to playlist"]) {
       clearcolor = [UIColor clearColor];
+        }
+        %orig(clearcolor);
+    } else {
+        %orig(clearcolor);
     }
-  }
-  %orig(clearcolor);
 }
 %end
 %end
