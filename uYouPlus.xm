@@ -317,10 +317,10 @@ static CGFloat _tabHeight = 45;
 %hook YTPivotBarItemView
 - (void)layoutSubviews {
     %orig;
-    if (!customTabView) {
-        customTabView = [[YTPivotBarItemView alloc] init];
-        customTabView.frame = CGRectMake(0, 0, _tabWidth, _tabHeight);
-        customTabView.navigationButton.accessibilityLabel = @"Settings";
+    if (!customSettingsTabView) {
+        customSettingsTabView = [[YTPivotBarItemView alloc] init];
+        customSettingsTabView.frame = CGRectMake(0, 0, _tabWidth, _tabHeight);
+        customSettingsTabView.navigationButton.accessibilityLabel = @"Settings";
         
         YTQTMButton *settingsButton = [YTQTMButton buttonWithType:UIButtonTypeCustom];
         [settingsButton setTitle:@"SETTINGS" forState:UIControlStateNormal];
@@ -871,26 +871,7 @@ static void replaceTab(YTIGuideResponse *response) {
 }
 %end
 
-// Hide Channel Watermark - @arichorn & @iCrazeiOS
-%hook YTIElementRenderer
-- (NSData *)elementData {
-    if (IsEnabled(@"hideChannelWatermark_enabled")) {
-        NSString *description = [self description];
-        if ([description containsString:@"featured_channel_watermark_overlay.eml"]) {
-            return nil;
-        }
-    }
-    return %orig;
-}
-%end
-%hook YTMainAppVideoPlayerOverlayView
-- (BOOL)isWatermarkEnabled {
-    if (IsEnabled(@"hideChannelWatermark_enabled")) {
-        return NO;
-    }
-    return %orig;
-}
-%end
+// Hide Channel Watermark
 // Hide Channel Watermark (for Backwards Compatibility)
 %hook YTAnnotationsViewController
 - (void)loadFeaturedChannelWatermark {
@@ -1034,6 +1015,12 @@ static void replaceTab(YTIGuideResponse *response) {
             }
         }
     }
+// Hide Channel Watermark - @iCrazeiOS
+    if (IsEnabled(@"hideChannelWatermark_enabled")) {
+        if ([description containsString:@"featured_channel_watermark_overlay.eml"]) {
+            return nil;
+        }
+    }
     return %orig;
 }
 %end
@@ -1066,13 +1053,13 @@ static void replaceTab(YTIGuideResponse *response) {
 %group gRedSubscribeButton
 %hook ELMContainerNode
 - (void)setBackgroundColor:(id)color {
-    id displayView = [self valueForKey:@"_asDisplayView"];
-    if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
-        NSString *accessibilityIdentifier = [self accessibilityIdentifier];
-        if ([accessibilityIdentifier isEqualToString:@"eml.compact_subscribe_button"]) {
-            color = [UIColor redColor];
-        }
+    NSString *containerDescription = [self description];
+    NSString *containerDebugDescription = [self debugDescription];
+
+    if ([containerDescription containsString:@"eml.compact_subscribe_button"]) {
+        color = [UIColor redColor];
     }
+    %orig(color);
 }
 %end
 %end
@@ -1081,22 +1068,19 @@ static void replaceTab(YTIGuideResponse *response) {
 %group gHideButtonContainers
 %hook ELMContainerNode
 - (void)setBackgroundColor:(id)color 
-  id displayView = [self valueForKey:@"_asDisplayView"];
+    NSString *containerDescription = [self description];
 
-if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
-    NSString *accessibilityIdentifier = [displayView accessibilityIdentifier];
-    NSString *accessibilityLabel = [displayView accessibilityLabel];
-
-  if ([accessibilityIdentifier isEqualToString:@"id.video.like.button"] ||
-      [accessibilityIdentifier isEqualToString:@"id.video.dislike.button"] ||
-      [accessibilityIdentifier isEqualToString:@"id.video.share.button"] ||
-      [accessibilityIdentifier isEqualToString:@"id.video.remix.button"] ||
-      [accessibilityLabel isEqualToString:@"Thanks"] ||
-      [accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"] ||
-      [accessibilityLabel isEqualToString:@"Clip"] ||
-      [accessibilityLabel isEqualToString:@"Save to playlist"]) {
+  if ([containerDescription containsString:@"id.video.like.button"] ||
+      [containerDescription containsString:@"id.video.dislike.button"] ||
+      [containerDescription containsString:@"id.video.share.button"] ||
+      [containerDescription containsString:@"id.video.remix.button"] ||
+//    [accessibilityLabel isEqualToString:@"Thanks"] ||
+      [containerDescription containsString:@"id.ui.add_to.offline.button"] ||
+ //   [accessibilityLabel isEqualToString:@"Clip"] ||
+ //   [accessibilityLabel isEqualToString:@"Save to playlist"]) {
       color = [UIColor clearColor];
-        }
+    }
+    %orig;
 }
 %end
 %end
