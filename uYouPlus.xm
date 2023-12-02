@@ -1134,12 +1134,13 @@ if ([displayView isKindOfClass:NSClassFromString(@"_ASDisplayView")]) {
       [accessibilityLabel isEqualToString:@"Thanks"] ||
       [accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"] ||
       [accessibilityLabel isEqualToString:@"Clip"] ||
-      [accessibilityLabel isEqualToString:@"Save to playlist"]) {
-      clearcolor = [UIColor clearColor];
-        }
-        %orig(clearcolor);
-    } else {
-        %orig(clearcolor);
+      [accessibilityLabel isEqualToString:@"Save to playlist"]) {clearcolor = [UIColor clearColor];
+}
+clearcolor = [UIColor clearColor];
+}
+%orig(clearcolor);
+} else {
+%orig(clearcolor);
 }
 %end
 %end
