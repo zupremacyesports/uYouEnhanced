@@ -97,6 +97,12 @@ static NSString *accessGroupID() {
 - (BOOL)disableAfmaIdfaCollection { return NO; }
 %end
 
+%hook YTRightNavigationButtons
+- (void)setDynamicButtons:(id)buttons {
+    %orig(YES);
+}
+%end
+
 // Reposition "Create" Tab to the Center in the Pivot Bar - qnblackcat/uYouPlus#107
 /*
 static void repositionCreateTab(YTIGuideResponse *response) {
@@ -871,8 +877,7 @@ static void replaceTab(YTIGuideResponse *response) {
 }
 %end
 
-// Hide Channel Watermark
-// Hide Channel Watermark (for Backwards Compatibility)
+// Hide Channel Watermark - Deprecated Version
 %hook YTAnnotationsViewController
 - (void)loadFeaturedChannelWatermark {
     if (IsEnabled(@"hideChannelWatermark_enabled")) {}
