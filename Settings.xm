@@ -284,6 +284,16 @@ extern NSBundle *uYouPlusBundle();
                 }
                 settingItemId:0],
 
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Disable Ambient Mode in Fullscreen")
+                titleDescription:LOC(@"When Enabled, this will Disable the functionality of Ambient Mode from being used in the Video Player when in Fullscreen. App restart is required.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableAmbientMode_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableAmbientMode_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide Suggested Videos in Fullscreen")
                 titleDescription:LOC(@"Hide video player's suggested videos whenever in fullscreen.")
                 accessibilityIdentifier:nil
@@ -352,6 +362,7 @@ extern NSBundle *uYouPlusBundle();
 # pragma mark - Video Player Buttons
     YTSettingsSectionItem *videoPlayerButtonsGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Video Player Button Options") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
+/*
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Red Subscribe Button")
                 titleDescription:LOC(@"Replaces the Subscribe Button color from being White to the color Red.")
                 accessibilityIdentifier:nil
@@ -371,7 +382,7 @@ extern NSBundle *uYouPlusBundle();
                     return YES;
                 }
                 settingItemId:0],
-
+*/
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide the Remix Button under player")
                 titleDescription:LOC(@"Hides the Remix Button under the video player.")
                 accessibilityIdentifier:nil
@@ -1710,16 +1721,6 @@ extern NSBundle *uYouPlusBundle();
                 switchOn:IsEnabled(@"disableHints_enabled")
                 switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
                     [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableHints_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Disable Ambient Mode in Fullscreen")
-                titleDescription:LOC(@"When Enabled, this will Disable the functionality of Ambient Mode from being used in the Video Player when in Fullscreen. App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableAmbientMode_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableAmbientMode_enabled"];
                     return YES;
                 }
                 settingItemId:0],
