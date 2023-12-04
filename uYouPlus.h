@@ -38,7 +38,7 @@
 #define LOC(x) [tweakBundle localizedStringForKey:x value:nil table:nil]
 #define YT_BUNDLE_ID @"com.google.ios.youtube"
 #define YT_NAME @"YouTube"
-#define DEFAULT_RATE 2.0f // YTSpeed
+#define DEFAULT_RATE 1.0f // YTSpeed
 
 @interface YTSingleVideoController ()
 - (float)playbackRate;
@@ -141,6 +141,7 @@
 
 // uYouLocal fix
 @interface YTLocalPlaybackController : NSObject
+- (void)setPlaybackRate:(float)rate;
 - (id)activeVideo;
 @end
 
@@ -218,8 +219,6 @@
 @end
 
 @interface ELMContainerNode : NSObject
-@property (nonatomic, strong) NSString *accessibilityIdentifier;
-@property (nonatomic, strong) NSString *accessibilityLabel;
 @end
 
 @interface YTAutonavEndscreenView : UIView
