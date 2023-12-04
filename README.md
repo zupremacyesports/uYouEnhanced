@@ -232,23 +232,23 @@
 
   - My official AltStore repo: https://therealfoxster.github.io/altsource-viewer/index.html?source=https://raw.githubusercontent.com/arichorn/arichorn.github.io/main/apps.json
 
-  - [Open in AltStore (v18.46.3-3.0.1-F2)](https://tinyurl.com/mutewwdb) - It will take a while to install because AltStore needs to download the IPA first.
+  - [Open in AltStore (v18.48.3-3.0.1)](https://tinyurl.com/4w4295ct) - It will take a while to install because AltStore needs to download the IPA first.
 
-- Version info: _(last update: Dec 2 2023)_
+- Version info: _(last update: Dec 4 2023)_
 
 <details>
   <summary>Expand ℹ️</summary>
 
 | **Tweaks/App** | **Developer** | **Version** | **Open source** |
 | - | - | :-: | :-:  |
-| **YouTube** | Google Inc | 18.46.3 | ✖︎ |
+| **YouTube** | Google Inc | 18.48.3 | ✖︎ |
 | [uYou](https://github.com/MiRO92/uYou-for-YouTube) | [MiRO92](https://twitter.com/miro92) | 3.0.1 | ✖︎ |
 | **Open in YouTube** | [CokePokes](https://github.com/CokePokes) | 1.2 | [✔︎](https://github.com/CokePokes/YoutubeExtensions) |
 | **iSponsorBlock** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.2.1 | [✔︎](https://github.com/Galactic-Dev/iSponsorBlock) |
 | **BigYTMiniPlayer** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.0-1 | [✔︎](https://github.com/Galactic-Dev/BigYTMiniPlayer) |
 | **YTNoHoverCards** | [level3tjg](https://twitter.com/level3tjg) | 0.0.3 | [✔︎](https://github.com/level3tjg/YTNoHoverCards) |
 | **YTMiniplayerEnabler** | [level3tjg](https://twitter.com/level3tjg) | 0.0.2 | [✔︎](https://github.com/level3tjg/YTMiniplayerEnabler) |
-| **DontEatMyContent** | [therealFoxster](https://github.com/therealFoxster) | 1.0.11 | [✔︎](https://github.com/therealFoxster/DontEatMyContent) |
+| **DontEatMyContent** | [therealFoxster](https://github.com/therealFoxster) | 1.1.1 | [✔︎](https://github.com/therealFoxster/DontEatMyContent) |
 | **YTSpeed** | [Lyvendia](https://github.com/Lyvendia) | 1.0.1 | [✔︎](https://github.com/Lyvendia/YTSpeed) |
 | **YTCastConfirm** | [JamieBerghmans](https://github.com/JamieBerghmans) | 1.0.0 | [✔︎](https://github.com/JamieBerghmans/YTCastConfirm) |
 | **Alderis Color Picker** | [HASHBANG Productions](https://github.com/hbang) | 1.2 | [✔︎](https://github.com/hbang/Alderis) |
@@ -300,7 +300,7 @@ or [arichorn/Building - Wiki](https://github.com/arichorn/uYouPlusExtra/wiki/Bui
 
 <details>
     <summary>Balackburn's YTLitePlus</summary><br>
-- Change from uYouPlus/uYouPlusExtra to YTLitePlus (optional)
+- Change from uYouPlus/uYouEnhanced to YTLitePlus (optional)
 
 Hello, this is here to showcase this tweak. I have been seeing the YTLitePlus tweak on Reddit for quite some time now and decided to join in. Before you download the tweak, you should take a look at the pros and cons below to learn more about the tweak.
 
@@ -308,13 +308,13 @@ https://github.com/Balackburn/YTLitePlus/releases
 
 **Pros**
 
-- YTLitePlus is stable and more customizable than uYouPlus/uYouPlusExtra.
+- YTLitePlus is stable and more customizable than uYouPlus/uYouEnhanced.
 
-- YTLitePlus provides more features in YTLite & YTLitePlus Sections in Settings that uYouPlus/uYouPlusExtra may not have.
+- YTLitePlus provides more features in YTLite & YTLitePlus Sections in Settings that uYouPlus/uYouEnhanced may not have.
 
 - YTLitePlus includes a lightweight version of the App Version Spoofer, making it easier to use.
 
-- YTLitePlus does not cause your device to overheat, unlike uYouPlusExtra.
+- YTLitePlus does not cause your device to overheat, unlike uYouEnhanced.
 
 **Cons**
 
