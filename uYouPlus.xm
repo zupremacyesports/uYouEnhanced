@@ -872,6 +872,21 @@ static void replaceTab(YTIGuideResponse *response) {
 %end
 
 // Hide Channel Watermark
+%hook YTMainAppVideoPlayerOverlayView
+- (BOOL)isWatermarkEnabled {
+    if (IsEnabled(@"hideChannelWatermark_enabled")) {
+        return NO;
+    }
+    return %orig;
+}
+- (void)setFeaturedChannelWatermarkImageView:(id)imageView {
+    if (IsEnabled(@"hideChannelWatermark_enabled")) {
+        return;
+    }
+    %orig(imageView);
+}
+%end
+
 // Hide Channel Watermark (for Backwards Compatibility)
 %hook YTAnnotationsViewController
 - (void)loadFeaturedChannelWatermark {
@@ -1013,12 +1028,6 @@ static void replaceTab(YTIGuideResponse *response) {
             if (![description containsString:@"history*"]) {
                 return nil;
             }
-        }
-    }
-// Hide Channel Watermark - @iCrazeiOS
-    if (IsEnabled(@"hideChannelWatermark_enabled")) {
-        if ([description containsString:@"featured_channel_watermark_overlay.eml"]) {
-            return nil;
         }
     }
     return %orig;
