@@ -544,9 +544,9 @@ static CGFloat _tabHeight = 45;
 }
 %end
 
-// YTNoModernUI - @arichorn
-%group gYTNoModernUI
-%hook YTVersionUtils // YTNoModernUI Original Version
+// Fix LowContrastMode - @arichorn
+%group gFixLowContrastMode
+%hook YTVersionUtils // Supported LowContrastMode Version
 + (NSString *)appVersion { return @"17.38.10"; }
 %end
 
@@ -560,38 +560,34 @@ static CGFloat _tabHeight = 45;
     } %orig(arg1);
 }
 %end
-
-%hook YTInlinePlayerBarContainerView // Red Progress Bar - YTNoModernUI
-- (id)quietProgressBarColor {
-    return [UIColor redColor];
-}
 %end
 
-%hook YTSegmentableInlinePlayerBarView // Gray Buffer Progress - YTNoModernUI
-- (void)setBufferedProgressBarColor:(id)arg1 {
-     [UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.50];
-}
+// Restore 16.xx.x Styled YouTube Channel Page Interface - @arichorn
+%group gRestorePreviousChannelPage // 16.xx.x Version
+%hook YTColdConfig
+- (BOOL)channelsClientConfigIosChannelNavRestructuring { return NO; }
+- (BOOL)channelsClientConfigIosMultiPartChannelHeader { return NO; }
+%end
 %end
 
-%hook YTQTMButton // Disable Modern/Rounded Buttons - YTNoModernUI
+// Disable Modern/Rounded Buttons (_ASDisplayView not included) - @arichorn
+%group gDisableModernButtons 
+%hook YTQTMButton // Disable Modern/Rounded Buttons
 + (BOOL)buttonModernizationEnabled { return NO; }
 %end
+%end
 
-%hook YTBubbleHintView // Disable Modern/Rounded Hints - YTNoModernUI
+// Disable Rounded Hints with no Rounded Corners - @arichorn
+%group gDisableRoundedHints
+%hook YTBubbleHintView // Disable Modern/Rounded Hints
 + (BOOL)modernRoundedCornersEnabled { return NO; }
 %end
-
-%hook YTCinematicContainerView // Disable Ambient Mode in Fullscreen Container - YTNoModernUI
-- (BOOL)watchFullScreenCinematicSupported {
-    return NO;
-}
-- (BOOL)watchFullScreenCinematicEnabled {
-    return NO;
-}
 %end
 
+// Disable Modern Flags - @arichorn
+%group gDisableModernFlags
 %hook YTColdConfig
-// Disable Modern Content - YTNoModernUI
+// Disable Modern Content
 - (BOOL)creatorClientConfigEnableStudioModernizedMdeThumbnailPickerForClient { return NO; }
 - (BOOL)cxClientEnableModernizedActionSheet { return NO; }
 - (BOOL)enableClientShortsSheetsModernization { return NO; }
@@ -604,37 +600,14 @@ static CGFloat _tabHeight = 45;
 - (BOOL)uiSystemsClientGlobalConfigIosEnableEpUxUpdates { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigIosEnableSheetsUxUpdates { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigIosEnableSnackbarModernization { return NO; }
-// Disable Rounded Content - YTNoModernUI
+// Disable Rounded Content
 - (BOOL)iosDownloadsPageRoundedThumbs { return NO; }
 - (BOOL)iosRoundedSearchBarSuggestZeroPadding { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableRoundedDialogForNative { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableRoundedThumbnailsForNative { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableRoundedThumbnailsForNativeLongTail { return NO; }
 - (BOOL)uiSystemsClientGlobalConfigEnableRoundedTimestampForNative { return NO; }
-// Disable Darker Dark Mode - YTNoModernUI
-- (BOOL)enableDarkerDarkMode { return NO; }
-- (BOOL)useDarkerPaletteBgColorForElements { return NO; }
-- (BOOL)useDarkerPaletteTextColorForElements { return NO; }
-- (BOOL)uiSystemsClientGlobalConfigUseDarkerPaletteTextColorForNative { return NO; }
-- (BOOL)uiSystemsClientGlobalConfigUseDarkerPaletteBgColorForNative { return NO; }
-// Disable Ambient Mode - YTNoModernUI
-- (BOOL)disableCinematicForLowPowerMode { return NO; }
-- (BOOL)enableCinematicContainer { return NO; }
-- (BOOL)enableCinematicContainerOnClient { return NO; }
-- (BOOL)enableCinematicContainerOnTablet { return NO; }
-- (BOOL)enableTurnOffCinematicForFrameWithBlackBars { return YES; }
-- (BOOL)enableTurnOffCinematicForVideoWithBlackBars { return YES; }
-- (BOOL)iosCinematicContainerClientImprovement { return NO; }
-- (BOOL)iosEnableGhostCardInlineTitleCinematicContainerFix { return NO; }
-- (BOOL)iosUseFineScrubberMosaicStoreForCinematic { return NO; }
-- (BOOL)mainAppCoreClientEnableClientCinematicPlaylists { return NO; }
-- (BOOL)mainAppCoreClientEnableClientCinematicPlaylistsPostMvp { return NO; }
-- (BOOL)mainAppCoreClientEnableClientCinematicTablets { return NO; }
-- (BOOL)iosEnableFullScreenAmbientMode { return NO; }
-// 16.42.3 Styled YouTube Channel Page Interface - YTNoModernUI
-- (BOOL)channelsClientConfigIosChannelNavRestructuring { return NO; }
-- (BOOL)channelsClientConfigIosMultiPartChannelHeader { return NO; }
-// Disable Optional Content - YTNoModernUI
+// Disable Optional Content
 - (BOOL)elementsClientIosElementsEnableLayoutUpdateForIob { return NO; }
 - (BOOL)supportElementsInMenuItemSupportedRenderers { return NO; }
 - (BOOL)isNewRadioButtonStyleEnabled { return NO; }
@@ -1441,8 +1414,20 @@ static void replaceTab(YTIGuideResponse *response) {
     if (IsEnabled(@"noVideosInFullscreen_enabled")) {
         %init(gNoVideosInFullscreen);
     }
-    if (IsEnabled(@"ytNoModernUI_enabled")) {
-        %init(gYTNoModernUI);
+    if (IsEnabled(@"fixLowContrastMode_enabled")) {
+        %init(gFixLowContrastMode);
+    }
+    if (IsEnabled(@"restorePreviousChannelPage_enabled")) {
+        %init(gRestorePreviousChannelPage);
+    }
+    if (IsEnabled(@"disableModernButtons_enabled")) {
+        %init(gDisableModernButtons);
+    }
+    if (IsEnabled(@"disableRoundedHints_enabled")) {
+        %init(gDisableRoundedHints);
+    }
+    if (IsEnabled(@"disableModernFlags_enabled")) {
+        %init(gDisableModernFlags);
     }
     if (IsEnabled(@"disableAmbientMode_enabled")) {
         %init(gDisableAmbientMode);
