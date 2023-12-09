@@ -56,7 +56,7 @@
 "RED_PROGRESS_BAR" = "Roter Fortschrittsbalken";
 "RED_PROGRESS_BAR_DESC" = "Bringen Sie den roten Fortschrittsbalken zurück. App-Neustart erforderlich.";
 
-"DONT_EAT_MY_CONTENT" = "Kerbe/dynamische Insel bei 2:1-Videoinhalten berücksichtigen (DontEatMyContent)";
+"DONT_EAT_MY_CONTENT" = "Notch/Dynamic Island bei 2:1-Videoinhalten berücksichtigen (DontEatMyContent)";
 "DONT_EAT_MY_CONTENT_DESC" = "Verhindert, dass die Notch/Dynamic Island 2:1-Videoinhalte überdeckt. App-Neustart erforderlich!";
 
 // Shorts controls overlay options
@@ -130,8 +130,8 @@
 "HIDE_CHIP_BAR" = "Obere Leiste ausblenden";
 "HIDE_CHIP_BAR_DESC" = "Obere Leiste in den Home-Feeds (Trends, Musik, Spiele...) und Abo-Feeds (Alle Videos, Weiterschauen...) ausblenden. App-Neustart erforderlich.";
 
-"HIDE_PLAY_NEXT_IN_QUEUE" = "Hide \"Play next in queue\"";
-"HIDE_PLAY_NEXT_IN_QUEUE_DESC" = "Hide the premium \"Play next in queue\" option in video context menus";
+"HIDE_PLAY_NEXT_IN_QUEUE" = "\"Nächste Wiedergabe in der Warteschlange\" ausblenden";
+"HIDE_PLAY_NEXT_IN_QUEUE_DESC" = "Ausblenden der Premiumoption \"Nächste Wiedergabe in der Warteschlange\"";
 
 "NEW_MINIPLAYER_STYLE" = "Neuer Miniplayer Style (BigYTMiniPlayer)";
 "NEW_MINIPLAYER_STYLE_DESC" = "App-Neustart erforderlich!";
