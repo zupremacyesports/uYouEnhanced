@@ -56,7 +56,7 @@
 "RED_PROGRESS_BAR" = "Roter Fortschrittsbalken";
 "RED_PROGRESS_BAR_DESC" = "Bringen Sie den roten Fortschrittsbalken zurück. App-Neustart erforderlich.";
 
-"DONT_EAT_MY_CONTENT" = "Kerbe/dynamische Insel bei 2:1-Videoinhalten berücksichtigen (DontEatMyContent)";
+"DONT_EAT_MY_CONTENT" = "Notch/Dynamic Island bei 2:1-Videoinhalten berücksichtigen (DontEatMyContent)";
 "DONT_EAT_MY_CONTENT_DESC" = "Verhindert, dass die Notch/Dynamic Island 2:1-Videoinhalte überdeckt. App-Neustart erforderlich!";
 
 // Shorts controls overlay options
