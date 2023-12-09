@@ -58,7 +58,7 @@ extern NSBundle *uYouPlusBundle();
     accessibilityIdentifier:nil
     detailTextBlock:nil
     selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-        return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/arichorn/uYouPlusExtra/releases/latest"]];
+        return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/arichorn/uYouEnhanced/releases/latest"]];
     }];
     [sectionItems addObject:version];
 
@@ -362,7 +362,7 @@ extern NSBundle *uYouPlusBundle();
 # pragma mark - Video Player Buttons
     YTSettingsSectionItem *videoPlayerButtonsGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Video Player Button Options") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
-/*
+/* these 2 options are currently not working
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Red Subscribe Button")
                 titleDescription:LOC(@"Replaces the Subscribe Button color from being White to the color Red.")
                 accessibilityIdentifier:nil
@@ -1603,6 +1603,84 @@ extern NSBundle *uYouPlusBundle();
             return YES;
         }];
 
+# pragma mark - UI
+    YTSettingsSectionItem *uiGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"UI Options") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+        NSArray <YTSettingsSectionItem *> *rows = @[
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Fix LowContrastMode")
+                titleDescription:LOC(@"This will fix the LowContrastMode functionality by Spoofing to YouTube v17.38.10. App restart is required.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"fixLowContrastMode_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"fixLowContrastMode_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Restore the Previous Channel Page")
+                titleDescription:LOC(@"This will Restore the Previous Channel Page UI that was originally in YouTube v16.xx.x or older. App restart is required.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"restorePreviousChannelPage_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"restorePreviousChannelPage_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Disable Modern Buttons")
+                titleDescription:LOC(@"This will remove the new Modern / Chip Buttons in the YouTube App. but not all of them. App restart is required.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableModernButtons_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableModernButtons_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Disable Rounded Corners on Hints")
+                titleDescription:LOC(@"This will make the Hints in the App to not have Rounded Corners. App restart is required.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableRoundedHints_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableRoundedHints_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Disable Modern A/B Flags")
+                titleDescription:LOC(@"This will turn off any Modern Flag that was enabled by default. App restart is required.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"disableModernFlags_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableModernFlags_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable All Options Above (YTNoModernUI)")
+                titleDescription:LOC(@"When Enabled, this will enable the options above. App restart is required.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"ytNoModernUI_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"ytNoModernUI_enabled"];
+                    return YES;
+                }
+                settingItemId:0],
+
+            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable App Version Spoofer")
+                titleDescription:LOC(@"Enable this to use the Version Spoofer and select your perferred version below. App restart is required.")
+                accessibilityIdentifier:nil
+                switchOn:IsEnabled(@"enableVersionSpoofer_enabled")
+                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"enableVersionSpoofer_enabled"];
+                    return YES;
+                }
+                settingItemId:0], versionSpooferSection];
+        YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"UI Options") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
+        [settingsViewController pushViewController:picker];
+        return YES;
+    }];
+    [sectionItems addObject:uiGroup];
+
 # pragma mark - Theme
     YTSettingsSectionItem *themeGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"THEME_OPTIONS")
         accessibilityIdentifier:nil
@@ -1721,16 +1799,6 @@ extern NSBundle *uYouPlusBundle();
                 switchOn:IsEnabled(@"disableHints_enabled")
                 switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
                     [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableHints_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Remove the Modern UI (YTNoModernUI)")
-                titleDescription:LOC(@"When Enabled, this will remove any modern element added to YouTube such as Rounded Buttons, Rounded Hints, Fixes LowContrastMode functionality. App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"ytNoModernUI_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"ytNoModernUI_enabled"];
                     return YES;
                 }
                 settingItemId:0],
@@ -1863,24 +1931,15 @@ extern NSBundle *uYouPlusBundle();
                     [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"flex_enabled"];
                     return YES;
                 }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable App Version Spoofer")
-                titleDescription:LOC(@"Enable this to use the Version Spoofer and select your perferred version below. App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"enableVersionSpoofer_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"enableVersionSpoofer_enabled"];
-                    return YES;
-                }
-                settingItemId:0], versionSpooferSection];
+                settingItemId:0]
+        ];        
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"MISCELLANEOUS") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];
         return YES;
     }];
     [sectionItems addObject:miscellaneousGroup];
 
-    [settingsViewController setSectionItems:sectionItems forCategory:uYouPlusSection title:@"uYouPlus" titleDescription:LOC(@"TITLE DESCRIPTION") headerHidden:YES];
+    [settingsViewController setSectionItems:sectionItems forCategory:uYouPlusSection title:@"uYouEnhanced" titleDescription:LOC(@"TITLE DESCRIPTION") headerHidden:YES];
 }
 
 - (void)updateSectionForCategory:(NSUInteger)category withEntry:(id)entry {
