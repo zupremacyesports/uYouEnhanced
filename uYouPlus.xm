@@ -1470,22 +1470,20 @@ static void replaceTab(YTIGuideResponse *response) {
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"disableAgeRestriction"]; // Disable Age Restriction Disabled - Reason is the same as above.
 
     // YTNoModernUI - @arichorn
+    BOOL ytNoModernUIEnabled = IsEnabled(@"ytNoModernUI_enabled");
     if (ytNoModernUIEnabled) {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setBool:NO forKey:@"enableVersionSpoofer_enabled"];
     [userDefaults setBool:NO forKey:@"premiumYouTubeLogo_enabled"];
     } else {
     BOOL enableVersionSpooferEnabled = IsEnabled(@"enableVersionSpoofer_enabled");
-    [userDefaults setBool:enableVersionSpooferEnabled forKey:@"enableVersionSpoofer_enabled"];
-
     BOOL premiumYouTubeLogoEnabled = IsEnabled(@"premiumYouTubeLogo_enabled");
-    [userDefaults setBool:premiumYouTubeLogoEnabled forKey:@"premiumYouTubeLogo_enabled"];
-}
-    [userDefaults setBool:ytNoModernUIEnabled forKey:@"fixLowContrastMode_enabled"];
-    [userDefaults setBool:ytNoModernUIEnabled forKey:@"restorePreviousChannelPage_enabled"];
-    [userDefaults setBool:ytNoModernUIEnabled forKey:@"disableModernButtons_enabled"];
-    [userDefaults setBool:ytNoModernUIEnabled forKey:@"disableRoundedHints_enabled"];
 
-    BOOL ytNoModernUIEnabled = IsEnabled(@"ytNoModernUI_enabled");
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:enableVersionSpooferEnabled forKey:@"enableVersionSpoofer_enabled"];
+    [userDefaults setBool:premiumYouTubeLogoEnabled forKey:@"premiumYouTubeLogo_enabled"];
+    }
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setBool:ytNoModernUIEnabled forKey:@"fixLowContrastMode_enabled"];
     [userDefaults setBool:ytNoModernUIEnabled forKey:@"restorePreviousChannelPage_enabled"];
     [userDefaults setBool:ytNoModernUIEnabled forKey:@"disableModernButtons_enabled"];
