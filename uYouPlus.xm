@@ -1429,6 +1429,9 @@ static void replaceTab(YTIGuideResponse *response) {
     if (IsEnabled(@"disableModernFlags_enabled")) {
         %init(gDisableModernFlags);
     }
+    if (IsEnabled(@"ytNoModernUI_enabled")) {
+        %init(gYTNoModernUI);
+    }
     if (IsEnabled(@"disableAmbientMode_enabled")) {
         %init(gDisableAmbientMode);
     }
@@ -1468,6 +1471,31 @@ static void replaceTab(YTIGuideResponse *response) {
 
     // Disable broken options of uYou
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"disableAgeRestriction"]; // Disable Age Restriction Disabled - Reason is the same as above.
+
+    // YTNoModernUI - @arichorn
+    if (ytNoModernUIEnabled) {
+    [userDefaults setBool:NO forKey:@"enableVersionSpoofer_enabled"];
+    [userDefaults setBool:NO forKey:@"premiumYouTubeLogo_enabled"];
+    } else {
+    BOOL enableVersionSpooferEnabled = IsEnabled(@"enableVersionSpoofer_enabled");
+    [userDefaults setBool:enableVersionSpooferEnabled forKey:@"enableVersionSpoofer_enabled"];
+
+    BOOL premiumYouTubeLogoEnabled = IsEnabled(@"premiumYouTubeLogo_enabled");
+    [userDefaults setBool:premiumYouTubeLogoEnabled forKey:@"premiumYouTubeLogo_enabled"];
+}
+    [userDefaults setBool:ytNoModernUIEnabled forKey:@"fixLowContrastMode_enabled"];
+    [userDefaults setBool:ytNoModernUIEnabled forKey:@"restorePreviousChannelPage_enabled"];
+    [userDefaults setBool:ytNoModernUIEnabled forKey:@"disableModernButtons_enabled"];
+    [userDefaults setBool:ytNoModernUIEnabled forKey:@"disableRoundedHints_enabled"];
+
+    BOOL ytNoModernUIEnabled = IsEnabled(@"ytNoModernUI_enabled");
+    [userDefaults setBool:ytNoModernUIEnabled forKey:@"fixLowContrastMode_enabled"];
+    [userDefaults setBool:ytNoModernUIEnabled forKey:@"restorePreviousChannelPage_enabled"];
+    [userDefaults setBool:ytNoModernUIEnabled forKey:@"disableModernButtons_enabled"];
+    [userDefaults setBool:ytNoModernUIEnabled forKey:@"disableRoundedHints_enabled"];
+    [userDefaults setBool:ytNoModernUIEnabled forKey:@"disableModernFlags_enabled"];
+    [userDefaults setBool:ytNoModernUIEnabled forKey:@"disableAmbientMode_enabled"];
+    [userDefaults setBool:ytNoModernUIEnabled forKey:@"redProgressBar_enabled"];
 
     // Change the default value of some options
     NSArray *allKeys = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];
