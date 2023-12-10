@@ -1,7 +1,7 @@
 # Original idea by @ISnackable. Thanks to him for handling the hardest parts!
 # https://github.com/ISnackable/YTCubePlus/blob/main/.github/workflows/Build.yml
 
-name: Build and Release uYouPlusExtra
+name: Build and Release uYouEnhanced
 
 on:
   workflow_dispatch:
@@ -48,14 +48,14 @@ concurrency:
 
 jobs:
   build:
-    name: Build uYouPlus
+    name: Build uYouEnhanced
     runs-on: macos-latest
     permissions:
       contents: write
 
     steps:
       - name: Install Dependencies
-        run: brew install bzip2 curl dpkg jq ldid make node svn wget xz
+        run: brew install curl dpkg jq ldid make node svn wget xz
 
       - name: Set PATH environment variable
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
@@ -140,7 +140,7 @@ jobs:
           UYOU_VERSION: ${{ inputs.uyou_version }}
           YOUTUBE_VERSION: ${{ inputs.youtube_version }}
         with:
-          name: uYouPlusExtra_${{ env.YOUTUBE_VERSION }}_${{ env.UYOU_VERSION }}
+          name: uYouEnhanced_${{ env.YOUTUBE_VERSION }}_${{ env.UYOU_VERSION }}
           path: ${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}
           if-no-files-found: error
 
