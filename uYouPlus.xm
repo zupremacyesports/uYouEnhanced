@@ -1429,9 +1429,6 @@ static void replaceTab(YTIGuideResponse *response) {
     if (IsEnabled(@"disableModernFlags_enabled")) {
         %init(gDisableModernFlags);
     }
-    if (IsEnabled(@"ytNoModernUI_enabled")) {
-        %init(gYTNoModernUI);
-    }
     if (IsEnabled(@"disableAmbientMode_enabled")) {
         %init(gDisableAmbientMode);
     }
