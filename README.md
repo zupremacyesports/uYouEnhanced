@@ -1,5 +1,3 @@
-<h4> What shall be the new Tweak Name to replace the name uYouPlusExtra? https://github.com/arichorn/uYouPlusExtra/discussions/236 </h4>
-
 <p align="center">
   <a href="https://user-images.githubusercontent.com/78001398/271790092-006e81cc-715a-4fbc-aff6-15832e2da8c4.png">
     <img src="https://user-images.githubusercontent.com/78001398/271790092-006e81cc-715a-4fbc-aff6-15832e2da8c4.png" alt="UYOUPLUS_LOGO" width="200" height="200">
@@ -13,19 +11,19 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Platform-iOS%20%7C%20iPadOS%2014.0%2B-yellow?logo=apple&logoColor=darkgray" alt="Platform Badge">
+  <img src="https://img.shields.io/badge/Platform-iOS%20%7C%20iPadOS%2014.0%2B-yellow?logo=apple&logoColor=white" alt="Platform Badge">
 </p>
 
 <p align="center">
-    <a href="https://github.com/arichorn/uYouPlusExtra/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/arichorn/uYouPlusExtra?logo=youtube&color=%23e81e8a&label=Latest%20Release" alt="Latest Release Badge"></a>
-    <a href="https://github.com/arichorn/uYouPlusExtra/releases/latest"><img src="https://img.shields.io/github/downloads/qnblackcat/uYouPlus/total?color=%23e81e8a&label=Downloads&logo=cloudsmith&logoColor=white" alt="Download Badge"></a>
-    <a href="https://github.com/arichorn/uYouPlusExtra/commit"><img src="https://custom-icon-badges.demolab.com/github/last-commit/arichorn/uYouPlusExtra?logo=history&logoColor=white&color=%23e81e8a&label=Last%20Commit" alt="Last Commit Badge"></a>
-    <a href="https://github.com/arichorn/uYouPlusExtra/issues"><img src="https://custom-icon-badges.demolab.com/github/issues-raw/arichorn/uYouPlusExtra?logo=issue-opened&logoColor=white&color=%23e81e8a&label=Issues" alt="Issues Badge"></a>
+    <a href="https://github.com/arichorn/uYouEnhanced/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/arichorn/uYouEnhanced?logo=youtube&color=%23e81e8a&label=Latest%20Release" alt="Latest Release Badge"></a>
+    <a href="https://github.com/arichorn/uYouEnhanced/releases/latest"><img src="https://img.shields.io/github/downloads/qnblackcat/uYouPlus/total?color=%23e81e8a&label=Downloads&logo=cloudsmith&logoColor=white" alt="Download Badge"></a>
+    <a href="https://github.com/arichorn/uYouEnhanced/commit"><img src="https://custom-icon-badges.demolab.com/github/last-commit/arichorn/uYouEnhanced?logo=history&logoColor=white&color=%23e81e8a&label=Last%20Commit" alt="Last Commit Badge"></a>
+    <a href="https://github.com/arichorn/uYouEnhanced/issues"><img src="https://custom-icon-badges.demolab.com/github/issues-raw/arichorn/uYouEnhanced?logo=issue-opened&logoColor=white&color=%23e81e8a&label=Issues" alt="Issues Badge"></a>
 </p>
 
 <p align="center">
-    <a href="https://github.com/arichorn/uYouPlusExtra/stargazers"><img src="https://custom-icon-badges.demolab.com/github/stars/arichorn/uYouPlusExtra?logo=star&logoColor=white&color=%23e81e8a&label=Stars" alt="Stars Badge"></img></a>
-<a href="https://github.com/arichorn/uYouPlusExtra/network/members"><img src="https://custom-icon-badges.demolab.com/github/forks/arichorn/uYouPlusExtra?logo=github&logoColor=white&color=%23e81e8a&label=Forks"></a>
+    <a href="https://github.com/arichorn/uYouEnhanced/stargazers"><img src="https://custom-icon-badges.demolab.com/github/stars/arichorn/uYouEnhanced?logo=star&logoColor=white&color=%23e81e8a&label=Stars" alt="Stars Badge"></img></a>
+<a href="https://github.com/arichorn/uYouEnhanced/network/members"><img src="https://custom-icon-badges.demolab.com/github/forks/arichorn/uYouEnhanced?logo=github&logoColor=white&color=%23e81e8a&label=Forks"></a>
 </p>
 
 # Table of Contents
@@ -222,26 +220,26 @@
 
 - **uYou**: All the known issues of uYou are listed [here](https://github.com/MiRO92/uYou-for-YouTube/issues). Make sure you take a look at it before reporting any bugs! Also, keep in mind that uYou+ is a modified version of uYou. DO NOT bother MiRO92 with problems unrelated to uYou!
 
-- Issues related to **uYouPlus** can be found [here](https://github.com/qnblackcat/uYouPlus/issues/), or issues related to **uYouPlusExtra** can be found [here](https://github.com/arichorn/uYouPlusExtra/issues/).
+- Issues related to **uYouPlus** can be found [here](https://github.com/qnblackcat/uYouPlus/issues/), or issues related to **uYouEnhanced** can be found [here](https://github.com/arichorn/uYouEnhanced/issues/).
 
 # Download
 
-- **uYouPlusExtra** (or you can just call it uYou+) requires iOS or iPadOS 14.0 or later. The latest version of **uYouPlusExtra** ipa can be found in the [Release tab](https://github.com/arichorn/uYouPlusExtra/releases/latest).
+- **uYouEnhanced** (or you can just call it uYouPlus / uYou+) requires iOS or iPadOS 14.0 or later. The latest version of **uYouEnhanced** ipa can be found in the [Release tab](https://github.com/arichorn/uYouEnhanced/releases/latest).
 
 - For AltStore user: 
 
-  - My official AltStore repo: https://therealfoxster.github.io/altsource-viewer/index.html?source=https://raw.githubusercontent.com/arichorn/arichorn.github.io/main/apps.json
+  - My official AltStore repo: https://therealfoxster.github.io/altsource-viewer/view/?source=https://raw.githubusercontent.com/arichorn/arichorn.github.io/main/apps.json
 
-  - [Open in AltStore (v18.48.3-3.0.1)](https://tinyurl.com/4w4295ct) - It will take a while to install because AltStore needs to download the IPA first.
+  - [Open in AltStore (v18.49.3-3.0.1)](http://tinyurl.com/2rtwpcnc) - It will take a while to install because AltStore needs to download the IPA first.
 
-- Version info: _(last update: Dec 4 2023)_
+- Version info: _(last update: Dec 11 2023)_
 
 <details>
   <summary>Expand ℹ️</summary>
 
 | **Tweaks/App** | **Developer** | **Version** | **Open source** |
 | - | - | :-: | :-:  |
-| **YouTube** | Google Inc | 18.48.3 | ✖︎ |
+| **YouTube** | Google Inc | 18.49.3 | ✖︎ |
 | [uYou](https://github.com/MiRO92/uYou-for-YouTube) | [MiRO92](https://twitter.com/miro92) | 3.0.1 | ✖︎ |
 | **Open in YouTube** | [CokePokes](https://github.com/CokePokes) | 1.2 | [✔︎](https://github.com/CokePokes/YoutubeExtensions) |
 | **iSponsorBlock** | [Galactic-Dev](https://github.com/Galactic-Dev) | 1.2.1 | [✔︎](https://github.com/Galactic-Dev/iSponsorBlock) |
@@ -262,9 +260,9 @@
 | **YouRememberCaption** | [PoomSmart](https://twitter.com/poomsmart) | 1.0.0 | [✔︎](https://poomsmart.github.io/repo/depictions/youremembercaption.html) |
 | **Return YouTube Dislike** | [PoomSmart](https://twitter.com/poomsmart) | 1.11.4 | [✔︎](https://github.com/PoomSmart/Return-YouTube-Dislikes) |
 | **YouMute** | [PoomSmart](https://twitter.com/poomsmart) | 1.2.1-2 | [✔︎](https://github.com/PoomSmart/YouMute) |
-| **YouQuality** | [PoomSmart](https://twitter.com/poomsmart) | 1.1.4 | [✔︎](https://github.com/PoomSmart/YouQuality) |
+| **YouQuality** | [PoomSmart](https://twitter.com/poomsmart) | 1.1.4-1 | [✔︎](https://github.com/PoomSmart/YouQuality) |
 | **YTVideoOverlay** | [PoomSmart](https://twitter.com/poomsmart) | 1.1.1-1 | [✔︎](https://github.com/PoomSmart/YTVideoOverlay) |
-| **YTHoldForSpeed** | [joshuaseltzer](https://github.com/joshuaseltzer) | 1.0.7 | [✔︎](https://github.com/joshuaseltzer/YTHoldForSpeed) |
+| **YTHoldForSpeed** | [joshuaseltzer](https://github.com/joshuaseltzer) | 1.0.8 | [✔︎](https://github.com/joshuaseltzer/YTHoldForSpeed) |
 | **LowContrastMode** | [arichorn](https://github.com/arichorn) | 1.5.1 | [✔︎](https://github.com/arichorn/YTLowContrastMode) |
 
 </details>
@@ -275,7 +273,7 @@
 |-----------|-----------------------|--------------------------|--------------------------|
 | MiRO92 | uYou 2.1/2.3~1 | v16.42.3 - 18.01.6 | iOS 13 - iOS 15 |
 | MiRO92 | uYou 3.0 | v18.06.6 - 18.18.2 | iOS 14 - iOS 15 |
-| MiRO92 | uYou 3.0.1 | v18.28.3 - v18.41.5 | iOS 14 - iOS 17 |
+| MiRO92 | uYou 3.0.1 | v18.19.1 - v18.41.5 | iOS 14 - iOS 17 |
 
 # Installation
 See [Installation - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/Installation).
@@ -296,7 +294,7 @@ See [FAQ - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/FAQ).
 # Building (optional)
 
 See [qnblackcat/Building - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/Building)
-or [arichorn/Building - Wiki](https://github.com/arichorn/uYouPlusExtra/wiki/Building).
+or [arichorn/Building - Wiki](https://github.com/arichorn/uYouEnhanced/wiki/Building).
 
 <details>
     <summary>Balackburn's YTLitePlus</summary><br>
