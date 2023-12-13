@@ -171,6 +171,16 @@ UIColor *lcmHexColor;
     return [UIColor whiteColor];
 }
 %end
+%hook ELMTextNode
+- (void)updateAttributedText {
+    %orig;
+    NSMutableDictionary *attributes = [[self.attributedText attributesAtIndex:0 effectiveRange:NULL] mutableCopy];
+    attributes[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    NSMutableAttributedString *modifiedText = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedText];
+    [modifiedText setAttributes:attributes range:NSMakeRange(0, modifiedText.length)];
+    self.attributedText = modifiedText;
+}
+%end
 %hook YCHLiveChatLabel
 - (NSAttributedString *)attributedText {
     NSAttributedString *originalAttributedString = %orig;
