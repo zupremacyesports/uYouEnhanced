@@ -1484,13 +1484,12 @@ static void replaceTab(YTIGuideResponse *response) {
     [userDefaults setBool:premiumYouTubeLogoEnabled forKey:@"premiumYouTubeLogo_enabled"];
     }
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setBool:ytNoModernUIEnabled forKey:@"fixLowContrastMode_enabled"];
-    [userDefaults setBool:ytNoModernUIEnabled forKey:@"restorePreviousChannelPage_enabled"];
-    [userDefaults setBool:ytNoModernUIEnabled forKey:@"disableModernButtons_enabled"];
-    [userDefaults setBool:ytNoModernUIEnabled forKey:@"disableRoundedHints_enabled"];
-    [userDefaults setBool:ytNoModernUIEnabled forKey:@"disableModernFlags_enabled"];
-    [userDefaults setBool:ytNoModernUIEnabled forKey:@"disableAmbientMode_enabled"];
-    [userDefaults setBool:ytNoModernUIEnabled forKey:@"redProgressBar_enabled"];
+    [userDefaults setBool:ytNoModernUIEnabled ? ytNoModernUIEnabled : [userDefaults boolForKey:@"fixLowContrastMode_enabled"] forKey:@"fixLowContrastMode_enabled"];
+    [userDefaults setBool:ytNoModernUIEnabled ? ytNoModernUIEnabled : [userDefaults boolForKey:@"disableModernButtons_enabled"] forKey:@"disableModernButtons_enabled"];
+    [userDefaults setBool:ytNoModernUIEnabled ? ytNoModernUIEnabled : [userDefaults boolForKey:@"disableRoundedHints_enabled"] forKey:@"disableRoundedHints_enabled"];
+    [userDefaults setBool:ytNoModernUIEnabled ? ytNoModernUIEnabled : [userDefaults boolForKey:@"disableModernFlags_enabled"] forKey:@"disableModernFlags_enabled"];
+    [userDefaults setBool:ytNoModernUIEnabled ? ytNoModernUIEnabled : [userDefaults boolForKey:@"disableAmbientMode_enabled"] forKey:@"disableAmbientMode_enabled"];
+    [userDefaults setBool:ytNoModernUIEnabled ? ytNoModernUIEnabled : [userDefaults boolForKey:@"redProgressBar_enabled"] forKey:@"redProgressBar_enabled"];
 
     // Change the default value of some options
     NSArray *allKeys = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];
