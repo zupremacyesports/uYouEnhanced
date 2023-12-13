@@ -171,6 +171,14 @@ UIColor *lcmHexColor;
     return [UIColor whiteColor];
 }
 %end
+%hook YCHLiveChatLabel
+- (NSAttributedString *)attributedText {
+    NSAttributedString *originalAttributedString = %orig;
+    NSMutableAttributedString *modifiedAttributedString = [originalAttributedString mutableCopy];
+    [modifiedAttributedString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, modifiedAttributedString.length)];
+    return modifiedAttributedString;
+}
+%end
 %hook YTQTMButton
 - (void)setImage:(UIImage *)image {
     UIImage *currentImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
