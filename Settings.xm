@@ -1616,16 +1616,6 @@ extern NSBundle *uYouPlusBundle();
                 }
                 settingItemId:0],
 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Restore the Previous Channel Page")
-                titleDescription:LOC(@"This will Restore the Previous Channel Page UI that was originally in YouTube v16.xx.x or older. App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"restorePreviousChannelPage_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"restorePreviousChannelPage_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
             [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Disable Modern Buttons")
                 titleDescription:LOC(@"This will remove the new Modern / Chip Buttons in the YouTube App. but not all of them. App restart is required.")
                 accessibilityIdentifier:nil
