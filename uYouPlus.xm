@@ -470,14 +470,6 @@ static void repositionCreateTab(YTIGuideResponse *response) {
 %end
 %end
 
-// Restore 16.xx.x Styled YouTube Channel Page Interface - @arichorn
-%group gRestorePreviousChannelPage // 16.xx.x Version
-%hook YTColdConfig
-- (BOOL)channelsClientConfigIosChannelNavRestructuring { return NO; }
-- (BOOL)channelsClientConfigIosMultiPartChannelHeader { return NO; }
-%end
-%end
-
 // Disable Modern/Rounded Buttons (_ASDisplayView not included) - @arichorn
 %group gDisableModernButtons 
 %hook YTQTMButton // Disable Modern/Rounded Buttons
@@ -1324,9 +1316,6 @@ static void replaceTab(YTIGuideResponse *response) {
     }
     if (IsEnabled(@"fixLowContrastMode_enabled")) {
         %init(gFixLowContrastMode);
-    }
-    if (IsEnabled(@"restorePreviousChannelPage_enabled")) {
-        %init(gRestorePreviousChannelPage);
     }
     if (IsEnabled(@"disableModernButtons_enabled")) {
         %init(gDisableModernButtons);
