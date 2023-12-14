@@ -308,108 +308,6 @@ static void repositionCreateTab(YTIGuideResponse *response) {
 }
 %end
 
-// Work in Progress - main-nightly
-/*
-static YTPivotBarItemView *customTabView = nil;
-static CGFloat _tabWidth = 82;
-static CGFloat _tabHeight = 45;
-
-%hook YTPivotBarItemView
-- (void)layoutSubviews {
-    %orig;
-    if (!customSettingsTabView) {
-        customSettingsTabView = [[YTPivotBarItemView alloc] init];
-        customSettingsTabView.frame = CGRectMake(0, 0, _tabWidth, _tabHeight);
-        customSettingsTabView.navigationButton.accessibilityLabel = @"Settings";
-        
-        YTQTMButton *settingsButton = [YTQTMButton buttonWithType:UIButtonTypeCustom];
-        [settingsButton setTitle:@"SETTINGS" forState:UIControlStateNormal];
-        settingsButton.titleLabel.font = [UIFont systemFontOfSize:12];
-        [settingsButton addTarget:self action:@selector(customTabButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-        [customSettingsTabView.navigationButton addSubview:settingsButton];
-        settingsButton.frame = customSettingsTabView.navigationButton.bounds;
-    }   
-    [self addSubview:customSettingsTabView];
-}
-- (void)openSettings {
-    Class settingsEndpointClass = NSClassFromString(@"YTIApplicationSettingsEndpointRoot");
-    SEL settingsEndpointSelector = NSSelectorFromString(@"applicationSettingsEndpoint");
-    
-    if ([settingsEndpointClass respondsToSelector:settingsEndpointSelector]) {
-        IMP imp = [settingsEndpointClass methodForSelector:settingsEndpointSelector];
-        void (*applicationSettingsEndpoint)(id, SEL) = (void *)imp;
-        applicationSettingsEndpoint(settingsEndpointClass, settingsEndpointSelector);
-    }
-}
-%end
-
-%hook YTIPivotBarRenderer
-- (void)layoutSubviews {
-    %orig;
-    YTPivotBarView *pivotBarView = [self valueForKey:@"_pivotBarView"];
-    
-    YTPivotBarItemView *customItemView = [[YTPivotBarItemView alloc] init];
-    [customItemView.navigationButton setTitle:@"Settings" forState:UIControlStateNormal];
-    [customItemView.navigationButton setImage:[self getCustomIcon] forState:UIControlStateNormal];
-    
-    NSMutableArray<YTIPivotBarSupportedRenderers *> *itemsArray = [self itemsArray];
-    YTIPivotBarSupportedRenderers *supportedRenderer = nil;
-    for (YTIPivotBarSupportedRenderers *renderer in itemsArray) {
-        if ([[[renderer pivotBarItemRenderer] title] isEqualToString:@"Settings"]) {
-            supportedRenderer = renderer;
-            break;
-        }
-    }
-    if (supportedRenderer) {
-        [[supportedRenderer pivotBarItemRenderer] setPivotIdentifier:@"SettingsTab"];
-        
-        YTIBrowseEndpoint *browseEndpoint = [%c(YTIBrowseEndpoint) new];
-        [browseEndpoint setBrowseId:@"SettingsTab"];
-        
-        YTINavigationEndpoint *navigationEndpoint = [%c(YTINavigationEndpoint) new];
-        [navigationEndpoint setBrowseEndpoint:browseEndpoint];
-        
-        [[supportedRenderer pivotBarItemRenderer] setNavigationEndpoint:navigationEndpoint];
-        
-        NSMutableArray *modifiedItemViews = [[pivotBarView valueForKey:@"itemViews"] mutableCopy];
-        [modifiedItemViews addObject:customItemView];
-        
-        [pivotBarView setValue:modifiedItemViews forKey:@"itemViews"];
-    }
-}
-- (UIImage *)getCustomIcon {
-    return [UIImage imageNamed:@"SETTINGS"];
-}
-%end
-
-%hook YTIPivotBarItemRenderer
-- (NSString *)pivotIdentifier {
-    return @"SettingsTab";
-}
-- (YTICommand *)navigationEndpoint {
-    YTICommand *originalEndpoint = %orig;
-
-    if (!originalEndpoint) {
-        YTIBrowseEndpoint *browseEndpoint = [[%c(YTIBrowseEndpoint) alloc] init];
-        [browseEndpoint setBrowseId:@"SettingsTab"];
-
-        YTICommand *customEndpoint = [[%c(YTICommand) alloc] init];
-        [customEndpoint setBrowseEndpoint:browseEndpoint];
-
-        return (YTICommand *)customEndpoint;
-    }
-
-    return originalEndpoint;
-}
-- (void)setNavigationEndpoint:(YTICommand *)navigationEndpoint {
-    %orig;
-}
-- (NSString *)targetId {
-    return @"SettingsTab";
-}
-%end
-*/
-
 // YTMiniPlayerEnabler: https://github.com/level3tjg/YTMiniplayerEnabler/
 %hook YTWatchMiniBarViewController
 - (void)updateMiniBarPlayerStateFromRenderer {
@@ -507,6 +405,16 @@ static CGFloat _tabHeight = 45;
 %end
 
 // YTNoTracking - @arichorn - https://github.com/arichorn/YTNoTracking/
+%hook UIApplication
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    NSString *originalURLString = [url absoluteString];
+    NSString *modifiedURLString = [originalURLString stringByReplacingOccurrencesOfString:@"&si=[a-zA-Z0-9_-]+" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, originalURLString.length)];
+    NSURL *modifiedURL = [NSURL URLWithString:modifiedURLString];
+    BOOL result = %orig(application, modifiedURL, options);
+    return result;
+}
+%end
+
 %hook YTICompactLinkRenderer
 + (BOOL)hasTrackingParams {
     return NO;
