@@ -99,6 +99,9 @@ UIColor *lcmHexColor;
 + (BOOL)darkerPaletteTextColorEnabled {
     return NO;
 }
++ (UIColor *)white1 {
+    return [UIColor whiteColor];
+}
 + (UIColor *)white2 {
     return [UIColor whiteColor];
 }
