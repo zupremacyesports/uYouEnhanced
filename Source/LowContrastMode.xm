@@ -302,8 +302,8 @@ UIColor *lcmHexColor;
 %end
 %hook YTRightNavigationButtons // iSponsorBlock
 - (NSMutableArray *)buttons {
-    NSMutableArray *buttons = %orig
-    UIImage *image = [UIImage imageWithContentsOfFile:[tweakBundle pathForResource:@"sponsorblocksettings-20@2x" ofType:@"png"]];
+    NSMutableArray *buttons = %orig;
+    UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"sponsorblocksettings-20@2x" ofType:@"png"]];
     image = [image imageWithTintColor:[UIColor whiteColor] renderingMode:UIImageRenderingModeAlwaysTemplate];
     if (buttons.count > 0) {
         UIButton *sponsorBlockButton = buttons[0];
