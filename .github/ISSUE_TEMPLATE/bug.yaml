@@ -18,16 +18,28 @@ body:
     options:
     - label: Yes, I did read the FAQ
       required: true
-    
-- type: textarea
+
+- type: markdown
   attributes:
-    label: Device info
-    description: 
-    value: |
-        - iOS/iPadOS version:
-        - Device model:
-        - Sideload tool (AltStore, Sideloadly, TrollStore,...):
-        - The specific version of uYouPlus (**latest or newest is NOT a version number!**):
+    value: "## Device Info"
+
+- type: input
+  label: iOS/iPadOS version
+  validations:
+    required: true
+
+- type: input
+  label: Device model
+  validations:
+    required: true
+
+- type: input
+  label: Sideload tool (AltStore, Sideloadly, TrollStore,...)
+  validations:
+    required: true
+
+- type: input
+  label: uYouEnhanced version (**latest or newest is NOT a version number!**)
   validations:
     required: true
 
