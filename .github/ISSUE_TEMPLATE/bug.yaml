@@ -45,9 +45,13 @@ body:
 - type: input
   attributes:
     label: uYouEnhanced version
-    description: **latest or newest is NOT a version number!**
+    description: "**latest or newest is NOT a version number!**"
   validations:
     required: true
+
+- type: markdown
+  attributes:
+    value: "## Description"
 
 - type: textarea
   attributes:
