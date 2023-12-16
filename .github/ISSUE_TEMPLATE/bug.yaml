@@ -24,22 +24,26 @@ body:
     value: "## Device Info"
 
 - type: input
-  label: iOS/iPadOS version
+  attributes:
+    label: iOS/iPadOS version
   validations:
     required: true
 
 - type: input
-  label: Device model
+  attributes:
+    label: Device model
   validations:
     required: true
 
 - type: input
-  label: Sideload tool (AltStore, Sideloadly, TrollStore,...)
+  attributes:
+    label: Sideload tool (AltStore, Sideloadly, TrollStore,...)
   validations:
     required: true
 
 - type: input
-  label: uYouEnhanced version (**latest or newest is NOT a version number!**)
+  attributes:
+    label: uYouEnhanced version (**latest or newest is NOT a version number!**)
   validations:
     required: true
 
