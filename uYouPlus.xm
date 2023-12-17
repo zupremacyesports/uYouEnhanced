@@ -915,10 +915,17 @@ static void replaceTab(YTIGuideResponse *response) {
             }
         }
     }
+// Hide Community Posts - @michael-winay & @arichorn
+    if (IsEnabled(@"hideCommunityPosts_enabled")) {
+        if ([description containsString:@"post_base_wrapper.eml"]) {
+            return nil;
+        }
+    }
     return %orig;
 }
 %end
 
+/* Deprecated Method - Loads indefinitely on newer YouTube Versions
 // Hide Community Posts - @michael-winay & @arichorn
 %hook YTAsyncCollectionView
 - (id)cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -942,6 +949,7 @@ static void replaceTab(YTIGuideResponse *response) {
     [self deleteItemsAtIndexPaths:@[indexPath]];
 }
 %end
+*/
 
 // Red Subscribe Button - @arichorn
 %hook ELMContainerNode
