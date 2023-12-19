@@ -406,9 +406,12 @@ static void repositionCreateTab(YTIGuideResponse *response) {
 
 // YTNoTracking - @arichorn - https://github.com/arichorn/YTNoTracking/
 %hook UIApplication
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
     NSString *originalURLString = [url absoluteString];
-    NSString *modifiedURLString = [originalURLString stringByReplacingOccurrencesOfString:@"&si=[a-zA-Z0-9_-]+" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, originalURLString.length)];
+    NSString *modifiedURLString = originalURLString;
+    if ([modifiedURLString isEqualToString:originalURLString]) {
+        modifiedURLString = [modifiedURLString stringByReplacingOccurrencesOfString:@"&si=[a-zA-Z0-9_-]+" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, modifiedURLString.length)];
+    }
     NSURL *modifiedURL = [NSURL URLWithString:modifiedURLString];
     BOOL result = %orig(application, modifiedURL, options);
     return result;
@@ -905,7 +908,10 @@ static void replaceTab(YTIGuideResponse *response) {
 %hook YTIElementRenderer
 - (NSData *)elementData {
     NSString *description = [self description];
-    if (IsEnabled(@"hideShortsCells_enabled")) {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL hideShortsCellsEnabled = [defaults boolForKey:@"hideShortsCells_enabled"];
+    BOOL hideShortsCellsEnableduYou = [defaults boolForKey:@"removeShortsCell"];
+    if (hideShortsCellsEnabled || hideShortsCellsEnableduYou) {
         if ([description containsString:@"shorts_shelf.eml"] ||
             [description containsString:@"#shorts"] ||
             [description containsString:@"shorts_video_cell.eml"] ||
