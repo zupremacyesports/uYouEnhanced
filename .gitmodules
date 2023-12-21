@@ -61,3 +61,6 @@
 [submodule "Tweaks/YTHoldForSpeed"]
 	path = Tweaks/YTHoldForSpeed
 	url = https://github.com/arichorn/YTHoldForSpeed.git
+[submodule "Tweaks/uYouLocalization"]
+	path = Tweaks/uYouLocalization
+	url = https://github.com/dayanch96/uYouLocalization.git
