@@ -16,6 +16,13 @@ jobs:
            git config --global user.email "actions@github.com"
            git config --global user.name "GitHub Actions"
 
+      - name: Add uYouPlusExtra submodules
+        run: |
+          git submodule add https://github.com/dayanch96/uYouLocalization.git Tweaks/uYouLocalization
+          git add .
+          git commit -m "added uYouLocalization submodule"
+          git push origin
+
       - name: Update submodules
         run: |
           git submodule update --init --recursive --remote Tweaks/Alderis
@@ -27,6 +34,8 @@ jobs:
           git submodule update --init --recursive --remote Tweaks/PSHeader
           git add .
           git submodule update --init --recursive --remote Tweaks/Return-YouTube-Dislikes
+          git add .
+          git submodule update --init --recursive --remote Tweaks/uYouLocalization
           git add .
           git submodule update --init --recursive --remote Tweaks/YTABConfig
           git add .
