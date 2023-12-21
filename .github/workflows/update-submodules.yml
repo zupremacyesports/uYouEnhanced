@@ -16,11 +16,12 @@ jobs:
            git config --global user.email "actions@github.com"
            git config --global user.name "GitHub Actions"
 
-      - name: Add uYouPlusExtra submodules
+      - name: Make .bundle
         run: |
-          git submodule add https://github.com/dayanch96/uYouLocalization.git Tweaks/uYouLocalization
+          cd Bundles
+          ln -s ../Tweaks/uYouLocalization/layout/Library/Application\ Support/uYouLocalization.bundle uYouLocalization.bundle
           git add .
-          git commit -m "added uYouLocalization submodule"
+          git commit -m "Added uYouLocalization bundle"
           git push origin
 
       - name: Update submodules
