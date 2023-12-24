@@ -39,40 +39,9 @@ static NSString *accessGroupID() {
     return accessGroup;
 }
 
-//
-# pragma mark - uYou's patches
-// Crash fix for >= 18.43.4 (https://github.com/iCrazeiOS/uYouCrashFix)
-%hook YTPlayerViewController
-%new
--(float)currentPlaybackRateForVarispeedSwitchController:(id)arg1 {
-	return [[self activeVideo] playbackRate];
-}
-%new
--(void)varispeedSwitchController:(id)arg1 didSelectRate:(float)arg2 {
-	[[self activeVideo] setPlaybackRate:arg2];
-}
-%end
+# pragma mark - Tweaks
 
-// Workaround for qnblackcat/uYouPlus#10
-%hook UIViewController
-- (UITraitCollection *)traitCollection {
-    @try {
-        return %orig;
-    } @catch(NSException *e) {
-        return [UITraitCollection currentTraitCollection];
-    }
-}
-%end
-
-// Prevent uYou player bar from showing when not playing downloaded media
-%hook PlayerManager
-- (void)pause {
-    if (isnan([self progress]))
-        return;
-    %orig;
-}
-%end
-
+// FLEX
 %hook YTAppDelegate
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions {
@@ -90,57 +59,7 @@ static NSString *accessGroupID() {
         [[%c(FLEXManager) performSelector:@selector(sharedManager)] performSelector:@selector(showExplorer)];
     }
 }
-%end
-
-# pragma mark - YouTube's patches
-%hook YTHotConfig
-- (BOOL)disableAfmaIdfaCollection { return NO; }
-%end
-
-// Reposition "Create" Tab to the Center in the Pivot Bar - qnblackcat/uYouPlus#107
-/*
-static void repositionCreateTab(YTIGuideResponse *response) {
-    NSMutableArray<YTIGuideResponseSupportedRenderers *> *renderers = [response itemsArray];
-    for (YTIGuideResponseSupportedRenderers *guideRenderers in renderers) {
-        YTIPivotBarRenderer *pivotBarRenderer = [guideRenderers pivotBarRenderer];
-        NSMutableArray<YTIPivotBarSupportedRenderers *> *items = [pivotBarRenderer itemsArray];
-        NSUInteger createIndex = [items indexOfObjectPassingTest:^BOOL(YTIPivotBarSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
-            return [[[renderers pivotBarItemRenderer] pivotIdentifier] isEqualToString:@"FEuploads"];
-        }];
-        if (createIndex != NSNotFound) {
-            YTIPivotBarSupportedRenderers *createTab = [items objectAtIndex:createIndex];
-            [items removeObjectAtIndex:createIndex];
-            NSUInteger centerIndex = items.count / 2;
-            [items insertObject:createTab atIndex:centerIndex]; // Reposition the "Create" tab at the center
-        }
-    }
-}
-%hook YTGuideServiceCoordinator
-- (void)handleResponse:(YTIGuideResponse *)response withCompletion:(id)completion {
-    repositionCreateTab(response);
-    %orig(response, completion);
-}
-- (void)handleResponse:(YTIGuideResponse *)response error:(id)error completion:(id)completion {
-    repositionCreateTab(response);
-    %orig(response, error, completion);
-}
-%end
-*/
-
-// Fix streched artwork in uYou's player view
-%hook ArtworkImageView
-- (id)imageView {
-    UIImageView * imageView = %orig;
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    // Make artwork a bit bigger
-    UIView *artworkImageView = imageView.superview;
-    if (artworkImageView != nil && !artworkImageView.translatesAutoresizingMaskIntoConstraints) {
-        [artworkImageView.leftAnchor constraintEqualToAnchor:artworkImageView.superview.leftAnchor constant:16].active = YES;
-        [artworkImageView.rightAnchor constraintEqualToAnchor:artworkImageView.superview.rightAnchor constant:-16].active = YES;
-    }
-    return imageView;
-}
-%end
+%en
 
 // Hide YouTube Logo - @dayanch96
 %group gHideYouTubeLogo
@@ -203,7 +122,6 @@ static void repositionCreateTab(YTIGuideResponse *response) {
 %end
 %end
 
-# pragma mark - Tweaks
 // IAmYouTube - https://github.com/PoomSmart/IAmYouTube/
 %hook YTVersionUtils
 + (NSString *)appName { return YT_NAME; }
