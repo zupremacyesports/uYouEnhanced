@@ -144,7 +144,7 @@
 "Trending" = "發燒影片";
 
 "Video Player" = "影片播放器";
-"Related Videos at the end the videos" = "影片結束時的相關影片";
+"Related videos at the end the video" = "影片結束時的相關影片";
 "Cast Button" = "投放按鈕";
 "uYou Repeat" = "uYou 重複播放";
 "uYou Fullscreen to The Right" = "uYou 全螢幕顯示在右側";
@@ -204,7 +204,7 @@
 "iPad Layout" = "iPad 風格";
 "Remove Shorts Section in YT Home" = "在 YT 首頁移除 Shorts 區塊";
 "Disable Video Auto Play" = "停用影片自動播放";
-"Disable \"Video paused. Continue watching?\"" = "停用 \"影片已暫停。繼續觀看?\"";
+"Disable \"Video paused. Continue watching?\"" = "停用 \"影片已暫停，要繼續觀賞嗎?\"";
 "Disable Auto Caption" = "停用自動字幕";
 "Fullscreen Videos on The Right" = "影片全螢幕顯示於右側";
 "Custom Double Tap To Seek Time" = "自訂點兩下快轉/倒轉時間";
