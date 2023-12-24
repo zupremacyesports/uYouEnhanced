@@ -59,7 +59,7 @@ static NSString *accessGroupID() {
         [[%c(FLEXManager) performSelector:@selector(sharedManager)] performSelector:@selector(showExplorer)];
     }
 }
-%en
+%end
 
 // Hide YouTube Logo - @dayanch96
 %group gHideYouTubeLogo
