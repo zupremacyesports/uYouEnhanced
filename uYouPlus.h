@@ -1,6 +1,3 @@
-#import "Tweaks/YouTubeHeader/YTAppDelegate.h"
-#import "Tweaks/YouTubeHeader/YTPlayerViewController.h"
-#import "Tweaks/YouTubeHeader/YTQTMButton.h"
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
@@ -8,6 +5,10 @@
 #import <sys/utsname.h>
 #import <substrate.h>
 #import <rootless.h>
+
+#import "Tweaks/YouTubeHeader/YTAppDelegate.h"
+#import "Tweaks/YouTubeHeader/YTPlayerViewController.h"
+#import "Tweaks/YouTubeHeader/YTQTMButton.h"
 #import "Tweaks/YouTubeHeader/YTVideoQualitySwitchOriginalController.h"
 #import "Tweaks/YouTubeHeader/YTPlayerViewController.h"
 #import "Tweaks/YouTubeHeader/YTWatchController.h"
@@ -138,6 +139,16 @@
 
 @interface HAMPlayerInternal : NSObject
 - (void)setRate:(float)rate;
+@end
+
+// iOS16 fix
+@interface OBPrivacyLinkButton : UIButton
+- (instancetype)initWithCaption:(NSString *)caption
+                     buttonText:(NSString *)buttonText
+                          image:(UIImage *)image
+                      imageSize:(CGSize)imageSize
+                   useLargeIcon:(BOOL)useLargeIcon
+                displayLanguage:(NSString *)displayLanguage;
 @end
 
 // uYouLocal fix
