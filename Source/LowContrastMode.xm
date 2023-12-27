@@ -1,18 +1,15 @@
 #import "../uYouPlus.h"
 
 //
-static BOOL IsEnabled(NSString *key) {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:key];
-}
 static int contrastMode() {
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"lcm"];
 }
 static BOOL lowContrastMode() {
-    return IsEnabled(@"lowContrastMode_enabled") && contrastMode() == 0;
+    return IS_ENABLED(@"lowContrastMode_enabled") && contrastMode() == 0;
 }
 /*
 static BOOL customContrastMode() {
-    return IsEnabled(@"lowContrastMode_enabled") && contrastMode() == 1;
+    return IS_ENABLED(@"lowContrastMode_enabled") && contrastMode() == 1;
 }
 */
 
