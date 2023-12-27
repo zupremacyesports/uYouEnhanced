@@ -1,10 +1,5 @@
 #import "uYouPlus.h"
 
-//
-static BOOL IsEnabled(NSString *key) {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:key];
-}
-
 // Tweak's bundle for Localizations support - @PoomSmart - https://github.com/PoomSmart/YouPiP/commit/aea2473f64c75d73cab713e1e2d5d0a77675024f
 NSBundle *uYouPlusBundle() {
     static NSBundle *bundle = nil;
@@ -1296,14 +1291,14 @@ static void replaceTab(YTIGuideResponse *response) {
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"disableAgeRestriction"]; // Disable Age Restriction Disabled - Reason is the same as above.
 
     // YTNoModernUI - @arichorn
-    BOOL ytNoModernUIEnabled = IsEnabled(@"ytNoModernUI_enabled");
+    BOOL ytNoModernUIEnabled = IS_ENABLED(@"ytNoModernUI_enabled");
     if (ytNoModernUIEnabled) {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setBool:NO forKey:@"enableVersionSpoofer_enabled"];
     [userDefaults setBool:NO forKey:@"premiumYouTubeLogo_enabled"];
     } else {
-    BOOL enableVersionSpooferEnabled = IsEnabled(@"enableVersionSpoofer_enabled");
-    BOOL premiumYouTubeLogoEnabled = IsEnabled(@"premiumYouTubeLogo_enabled");
+    BOOL enableVersionSpooferEnabled = IS_ENABLED(@"enableVersionSpoofer_enabled");
+    BOOL premiumYouTubeLogoEnabled = IS_ENABLED(@"premiumYouTubeLogo_enabled");
 
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setBool:enableVersionSpooferEnabled forKey:@"enableVersionSpoofer_enabled"];
