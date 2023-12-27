@@ -41,7 +41,7 @@ static NSString *accessGroupID() {
 
 # pragma mark - Tweaks
 
-// FLEX
+// Activate FLEX
 %hook YTAppDelegate
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions {
@@ -229,7 +229,7 @@ static NSString *accessGroupID() {
 // YTMiniPlayerEnabler: https://github.com/level3tjg/YTMiniplayerEnabler/
 %hook YTWatchMiniBarViewController
 - (void)updateMiniBarPlayerStateFromRenderer {
-    if (IsEnabled(@"ytMiniPlayer_enabled")) {}
+    if (IS_ENABLED(@"ytMiniPlayer_enabled")) {}
     else { return %orig; }
 }
 %end
@@ -237,7 +237,7 @@ static NSString *accessGroupID() {
 // YTNoHoverCards: https://github.com/level3tjg/YTNoHoverCards
 %hook YTCreatorEndscreenView
 - (void)setHidden:(BOOL)hidden {
-    if (IsEnabled(@"hideHoverCards_enabled"))
+    if (IS_ENABLED(@"hideHoverCards_enabled"))
         hidden = YES;
     %orig;
 }
@@ -357,7 +357,7 @@ static NSString *accessGroupID() {
 // YTNoPaidPromo: https://github.com/PoomSmart/YTNoPaidPromo
 %hook YTMainAppVideoPlayerOverlayViewController
 - (void)setPaidContentWithPlayerData:(id)data {
-    if (IsEnabled(@"hidePaidPromotionCard_enabled")) {}
+    if (IS_ENABLED(@"hidePaidPromotionCard_enabled")) {}
     else { return %orig; }
 }
 - (void)playerOverlayProvider:(YTPlayerOverlayProvider *)provider didInsertPlayerOverlay:(YTPlayerOverlay *)overlay {
@@ -368,7 +368,7 @@ static NSString *accessGroupID() {
 
 %hook YTInlineMutedPlaybackPlayerOverlayViewController
 - (void)setPaidContentWithPlayerData:(id)data {
-    if (IsEnabled(@"hidePaidPromotionCard_enabled")) {}
+    if (IS_ENABLED(@"hidePaidPromotionCard_enabled")) {}
     else { return %orig; }
 }
 %end
@@ -484,10 +484,10 @@ static NSString *accessGroupID() {
 %hook YTRightNavigationButtons
 - (void)layoutSubviews {
     %orig;
-    if (IsEnabled(@"hideNotificationButton_enabled")) {
+    if (IS_ENABLED(@"hideNotificationButton_enabled")) {
         self.notificationButton.hidden = YES;
     }
-    if (IsEnabled(@"hideSponsorBlockButton_enabled")) { 
+    if (IS_ENABLED(@"hideSponsorBlockButton_enabled")) { 
         self.sponsorBlockButton.hidden = YES;
     }
 }
@@ -609,7 +609,7 @@ static void replaceTab(YTIGuideResponse *response) {
 %hook YTSegmentableInlinePlayerBarView
 - (void)didMoveToWindow {
     %orig;
-    if (IsEnabled(@"snapToChapter_enabled")) {
+    if (IS_ENABLED(@"snapToChapter_enabled")) {
         self.enableSnapToChapter = NO;
     }
 }
@@ -618,7 +618,7 @@ static void replaceTab(YTIGuideResponse *response) {
 // Disable Pinch to zoom
 %hook YTColdConfig
 - (BOOL)videoZoomFreeZoomEnabledGlobalConfig {
-    return IsEnabled(@"pinchToZoom_enabled") ? NO : %orig;
+    return IS_ENABLED(@"pinchToZoom_enabled") ? NO : %orig;
 }
 %end
 
@@ -640,7 +640,7 @@ static void replaceTab(YTIGuideResponse *response) {
 // Disable Double Tap to Seek
 %hook YTMainAppVideoPlayerOverlayViewController
 - (BOOL)allowDoubleTapToSeekGestureRecognizer {
-    return IsEnabled(@"disableDoubleTapToSkip_enabled") ? NO : %orig;
+    return IS_ENABLED(@"disableDoubleTapToSkip_enabled") ? NO : %orig;
 }
 %end
 
@@ -648,21 +648,21 @@ static void replaceTab(YTIGuideResponse *response) {
 // Hide CC / Autoplay switch / Enable Share Button / Enable Save to Playlist Button
 %hook YTMainAppControlsOverlayView
 - (void)setClosedCaptionsOrSubtitlesButtonAvailable:(BOOL)arg1 { // hide CC button
-    return IsEnabled(@"hideCC_enabled") ? %orig(NO) : %orig;
+    return IS_ENABLED(@"hideCC_enabled") ? %orig(NO) : %orig;
 }
 - (void)setAutoplaySwitchButtonRenderer:(id)arg1 { // hide Autoplay
-    if (IsEnabled(@"hideAutoplaySwitch_enabled")) {}
+    if (IS_ENABLED(@"hideAutoplaySwitch_enabled")) {}
     else { return %orig; }
 }
 - (void)setShareButtonAvailable:(BOOL)arg1 {
-    if (IsEnabled(@"enableShareButton_enabled")) {
+    if (IS_ENABLED(@"enableShareButton_enabled")) {
         %orig(YES);
     } else {
         %orig(NO);
     }
 }
 - (void)setAddToButtonAvailable:(BOOL)arg1 {
-    if (IsEnabled(@"enableSaveToButton_enabled")) {
+    if (IS_ENABLED(@"enableSaveToButton_enabled")) {
         %orig(YES);
     } else {
         %orig(NO);
@@ -680,13 +680,13 @@ static void replaceTab(YTIGuideResponse *response) {
 // Hide Channel Watermark
 %hook YTMainAppVideoPlayerOverlayView
 - (BOOL)isWatermarkEnabled {
-    if (IsEnabled(@"hideChannelWatermark_enabled")) {
+    if (IS_ENABLED(@"hideChannelWatermark_enabled")) {
         return NO;
     }
     return %orig;
 }
 - (void)setFeaturedChannelWatermarkImageView:(id)imageView {
-    if (IsEnabled(@"hideChannelWatermark_enabled")) {
+    if (IS_ENABLED(@"hideChannelWatermark_enabled")) {
         return;
     }
     %orig(imageView);
@@ -696,7 +696,7 @@ static void replaceTab(YTIGuideResponse *response) {
 // Hide Channel Watermark (for Backwards Compatibility)
 %hook YTAnnotationsViewController
 - (void)loadFeaturedChannelWatermark {
-    if (IsEnabled(@"hideChannelWatermark_enabled")) {}
+    if (IS_ENABLED(@"hideChannelWatermark_enabled")) {}
     else { return %orig; }
 }
 %end
@@ -770,7 +770,7 @@ static void replaceTab(YTIGuideResponse *response) {
 // Disable the right panel in fullscreen mode
 %hook YTColdConfig
 - (BOOL)isLandscapeEngagementPanelEnabled {
-    return IsEnabled(@"hideRightPanel_enabled") ? NO : %orig;
+    return IS_ENABLED(@"hideRightPanel_enabled") ? NO : %orig;
 }
 %end
 
@@ -778,12 +778,12 @@ static void replaceTab(YTIGuideResponse *response) {
 %hook _ASDisplayView
 - (void)didMoveToWindow {
     %orig;
-    if ((IsEnabled(@"hideBuySuperThanks_enabled")) && ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.suggested_action"])) { 
+    if ((IS_ENABLED(@"hideBuySuperThanks_enabled")) && ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.suggested_action"])) { 
         self.hidden = YES; 
     }
 
 // Hide Header Links under Channel Profile - @arichorn
-    if ((IsEnabled(@"hideChannelHeaderLinks_enabled")) && ([self.accessibilityIdentifier isEqualToString:@"eml.channel_header_links"])) {
+    if ((IS_ENABLED(@"hideChannelHeaderLinks_enabled")) && ([self.accessibilityIdentifier isEqualToString:@"eml.channel_header_links"])) {
         self.hidden = YES;
         self.opaque = YES;
         self.userInteractionEnabled = NO;
@@ -793,7 +793,7 @@ static void replaceTab(YTIGuideResponse *response) {
     }
 
 // Hide the Comment Section under the Video Player - @arichorn
-    if ((IsEnabled(@"hideCommentSection_enabled")) && ([self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_teaser"] 
+    if ((IS_ENABLED(@"hideCommentSection_enabled")) && ([self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_teaser"] 
     || [self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_simplebox"] 
     || [self.accessibilityIdentifier isEqualToString:@"id.ui.video_metadata_carousel"] 
     || [self.accessibilityIdentifier isEqualToString:@"id.ui.carousel_header"])) {
@@ -811,22 +811,22 @@ static void replaceTab(YTIGuideResponse *response) {
 
 %hook YTReelWatchRootViewController
 - (void)setPausedStateCarouselView {
-    if (IsEnabled(@"hideSubscriptions_enabled")) {}
+    if (IS_ENABLED(@"hideSubscriptions_enabled")) {}
     else { return %orig; }
 }
 %end
 
 %hook YTShortsStartupCoordinator
 - (id)evaluateResumeToShorts { 
-    return IsEnabled(@"disableResumeToShorts_enabled") ? nil : %orig;
+    return IS_ENABLED(@"disableResumeToShorts_enabled") ? nil : %orig;
 }
 %end
 
 // Hide Shorts Cells - @PoomSmart & @iCrazeiOS
 %hook YTIElementRenderer
 - (NSData *)elementData {
-    if ([NSUserDefaults.standardUserDefaults boolForKey:@"removeShortsCell"]) {
         NSString *description = [self description];
+    if ([NSUserDefaults.standardUserDefaults boolForKey:@"removeShortsCell"]) { // uYou (Hide Shorts Cells)
         if ([description containsString:@"shorts_shelf.eml"] ||
             [description containsString:@"#shorts"] ||
             [description containsString:@"shorts_video_cell.eml"] ||
@@ -837,7 +837,7 @@ static void replaceTab(YTIGuideResponse *response) {
         }
     }
 // Hide Community Posts - @michael-winay & @arichorn
-    if (IsEnabled(@"hideCommunityPosts_enabled")) {
+    if (IS_ENABLED(@"hideCommunityPosts_enabled")) {
         if ([description containsString:@"post_base_wrapper.eml"]) {
             return nil;
         }
@@ -846,7 +846,7 @@ static void replaceTab(YTIGuideResponse *response) {
 }
 %end
 
-/* Deprecated Method - Loads indefinitely on newer YouTube Versions
+/* Deprecated Code - Loads indefinitely on newer YouTube Versions
 // Hide Community Posts - @michael-winay & @arichorn
 %hook YTAsyncCollectionView
 - (id)cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -882,7 +882,7 @@ static void replaceTab(YTIGuideResponse *response) {
         }
     }
 // Hide the Button Containers under the Video Player - 17.x.x and up - @arichorn
-    if (IsEnabled(@"hideButtonContainers_enabled")) {
+    if (IS_ENABLED(@"hideButtonContainers_enabled")) {
         if ([containerDescription containsString:@"id.video.like.button"] ||
             [containerDescription containsString:@"id.video.dislike.button"] ||
             [containerDescription containsString:@"id.video.share.button"] ||
@@ -899,11 +899,11 @@ static void replaceTab(YTIGuideResponse *response) {
 %hook _ASDisplayView
 - (void)layoutSubviews {
     %orig;
-    BOOL hideRemixButton = IsEnabled(@"hideRemixButton_enabled");
-    BOOL hideThanksButton = IsEnabled(@"hideThanksButton_enabled");
-    BOOL hideAddToOfflineButton = IsEnabled(@"hideAddToOfflineButton_enabled");
-    BOOL hideClipButton = IsEnabled(@"hideClipButton_enabled");
-    BOOL hideSaveToPlaylistButton = IsEnabled(@"hideSaveToPlaylistButton_enabled");
+    BOOL hideRemixButton = IS_ENABLED(@"hideRemixButton_enabled");
+    BOOL hideThanksButton = IS_ENABLED(@"hideThanksButton_enabled");
+    BOOL hideAddToOfflineButton = IS_ENABLED(@"hideAddToOfflineButton_enabled");
+    BOOL hideClipButton = IS_ENABLED(@"hideClipButton_enabled");
+    BOOL hideSaveToPlaylistButton = IS_ENABLED(@"hideSaveToPlaylistButton_enabled");
 
     for (UIView *subview in self.subviews) {
         if ([subview.accessibilityIdentifier isEqualToString:@"id.video.remix.button"]) {
@@ -924,7 +924,7 @@ static void replaceTab(YTIGuideResponse *response) {
 // Hide the (Download) Button under the Video Player - Legacy Version - @arichorn
 %hook YTISlimMetadataButtonSupportedRenderers
 - (BOOL)slimButton_isOfflineButton {
-    return IsEnabled(@"hideAddToOfflineButton_enabled") ? NO : %orig;
+    return IS_ENABLED(@"hideAddToOfflineButton_enabled") ? NO : %orig;
 }
 %end
 
@@ -994,7 +994,7 @@ static void replaceTab(YTIGuideResponse *response) {
 // YTCastConfirm: https://github.com/JamieBerghmans/YTCastConfirm
 %hook MDXPlaybackRouteButtonController
 - (void)didPressButton:(id)arg1 {
-    if (IsEnabled(@"castConfirm_enabled")) {
+    if (IS_ENABLED(@"castConfirm_enabled")) {
         NSBundle *tweakBundle = uYouPlusBundle();
         YTAlertView *alertView = [%c(YTAlertView) confirmationDialogWithAction:^{
             %orig;
@@ -1180,109 +1180,109 @@ static void replaceTab(YTIGuideResponse *response) {
     // dlopen([[NSString stringWithFormat:@"%@/Frameworks/uYou.dylib", [[NSBundle mainBundle] bundlePath]] UTF8String], RTLD_LAZY);
 
     %init;
-    if (IsEnabled(@"hideYouTubeLogo_enabled")) {
+    if (IS_ENABLED(@"hideYouTubeLogo_enabled")) {
         %init(gHideYouTubeLogo);
     }
-    if (IsEnabled(@"centerYouTubeLogo_enabled")) {
+    if (IS_ENABLED(@"centerYouTubeLogo_enabled")) {
         %init(gCenterYouTubeLogo);
     }
-    if (IsEnabled(@"premiumYouTubeLogo_enabled")) {
+    if (IS_ENABLED(@"premiumYouTubeLogo_enabled")) {
         %init(gPremiumYouTubeLogo);
     }
-    if (IsEnabled(@"reExplore_enabled")) {
+    if (IS_ENABLED(@"reExplore_enabled")) {
         %init(gReExplore);
     }
-    if (IsEnabled(@"bigYTMiniPlayer_enabled") && (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad)) {
+    if (IS_ENABLED(@"bigYTMiniPlayer_enabled") && (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad)) {
         %init(Main);
     }
-    if (IsEnabled(@"hideSubscriptionsNotificationBadge_enabled")) {
+    if (IS_ENABLED(@"hideSubscriptionsNotificationBadge_enabled")) {
         %init(gHideSubscriptionsNotificationBadge);
     }
-    if (IsEnabled(@"hidePreviousAndNextButton_enabled")) {
+    if (IS_ENABLED(@"hidePreviousAndNextButton_enabled")) {
         %init(gHidePreviousAndNextButton);
     }
-    if (IsEnabled(@"replacePreviousAndNextButton_enabled")) {
+    if (IS_ENABLED(@"replacePreviousAndNextButton_enabled")) {
         %init(gReplacePreviousAndNextButton);
     }
-    if (IsEnabled(@"hideOverlayDarkBackground_enabled")) {
+    if (IS_ENABLED(@"hideOverlayDarkBackground_enabled")) {
         %init(gHideOverlayDarkBackground);
     }
-    if (IsEnabled(@"hideVideoPlayerShadowOverlayButtons_enabled")) {
+    if (IS_ENABLED(@"hideVideoPlayerShadowOverlayButtons_enabled")) {
         %init(gHideVideoPlayerShadowOverlayButtons);
     }
-    if (IsEnabled(@"disableHints_enabled")) {
+    if (IS_ENABLED(@"disableHints_enabled")) {
         %init(gDisableHints);
     }
-    if (IsEnabled(@"redProgressBar_enabled")) {
+    if (IS_ENABLED(@"redProgressBar_enabled")) {
         %init(gRedProgressBar);
     }
-    if (IsEnabled(@"stickNavigationBar_enabled")) {
+    if (IS_ENABLED(@"stickNavigationBar_enabled")) {
         %init(gStickNavigationBar);
     }
-    if (IsEnabled(@"hideChipBar_enabled")) {
+    if (IS_ENABLED(@"hideChipBar_enabled")) {
         %init(gHideChipBar);
     }
-    if (IsEnabled(@"ytSpeed_enabled")) {
+    if (IS_ENABLED(@"ytSpeed_enabled")) {
         %init(gYTSpeed);
     }
-    if (IsEnabled(@"portraitFullscreen_enabled")) {
+    if (IS_ENABLED(@"portraitFullscreen_enabled")) {
         %init(gPortraitFullscreen);
     }
-    if (IsEnabled(@"iPhoneLayout_enabled") && (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)) {
+    if (IS_ENABLED(@"iPhoneLayout_enabled") && (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)) {
         %init(giPhoneLayout);
     }
-    if (IsEnabled(@"stockVolumeHUD_enabled")) {
+    if (IS_ENABLED(@"stockVolumeHUD_enabled")) {
         %init(gStockVolumeHUD);
     }
-    if (IsEnabled(@"hideHeatwaves_enabled")) {
+    if (IS_ENABLED(@"hideHeatwaves_enabled")) {
         %init(gHideHeatwaves);
     }
-    if (IsEnabled(@"noRelatedWatchNexts_enabled")) {
+    if (IS_ENABLED(@"noRelatedWatchNexts_enabled")) {
         %init(gNoRelatedWatchNexts);
     }
-    if (IsEnabled(@"noVideosInFullscreen_enabled")) {
+    if (IS_ENABLED(@"noVideosInFullscreen_enabled")) {
         %init(gNoVideosInFullscreen);
     }
-    if (IsEnabled(@"fixLowContrastMode_enabled")) {
+    if (IS_ENABLED(@"fixLowContrastMode_enabled")) {
         %init(gFixLowContrastMode);
     }
-    if (IsEnabled(@"disableModernButtons_enabled")) {
+    if (IS_ENABLED(@"disableModernButtons_enabled")) {
         %init(gDisableModernButtons);
     }
-    if (IsEnabled(@"disableRoundedHints_enabled")) {
+    if (IS_ENABLED(@"disableRoundedHints_enabled")) {
         %init(gDisableRoundedHints);
     }
-    if (IsEnabled(@"disableModernFlags_enabled")) {
+    if (IS_ENABLED(@"disableModernFlags_enabled")) {
         %init(gDisableModernFlags);
     }
-    if (IsEnabled(@"disableAmbientMode_enabled")) {
+    if (IS_ENABLED(@"disableAmbientMode_enabled")) {
         %init(gDisableAmbientMode);
     }
-    if (IsEnabled(@"disableAccountSection_enabled")) {
+    if (IS_ENABLED(@"disableAccountSection_enabled")) {
         %init(gDisableAccountSection);
     }
-    if (IsEnabled(@"disableAutoplaySection_enabled")) {
+    if (IS_ENABLED(@"disableAutoplaySection_enabled")) {
         %init(gDisableAutoplaySection);
     }
-    if (IsEnabled(@"disableTryNewFeaturesSection_enabled")) {
+    if (IS_ENABLED(@"disableTryNewFeaturesSection_enabled")) {
         %init(gDisableTryNewFeaturesSection);
     }
-    if (IsEnabled(@"disableVideoQualityPreferencesSection_enabled")) {
+    if (IS_ENABLED(@"disableVideoQualityPreferencesSection_enabled")) {
         %init(gDisableVideoQualityPreferencesSection);
     }
-    if (IsEnabled(@"disableNotificationsSection_enabled")) {
+    if (IS_ENABLED(@"disableNotificationsSection_enabled")) {
         %init(gDisableNotificationsSection);
     }
-    if (IsEnabled(@"disableManageAllHistorySection_enabled")) {
+    if (IS_ENABLED(@"disableManageAllHistorySection_enabled")) {
         %init(gDisableManageAllHistorySection);
     }
-    if (IsEnabled(@"disableYourDataInYouTubeSection_enabled")) {
+    if (IS_ENABLED(@"disableYourDataInYouTubeSection_enabled")) {
         %init(gDisableYourDataInYouTubeSection);
     }
-    if (IsEnabled(@"disablePrivacySection_enabled")) {
+    if (IS_ENABLED(@"disablePrivacySection_enabled")) {
         %init(gDisablePrivacySection);
     }
-    if (IsEnabled(@"disableLiveChatSection_enabled")) {
+    if (IS_ENABLED(@"disableLiveChatSection_enabled")) {
         %init(gDisableLiveChatSection);
     }
 
