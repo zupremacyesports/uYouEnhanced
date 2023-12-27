@@ -204,74 +204,15 @@ extern NSBundle *uYouPlusBundle();
                     settingItemId:0], lowContrastModeSection];
 */
 
-# pragma mark - VideoPlayer
-    YTSettingsSectionItem *videoPlayerGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"VIDEO_PLAYER_OPTIONS") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-        NSArray <YTSettingsSectionItem *> *rows = @[
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable Portrait Fullscreen")
-                titleDescription:LOC(@"Enables Portrait Fullscreen on the iPhone YouTube App.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"portraitFullscreen_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"portraitFullscreen_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
+    # pragma mark - Video player options
+    SECTION_HEADER(LOC(@"VIDEO_PLAYER_OPTIONS"));
 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"DISABLE_DOUBLE_TAP_TO_SEEK")
-                titleDescription:LOC(@"DISABLE_DOUBLE_TAP_TO_SEEK_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableDoubleTapToSkip_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableDoubleTapToSkip_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"SNAP_TO_CHAPTER")
-                titleDescription:LOC(@"SNAP_TO_CHAPTER_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"snapToChapter_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"snapToChapter_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"PINCH_TO_ZOOM")
-                titleDescription:LOC(@"PINCH_TO_ZOOM_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"pinchToZoom_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"pinchToZoom_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-         
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"YT_MINIPLAYER")
-                titleDescription:LOC(@"YT_MINIPLAYER_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"ytMiniPlayer_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"ytMiniPlayer_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"STOCK_VOLUME_HUD")
-                titleDescription:LOC(@"STOCK_VOLUME_HUD_DESC")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"stockVolumeHUD_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"stockVolumeHUD_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-        ];        
-        YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"VIDEO_PLAYER_OPTIONS") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
-        [settingsViewController pushViewController:picker];
-        return YES;
-    }];
-    [sectionItems addObject:videoPlayerGroup];
+    SWITCH_ITEM2(LOC(@"Enable Portrait Fullscreen (iPhone-Exclusive)"), LOC(@"Enables Portrait Fullscreen on the YouTube App. App restart is required."), @"portraitFullscreen_enabled");
+    SWITCH_ITEM(LOC(@"DISABLE_DOUBLE_TAP_TO_SEEK"), LOC(@"DISABLE_DOUBLE_TAP_TO_SEEK_DESC"), @"disableDoubleTapToSkip_disabled");
+    SWITCH_ITEM2(LOC(@"SNAP_TO_CHAPTER"), LOC(@"SNAP_TO_CHAPTER_DESC"), @"snapToChapter_enabled");
+    SWITCH_ITEM2(LOC(@"PINCH_TO_ZOOM"), LOC(@"PINCH_TO_ZOOM_DESC"), @"pinchToZoom_enabled");
+    SWITCH_ITEM(LOC(@"YT_MINIPLAYER"), LOC(@"YT_MINIPLAYER_DESC"), @"ytMiniPlayer_enabled");
+    SWITCH_ITEM(LOC(@"STOCK_VOLUME_HUD"), LOC(@"STOCK_VOLUME_HUD_DESC"), @"stockVolumeHUD_enabled");
 
 # pragma mark - Video Controls Overlay Options
     YTSettingsSectionItem *videoControlOverlayGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"VIDEO_CONTROLS_OVERLAY_OPTIONS") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
