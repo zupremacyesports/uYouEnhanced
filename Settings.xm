@@ -229,236 +229,43 @@ extern NSBundle *uYouPlusBundle();
     SWITCH_ITEM(LOC(@"HIDE_SUBCRIPTIONS"), LOC(@"HIDE_SUBCRIPTIONS_DESC"), @"hideSubcriptions_enabled");
     SWITCH_ITEM(LOC(@"DISABLE_RESUME_TO_SHORTS"), LOC(@"DISABLE_RESUME_TO_SHORTS_DESC"), @"disableResumeToShorts_enabled");
 
-# pragma mark - Video Player Buttons
-    YTSettingsSectionItem *videoPlayerButtonsGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Video Player Button Options") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-        NSArray <YTSettingsSectionItem *> *rows = @[
-/* these 2 options are currently not working
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Red Subscribe Button")
-                titleDescription:LOC(@"Replaces the Subscribe Button color from being White to the color Red.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"redSubscribeButton_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"redSubscribeButton_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide Button Containers under player")
-                titleDescription:LOC(@"Hides Button Containers under the video player.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideButtonContainers_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideButtonContainers_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-*/
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide the Remix Button under player")
-                titleDescription:LOC(@"Hides the Remix Button under the video player.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideRemixButton_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideRemixButton_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
+    # pragma mark - Video player button options
+    SECTION_HEADER(LOC(@"Video Player Button Options"));
 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide the Thanks Button under player")
-                titleDescription:LOC(@"Hides the Thanks Button under the video player.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideThanksButton_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideThanksButton_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
+// (the options "Red Subscribe Button" and "Hide Button Containers under player" are currently not working)
+//
+//  SWITCH_ITEM(LOC(@"Red Subscribe Button"), LOC(@"Replaces the Subscribe Button color from being White to the color Red."), @"redSubscribeButton_enabled");
+//  SWITCH_ITEM2(LOC(@"Hide Button Containers under player"), LOC(@"Hides Button Containers under the video player."), @"hideButtonContainers_enabled");
+    SWITCH_ITEM(LOC(@"Hide the Remix Button under player"), LOC(@"Hides the Remix Button under the video player."), @"hideRemixButton_enabled");
+    SWITCH_ITEM(LOC(@"Hide the Thanks Button under player"), LOC(@"Hides the Thanks Button under the video player."), @"hideThanksButton_enabled");
+    SWITCH_ITEM(LOC(@"Hide the Download Button under player"), LOC(@"Hides the Download Button under the video player."), @"hideAddToOfflineButton_enabled");
+    SWITCH_ITEM(LOC(@"Hide the Clip Button under player"), LOC(@"Hides the Clip Button under the video player."), @"hideClipButton_enabled");
+    SWITCH_ITEM(LOC(@"Hide the Save to playlist Button under player"), LOC(@"Hides the Save to playlist Button under the video player."), @"hideSaveToPlaylistButton_enabled");
+    SWITCH_ITEM(LOC(@"Hide the comment section under player"), LOC(@"Hides the Comment Section below the player."), @"hideCommentSection_enabled");
 
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide the Download Button under player")
-                titleDescription:LOC(@"Hides the Download Button under the video player.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideAddToOfflineButton_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideAddToOfflineButton_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide the Clip Button under player")
-                titleDescription:LOC(@"Hides the Clip Button under the video player.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideClipButton_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideClipButton_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide the Save to playlist Button under player")
-                titleDescription:LOC(@"Hides the Save to playlist Button under the video player.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideSaveToPlaylistButton_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideSaveToPlaylistButton_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide the comment section under player")
-                titleDescription:LOC(@"Hides the Comment Section below the player.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"hideCommentSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"hideCommentSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0]
-        ];        
-        YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"Video Player Buttons Options") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
-        [settingsViewController pushViewController:picker];
-        return YES;
-    }];
-    [sectionItems addObject:videoPlayerButtonsGroup];
-
-# pragma mark - App Settings Overlay Options
-    YTSettingsSectionItem *appSettingsOverlayGroup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"App Settings Overlay Options") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-        NSArray <YTSettingsSectionItem *> *rows = @[
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide `Account` Section")
-                titleDescription:LOC(@"App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableAccountSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableAccountSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
+# pragma mark - App settings overlay options
+    SWITCH_ITEM2(LOC(@"Hide `Account` Section"), LOC(@"App restart is required."), @"disableAccountSection_enabled");
+//  SWITCH_ITEM2(LOC(@"Hide `DontEatMyContent` Section"), LOC(@"App restart is required."), @"disableDontEatMyContentSection_enabled");
+//  SWITCH_ITEM2(LOC(@"Hide `YouTube Return Dislike` Section"), LOC(@"App restart is required."), @"disableReturnYouTubeDislikeSection_enabled");
+//  SWITCH_ITEM2(LOC(@"Hide `YouPiP` Section"), LOC(@"App restart is required."), @"disableYouPiPSection_enabled");
+    SWITCH_ITEM2(LOC(@"Hide `Autoplay` Section"), LOC(@"App restart is required."), @"disableAutoplaySection_enabled");
+    SWITCH_ITEM2(LOC(@"Hide `Try New Features` Section"), LOC(@"App restart is required."), @"disableTryNewFeaturesSection_enabled");
+    SWITCH_ITEM2(LOC(@"Hide `Video quality preferences` Section"), LOC(@"App restart is required."), @"disableVideoQualityPreferencesSection_enabled");
+    SWITCH_ITEM2(LOC(@"Hide `Notifications` Section"), LOC(@"App restart is required."), @"disableNotificationsSection_enabled");
+    SWITCH_ITEM2(LOC(@"Hide `Manage all history` Section"), LOC(@"App restart is required."), @"disableManageAllHistorySection_enabled");
+    SWITCH_ITEM2(LOC(@"Hide `Your data in YouTube` Section"), LOC(@"App restart is required."), @"disableYourDataInYouTubeSection_enabled");
+    SWITCH_ITEM2(LOC(@"Hide `Privacy` Section"), LOC(@"App restart is required."), @"disablePrivacySection_enabled");
+    SWITCH_ITEM2(LOC(@"Hide `Live Chat` Section"), LOC(@"App restart is required."), @"disableLiveChatSection_enabled");
 
 /*
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide `DontEatMyContent` Section")
-                titleDescription:LOC(@"App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableDontEatMyContentSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableDontEatMyContentSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide `YouTube Return Dislike` Section")
-                titleDescription:LOC(@"App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableReturnYouTubeDislikeSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableReturnYouTubeDislikeSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-                
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide `YouPiP` Section")
-                titleDescription:LOC(@"App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableYouPiPSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableYouPiPSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-*/
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide `Autoplay` Section")
-                titleDescription:LOC(@"App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableAutoplaySection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableAutoplaySection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide `Try New Features` Section")
-                titleDescription:LOC(@"App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableTryNewFeaturesSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableTryNewFeaturesSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide `Video quality preferences` Section")
-                titleDescription:LOC(@"App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableVideoQualityPreferencesSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableVideoQualityPreferencesSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide `Notifications` Section")
-                titleDescription:LOC(@"App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableNotificationsSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableNotificationsSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-                
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide `Manage all history` Section")
-                titleDescription:LOC(@"App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableManageAllHistorySection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableManageAllHistorySection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide `Your data in YouTube` Section")
-                titleDescription:LOC(@"App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableYourDataInYouTubeSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableYourDataInYouTubeSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide `Privacy` Section")
-                titleDescription:LOC(@"App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disablePrivacySection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disablePrivacySection_enabled"];
-                    return YES;
-                }
-                settingItemId:0],
-
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Hide `Live Chat` Section")
-                titleDescription:LOC(@"App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"disableLiveChatSection_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"disableLiveChatSection_enabled"];
-                    return YES;
-                }
-                settingItemId:0]
-        ];        
-        YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"App Settings Overlay Options") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
-        [settingsViewController pushViewController:picker];
-        return YES;
-    }];
-    [sectionItems addObject:appSettingsOverlayGroup];
-
     # pragma mark - LowContrastMode
     YTSettingsSectionItem *lowContrastModeSection = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Low Contrast Mode")
         accessibilityIdentifier:nil
         detailTextBlock:^NSString *() {
             switch (contrastMode()) {
-/*
                 case 1:
                     return LOC(@"Hex Color");
-*/
                 case 0:
                 default:
                     return LOC(@"Default");
@@ -471,7 +278,6 @@ extern NSBundle *uYouPlusBundle();
                     [settingsViewController reloadData];
                     return YES;
                 }]
-/*
                 [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"Hex Color") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"lcm"];
                     [settingsViewController reloadData];
