@@ -825,11 +825,8 @@ static void replaceTab(YTIGuideResponse *response) {
 // Hide Shorts Cells - @PoomSmart & @iCrazeiOS
 %hook YTIElementRenderer
 - (NSData *)elementData {
-    NSString *description = [self description];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    BOOL hideShortsCellsEnabled = [defaults boolForKey:@"hideShortsCells_enabled"];
-    BOOL hideShortsCellsEnableduYou = [defaults boolForKey:@"removeShortsCell"];
-    if (hideShortsCellsEnabled || hideShortsCellsEnableduYou) {
+    if ([NSUserDefaults.standardUserDefaults boolForKey:@"removeShortsCell"]) {
+        NSString *description = [self description];
         if ([description containsString:@"shorts_shelf.eml"] ||
             [description containsString:@"#shorts"] ||
             [description containsString:@"shorts_video_cell.eml"] ||
