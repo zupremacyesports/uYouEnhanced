@@ -616,12 +616,13 @@ extern NSBundle *uYouPlusBundle();
                     [settingsViewController reloadData];
                     return YES;
                 }]
-*/
+// */
             ];
             YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"Low Contrast Mode") pickerSectionTitle:nil rows:rows selectedItemIndex:contrastMode() parentResponder:[self parentResponder]];
             [settingsViewController pushViewController:picker];
             return YES;
         }];
+*/
 
 # pragma mark - VersionSpoofer
     YTSettingsSectionItem *versionSpooferSection = [YTSettingsSectionItemClass itemWithTitle:@"Version Spoofer Picker"
