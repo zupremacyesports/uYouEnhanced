@@ -1,320 +1,317 @@
 #import "../uYouPlus.h"
 
 //
-static BOOL IsEnabled(NSString *key) {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:key];
-}
 static int appVersionSpoofer() {
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"versionSpoofer"];
 }
 static BOOL version0() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 0;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 0;
 }
 static BOOL version1() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 1;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 1;
 }
 static BOOL version2() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 2;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 2;
 }
 static BOOL version3() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 3;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 3;
 }
 static BOOL version4() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 4;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 4;
 }
 static BOOL version5() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 5;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 5;
 }
 static BOOL version6() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 6;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 6;
 }
 static BOOL version7() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 7;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 7;
 }
 static BOOL version8() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 8;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 8;
 }
 static BOOL version9() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 9;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 9;
 }
 static BOOL version10() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 10;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 10;
 }
 static BOOL version11() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 11;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 11;
 }
 static BOOL version12() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 12;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 12;
 }
 static BOOL version13() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 13;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 13;
 }
 static BOOL version14() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 14;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 14;
 }
 static BOOL version15() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 15;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 15;
 }
 static BOOL version16() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 16;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 16;
 }
 static BOOL version17() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 17;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 17;
 }
 static BOOL version18() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 18;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 18;
 }
 static BOOL version19() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 19;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 19;
 }
 static BOOL version20() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 20;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 20;
 }
 static BOOL version21() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 21;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 21;
 }
 static BOOL version22() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 22;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 22;
 }
 static BOOL version23() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 23;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 23;
 }
 static BOOL version24() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 24;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 24;
 }
 static BOOL version25() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 25;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 25;
 }
 static BOOL version26() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 26;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 26;
 }
 static BOOL version27() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 27;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 27;
 }
 static BOOL version28() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 28;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 28;
 }
 static BOOL version29() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 29;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 29;
 }
 static BOOL version30() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 30;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 30;
 }
 static BOOL version31() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 31;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 31;
 }
 static BOOL version32() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 32;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 32;
 }
 static BOOL version33() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 33;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 33;
 }
 static BOOL version34() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 34;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 34;
 }
 static BOOL version35() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 35;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 35;
 }
 static BOOL version36() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 36;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 36;
 }
 static BOOL version37() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 37;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 37;
 }
 static BOOL version38() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 38;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 38;
 }
 static BOOL version39() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 39;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 39;
 }
 static BOOL version40() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 40;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 40;
 }
 static BOOL version41() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 41;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 41;
 }
 static BOOL version42() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 42;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 42;
 }
 static BOOL version43() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 43;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 43;
 }
 static BOOL version44() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 44;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 44;
 }
 static BOOL version45() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 45;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 45;
 }
 static BOOL version46() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 46;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 46;
 }
 static BOOL version47() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 47;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 47;
 }
 static BOOL version48() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 48;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 48;
 }
 static BOOL version49() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 49;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 49;
 }
 static BOOL version50() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 50;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 50;
 }
 static BOOL version51() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 51;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 51;
 }
 static BOOL version52() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 52;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 52;
 }
 static BOOL version53() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 53;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 53;
 }
 static BOOL version54() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 54;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 54;
 }
 static BOOL version55() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 55;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 55;
 }
 static BOOL version56() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 56;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 56;
 }
 static BOOL version57() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 57;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 57;
 }
 static BOOL version58() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 58;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 58;
 }
 static BOOL version59() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 59;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 59;
 }
 static BOOL version60() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 60;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 60;
 }
 static BOOL version61() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 61;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 61;
 }
 static BOOL version62() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 62;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 62;
 }
 static BOOL version63() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 63;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 63;
 }
 static BOOL version64() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 64;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 64;
 }
 static BOOL version65() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 65;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 65;
 }
 static BOOL version66() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 66;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 66;
 }
 static BOOL version67() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 67;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 67;
 }
 static BOOL version68() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 68;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 68;
 }
 static BOOL version69() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 69;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 69;
 }
 static BOOL version70() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 70;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 70;
 }
 static BOOL version71() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 71;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 71;
 }
 static BOOL version72() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 72;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 72;
 }
 static BOOL version73() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 73;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 73;
 }
 static BOOL version74() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 74;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 74;
 }
 static BOOL version75() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 75;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 75;
 }
 static BOOL version76() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 76;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 76;
 }
 static BOOL version77() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 77;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 77;
 }
 static BOOL version78() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 78;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 78;
 }
 static BOOL version79() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 79;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 79;
 }
 static BOOL version80() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 80;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 80;
 }
 static BOOL version81() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 81;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 81;
 }
 static BOOL version82() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 82;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 82;
 }
 static BOOL version83() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 83;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 83;
 }
 static BOOL version84() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 84;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 84;
 }
 static BOOL version85() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 85;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 85;
 }
 static BOOL version86() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 86;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 86;
 }
 static BOOL version87() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 87;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 87;
 }
 static BOOL version88() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 88;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 88;
 }
 static BOOL version89() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 89;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 89;
 }
 static BOOL version90() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 90;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 90;
 }
 static BOOL version91() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 91;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 91;
 }
 static BOOL version92() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 92;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 92;
 }
 static BOOL version93() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 93;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 93;
 }
 static BOOL version94() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 94;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 94;
 }
 static BOOL version95() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 95;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 95;
 }
 static BOOL version96() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 96;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 96;
 }
 static BOOL version97() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 97;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 97;
 }
 static BOOL version98() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 98;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 98;
 }
 static BOOL version99() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 99;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 99;
 }
 static BOOL version100() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 100;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 100;
 }
 static BOOL version101() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 101;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 101;
 }
 static BOOL version102() {
-    return IsEnabled(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 102;
+    return IS_ENABLED(@"enableVersionSpoofer_enabled") && appVersionSpoofer() == 102;
 }
 
 %group gVersion0
