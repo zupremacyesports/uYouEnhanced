@@ -37,6 +37,8 @@
 #import "Tweaks/YouTubeHeader/ELMNodeController.h" // YouTube-X
 
 #define LOC(x) [tweakBundle localizedStringForKey:x value:nil table:nil]
+#define IS_ENABLED(k) [[NSUserDefaults standardUserDefaults] boolForKey:k]
+#define APP_THEME_IDX [[NSUserDefaults standardUserDefaults] integerForKey:@"appTheme"]
 #define YT_BUNDLE_ID @"com.google.ios.youtube"
 #define YT_NAME @"YouTube"
 #define DEFAULT_RATE 1.0f // YTSpeed
@@ -81,8 +83,6 @@
 @end
 
 @interface YTAsyncCollectionView : UICollectionView
-- (void)removeCellsAtIndexPath:(NSIndexPath *)indexPath;
-- (void)removeShortsAndFeaturesAdsAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @interface FRPSliderCell : UITableViewCell
@@ -151,15 +151,27 @@
                 displayLanguage:(NSString *)displayLanguage;
 @end
 
-// uYouLocal fix
-@interface YTLocalPlaybackController : NSObject
-- (void)setPlaybackRate:(float)rate;
-- (id)activeVideo;
+// Fix uYou's appearance not updating if the app is backgrounded
+@interface DownloadsPagerVC : UIViewController
+- (NSArray<UIViewController *> *)viewControllers;
+- (void)updatePageStyles;
 @end
-
-// uYou theme fix
-@interface YTAppDelegate ()
-@property(nonatomic, strong) id downloadsVC;
+@interface DownloadingVC : UIViewController
+- (void)updatePageStyles;
+- (UITableView *)tableView;
+@end
+@interface DownloadingCell : UITableViewCell
+- (void)updatePageStyles;
+@end
+@interface DownloadedVC : UIViewController
+- (void)updatePageStyles;
+- (UITableView *)tableView;
+@end
+@interface DownloadedCell : UITableViewCell
+- (void)updatePageStyles;
+@end
+@interface UILabel (uYou)
++ (id)_defaultColor;
 @end
 
 // BigYTMiniPlayer
