@@ -42,7 +42,7 @@ static NSString *accessGroupID() {
     didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions {
     BOOL didFinishLaunching = %orig;
 
-    if (IsEnabled(@"flex_enabled")) {
+    if (IS_ENABLED(@"flex_enabled")) {
         [[%c(FLEXManager) performSelector:@selector(sharedManager)] performSelector:@selector(showExplorer)];
     }
 
@@ -50,7 +50,7 @@ static NSString *accessGroupID() {
 }
 - (void)appWillResignActive:(id)arg1 {
     %orig;
-         if (IsEnabled(@"flex_enabled")) {
+         if (IS_ENABLED(@"flex_enabled")) {
         [[%c(FLEXManager) performSelector:@selector(sharedManager)] performSelector:@selector(showExplorer)];
     }
 }
@@ -356,7 +356,7 @@ static NSString *accessGroupID() {
     else { return %orig; }
 }
 - (void)playerOverlayProvider:(YTPlayerOverlayProvider *)provider didInsertPlayerOverlay:(YTPlayerOverlay *)overlay {
-    if ([[overlay overlayIdentifier] isEqualToString:@"player_overlay_paid_content"] && IsEnabled(@"hidePaidPromotionCard_enabled")) return;
+    if ([[overlay overlayIdentifier] isEqualToString:@"player_overlay_paid_content"] && IS_ENABLED(@"hidePaidPromotionCard_enabled")) return;
     %orig;
 }
 %end
@@ -668,7 +668,7 @@ static void replaceTab(YTIGuideResponse *response) {
 // Hide HUD Messages
 %hook YTHUDMessageView
 - (id)initWithMessage:(id)arg1 dismissHandler:(id)arg2 {
-    return IsEnabled(@"hideHUD_enabled") ? nil : %orig;
+    return IS_ENABLED(@"hideHUD_enabled") ? nil : %orig;
 }
 %end
 
@@ -870,19 +870,19 @@ static void replaceTab(YTIGuideResponse *response) {
 // Red Subscribe Button - @arichorn
 %hook ELMContainerNode
 - (void)setBackgroundColor:(id)color {
-    NSString *containerDescription = [self description];
-    if (IsEnabled(@"redSubscribeButton_enabled")) {
-        if ([containerDescription containsString:@"eml.compact_subscribe_button"]) {
+    NSString *description = [self description];
+    if (IS_ENABLED(@"redSubscribeButton_enabled")) {
+        if ([description containsString:@"eml.compact_subscribe_button"]) {
             color = [UIColor redColor];
         }
     }
 // Hide the Button Containers under the Video Player - 17.x.x and up - @arichorn
     if (IS_ENABLED(@"hideButtonContainers_enabled")) {
-        if ([containerDescription containsString:@"id.video.like.button"] ||
-            [containerDescription containsString:@"id.video.dislike.button"] ||
-            [containerDescription containsString:@"id.video.share.button"] ||
-            [containerDescription containsString:@"id.video.remix.button"] ||
-            [containerDescription containsString:@"id.ui.add_to.offline.button"]) {
+        if ([description containsString:@"id.video.like.button"] ||
+            [description containsString:@"id.video.dislike.button"] ||
+            [description containsString:@"id.video.share.button"] ||
+            [description containsString:@"id.video.remix.button"] ||
+            [description containsString:@"id.ui.add_to.offline.button"]) {
             color = [UIColor clearColor];
         }
     }
@@ -982,7 +982,7 @@ static void replaceTab(YTIGuideResponse *response) {
 // YT startup animation
 %hook YTColdConfig
 - (BOOL)mainAppCoreClientIosEnableStartupAnimation {
-    return IsEnabled(@"ytStartupAnimation_enabled") ? YES : NO;
+    return IS_ENABLED(@"ytStartupAnimation_enabled") ? YES : NO;
 }
 %end
 
@@ -1069,7 +1069,7 @@ static void replaceTab(YTIGuideResponse *response) {
 // Remove “Play next in queue” from the menu (@PoomSmart) - qnblackcat/uYouPlus#1138
 %hook YTMenuItemVisibilityHandler
 - (BOOL)shouldShowServiceItemRenderer:(YTIMenuConditionalServiceItemRenderer *)renderer {
-    return IsEnabled(@"hidePlayNextInQueue_enabled") && renderer.icon.iconType == 251 ? NO : %orig;
+    return IS_ENABLED(@"hidePlayNextInQueue_enabled") && renderer.icon.iconType == 251 ? NO : %orig;
 }
 %end
 
