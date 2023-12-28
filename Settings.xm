@@ -247,7 +247,7 @@ extern NSBundle *uYouPlusBundle();
     # pragma mark - UI interface options
     SECTION_HEADER(LOC(@"UI Interface Options"));
 
-    SWITCH_ITEM3(LOC(@"Low Contrast Mode"), LOC(@"This will lower the contrast of texts and buttons, similar to the old YouTube Interface. App restart is required."), @"lowContrastMode_enabled");
+    SWITCH_ITEM2(LOC(@"Low Contrast Mode"), LOC(@"This will lower the contrast of texts and buttons, similar to the old YouTube Interface. App restart is required."), @"lowContrastMode_enabled");
     YTSettingsSectionItem *lowContrastMode = [%c(YTSettingsSectionItem)
         itemWithTitle:@"Low Contrast Mode Selector"
         accessibilityIdentifier:nil
@@ -266,7 +266,7 @@ extern NSBundle *uYouPlusBundle();
                     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"lcm"];
                     [settingsViewController reloadData];
                     return YES;
-                }]
+                }],
                 [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"Hex Color") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"lcm"];
                     [settingsViewController reloadData];
