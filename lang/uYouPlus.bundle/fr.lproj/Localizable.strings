@@ -1,6 +1,34 @@
-// Settings
-"VERSION" = "Version de uYouPlus : %@";
-"VERSION_CHECK" = "Appuyez pour vérifier les mises à jour !";
+// About
+"ABOUT" = "About";
+
+"VERSION" = "Version";
+"VERSION_CHECK" = "Tap to check for updates!";
+
+"REPORT_AN_ISSUE" = "Report an issue";
+"ADD_TITLE" = "Add your title here...";
+
+"QUIT_YOUTUBE" = "Quit YouTube";
+
+"RESTART_YOUTUBE" = "Restart YouTube to apply changes";
+
+// App appearance
+"APP_THEME" = "App appearance";
+"THEME_OPTIONS" = "Theme options";
+
+"DARK_THEME" = "Dark theme";
+
+"DEFAULT_THEME" = "Default";
+"DEFAULT_THEME_DESC" = "";
+
+"OLD_DARK_THEME" = "Lighter grey";
+"OLD_DARK_THEME_DESC" = "YouTube's old dark theme";
+
+"OLED_DARK_THEME" = "OLED (experimental)";
+"OLED_DARK_THEME_2" = "OLED";
+"OLED_DARK_THEME_DESC" = "Pure-black dark theme";
+
+"OLED_KEYBOARD" = "OLED keyboard (experimental)";
+"OLED_KEYBOARD_DESC" = "";
 
 // Video player options
 "VIDEO_PLAYER_OPTIONS" = "Options du lecteur vidéo";
@@ -88,22 +116,6 @@
 
 "DISABLE_RESUME_TO_SHORTS" = "Désactiver la reprise des Shorts";
 "DISABLE_RESUME_TO_SHORTS_DESC" = "Si vous fermez YouTube en regardant des Shorts, ils ne seront pas automatiquement lus la prochaine fois que vous lancerez YouTube.";
-
-// Theme
-"THEME_OPTIONS" = "Options du thème";
-
-"OLED_DARK_THEME" = "Mode sombre OLED (Expérimental)";
-"OLED_DARK_THEME_2" = "Mode sombre OLED";
-"OLED_DARK_THEME_DESC" = "Peut ne pas fonctionner correctement dans certains cas. Un redémarrage de l'application est nécessaire après avoir activé/désactivé cette option.";
-
-"OLD_DARK_THEME" = "Ancien thème sombre";
-"OLD_DARK_THEME_DESC" = "Ancien thème sombre de YouTube (thème gris). Un redémarrage de l'application est nécessaire.";
-
-"DEFAULT_THEME" = "Défaut";
-"DEFAULT_THEME_DESC" = "Thème plus sombre par défaut de YouTube. Un redémarrage de l'application est nécessaire.";
-
-"OLED_KEYBOARD" = "Clavier OLED (Expérimental)";
-"OLED_KEYBOARD_DESC" = "Peut ne pas fonctionner correctement dans certains cas. Un redémarrage de l'application est nécessaire.";
 
 // Miscellaneous
 "MISCELLANEOUS" = "Divers";
