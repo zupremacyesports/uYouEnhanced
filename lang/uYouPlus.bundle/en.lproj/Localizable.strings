@@ -1,6 +1,34 @@
-// Settings
-"VERSION" = "uYouPlus's version: %@";
+// About
+"ABOUT" = "About";
+
+"VERSION" = "Version";
 "VERSION_CHECK" = "Tap to check for updates!";
+
+"REPORT_AN_ISSUE" = "Report an issue";
+"ADD_TITLE" = "Add your title here...";
+
+"QUIT_YOUTUBE" = "Quit YouTube";
+
+"RESTART_YOUTUBE" = "Restart YouTube to apply changes";
+
+// App appearance
+"APP_THEME" = "App appearance";
+"THEME_OPTIONS" = "Theme options";
+
+"DARK_THEME" = "Dark theme";
+
+"DEFAULT_THEME" = "Default";
+"DEFAULT_THEME_DESC" = "";
+
+"OLD_DARK_THEME" = "Lighter grey";
+"OLD_DARK_THEME_DESC" = "YouTube's old dark theme";
+
+"OLED_DARK_THEME" = "OLED (experimental)";
+"OLED_DARK_THEME_2" = "OLED";
+"OLED_DARK_THEME_DESC" = "Pure-black dark theme";
+
+"OLED_KEYBOARD" = "OLED keyboard (experimental)";
+"OLED_KEYBOARD_DESC" = "";
 
 // Video player options
 "VIDEO_PLAYER_OPTIONS" = "Video Player Options";
@@ -88,22 +116,6 @@
 
 "DISABLE_RESUME_TO_SHORTS" = "Disable resume to Shorts";
 "DISABLE_RESUME_TO_SHORTS_DESC" = "If you close YouTube while watching Shorts, Shorts won‘t automatically play next time you launch YouTube.";
-
-// Theme
-"THEME_OPTIONS" = "Theme Options";
-
-"OLED_DARK_THEME" = "OLED dark theme (Experimental)";
-"OLED_DARK_THEME_2" = "OLED dark theme";
-"OLED_DARK_THEME_DESC" = "True dark theme. Might not work correctly in some cases. App restart is required after you enable/disable this option.";
-
-"OLD_DARK_THEME" = "Old dark theme";
-"OLD_DARK_THEME_DESC" = "Old YouTube's dark theme (grey theme). App restart is required.";
-
-"DEFAULT_THEME" = "Default";
-"DEFAULT_THEME_DESC" = "Default dark(er) theme of YouTube. App restart is required.";
-
-"OLED_KEYBOARD" = "OLED Keyboard (Experimental)";
-"OLED_KEYBOARD_DESC" = "Might not work correctly in some cases. App restart is required.";
 
 // Miscellaneous
 "MISCELLANEOUS" = "Miscellaneous";
