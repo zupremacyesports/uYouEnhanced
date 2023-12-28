@@ -7,11 +7,9 @@ static int contrastMode() {
 static BOOL lowContrastMode() {
     return IS_ENABLED(@"lowContrastMode_enabled") && contrastMode() == 0;
 }
-/*
 static BOOL customContrastMode() {
     return IS_ENABLED(@"lowContrastMode_enabled") && contrastMode() == 1;
 }
-*/
 
 UIColor *lcmHexColor;
 
