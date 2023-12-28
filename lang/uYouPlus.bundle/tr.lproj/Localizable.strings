@@ -1,6 +1,34 @@
-// Settings
-"VERSION" = "uYouPlus'ın sürümü: %@";
-"VERSION_CHECK" = "Güncellemeyi kontrol etmek için dokun!";
+// About
+"ABOUT" = "About";
+
+"VERSION" = "Version";
+"VERSION_CHECK" = "Tap to check for updates!";
+
+"REPORT_AN_ISSUE" = "Report an issue";
+"ADD_TITLE" = "Add your title here...";
+
+"QUIT_YOUTUBE" = "Quit YouTube";
+
+"RESTART_YOUTUBE" = "Restart YouTube to apply changes";
+
+// App appearance
+"APP_THEME" = "App appearance";
+"THEME_OPTIONS" = "Theme options";
+
+"DARK_THEME" = "Dark theme";
+
+"DEFAULT_THEME" = "Default";
+"DEFAULT_THEME_DESC" = "";
+
+"OLD_DARK_THEME" = "Lighter grey";
+"OLD_DARK_THEME_DESC" = "YouTube's old dark theme";
+
+"OLED_DARK_THEME" = "OLED (experimental)";
+"OLED_DARK_THEME_2" = "OLED";
+"OLED_DARK_THEME_DESC" = "Pure-black dark theme";
+
+"OLED_KEYBOARD" = "OLED keyboard (experimental)";
+"OLED_KEYBOARD_DESC" = "";
 
 // Video player options
 "VIDEO_PLAYER_OPTIONS" = "Video Oynatıcı Seçenekleri";
@@ -85,22 +113,6 @@
 
 "DISABLE_RESUME_TO_SHORTS" = "Shorts'ta kaldığı yerden devam etmeyi devre dışı bırak";
 "DISABLE_RESUME_TO_SHORTS_DESC" = "Shorts izlerken YouTube'u kapatırsan Shorts, YouTube'u bir sonraki açışında otomatik olarak oynatılmaz.";
-
-// Theme
-"THEME_OPTIONS" = "Tema ayarları";
-
-"OLED_DARK_THEME" = "OLED Karanlık modu (Deneysel)";
-"OLED_DARK_THEME_2" = "OLED Karanlık modu";
-"OLED_DARK_THEME_DESC" = "Bazı durumlarda düzgün çalışmayabilir. Bu seçeneği etkinleştirdikten/devre dışı bıraktıktan sonra uygulamanın yeniden başlatılması gerekir.";
-
-"OLD_DARK_THEME" = "Eski karanlık tema";
-"OLD_DARK_THEME_DESC" = "Eski YouTube'un karanlık teması (gri tema). Uygulamanın yeniden başlatılması gerekir.";
-
-"DEFAULT_THEME" = "Varsayılan";
-"DEFAULT_THEME_DESC" = "YouTube'un varsayılan daha karanlık teması. Uygulamanın yeniden başlatılması gerekir.";
-
-"OLED_KEYBOARD" = "OLED Klavye (Deneysel)";
-"OLED_KEYBOARD_DESC" = "Bazı durumlarda düzgün çalışmayabilir. Uygulamanın yeniden başlatılması gerekir.";
 
 // Miscellaneous
 "MISCELLANEOUS" = "Diğer";
