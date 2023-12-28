@@ -1034,24 +1034,7 @@ extern NSBundle *uYouPlusBundle();
     SWITCH_ITEM2(LOC(@"Disable Rounded Corners on Hints"), LOC(@"This will make the Hints in the App to not have Rounded Corners. App restart is required."), @"disableRoundedHints_enabled");
     SWITCH_ITEM2(LOC(@"Disable Modern A/B Flags"), LOC(@"This will turn off any Modern Flag that was enabled by default. App restart is required."), @"disableModernFlags_enabled");
     SWITCH_ITEM2(LOC(@"Enable All Options Above (YTNoModernUI)"), LOC(@"When Enabled, this will enable the options above. App restart is required."), @"ytNoModernUI_enabled");
-    SWITCH_ITEM2(LOC(@"Enable App Version Spoofer"), LOC(@"Enable this to use the Version Spoofer and select your perferred version below. App restart is required."), @"enableVersionSpoofer_enabled"); versionSpooferSection
-
-/* Legacy Version (App Version Spoofer Option)
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"Enable App Version Spoofer")
-                titleDescription:LOC(@"Enable this to use the Version Spoofer and select your perferred version below. App restart is required.")
-                accessibilityIdentifier:nil
-                switchOn:IsEnabled(@"enableVersionSpoofer_enabled")
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"enableVersionSpoofer_enabled"];
-                    return YES;
-                }
-                settingItemId:0], versionSpooferSection];
-        YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"UI Options") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
-        [settingsViewController pushViewController:picker];
-        return YES;
-    }];
-    [sectionItems addObject:uiGroup];
-*/
+    SWITCH_ITEM4(LOC(@"Enable App Version Spoofer"), LOC(@"Enable this to use the Version Spoofer and select your perferred version below. App restart is required."), @"enableVersionSpoofer_enabled");
 
     # pragma mark - Miscellaneous
     SECTION_HEADER(LOC(@"MISCELLANEOUS"));
