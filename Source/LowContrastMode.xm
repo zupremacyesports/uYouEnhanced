@@ -297,7 +297,6 @@ UIColor *lcmHexColor;
 %end
 %end
 
-/*
 %group gCustomContrastMode // Custom Contrast Mode (Hex Color)
 %hook UIColor
 + (UIColor *)whiteColor {
@@ -570,7 +569,6 @@ UIColor *lcmHexColor;
 }
 %end
 %end
-*/
 
 # pragma mark - ctor
 %ctor {
@@ -578,9 +576,7 @@ UIColor *lcmHexColor;
     if (lowContrastMode()) {
         %init(gLowContrastMode);
     }
-/*
     if (customContrastMode()) {
         %init(gCustomContrastMode);
     }
-*/
 }
