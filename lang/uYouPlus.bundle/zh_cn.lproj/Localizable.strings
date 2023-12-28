@@ -1,6 +1,34 @@
-// Settings
-"VERSION" = "当前 uYouPlus 版本：%@";
-"VERSION_CHECK" = "点击此处前往 GitHub 查看最新版本信息！";
+// About
+"ABOUT" = "About";
+
+"VERSION" = "Version";
+"VERSION_CHECK" = "Tap to check for updates!";
+
+"REPORT_AN_ISSUE" = "Report an issue";
+"ADD_TITLE" = "Add your title here...";
+
+"QUIT_YOUTUBE" = "Quit YouTube";
+
+"RESTART_YOUTUBE" = "Restart YouTube to apply changes";
+
+// App appearance
+"APP_THEME" = "App appearance";
+"THEME_OPTIONS" = "Theme options";
+
+"DARK_THEME" = "Dark theme";
+
+"DEFAULT_THEME" = "Default";
+"DEFAULT_THEME_DESC" = "";
+
+"OLD_DARK_THEME" = "Lighter grey";
+"OLD_DARK_THEME_DESC" = "YouTube's old dark theme";
+
+"OLED_DARK_THEME" = "OLED (experimental)";
+"OLED_DARK_THEME_2" = "OLED";
+"OLED_DARK_THEME_DESC" = "Pure-black dark theme";
+
+"OLED_KEYBOARD" = "OLED keyboard (experimental)";
+"OLED_KEYBOARD_DESC" = "";
 
 // Video player options
 "VIDEO_PLAYER_OPTIONS" = "视频播放器选项";
@@ -88,22 +116,6 @@
 
 "DISABLE_RESUME_TO_SHORTS" = "应用重启后不恢复至 Shorts 短片";
 "DISABLE_RESUME_TO_SHORTS_DESC" = "若您在观看 Shorts 短片时关闭了 YouTube，下次启动时将不再自动进入 Shorts 短片分区。";
-
-// Theme
-"THEME_OPTIONS" = "主题选项";
-
-"OLED_DARK_THEME" = "OLED 深色模式（实验性功能）";
-"OLED_DARK_THEME_2" = "OLED 深色模式";
-"OLED_DARK_THEME_DESC" = "使用全黑背景，在使用 OLED 屏幕时可节省电量。在某些情况下可能不会正常工作。更改本设置后需要重启 App。";
-
-"OLD_DARK_THEME" = "旧深色模式";
-"OLD_DARK_THEME_DESC" = "使用旧版本 YouTube 的深色模式（灰色模式）。更改本设置后需要重启 App。";
-
-"DEFAULT_THEME" = "默认深色模式";
-"DEFAULT_THEME_DESC" = "使用当前版本 YouTube 的默认深色模式（比灰色稍暗）。更改本设置后需要重启 App。";
-
-"OLED_KEYBOARD" = "OLED 键盘（实验性功能）";
-"OLED_KEYBOARD_DESC" = "在某些情况下可能不会正常工作。更改本设置后需要重启 App。";
 
 // Miscellaneous
 "MISCELLANEOUS" = "其它选项";
