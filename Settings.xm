@@ -165,19 +165,9 @@ extern NSBundle *uYouPlusBundle();
                         SHOW_RELAUNCH_YT_SNACKBAR;
                         return YES;
                     }
-                    settingItemId:0],
-
-                [YTSettingsSectionItemClass
-                    switchItemWithTitle:LOC(@"Low Contrast Mode")
-                    titleDescription:LOC(@"This will lower the contrast of texts and buttons, similar to the old YouTube Interface. App restart is required.")
-                    accessibilityIdentifier:nil
-                    switchOn:IS_ENABLED(@"lowContrastMode_enabled")
-                    switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                        [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"lowContrastMode_enabled"];
-                        SHOW_RELAUNCH_YT_SNACKBAR;
-                        return YES;
-                    }
-                    settingItemId:0], lowContrastModeSection];
+                    settingItemId:0
+                ]
+            ];
             YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc]
                 initWithNavTitle:LOC(@"THEME_OPTIONS")
                 pickerSectionTitle:[LOC(@"THEME_OPTIONS") uppercaseString]
@@ -261,6 +251,7 @@ extern NSBundle *uYouPlusBundle();
     # pragma mark - UI interface options
     SECTION_HEADER(LOC(@"UI Interface Options"));
 
+    SWITCH_ITEM3(LOC(@"Low Contrast Mode"), LOC(@"This will lower the contrast of texts and buttons, similar to the old YouTube Interface. App restart is required."), @"lowContrastMode_enabled");
     SWITCH_ITEM2(LOC(@"Fix LowContrastMode"), LOC(@"This will fix the LowContrastMode functionality by Spoofing to YouTube v17.38.10. App restart is required."), @"fixLowContrastMode_enabled");
     SWITCH_ITEM2(LOC(@"Disable Modern Buttons"), LOC(@"This will remove the new Modern / Chip Buttons in the YouTube App. but not all of them. App restart is required."), @"disableModernButtons_enabled");
     SWITCH_ITEM2(LOC(@"Disable Rounded Corners on Hints"), LOC(@"This will make the Hints in the App to not have Rounded Corners. App restart is required."), @"disableRoundedHints_enabled");
