@@ -248,7 +248,7 @@ extern NSBundle *uYouPlusBundle();
     SECTION_HEADER(LOC(@"UI Interface Options"));
 
     SWITCH_ITEM3(LOC(@"Low Contrast Mode"), LOC(@"This will lower the contrast of texts and buttons, similar to the old YouTube Interface. App restart is required."), @"lowContrastMode_enabled");
-    YTSettingsSectionItem *versionSpoofer = [%c(YTSettingsSectionItem)
+    YTSettingsSectionItem *lowContrastMode = [%c(YTSettingsSectionItem)
         itemWithTitle:@"Low Contrast Mode Selector"
         accessibilityIdentifier:nil
         detailTextBlock:^NSString *() {
@@ -279,12 +279,12 @@ extern NSBundle *uYouPlusBundle();
             return YES;
         }
     ];
-    [sectionItems addObject:versionSpoofer];
+    [sectionItems addObject:lowContrastMode];
     SWITCH_ITEM2(LOC(@"Fix LowContrastMode"), LOC(@"This will fix the LowContrastMode functionality by Spoofing to YouTube v17.38.10. App restart is required."), @"fixLowContrastMode_enabled");
     SWITCH_ITEM2(LOC(@"Disable Modern Buttons"), LOC(@"This will remove the new Modern / Chip Buttons in the YouTube App. but not all of them. App restart is required."), @"disableModernButtons_enabled");
     SWITCH_ITEM2(LOC(@"Disable Rounded Corners on Hints"), LOC(@"This will make the Hints in the App to not have Rounded Corners. App restart is required."), @"disableRoundedHints_enabled");
     SWITCH_ITEM2(LOC(@"Disable Modern A/B Flags"), LOC(@"This will turn off any Modern Flag that was enabled by default. App restart is required."), @"disableModernFlags_enabled");
-    SWITCH_ITEM2(LOC(@"Enable All Options Above (YTNoModernUI)"), LOC(@"When Enabled, this will enable the options above. App restart is required."), @"ytNoModernUI_enabled");
+    SWITCH_ITEM2(LOC(@"Enable Specific UI Related Options (YTNoModernUI)"), LOC(@"When Enabled, this will enable other options to give it a less-modern feeling. App restart is required."), @"ytNoModernUI_enabled");
     SWITCH_ITEM2(LOC(@"Enable App Version Spoofer"), LOC(@"Enable this to use the Version Spoofer and select your perferred version below. App restart is required."), @"enableVersionSpoofer_enabled");
     YTSettingsSectionItem *versionSpoofer = [%c(YTSettingsSectionItem)
         itemWithTitle:@"Version spoofer picker"
