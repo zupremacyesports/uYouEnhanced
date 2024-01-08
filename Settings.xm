@@ -30,6 +30,24 @@ static const NSInteger uYouPlusSection = 500;
 
 extern NSBundle *uYouPlusBundle();
 
+// Settings Search Bar
+%hook YTSettingsViewController
+- (void)loadWithModel:(id)model fromView:(UIView *)view {
+    %orig;
+    if ([[self valueForKey:@"_detailsCategoryID"] integerValue] == uYouPlusSection)
+        MSHookIvar<BOOL>(self, "_shouldShowSearchBar") = YES;
+}
+- (void)setSectionControllers {
+    %orig;
+    if (MSHookIvar<BOOL>(self, "_shouldShowSearchBar")) {
+        YTSettingsSectionController *settingsSectionController = [self settingsSectionControllers][[self valueForKey:@"_detailsCategoryID"]];
+        YTSearchableSettingsViewController *searchableVC = [self valueForKey:@"_searchableSettingsViewController"];
+        if (settingsSectionController)
+            [searchableVC storeCollectionViewSections:@[settingsSectionController]];
+    }
+}
+%end
+
 // Settings
 %hook YTAppSettingsPresentationData
 + (NSArray *)settingsCategoryOrder {
