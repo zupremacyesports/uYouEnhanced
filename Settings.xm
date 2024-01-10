@@ -217,6 +217,7 @@ extern NSBundle *uYouPlusBundle();
     SWITCH_ITEM2(LOC(@"RED_PROGRESS_BAR"), LOC(@"RED_PROGRESS_BAR_DESC"), @"redProgressBar_enabled");
     SWITCH_ITEM(LOC(@"HIDE_HOVER_CARD"), LOC(@"HIDE_HOVER_CARD_DESC"), @"hideHoverCards_enabled");
     SWITCH_ITEM2(LOC(@"HIDE_RIGHT_PANEL"), LOC(@"HIDE_RIGHT_PANEL_DESC"), @"hideRightPanel_enabled");
+    SWITCH_ITEM2(LOC(@"Hide Suggested Video"), LOC(@"Remove the suggested video popup when finishing a video"), @"noSuggestedVideo_enabled");
     SWITCH_ITEM2(LOC(@"Hide Heatwaves"), LOC(@"Should hide the Heatwaves in the video player. App restart is required."), @"hideHeatwaves_enabled");
     SWITCH_ITEM2(LOC(@"Hide Dark Overlay Background"), LOC(@"Hide video player's dark overlay background. App restart is required."), @"hideOverlayDarkBackground_enabled");
     SWITCH_ITEM2(LOC(@"Disable Ambient Mode in Fullscreen"), LOC(@"When Enabled, this will Disable the functionality of Ambient Mode from being used in the Video Player when in Fullscreen. App restart is required."), @"disableAmbientMode_enabled");
