@@ -1,4 +1,5 @@
 #import "ColourOptionsController2.h"
+#import "../uYouPlus.h"
 
 @interface ColourOptionsController2 ()
 - (void)coloursView;
