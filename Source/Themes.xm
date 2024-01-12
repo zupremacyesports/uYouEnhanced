@@ -373,25 +373,25 @@ UIColor *customHexColor;
 %group gCustomTheme
 %hook YTCommonColorPalette
 - (UIColor *)baseBackground {
-    return self.pageStyle == 1 ? [UIColor customHexColor] : %orig;
+    return self.pageStyle == 1 ? customHexColor : %orig;
 }
 - (UIColor *)brandBackgroundSolid {
-    return self.pageStyle == 1 ? [UIColor customHexColor] : %orig;
+    return self.pageStyle == 1 ? customHexColor : %orig;
 }
 - (UIColor *)brandBackgroundPrimary {
-    return self.pageStyle == 1 ? [UIColor customHexColor] : %orig;
+    return self.pageStyle == 1 ? customHexColor : %orig;
 }
 - (UIColor *)brandBackgroundSecondary {
-    return self.pageStyle == 1 ? [[UIColor customHexColor] colorWithAlphaComponent:0.9] : %orig;
+    return self.pageStyle == 1 ? [customHexColor colorWithAlphaComponent:0.9] : %orig;
 }
 - (UIColor *)raisedBackground {
-    return self.pageStyle == 1 ? [UIColor customHexColor] : %orig;
+    return self.pageStyle == 1 ? customHexColor : %orig;
 }
 - (UIColor *)staticBrandBlack {
-    return self.pageStyle == 1 ? [UIColor customHexColor] : %orig;
+    return self.pageStyle == 1 ? customHexColor : %orig;
 }
 - (UIColor *)generalBackgroundA {
-    return self.pageStyle == 1 ? [UIColor customHexColor] : %orig;
+    return self.pageStyle == 1 ? customHexColor : %orig;
 }
 %end
 
@@ -401,38 +401,38 @@ UIColor *customHexColor;
     %orig;
     UIView *systemBackgroundView = [self valueForKey:@"_systemBackgroundView"];
     NSString *backgroundViewKey = class_getInstanceVariable(systemBackgroundView.class, "_colorView") ? @"_colorView" : @"_backgroundView";
-    ((UIView *)[systemBackgroundView valueForKey:backgroundViewKey]).backgroundColor = [UIColor customHexColor];
+    ((UIView *)[systemBackgroundView valueForKey:backgroundViewKey]).backgroundColor = customHexColor;
 }
 - (void)_layoutSystemBackgroundView:(BOOL)arg1 {
     %orig;
-    ((UIView *)[[self valueForKey:@"_systemBackgroundView"] valueForKey:@"_colorView"]).backgroundColor = [UIColor customHexColor];
+    ((UIView *)[[self valueForKey:@"_systemBackgroundView"] valueForKey:@"_colorView"]).backgroundColor = customHexColor;
 }
 %end
 
 %hook settingsReorderTable
 - (void)viewDidLayoutSubviews {
     %orig;
-    self.tableView.backgroundColor = [UIColor customHexColor];
+    self.tableView.backgroundColor = customHexColor;
 }
 %end
 
 %hook FRPSelectListTable
 - (void)viewDidLayoutSubviews {
     %orig;
-    self.tableView.backgroundColor = [UIColor customHexColor];
+    self.tableView.backgroundColor = customHexColor;
 }
 %end
 
 %hook FRPreferences
 - (void)viewDidLayoutSubviews {
     %orig;
-    self.tableView.backgroundColor = [UIColor customHexColor];
+    self.tableView.backgroundColor = customHexColor;
 }
 %end
 
 %hook YTInnerTubeCollectionViewController
 - (UIColor *)backgroundColor:(NSInteger)pageStyle {
-    return pageStyle == 1 ? [UIColor customHexColor] : %orig;
+    return pageStyle == 1 ? customHexColor : %orig;
 }
 %end
 
@@ -451,7 +451,7 @@ UIColor *customHexColor;
 - (void)didMoveToWindow {
     %orig;
     if (IS_DARK_APPEARANCE_ENABLED && [self.nextResponder isKindOfClass:%c(_ASDisplayView)]) {
-        self.superview.backgroundColor = [UIColor customHexColor];
+        self.superview.backgroundColor = customHexColor;
     }
 }
 %end
@@ -471,7 +471,7 @@ UIColor *customHexColor;
 - (void)viewDidLoad {
     if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
         %orig;
-        self.tableView.backgroundColor = [UIColor customHexColor];
+        self.tableView.backgroundColor = customHexColor;
     } else { return %orig; }
 }
 %end
@@ -480,7 +480,7 @@ UIColor *customHexColor;
 - (void)viewDidLoad {
     if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
         %orig;
-        self.view.backgroundColor = [UIColor customHexColor];
+        self.view.backgroundColor = customHexColor;
     } else { return %orig; }
 }
 %end
@@ -488,14 +488,14 @@ UIColor *customHexColor;
 // Search view
 %hook YTSearchBarView 
 - (void)setBackgroundColor:(UIColor *)color {
-    return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor customHexColor]) : %orig;
+    return IS_DARK_APPEARANCE_ENABLED ? %orig(customHexColor) : %orig;
 }
 %end
 
 // History search view
 %hook YTSearchBoxView 
 - (void)setBackgroundColor:(UIColor *)color {
-    return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor customHexColor]) : %orig;
+    return IS_DARK_APPEARANCE_ENABLED ? %orig(customHexColor) : %orig;
 
 }
 %end
@@ -503,19 +503,19 @@ UIColor *customHexColor;
 // Comment view
 %hook YTCommentView
 - (void)setBackgroundColor:(UIColor *)color {
-    return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor customHexColor]) : %orig;
+    return IS_DARK_APPEARANCE_ENABLED ? %orig(customHexColor) : %orig;
 }
 %end
 
 %hook YTCreateCommentAccessoryView
 - (void)setBackgroundColor:(UIColor *)color {
-    return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor customHexColor]) : %orig;
+    return IS_DARK_APPEARANCE_ENABLED ? %orig(customHexColor) : %orig;
 }
 %end
 
 %hook YTCreateCommentTextView
 - (void)setBackgroundColor:(UIColor *)color {
-    return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor customHexColor]) : %orig;
+    return IS_DARK_APPEARANCE_ENABLED ? %orig(customHexColor) : %orig;
 }
 - (void)setTextColor:(UIColor *)color { // fix black text in #Shorts video's comment
     return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor whiteColor]) : %orig;
@@ -526,7 +526,7 @@ UIColor *customHexColor;
 - (void)didMoveToWindow {
     %orig;
     if (IS_DARK_APPEARANCE_ENABLED) {
-        // self.subviews[2].backgroundColor = [UIColor customHexColor];
+        // self.subviews[2].backgroundColor = customHexColor;
     }
 }
 %end
@@ -540,13 +540,13 @@ UIColor *customHexColor;
 // Live chat comment
 %hook YCHLiveChatActionPanelView 
 - (void)setBackgroundColor:(UIColor *)color {
-    return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor customHexColor]) : %orig;
+    return IS_DARK_APPEARANCE_ENABLED ? %orig(customHexColor) : %orig;
 }
 %end
 
 %hook YTEmojiTextView
 - (void)setBackgroundColor:(UIColor *)color {
-    return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor customHexColor]) : %orig;
+    return IS_DARK_APPEARANCE_ENABLED ? %orig(customHexColor) : %orig;
 }
 %end
 
@@ -554,21 +554,21 @@ UIColor *customHexColor;
 - (void)didMoveToWindow {
     %orig;
     if (IS_DARK_APPEARANCE_ENABLED) {
-        // self.subviews[1].backgroundColor = [UIColor customHexColor];
+        // self.subviews[1].backgroundColor = customHexColor;
     }
 }
 %end
 
 %hook YTCollectionView 
 - (void)setBackgroundColor:(UIColor *)color { 
-    return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor customHexColor]) : %orig;
+    return IS_DARK_APPEARANCE_ENABLED ? %orig(customHexColor) : %orig;
 }
 %end
 
 //
 %hook YTBackstageCreateRepostDetailView
 - (void)setBackgroundColor:(UIColor *)color {
-    return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor customHexColor]) : %orig;
+    return IS_DARK_APPEARANCE_ENABLED ? %orig(customHexColor) : %orig;
 }
 %end
 
@@ -580,16 +580,16 @@ UIColor *customHexColor;
     UIResponder *responder = [self nextResponder];
     while (responder != nil) {
         if ([responder isKindOfClass:NSClassFromString(@"YTActionSheetDialogViewController")]) {
-            self.backgroundColor = [UIColor customHexColor];
+            self.backgroundColor = customHexColor;
         }
         if ([responder isKindOfClass:NSClassFromString(@"YTPanelLoadingStrategyViewController")]) {
-            self.backgroundColor = [UIColor customHexColor];
+            self.backgroundColor = customHexColor;
         }
         if ([responder isKindOfClass:NSClassFromString(@"YTTabHeaderElementsViewController")]) {
-            self.backgroundColor = [UIColor customHexColor];
+            self.backgroundColor = customHexColor;
         }
         if ([responder isKindOfClass:NSClassFromString(@"YTEditSheetControllerElementsContentViewController")]) {
-            self.backgroundColor = [UIColor customHexColor];
+            self.backgroundColor = customHexColor;
         }
         responder = [responder nextResponder];
       }
@@ -599,21 +599,21 @@ UIColor *customHexColor;
     %orig;
     if (IS_DARK_APPEARANCE_ENABLED) {
         if ([self.nextResponder isKindOfClass:%c(ASScrollView)]) { self.backgroundColor = [UIColor clearColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"brand_promo.view"]) { self.backgroundColor = [UIColor customHexColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"eml.cvr"]) { self.backgroundColor = [UIColor customHexColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"eml.topic_channel_details"]) { self.backgroundColor = [UIColor customHexColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) { self.backgroundColor = [UIColor customHexColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"rich_header"]) { self.backgroundColor = [UIColor customHexColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment_cell"]) { self.backgroundColor = [UIColor customHexColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment_thread"]) { self.backgroundColor = [UIColor customHexColor]; }
+        if ([self.accessibilityIdentifier isEqualToString:@"brand_promo.view"]) { self.backgroundColor = customHexColor; }
+        if ([self.accessibilityIdentifier isEqualToString:@"eml.cvr"]) { self.backgroundColor = customHexColor; }
+        if ([self.accessibilityIdentifier isEqualToString:@"eml.topic_channel_details"]) { self.backgroundColor = customHexColor; }
+        if ([self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) { self.backgroundColor = customHexColor; }
+        if ([self.accessibilityIdentifier isEqualToString:@"rich_header"]) { self.backgroundColor = customHexColor; }
+        if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment_cell"]) { self.backgroundColor = customHexColor; }
+        if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment_thread"]) { self.backgroundColor = customHexColor; }
         if ([self.accessibilityIdentifier isEqualToString:@"id.ui.cancel.button"]) { self.superview.backgroundColor = [UIColor clearColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.comment_composer"]) { self.backgroundColor = [UIColor customHexColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.filter_chip_bar"]) { self.backgroundColor = [UIColor customHexColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.video_list_entry"]) { self.backgroundColor = [UIColor customHexColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.guidelines_text"]) { self.superview.backgroundColor = [UIColor customHexColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.timed_comments_welcome"]) { self.superview.backgroundColor = self.backgroundColor = [UIColor customHexColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.channel_guidelines_bottom_sheet_container"]) { self.backgroundColor = [UIColor customHexColor]; }
-        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.channel_guidelines_entry_banner_container"]) { self.superview.backgroundColor = self.backgroundColor = [UIColor customHexColor]; }
+        if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.comment_composer"]) { self.backgroundColor = customHexColor; }
+        if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.filter_chip_bar"]) { self.backgroundColor = customHexColor; }
+        if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.video_list_entry"]) { self.backgroundColor = customHexColor; }
+        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.guidelines_text"]) { self.superview.backgroundColor = customHexColor; }
+        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.timed_comments_welcome"]) { self.superview.backgroundColor = self.backgroundColor = customHexColor; }
+        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.channel_guidelines_bottom_sheet_container"]) { self.backgroundColor = customHexColor; }
+        if ([self.accessibilityIdentifier isEqualToString:@"id.comment.channel_guidelines_entry_banner_container"]) { self.superview.backgroundColor = self.backgroundColor = customHexColor; }
         if ([self.accessibilityIdentifier isEqualToString:@"id.comment.comment_group_detail_container"]) { self.backgroundColor = [UIColor clearColor]; }
     }
 }
