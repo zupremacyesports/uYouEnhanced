@@ -6,8 +6,6 @@
 #import <substrate.h>
 #import <rootless.h>
 
-#import "Source/LowContrastMode.xm"
-#import "Source/Themes.xm"
 #import "Tweaks/YouTubeHeader/YTAppDelegate.h"
 #import "Tweaks/YouTubeHeader/YTPlayerViewController.h"
 #import "Tweaks/YouTubeHeader/YTQTMButton.h"
