@@ -87,7 +87,7 @@
 
 UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:1.0];
 
-%group gCustomTheme
+%group gOLED
 %hook YTCommonColorPalette
 - (UIColor *)baseBackground {
     return self.pageStyle == 1 ? [UIColor blackColor] : %orig;
