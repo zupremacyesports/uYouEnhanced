@@ -687,16 +687,6 @@ UIColor *customHexColor;
 %end
 
 %ctor {
-    if (IS_CUSTOM_DARK_THEME_SELECTED) {
-    NSData *colorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"kCustomThemeColor"];
-    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:colorData error:nil];
-    [unarchiver setRequiresSecureCoding:NO];
-    NSString *hexString = [unarchiver decodeObjectForKey:NSKeyedArchiveRootObjectKey];
-    if (hexString != nil) {
-        customHexColor = [unarchiver decodeObjectForKey:NSKeyedArchiveRootObjectKey];
-        %init(gCustomTheme);
-    }
-}
     if (IS_OLED_DARK_THEME_SELECTED) {
         %init(gOLED);
     }
@@ -705,5 +695,15 @@ UIColor *customHexColor;
     }
     if (IS_ENABLED(@"oledKeyBoard_enabled")) {
         %init(gOLEDKB);
+    }
+    if (IS_CUSTOM_DARK_THEME_SELECTED) {
+    NSData *colorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"kCustomThemeColor"];
+    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:colorData error:nil];
+    [unarchiver setRequiresSecureCoding:NO];
+    NSString *hexString = [unarchiver decodeObjectForKey:NSKeyedArchiveRootObjectKey];
+    if (hexString != nil) {
+        customHexColor = [unarchiver decodeObjectForKey:NSKeyedArchiveRootObjectKey];
+        %init(gCustomTheme);
+        }
     }
 }
