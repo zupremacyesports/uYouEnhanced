@@ -272,7 +272,7 @@ extern NSBundle *uYouPlusBundle();
         detailTextBlock:^NSString *() {
             switch (contrastMode()) {
                 case 1:
-                    return LOC(@"Hex Color"); // Hex Color is in WIP for v19.xx.x-3.0.1 release
+                    return LOC(@"Custom Color");
                 case 0:
                 default:
                     return LOC(@"Default");
@@ -285,7 +285,7 @@ extern NSBundle *uYouPlusBundle();
                     [settingsViewController reloadData];
                     return YES;
                 }],
-                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"Hex Color") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"Custom Color") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"lcm"];
                     [settingsViewController reloadData];
                     return YES;
