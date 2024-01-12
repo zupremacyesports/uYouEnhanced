@@ -1322,6 +1322,23 @@ static void replaceTab(YTIGuideResponse *response) {
     [userDefaults setBool:ytNoModernUIEnabled ? ytNoModernUIEnabled : [userDefaults boolForKey:@"disableAmbientMode_enabled"] forKey:@"disableAmbientMode_enabled"];
     [userDefaults setBool:ytNoModernUIEnabled ? ytNoModernUIEnabled : [userDefaults boolForKey:@"redProgressBar_enabled"] forKey:@"redProgressBar_enabled"];
 
+    NSData *colorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"kCustomThemeColor"];
+    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:colorData error:nil];
+    [unarchiver setRequiresSecureCoding:NO];
+    NSString *hexString = [unarchiver decodeObjectForKey:NSKeyedArchiveRootObjectKey];
+    if (hexString != nil) {
+        customHexColor = [unarchiver decodeObjectForKey:NSKeyedArchiveRootObjectKey];
+        %init(gCustomTheme);
+    }
+    NSData *lcmColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"kYTLcmColourOptionVFive"];
+    NSKeyedUnarchiver *lcmUnarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:lcmColorData error:nil];
+    [lcmUnarchiver setRequiresSecureCoding:NO];
+    NSString *lcmHexString = [lcmUnarchiver decodeObjectForKey:NSKeyedArchiveRootObjectKey];
+    if (lcmHexString != nil) {
+        lcmHexColor = [lcmUnarchiver decodeObjectForKey:NSKeyedArchiveRootObjectKey];
+        %init(gCustomContrastMode);
+    }
+
     // Change the default value of some options
     NSArray *allKeys = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];
     if (![allKeys containsObject:@"hidePlayNextInQueue_enabled"]) {
