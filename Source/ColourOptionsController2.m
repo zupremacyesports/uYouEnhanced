@@ -1,5 +1,4 @@
 #import "ColourOptionsController2.h"
-#import "Localization.h"
 
 @interface ColourOptionsController2 ()
 - (void)coloursView;
@@ -11,16 +10,19 @@
 	[super loadView];
     [self coloursView];
 
-    self.title = LOC(@"COLOR_OPTIONS_2");
+    self.title = LOC(@"Custom Text/Etc. Color");
     
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
-    self.navigationItem.leftBarButtonItem = doneButton;
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(close)];
+    self.navigationItem.rightBarButtonItem = closeButton;
 
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(save)];
     self.navigationItem.rightBarButtonItem = saveButton;
 
+    UIBarButtonItem *resetButton = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStylePlain target:self action:@selector(reset)];
+    self.navigationItem.leftBarButtonItem = resetButton;
+
     self.supportsAlpha = NO;
-    NSData *lcmColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"kYTLcmColourOptionVFive"];
+    NSData *lcmColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"kCustomUIColor"];
     NSKeyedUnarchiver *lcmUnarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:lcmColorData error:nil];
     [lcmUnarchiver setRequiresSecureCoding:NO];
     UIColor *color = [lcmUnarchiver decodeObjectForKey:NSKeyedArchiveRootObjectKey];
@@ -49,21 +51,26 @@
 
 @implementation ColourOptionsController2(Privates)
 
-- (void)done {
+- (void)close {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)save {
     NSData *lcmColorData = [NSKeyedArchiver archivedDataWithRootObject:self.selectedColor requiringSecureCoding:nil error:nil];
-    [[NSUserDefaults standardUserDefaults] setObject:lcmColorData forKey:@"kYTLcmColourOptionVFive"];
+    [[NSUserDefaults standardUserDefaults] setObject:lcmColorData forKey:@"kCustomUIColor"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
-    UIAlertController *alertSaved = [UIAlertController alertControllerWithTitle:@"Colour Saved" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertSaved = [UIAlertController alertControllerWithTitle:@"Color Saved" message:nil preferredStyle:UIAlertControllerStyleAlert];
 
     [alertSaved addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }]];
 
     [self presentViewController:alertSaved animated:YES completion:nil];
+}
+
+- (void)reset {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"kCustomThemeColor"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end
