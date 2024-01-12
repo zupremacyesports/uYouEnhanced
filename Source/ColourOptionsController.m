@@ -11,7 +11,7 @@
 	[super loadView];
     [self coloursView];
 
-    self.title = LOC(@"Theme Custom Color");
+    self.title = @"Theme Custom Color";
     
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(close)];
     self.navigationItem.rightBarButtonItem = closeButton;
