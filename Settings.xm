@@ -5,6 +5,8 @@
 #import "Tweaks/YouTubeHeader/YTSettingsSectionItemManager.h"
 #import "Tweaks/YouTubeHeader/YTUIUtils.h"
 #import "Tweaks/YouTubeHeader/YTSettingsPickerViewController.h"
+#import "Source/ColourOptionsController.h"
+#import "Source/ColourOptionsController2.h"
 #import "uYouPlus.h"
 
 #define VERSION_STRING [[NSString stringWithFormat:@"%@", @(OS_STRINGIFY(TWEAK_VERSION))] stringByReplacingOccurrencesOfString:@"\"" withString:@""]
