@@ -15,15 +15,15 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/arichorn/uYouEnhanced/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/arichorn/uYouEnhanced?logo=youtube&color=%23e81e8a&label=Latest%20Release" alt="Latest Release Badge"></a>
-    <a href="https://github.com/arichorn/uYouEnhanced/releases/latest"><img src="https://img.shields.io/github/downloads/qnblackcat/uYouPlus/total?color=%23e81e8a&label=Downloads&logo=cloudsmith&logoColor=white" alt="Download Badge"></a>
-    <a href="https://github.com/arichorn/uYouEnhanced/commit"><img src="https://custom-icon-badges.demolab.com/github/last-commit/arichorn/uYouEnhanced?logo=history&logoColor=white&color=%23e81e8a&label=Last%20Commit" alt="Last Commit Badge"></a>
-    <a href="https://github.com/arichorn/uYouEnhanced/issues"><img src="https://custom-icon-badges.demolab.com/github/issues-raw/arichorn/uYouEnhanced?logo=issue-opened&logoColor=white&color=%23e81e8a&label=Issues" alt="Issues Badge"></a>
+    <a href="https://github.com/arichornlover/uYouEnhanced/releases/latest"><img src="https://custom-icon-badges.demolab.com/github/v/release/arichornlover/uYouEnhanced?logo=youtube&color=%23e81e8a&label=Latest%20Release" alt="Latest Release Badge"></a>
+    <a href="https://github.com/arichornlover/uYouEnhanced/releases/latest"><img src="https://img.shields.io/github/downloads/qnblackcat/uYouPlus/total?color=%23e81e8a&label=Downloads&logo=cloudsmith&logoColor=white" alt="Download Badge"></a>
+    <a href="https://github.com/arichornlover/uYouEnhanced/commit"><img src="https://custom-icon-badges.demolab.com/github/last-commit/arichornlover/uYouEnhanced?logo=history&logoColor=white&color=%23e81e8a&label=Last%20Commit" alt="Last Commit Badge"></a>
+    <a href="https://github.com/arichornlover/uYouEnhanced/issues"><img src="https://custom-icon-badges.demolab.com/github/issues-raw/arichornlover/uYouEnhanced?logo=issue-opened&logoColor=white&color=%23e81e8a&label=Issues" alt="Issues Badge"></a>
 </p>
 
 <p align="center">
-    <a href="https://github.com/arichorn/uYouEnhanced/stargazers"><img src="https://custom-icon-badges.demolab.com/github/stars/arichorn/uYouEnhanced?logo=star&logoColor=white&color=%23e81e8a&label=Stars" alt="Stars Badge"></img></a>
-<a href="https://github.com/arichorn/uYouEnhanced/network/members"><img src="https://custom-icon-badges.demolab.com/github/forks/arichorn/uYouEnhanced?logo=github&logoColor=white&color=%23e81e8a&label=Forks"></a>
+    <a href="https://github.com/arichornlover/uYouEnhanced/stargazers"><img src="https://custom-icon-badges.demolab.com/github/stars/arichornlover/uYouEnhanced?logo=star&logoColor=white&color=%23e81e8a&label=Stars" alt="Stars Badge"></img></a>
+<a href="https://github.com/arichornlover/uYouEnhanced/network/members"><img src="https://custom-icon-badges.demolab.com/github/forks/arichornlover/uYouEnhanced?logo=github&logoColor=white&color=%23e81e8a&label=Forks"></a>
 </p>
 
 # Table of Contents
@@ -217,7 +217,7 @@
 <bhackel>
 <td align="center">
 <a href='https://github.com/bhackel'>
-<img src='https://github.com/arichorn/uYouEnhanced/assets/78001398/d1d46f69-d7b9-4e6a-82b6-e5629d26667b' width='110px;'>
+<img src='https://github.com/arichornlover/uYouEnhanced/assets/78001398/d1d46f69-d7b9-4e6a-82b6-e5629d26667b' width='110px;'>
 </a>
 <br>
 <a href='https://github.com/bhackel'>bhackel</a>
@@ -268,15 +268,15 @@
 
 - **uYou**: All the known issues of uYou are listed [here](https://github.com/MiRO92/uYou-for-YouTube/issues). Make sure you take a look at it before reporting any bugs! Also, keep in mind that uYou+ is a modified version of uYou. DO NOT bother MiRO92 with problems unrelated to uYou!
 
-- Issues related to **uYouPlus** can be found [here](https://github.com/qnblackcat/uYouPlus/issues/), or issues related to **uYouEnhanced** can be found [here](https://github.com/arichorn/uYouEnhanced/issues/).
+- Issues related to **uYouPlus** can be found [here](https://github.com/qnblackcat/uYouPlus/issues/), or issues related to **uYouEnhanced** can be found [here](https://github.com/arichornlover/uYouEnhanced/issues/).
 
 # Download
 
-- **uYouEnhanced** (or you can just call it uYouPlus / uYou+) requires iOS or iPadOS 14.0 or later. The latest version of **uYouEnhanced** ipa can be found in the [Release tab](https://github.com/arichorn/uYouEnhanced/releases/latest).
+- **uYouEnhanced** (or you can just call it uYouPlus / uYou+) requires iOS or iPadOS 14.0 or later. The latest version of **uYouEnhanced** ipa can be found in the [Release tab](https://github.com/arichornlover/uYouEnhanced/releases/latest).
 
 - For AltStore user: 
 
-  - My official AltStore repo: https://therealfoxster.github.io/altsource-viewer/view/?source=https://raw.githubusercontent.com/arichorn/arichorn.github.io/main/apps.json
+  - My official AltStore repo: https://therealfoxster.github.io/altsource-viewer/view/?source=https://raw.githubusercontent.com/arichornlover/arichornlover.github.io/main/apps.json
 
   - [Open in AltStore (v19.01.1-3.0.1)](http://tinyurl.com/mwu6j462) - It will take a while to install because AltStore needs to download the IPA first.
 
@@ -311,7 +311,7 @@
 | **YouQuality** | [PoomSmart](https://twitter.com/poomsmart) | 1.1.4-2 | [✔︎](https://github.com/PoomSmart/YouQuality) |
 | **YTVideoOverlay** | [PoomSmart](https://twitter.com/poomsmart) | 1.1.1-2 | [✔︎](https://github.com/PoomSmart/YTVideoOverlay) |
 | **YTHoldForSpeed** | [joshuaseltzer](https://github.com/joshuaseltzer) | 1.0.8 | [✔︎](https://github.com/joshuaseltzer/YTHoldForSpeed) |
-| **LowContrastMode** | [arichorn](https://github.com/arichorn) | 1.5.2 | [✔︎](https://github.com/arichorn/YTLowContrastMode) |
+| **LowContrastMode** | [arichornlover](https://github.com/arichornlover) | 1.5.2 | [✔︎](https://github.com/arichornlover/YTLowContrastMode) |
 
 </details>
 
@@ -342,7 +342,7 @@ See [FAQ - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/FAQ).
 # Building (optional)
 
 See [qnblackcat/Building - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/Building)
-or [arichorn/Building - Wiki](https://github.com/arichorn/uYouEnhanced/wiki/Building).
+or [arichornlover/Building - Wiki](https://github.com/arichornlover/uYouEnhanced/wiki/Building).
 
 <details>
     <summary>Balackburn's YTLitePlus</summary><br>
