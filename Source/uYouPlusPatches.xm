@@ -1,4 +1,4 @@
-#import "uYouPlusPatches.h"
+#import "uYouPlus.h"
 
 # pragma mark - YouTube patches
 
