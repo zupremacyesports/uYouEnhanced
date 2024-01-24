@@ -26,11 +26,6 @@ on:
         default: ""
         required: true
         type: string
-      create_release:
-        description: "Create a draft release"
-        default: true
-        required: false
-        type: boolean
       bundle_id:
         description: "Modify the bundle ID. Not recommended"
         default: "com.google.ios.youtube"
@@ -41,6 +36,16 @@ on:
         default: "YouTube"
         required: true
         type: string
+      create_release:
+        description: "Create a draft release"
+        default: true
+        required: false
+        type: boolean
+      upload_artifact:
+        description: "Upload Artifact"
+        default: true
+        required: false
+        type: boolean
   
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
