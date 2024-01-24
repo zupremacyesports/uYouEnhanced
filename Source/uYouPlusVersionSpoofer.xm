@@ -1,4 +1,4 @@
-#import "../uYouPlus.h"
+#import "uYouPlus.h"
 
 //
 static int appVersionSpoofer() {
