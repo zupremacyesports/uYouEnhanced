@@ -642,10 +642,16 @@ static void replaceTab(YTIGuideResponse *response) {
 %end
 %end
 
-// Disable Double Tap to Seek
-%hook YTMainAppVideoPlayerOverlayViewController
-- (BOOL)allowDoubleTapToSeekGestureRecognizer {
-    return IS_ENABLED(@"disableDoubleTapToSkip_enabled") ? NO : %orig;
+%hook YTColdConfig
+- (BOOL)speedMasterArm2FastForwardWithoutSeekBySliding {
+    return IS_ENABLED(@"slideToSeek_enabled") ? NO : %orig;
+}
+%end
+
+// Disable double tap to seek
+%hook YTDoubleTapToSeekController
+- (void)enableDoubleTapToSeek:(BOOL)arg1 {
+    return IS_ENABLED(@"doubleTapToSeek_disabled") ? %orig(NO) : %orig;
 }
 %end
 
