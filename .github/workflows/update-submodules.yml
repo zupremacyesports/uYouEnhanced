@@ -53,15 +53,6 @@ jobs:
           git push
         continue-on-error: true
 
-      - name: Make MrBeastify work
-        run: |
-          cd Bundles
-          ln -s ../Tweaks/MrBeastify/layout/Library/Application\ Support/MrBeastify.bundle MrBeastify.bundle
-          git add .
-          git commit -m "Added MrBeastify Localizatiom"
-          git push origin
-
-
       - name: Check exit code
         run: |
           exit_code=$?
