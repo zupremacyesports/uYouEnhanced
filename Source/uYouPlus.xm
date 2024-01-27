@@ -871,7 +871,7 @@ static NSString *accessGroupID() {
 }
 %end
 
-// Hide the (Connect / Share / Remix / Thanks / Download / Clip / Save) Buttons under the Video Player - 17.x.x and up - @arichorn
+// Hide the (Connect / Share / Remix / Thanks / Download / Clip / Save) Buttons under the Video Player - 17.x.x and up - @arichornlover
 %hook _ASDisplayView
 - (void)layoutSubviews {
     %orig;
@@ -882,6 +882,9 @@ static NSString *accessGroupID() {
     BOOL hideAddToOfflineButton = IS_ENABLED(@"hideAddToOfflineButton_enabled");
     BOOL hideClipButton = IS_ENABLED(@"hideClipButton_enabled");
     BOOL hideSaveToPlaylistButton = IS_ENABLED(@"hideSaveToPlaylistButton_enabled");
+
+    CGFloat buttonSeparation = 8;
+    CGFloat currentX = 0;
 
     for (UIView *subview in self.subviews) {
         if ([subview.accessibilityIdentifier isEqualToString:@"connect account"]) {
@@ -898,6 +901,14 @@ static NSString *accessGroupID() {
             subview.hidden = hideClipButton;
         } else if ([subview.accessibilityLabel isEqualToString:@"Save to playlist"]) {
             subview.hidden = hideSaveToPlaylistButton;
+        }
+        
+        if (!subview.hidden) {
+            CGRect frame = subview.frame;
+            frame.origin.x = currentX;
+            subview.frame = frame;
+
+            currentX += frame.size.width + buttonSeparation;
         }
     }
 }
