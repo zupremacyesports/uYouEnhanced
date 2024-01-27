@@ -871,10 +871,12 @@ static NSString *accessGroupID() {
 }
 %end
 
-// Hide the (Remix / Thanks / Download / Clip / Save) Buttons under the Video Player - 17.x.x and up - @arichorn
+// Hide the (Connect / Share / Remix / Thanks / Download / Clip / Save) Buttons under the Video Player - 17.x.x and up - @arichorn
 %hook _ASDisplayView
 - (void)layoutSubviews {
     %orig;
+    BOOL hideConnectButton = IS_ENABLED(@"hideConnectButton_enabled");
+    BOOL hideShareButton = IS_ENABLED(@"hideShareButton_enabled");
     BOOL hideRemixButton = IS_ENABLED(@"hideRemixButton_enabled");
     BOOL hideThanksButton = IS_ENABLED(@"hideThanksButton_enabled");
     BOOL hideAddToOfflineButton = IS_ENABLED(@"hideAddToOfflineButton_enabled");
@@ -882,11 +884,15 @@ static NSString *accessGroupID() {
     BOOL hideSaveToPlaylistButton = IS_ENABLED(@"hideSaveToPlaylistButton_enabled");
 
     for (UIView *subview in self.subviews) {
-        if ([subview.accessibilityIdentifier isEqualToString:@"id.video.remix.button"]) {
+        if ([subview.accessibilityIdentifier isEqualToString:@"connect account"]) {
+            subview.hidden = hideConnectButton;
+        } else if ([subview.accessibilityIdentifier isEqualToString:@"id.video.share.button"] || [subview.accessibilityIdentifier isEqualToString:@"Share"]) {
+            subview.hidden = hideShareButton;
+        } else if ([subview.accessibilityIdentifier isEqualToString:@"id.video.remix.button"] || [subview.accessibilityIdentifier isEqualToString:@"Create a Short with this video"]) {
             subview.hidden = hideRemixButton;
         } else if ([subview.accessibilityLabel isEqualToString:@"Thanks"]) {
             subview.hidden = hideThanksButton;
-        } else if ([subview.accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"]) {
+        } else if ([subview.accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"] || [subview.accessibilityIdentifier isEqualToString:@"Download"]) {
             subview.hidden = hideAddToOfflineButton;
         } else if ([subview.accessibilityLabel isEqualToString:@"Clip"]) {
             subview.hidden = hideClipButton;
