@@ -255,6 +255,8 @@ extern NSBundle *uYouPlusBundle();
 //
 //  SWITCH_ITEM(LOC(@"Red Subscribe Button"), LOC(@"Replaces the Subscribe Button color from being White to the color Red."), @"redSubscribeButton_enabled");
 //  SWITCH_ITEM2(LOC(@"Hide Button Containers under player"), LOC(@"Hides Button Containers under the video player."), @"hideButtonContainers_enabled");
+    SWITCH_ITEM(LOC(@"Hide the Connect Button under player"), LOC(@"Hides the Connect Button under the video player."), @"hideConnectButton_enabled");
+    SWITCH_ITEM(LOC(@"Hide the Share Button under player"), LOC(@"Hides the Share Button under the video player."), @"hideShareButton_enabled");
     SWITCH_ITEM(LOC(@"Hide the Remix Button under player"), LOC(@"Hides the Remix Button under the video player."), @"hideRemixButton_enabled");
     SWITCH_ITEM(LOC(@"Hide the Thanks Button under player"), LOC(@"Hides the Thanks Button under the video player."), @"hideThanksButton_enabled");
     SWITCH_ITEM(LOC(@"Hide the Download Button under player"), LOC(@"Hides the Download Button under the video player."), @"hideAddToOfflineButton_enabled");
