@@ -887,15 +887,15 @@ static NSString *accessGroupID() {
     CGFloat currentX = 0;
 
     for (UIView *subview in self.subviews) {
-        if ([subview.accessibilityIdentifier isEqualToString:@"connect account"]) {
+        if ([subview.accessibilityLabel isEqualToString:@"connect account"]) {
             subview.hidden = hideConnectButton;
-        } else if ([subview.accessibilityIdentifier isEqualToString:@"id.video.share.button"] || [subview.accessibilityIdentifier isEqualToString:@"Share"]) {
+        } else if ([subview.accessibilityIdentifier isEqualToString:@"id.video.share.button"] || [subview.accessibilityLabel isEqualToString:@"Share"]) {
             subview.hidden = hideShareButton;
-        } else if ([subview.accessibilityIdentifier isEqualToString:@"id.video.remix.button"] || [subview.accessibilityIdentifier isEqualToString:@"Create a Short with this video"]) {
+        } else if ([subview.accessibilityIdentifier isEqualToString:@"id.video.remix.button"] || [subview.accessibilityLabel isEqualToString:@"Create a Short with this video"]) {
             subview.hidden = hideRemixButton;
         } else if ([subview.accessibilityLabel isEqualToString:@"Thanks"]) {
             subview.hidden = hideThanksButton;
-        } else if ([subview.accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"] || [subview.accessibilityIdentifier isEqualToString:@"Download"]) {
+        } else if ([subview.accessibilityIdentifier isEqualToString:@"id.ui.add_to.offline.button"] || [subview.accessibilityLabel isEqualToString:@"Download"]) {
             subview.hidden = hideAddToOfflineButton;
         } else if ([subview.accessibilityLabel isEqualToString:@"Clip"]) {
             subview.hidden = hideClipButton;
