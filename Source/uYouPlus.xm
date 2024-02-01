@@ -654,22 +654,13 @@ static NSString *accessGroupID() {
 %end
 
 // Hide Channel Watermark
-%hook YTMainAppVideoPlayerOverlayView
-- (BOOL)isWatermarkEnabled {
-    if (IS_ENABLED(@"hideChannelWatermark_enabled")) {
-        return NO;
-    }
-    return %orig;
-}
-- (void)setFeaturedChannelWatermarkImageView:(id)imageView {
-    if (IS_ENABLED(@"hideChannelWatermark_enabled")) {
-        return;
-    }
-    %orig(imageView);
+%hook YTColdConfig
+- (BOOL)iosEnableFeaturedChannelWatermarkOverlayFix {
+    return IS_ENABLED(@"hideChannelWatermark_enabled") ? NO : %orig;
 }
 %end
 
-// Hide Channel Watermark (for Backwards Compatibility)
+// Hide Channel Watermark (for Old YouTube Versions / Backwards Compatibility)
 %hook YTAnnotationsViewController
 - (void)loadFeaturedChannelWatermark {
     if (IS_ENABLED(@"hideChannelWatermark_enabled")) {}
