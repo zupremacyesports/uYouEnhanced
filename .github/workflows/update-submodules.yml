@@ -16,6 +16,13 @@ jobs:
            git config --global user.email "actions@github.com"
            git config --global user.name "GitHub Actions"
 
+      - name: Rename Source to Sources (to be consistent with uYouPlus)
+        run: |
+          mv Source Sources
+          git add -A
+          git commit -m "Rename 'Source' to 'Sources'" || echo "No changes to commit"
+          git push
+
       - name: Update submodules
         run: |
           git submodule update --init --recursive --remote Tweaks/Alderis
