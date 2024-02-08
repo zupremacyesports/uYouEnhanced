@@ -33,6 +33,9 @@
 // Video player options
 "VIDEO_PLAYER_OPTIONS" = "Video-Player-Optionen";
 
+"SLIDE_TO_SEEK" = "Enable Slide to seek";
+"SLIDE_TO_SEEK_DESC" = "Bring back the Slide to seek gesture.";
+
 "AUTO_FULLSCREEN" = "Automatischer Vollbildmodus (YTAutoFullScreen)";
 "AUTO_FULLSCREEN_DESC" = "Automatisch Videos im Vollbildmodus starten.";
 
@@ -119,6 +122,9 @@
 
 // Miscellaneous
 "MISCELLANEOUS" = "Sonstiges";
+
+"HIDE_UYOU" = "Hide uYou tab";
+"HIDE_ISPONSORBLOCK" = "Hide iSponsorBlock button";
 
 "CAST_CONFIRM" = "Warnung vor TV-Übertragungen (YTCastConfirm)";
 "CAST_CONFIRM_DESC" = "Zeigt eine Warnung an, um eine ausversehene TV-Übertragung zu verhindern.";
