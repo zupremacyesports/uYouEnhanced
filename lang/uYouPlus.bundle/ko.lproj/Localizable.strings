@@ -33,6 +33,9 @@
 // Video player options
 "VIDEO_PLAYER_OPTIONS" = "비디오 재생 설정";
 
+"SLIDE_TO_SEEK" = "Enable Slide to seek";
+"SLIDE_TO_SEEK_DESC" = "Bring back the Slide to seek gesture.";
+
 "AUTO_FULLSCREEN" = "자동 전체화면 재생 (YTAutoFullScreen)";
 "AUTO_FULLSCREEN_DESC" = "자동으로 전체화면에서 재생합니다.";
 
@@ -119,6 +122,9 @@
 
 // Miscellaneous
 "MISCELLANEOUS" = "기타 설정";
+
+"HIDE_UYOU" = "Hide uYou tab";
+"HIDE_ISPONSORBLOCK" = "Hide iSponsorBlock button";
 
 "CAST_CONFIRM" = "TV 전송 알림 (YTCastConfirm)";
 "CAST_CONFIRM_DESC" = "의도치 않게 TV로 영상을 전송하지 않도록 보내기 전에 확인 메시지를 표시합니다.";
