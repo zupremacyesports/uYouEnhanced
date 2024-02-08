@@ -33,6 +33,9 @@
 // Video player options
 "VIDEO_PLAYER_OPTIONS" = "Video Player Options";
 
+"SLIDE_TO_SEEK" = "Enable Slide to seek";
+"SLIDE_TO_SEEK_DESC" = "Bring back the Slide to seek gesture.";
+
 "AUTO_FULLSCREEN" = "Auto Ecran Întreg (YTAutoFullScreen)";
 "AUTO_FULLSCREEN_DESC" = "Redare automată video pe ecran complet.";
 
@@ -119,6 +122,9 @@
 
 // Miscellaneous
 "MISCELLANEOUS" = "Miscellaneous";
+
+"HIDE_UYOU" = "Hide uYou tab";
+"HIDE_ISPONSORBLOCK" = "Hide iSponsorBlock button";
 
 "CAST_CONFIRM" = "Alertă de confirmare înainte de proiectare (YTCastConfirm)";
 "CAST_CONFIRM_DESC" = "Afișează o alertă de confirmare înainte de a proiecta, pentru a preveni deturnarea accidentală a TV-ului.";
