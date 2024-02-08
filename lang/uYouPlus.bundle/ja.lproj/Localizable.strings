@@ -33,6 +33,9 @@
 // Video controls overlay options
 "VIDEO_CONTROLS_OVERLAY_OPTIONS" = "動画コントロールのオーバーレイ設定";
 
+"SLIDE_TO_SEEK" = "Enable Slide to seek";
+"SLIDE_TO_SEEK_DESC" = "Bring back the Slide to seek gesture.";
+
 "AUTO_FULLSCREEN" = "自動でフルスクリーンにする (YTAutoFullScreen)";
 "AUTO_FULLSCREEN_DESC" = "動画を自動でフルスクリーンにします。";
 
@@ -119,6 +122,9 @@
 
 // Miscellaneous
 "MISCELLANEOUS" = "その他";
+
+"HIDE_UYOU" = "Hide uYou tab";
+"HIDE_ISPONSORBLOCK" = "Hide iSponsorBlock button";
 
 "CAST_CONFIRM" = "キャストする前に確認をする (YTCastConfirm)";
 "CAST_CONFIRM_DESC" = "誤ってテレビにキャストしないように、確認の警告を表示します。";
