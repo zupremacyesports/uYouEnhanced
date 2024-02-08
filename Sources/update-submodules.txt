@@ -43,6 +43,8 @@ jobs:
           git add .
           git submodule update --init --recursive --remote Tweaks/YTHoldForSpeed
           git add .
+          git submodule update --init --recursive --remote Tweaks/MrBeastify
+          git add .
           git submodule update --init --recursive --remote Tweaks/PSHeader
           git add .
           git submodule update --init --recursive --remote Tweaks/Return-YouTube-Dislikes
@@ -72,11 +74,9 @@ jobs:
       - name: Make .bundle files
         run: |
           cd Bundles
+          ln -s ../Tweaks/MrBeastify/layout/Library/Application\ Support/MrBeastify.bundle MrBeastify.bundle
           ln -s ../Tweaks/uYouLocalization/layout/Library/Application\ Support/uYouLocalization.bundle uYouLocalization.bundle
           ln -s ../Tweaks/YTHoldForSpeed/layout/Library/Application\ Support/YTHoldForSpeed.bundle YTHoldForSpeed.bundle
-          ln -s ../Tweaks/YTVideoOverlay/layout/Library/Application\ Support/YTVideoOverlay.bundle YTVideoOverlay.bundle
-          ln -s ../Tweaks/YouMute/layout/Library/Application\ Support/YouMute.bundle YouMute.bundle
-          ln -s ../Tweaks/YouQuality/layout/Library/Application\ Support/YouQuality.bundle YouQuality.bundle
           git add .
           git commit -m "Added bundles"
           git push origin
