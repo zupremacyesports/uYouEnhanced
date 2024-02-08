@@ -33,6 +33,9 @@
 // Video player options
 "VIDEO_PLAYER_OPTIONS" = "Video Player Options";
 
+"SLIDE_TO_SEEK" = "Enable Slide to seek";
+"SLIDE_TO_SEEK_DESC" = "Bring back the Slide to seek gesture.";
+
 "AUTO_FULLSCREEN" = "Automatikus teljes képernyő (YTAutoFullScreen)";
 "AUTO_FULLSCREEN_DESC" = "Videók automatikus lejátszása teljes képernyőn.";
 
@@ -119,6 +122,9 @@
 
 // Miscellaneous
 "MISCELLANEOUS" = "Miscellaneous";
+
+"HIDE_UYOU" = "Hide uYou tab";
+"HIDE_ISPONSORBLOCK" = "Hide iSponsorBlock button";
 
 "CAST_CONFIRM" = "Megerősítés átküldés előtt (YTCastConfirm)";
 "CAST_CONFIRM_DESC" = "Az átküldés előtt mutasson megerősítő figyelmeztetést, hogy megakadályozza a TV véletlen eltérítését.";
