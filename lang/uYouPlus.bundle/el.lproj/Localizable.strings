@@ -33,6 +33,9 @@
 // Video player options
 "VIDEO_PLAYER_OPTIONS" = "Video Player Options";
 
+"SLIDE_TO_SEEK" = "Enable Slide to seek";
+"SLIDE_TO_SEEK_DESC" = "Bring back the Slide to seek gesture.";
+
 "AUTO_FULLSCREEN" = "Αυτόματη αναπαραγωγή σε πλήρη οθόνη (YTAutoFullScreen)";
 "AUTO_FULLSCREEN_DESC" = "Αυτόματη αναπαραγωγή των βίντεο σε πλήρη οθόνη.";
 
@@ -119,6 +122,9 @@
 
 // Miscellaneous
 "MISCELLANEOUS" = "Miscellaneous";
+
+"HIDE_UYOU" = "Hide uYou tab";
+"HIDE_ISPONSORBLOCK" = "Hide iSponsorBlock button";
 
 "CAST_CONFIRM" = "Επιβεβαιωτικό μήνυμα πριν γίνει Cast(YTCastConfirm)";
 "CAST_CONFIRM_DESC" = "Να φανεί ένα επιβεβαιωτικό μήνυμα πριν γίνει cast για να αποτρεπτεί η καταλάθως σύνδεση στην τηλεόραση.";
