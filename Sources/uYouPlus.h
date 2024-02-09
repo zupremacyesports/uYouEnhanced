@@ -174,14 +174,6 @@
 + (id)_defaultColor;
 @end
 
-// BigYTMiniPlayer
-@interface YTMainAppVideoPlayerOverlayView : UIView
-- (UIViewController *)_viewControllerForAncestor;
-@end
-
-@interface YTWatchMiniBarView : UIView
-@end
-
 // YTAutoFullScreen
 @interface YTPlayerViewController (YTAFS)
 - (void)autoFullscreen;
