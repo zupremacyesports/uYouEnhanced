@@ -29,7 +29,6 @@
 #import "Tweaks/YouTubeHeader/YTReelWatchPlaybackOverlayView.h"
 #import "Tweaks/YouTubeHeader/YTReelPlayerBottomButton.h"
 #import "Tweaks/YouTubeHeader/YTReelPlayerViewController.h"
-#import "Tweaks/YouTubeHeader/YTAlertView.h"
 #import "Tweaks/YouTubeHeader/YTIMenuConditionalServiceItemRenderer.h"
 #import "Tweaks/YouTubeHeader/YTPivotBarItemView.h"
 #import "Tweaks/YouTubeHeader/YTVideoWithContextNode.h" // YouTube-X
