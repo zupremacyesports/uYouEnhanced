@@ -1094,31 +1094,6 @@ static NSString *accessGroupID() {
 %end
 %end
 
-// BigYTMiniPlayer: https://github.com/Galactic-Dev/BigYTMiniPlayer
-%group Main
-%hook YTWatchMiniBarView
-- (void)setWatchMiniPlayerLayout:(int)arg1 {
-    %orig(1);
-}
-- (int)watchMiniPlayerLayout {
-    return 1;
-}
-- (void)layoutSubviews {
-    %orig;
-    self.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - self.frame.size.width), self.frame.origin.y, self.frame.size.width, self.frame.size.height);
-}
-%end
-
-%hook YTMainAppVideoPlayerOverlayView
-- (BOOL)isUserInteractionEnabled {
-    if([[self _viewControllerForAncestor].parentViewController.parentViewController isKindOfClass:%c(YTWatchMiniBarViewController)]) {
-        return NO;
-    }
-        return %orig;
-}
-%end
-%end
-
 // Hide Indicators - @Dayanch96 & @arichorn
 %group gHideSubscriptionsNotificationBadge
 %hook YTPivotBarIndicatorView
@@ -1149,9 +1124,6 @@ static NSString *accessGroupID() {
     }
     if (IS_ENABLED(@"premiumYouTubeLogo_enabled")) {
         %init(gPremiumYouTubeLogo);
-    }
-    if (IS_ENABLED(@"bigYTMiniPlayer_enabled") && (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad)) {
-        %init(Main);
     }
     if (IS_ENABLED(@"hideSubscriptionsNotificationBadge_enabled")) {
         %init(gHideSubscriptionsNotificationBadge);
