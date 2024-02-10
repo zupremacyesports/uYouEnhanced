@@ -123,6 +123,13 @@ jobs:
           YOUTUBE_VERSION: ${{ inputs.youtube_version }}
           YOUTUBE_URL: ${{ inputs.decrypted_youtube_url }}
 
+      - name: Checkout YouTubeHeader (For compiling)
+        uses: actions/checkout@main
+        with:
+          repository: PoomSmart/YouTubeHeader
+          ref: main
+          path: YouTubeHeader
+
       - name: Fix compiling & Build Package
         id: build_package
         run: |
