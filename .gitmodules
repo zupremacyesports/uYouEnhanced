@@ -1,6 +1,6 @@
 [submodule "Tweaks/YTUHD"]
 	path = Tweaks/YTUHD
-	url = https://github.com/PoomSmart/YTUHD.git
+	url = https://github.com/arichorn/YTUHD.git
 	branch = master
 [submodule "Tweaks/YouPiP"]
 	path = Tweaks/YouPiP
@@ -8,7 +8,7 @@
 	branch = main
 [submodule "Tweaks/YouMute"]
 	path = Tweaks/YouMute
-	url = https://github.com/PoomSmart/YouMute.git
+	url = https://github.com/arichornlover/YouMute.git
 	branch = main
 [submodule "Tweaks/YouQuality"]
 	path = Tweaks/YouQuality
@@ -16,7 +16,7 @@
 	branch = main
 [submodule "Tweaks/YTVideoOverlay"]
 	path = Tweaks/YTVideoOverlay
-	url = https://github.com/PoomSmart/YTVideoOverlay.git
+	url = https://github.com/arichorn/YTVideoOverlay.git
 	branch = main
 [submodule "Tweaks/Return-YouTube-Dislikes"]
 	path = Tweaks/Return-YouTube-Dislikes
