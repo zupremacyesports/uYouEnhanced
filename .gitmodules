@@ -20,7 +20,7 @@
 	branch = main
 [submodule "Tweaks/Return-YouTube-Dislikes"]
 	path = Tweaks/Return-YouTube-Dislikes
-	url = https://github.com/arichornlover/Return-YouTube-Dislikes.git
+	url = https://github.com/arichorn/Return-YouTube-Dislikes.git
 	branch = uYouEnhanced
 [submodule "Tweaks/YouTubeHeader"]
 	path = Tweaks/YouTubeHeader
