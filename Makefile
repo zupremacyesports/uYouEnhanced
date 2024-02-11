@@ -5,7 +5,7 @@ ARCHS = arm64
 MODULES = jailed
 FINALPACKAGE = 1
 CODESIGN_IPA = 0
-PACKAGE_VERSION = 16.42.3-2.1-F20
+PACKAGE_VERSION = 16.42.3-2.1-F21
 
 TWEAK_NAME = uYouPlus
 DISPLAY_NAME = YouTube
@@ -13,7 +13,7 @@ BUNDLE_ID = com.google.ios.youtube
 
 EXTRA_CFLAGS := $(addprefix -I,$(shell find Tweaks/FLEX -name '*.h' -exec dirname {} \;))
 
-uYouPlus_INJECT_DYLIBS = Tweaks/uYou/Library/MobileSubstrate/DynamicLibraries/uYou.dylib .theos/obj/libcolorpicker.dylib .theos/obj/iSponsorBlock.dylib .theos/obj/YTUHD.dylib .theos/obj/YouPiP.dylib .theos/obj/YouTubeDislikesReturn.dylib .theos/obj/YTABConfig.dylib .theos/obj/YTNoCommunityPosts.dylib .theos/obj/YTVideoOverlay.dylib .theos/obj/YouMute.dylib .theos/obj/YouQuality.dylib
+uYouPlus_INJECT_DYLIBS = Tweaks/uYou/Library/MobileSubstrate/DynamicLibraries/uYou.dylib .theos/obj/libcolorpicker.dylib .theos/obj/iSponsorBlock.dylib .theos/obj/YTUHD.dylib .theos/obj/YouPiP.dylib .theos/obj/YouTubeDislikesReturn.dylib .theos/obj/YTABConfig.dylib .theos/obj/YTVideoOverlay.dylib .theos/obj/YouMute.dylib .theos/obj/YouQuality.dylib
 uYouPlus_FILES = uYouPlus.xm Settings.xm $(shell find Source -name '*.xm' -o -name '*.x' -o -name '*.m') $(shell find Tweaks/FLEX -type f \( -iname \*.c -o -iname \*.m -o -iname \*.mm \))
 uYouPlus_IPA = tmp/Payload/YouTube.app
 uYouPlus_FRAMEWORKS = UIKit Security
@@ -21,7 +21,7 @@ uYouPlus_CFLAGS = -fobjc-arc -Wno-deprecated-declarations -Wno-unsupported-avail
 
 include $(THEOS)/makefiles/common.mk
 include $(THEOS_MAKE_PATH)/tweak.mk
-SUBPROJECTS += Tweaks/Alderis Tweaks/iSponsorBlock Tweaks/YTUHD Tweaks/YouPiP Tweaks/Return-YouTube-Dislikes Tweaks/YTABConfig Tweaks/YTNoCommunityPosts Tweaks/YTVideoOverlay Tweaks/YouMute Tweaks/YouQuality
+SUBPROJECTS += Tweaks/Alderis Tweaks/iSponsorBlock Tweaks/YTUHD Tweaks/YouPiP Tweaks/Return-YouTube-Dislikes Tweaks/YTABConfig Tweaks/YTVideoOverlay Tweaks/YouMute Tweaks/YouQuality
 include $(THEOS_MAKE_PATH)/aggregate.mk
 
 before-package::
@@ -31,11 +31,11 @@ before-package::
 	@cp -R Tweaks/YTUHD/layout/Library/Application\ Support/YTUHD.bundle Resources/
 	@cp -R Tweaks/Return-YouTube-Dislikes/layout/Library/Application\ Support/RYD.bundle Resources/
 	@cp -R Tweaks/YTABConfig/layout/Library/Application\ Support/YTABC.bundle Resources/
-	@cp -R Tweaks/YTNoCommunityPosts/layout/Library/Application\ Support/YTNoCommunityPosts.bundle Resources/
 	@cp -R Tweaks/YTVideoOverlay/layout/Library/Application\ Support/YTVideoOverlay.bundle Resources/
 	@cp -R Tweaks/YouMute/layout/Library/Application\ Support/YouMute.bundle Resources/
 	@cp -R Tweaks/YouQuality/layout/Library/Application\ Support/YouQuality.bundle Resources/
 	@cp -R Tweaks/iSponsorBlock/layout/var/mobile/Library/Application\ Support/iSponsorBlock Resources/
+	@cp -R Tweaks/uYouLocalization/layout/Library/Application\ Support/uYouLocalization.bundle Resources/
 	@cp -R Tweaks/uYou/Library/Application\ Support/uYouBundle.bundle Resources/
 	@cp -R lang/uYouPlus.bundle Resources/
 	@echo -e "==> \033[1mChanging the installation path of dylibs...\033[0m"
