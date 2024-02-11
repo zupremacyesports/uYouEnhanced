@@ -100,14 +100,6 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Download YouTubeHeader
-        run: |
-          git clone https://github.com/PoomSmart/YouTubeHeader
-          cd YouTubeHeader
-          git checkout
-        env:
-          THEOS: ${{ github.workspace }}/theos
-
       - name: Setup Theos Jailed
         uses: actions/checkout@v4.1.1
         with:
