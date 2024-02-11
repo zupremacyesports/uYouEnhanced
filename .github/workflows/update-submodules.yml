@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3.6.0
+        uses: actions/checkout@v4.1.1
 
       - name: Set up Git
         run: |
@@ -20,7 +20,15 @@ jobs:
         run: |
           git submodule update --init --recursive --remote Tweaks/Alderis
           git add .
-          git submodule update --init --recursive --remote Tweaks/YTNoCommunityPosts
+          git submodule update --init --recursive --remote Tweaks/PSHeader
+          git add .
+          git submodule update --init --recursive --remote Tweaks/Return-YouTube-Dislikes
+          git add .
+          git submodule update --init --recursive --remote Tweaks/uYouLocalization
+          git add .
+          git submodule update --init --recursive --remote Tweaks/YTABConfig
+          git add .
+          git submodule update --init --recursive --remote Tweaks/YTUHD
           git add .
           git submodule update --init --recursive --remote Tweaks/YTVideoOverlay
           git add .
