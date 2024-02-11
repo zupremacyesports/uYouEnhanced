@@ -47,6 +47,7 @@ static const NSUInteger GROUP_TYPE = 'psyt'; // PoomSmart/YouGroupSettings
 
 @interface YTSettingsSectionItemManager (uYouPlus)
 - (void)updateTweakSectionWithEntry:(id)entry;
+- (NSString *)getCacheSize;
 @end
 
 extern NSBundle *uYouPlusBundle();
