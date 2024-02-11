@@ -81,6 +81,22 @@ extern NSBundle *uYouPlusBundle();
 %end
 
 %hook YTSettingsSectionItemManager
+- (NSString *)getCacheSize {
+    NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
+    NSArray *filesArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:cachePath error:nil];
+
+    unsigned long long int folderSize = 0;
+    for (NSString *fileName in filesArray) {
+        NSString *filePath = [cachePath stringByAppendingPathComponent:fileName];
+        NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
+        folderSize += [fileAttributes fileSize];
+    }
+
+    NSByteCountFormatter *formatter = [[NSByteCountFormatter alloc] init];
+    formatter.countStyle = NSByteCountFormatterCountStyleFile;
+
+    return [formatter stringFromByteCount:folderSize];
+}
 %new(v@:@)
 - (void)updateTweakSectionWithEntry:(id)entry {
     NSMutableArray *sectionItems = [NSMutableArray array];
@@ -130,6 +146,32 @@ extern NSBundle *uYouPlusBundle();
         }
     ];
     [sectionItems addObject:exitYT];
+
+# pragma mark - Cache
+    SECTION_HEADER(LOC(@"Cache"));
+    YTSettingsSectionItem *clearCache = [%c(YTSettingsSectionItem)
+        itemWithTitle:LOC(@"Clear Cache")
+        titleDescription:[self getCacheSize]
+        accessibilityIdentifier:nil
+        selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+            UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleMedium];
+            activityIndicator.color = [UIColor labelColor];
+            [activityIndicator startAnimating];
+            cell.accessoryView = activityIndicator;
+
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
+                [[NSFileManager defaultManager] removeItemAtPath:cachePath error:nil];
+
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [settingsViewController reloadData];
+                });
+            });
+
+            return YES;
+        }
+    ];
+    [sectionItems addObject:clearCache];
 
     # pragma mark - App theme
     SECTION_HEADER(LOC(@"THEME_OPTIONS"));
