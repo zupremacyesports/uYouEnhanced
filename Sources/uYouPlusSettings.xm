@@ -1,10 +1,12 @@
 // Settings.xm made by the @therealFoxster
+#import "../Tweaks/YouTubeHeader/YTSettingsGroupData.h"
 #import "../Tweaks/YouTubeHeader/YTSettingsViewController.h"
 #import "../Tweaks/YouTubeHeader/YTSearchableSettingsViewController.h"
 #import "../Tweaks/YouTubeHeader/YTSettingsSectionItem.h"
 #import "../Tweaks/YouTubeHeader/YTSettingsSectionItemManager.h"
 #import "../Tweaks/YouTubeHeader/YTUIUtils.h"
 #import "../Tweaks/YouTubeHeader/YTSettingsPickerViewController.h"
+#import "../Tweaks/YouTubeHeader/YTIIcon.h"
 #import "ColourOptionsController.h"
 #import "ColourOptionsController2.h"
 #import "uYouPlus.h"
@@ -37,6 +39,11 @@ static int appVersionSpoofer() {
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"versionSpoofer"];
 }
 static const NSInteger uYouPlusSection = 500;
+static const NSUInteger GROUP_TYPE = 'psyt'; // PoomSmart/YouGroupSettings
+
+@interface YTSettingsGroupData (YouGroupSettings) // PoomSmart/YouGroupSettings
++ (NSMutableArray <NSNumber *> *)tweaks;
+@end
 
 @interface YTSettingsSectionItemManager (uYouPlus)
 - (void)updateTweakSectionWithEntry:(id)entry;
@@ -73,6 +80,50 @@ extern NSBundle *uYouPlusBundle();
     return mutableOrder;
 }
 %end
+
+// PoomSmart/YouGroupSettings
+%hook YTSettingsGroupData
+%new(@@:)
++ (NSMutableArray <NSNumber *> *)tweaks {
+    static NSMutableArray <NSNumber *> *tweaks = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        tweaks = [NSMutableArray new];
+        [tweaks addObjectsFromArray:@[
+            @(404), // YTABConfig
+            @(500), // uYouEnhanced / uYouPlus
+            @(517), // DontEatMyContent
+            @(1080), // Return YouTube Dislike
+            @(200), // YouPiP
+            @(2168), // YTHoldForSpeed
+            @(1222), // YTVideoOverlay
+        ]];
+    });
+    return tweaks;
+}
+- (NSString *)titleForSettingGroupType:(NSUInteger)type {
+    if (type == GROUP_TYPE) {
+        return @"Tweaks";
+    }
+    return %orig;
+}
+- (NSArray <NSNumber *> *)orderedCategoriesForGroupType:(NSUInteger)type {
+    if (type == GROUP_TYPE)
+        return [[self class] tweaks];
+    return %orig;
+}
+%end
+
+%hook YTSettingsViewController
+- (void)setSectionItems:(NSMutableArray *)sectionItems forCategory:(NSInteger)category title:(NSString *)title icon:(YTIIcon *)icon titleDescription:(NSString *)titleDescription headerHidden:(BOOL)headerHidden {
+    if (icon == nil && [[%c(YTSettingsGroupData) tweaks] containsObject:@(category)]) {
+        icon = [%c(YTIIcon) new];
+        icon.iconType = 44;
+    }
+    %orig;
+}
+%end
+//
 
 %hook YTSettingsSectionController
 - (void)setSelectedItem:(NSUInteger)selectedItem {
