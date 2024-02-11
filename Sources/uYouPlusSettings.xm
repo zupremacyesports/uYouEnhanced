@@ -200,11 +200,12 @@ extern NSBundle *uYouPlusBundle();
     [sectionItems addObject:exitYT];
 
 # pragma mark - Cache
-    SECTION_HEADER(LOC(@"Cache"));
+    SECTION_HEADER(@"Cache");
     YTSettingsSectionItem *clearCache = [%c(YTSettingsSectionItem)
         itemWithTitle:LOC(@"Clear Cache")
         titleDescription:[self getCacheSize]
         accessibilityIdentifier:nil
+        detailTextBlock:nil
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleMedium];
             activityIndicator.color = [UIColor labelColor];
