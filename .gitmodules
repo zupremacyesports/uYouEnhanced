@@ -53,3 +53,6 @@
 [submodule "Tweaks/uYouLocalization"]
 	path = Tweaks/uYouLocalization
 	url = https://github.com/dayanch96/uYouLocalization.git
+[submodule "Tweaks/YTNoCommunityPosts"]
+	path = Tweaks/YTNoCommunityPosts
+	url = https://github.com/michael-winay/YTNoCommunityPosts.git
