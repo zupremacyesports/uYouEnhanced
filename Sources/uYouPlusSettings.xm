@@ -47,7 +47,7 @@ static const NSUInteger GROUP_TYPE = 'psyt'; // PoomSmart/YouGroupSettings
 
 @interface YTSettingsSectionItemManager (uYouPlus)
 - (void)updateTweakSectionWithEntry:(id)entry;
-- (NSString *)getCacheSize;
+// - (NSString *)getCacheSize;
 @end
 
 extern NSBundle *uYouPlusBundle();
@@ -133,6 +133,7 @@ extern NSBundle *uYouPlusBundle();
 %end
 
 %hook YTSettingsSectionItemManager
+/* BROKEN
 - (NSString *)getCacheSize {
     NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
     NSArray *filesArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:cachePath error:nil];
@@ -149,6 +150,7 @@ extern NSBundle *uYouPlusBundle();
 
     return [formatter stringFromByteCount:folderSize];
 }
+*/
 %new(v@:@)
 - (void)updateTweakSectionWithEntry:(id)entry {
     NSMutableArray *sectionItems = [NSMutableArray array];
@@ -199,6 +201,7 @@ extern NSBundle *uYouPlusBundle();
     ];
     [sectionItems addObject:exitYT];
 
+/* DISABLED
 # pragma mark - Cache
     SECTION_HEADER(@"Cache");
     YTSettingsSectionItem *clearCache = [%c(YTSettingsSectionItem)
@@ -220,6 +223,7 @@ extern NSBundle *uYouPlusBundle();
         }
     ];
     [sectionItems addObject:clearCache];
+*/
 
     # pragma mark - App theme
     SECTION_HEADER(LOC(@"THEME_OPTIONS"));
