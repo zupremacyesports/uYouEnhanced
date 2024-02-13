@@ -252,25 +252,3 @@ static BOOL shouldResizeIcon = NO;
     %orig(alignment);
 }
 %end
-
-// Center speed controls indicator/reset button
-@interface YTTransportControlsButtonView : UIView
-@end
-
-@interface YTPlaybackButton : UIControl
-@end
-
-@interface YTMainAppControlsOverlayView : UIView
-@property (nonatomic, strong, readwrite) YTTransportControlsButtonView *resetPlaybackRateButtonView;
-@property (nonatomic, assign, readonly) YTPlaybackButton *playPauseButton;
-@end
-
-%hook YTMainAppControlsOverlayView
-- (void)setUYouContainer:(UIStackView *)uYouContainer {
-    %orig;
-
-    if (self.playPauseButton && self.resetPlaybackRateButtonView && [[NSUserDefaults standardUserDefaults] boolForKey:@"showPlaybackRate"]) {
-        [self.resetPlaybackRateButtonView.centerXAnchor constraintEqualToAnchor:self.playPauseButton.centerXAnchor].active = YES;
-    }
-}
-%end
