@@ -151,8 +151,6 @@
 "Playback Speed Controls" = "Controles de velocidad de reproducción";
 "Enable \"uYou Gestures Controls\"" = "Habilitar \"controles de gestos de uYou\"";
 "uYou Gestures Controls: It can let you drag your finger left/right on the top/bottom of the video screen to adjust the volume/brightness/seek.\n\nChanging settings require restarting the YouTube app." = "Controles de Gestos de uYou: Permite deslizar el dedo hacia la izquierda/derecha en la parte superior/inferior de la pantalla del video para ajustar el volumen/brillo/búsqueda.\n\nCambiar la configuración requiere reiniciar la aplicación de YouTube.";
-"Changing settings require restarting the YouTube app." = "Cambiar la configuración requiere reiniciar la aplicación de YouTube.";
-
 "Disable Auto Play Video" = "Desactivar reproducción automática";
 "Hide Shorts Cells" = "Ocultar celdas de Shorts";
 "Hide Fullscreen Button" = "Ocultar botón de Pantalla Completa";
@@ -164,7 +162,7 @@
 "Always Show Progress Bar" = "Mostrar siempre la barra de progreso";
 "Video Player" = "Reproductor de Video";
 "Auto Fullscreen" = "Pantalla completa automática";
-"Related videos at the end of the video" = "Videos relacionados al final del video";
+"Related videos at the end the video" = "Videos relacionados al final del video";
 "Fullscreen always on the right side" = "Pantalla completa siempre en el lado derecho";
 
 "Buttons Under the Video Player" = "Botones debajo del reproductor";
