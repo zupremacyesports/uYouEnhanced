@@ -1,0 +1,242 @@
+/* uYou tab */
+"The best tweak for the YouTube app" = "YouTubeに最適なtweak";
+"Download Videos/Audio" = "動画/音声をダウンロード";
+"Save your favorite videos for offline playback." = "お気に入りの動画をオフライン再生用に保存。";
+"Play Saved Media" = "保存したメディアを再生";
+"Play your saved media in a custom player with background playback support and mini player." = "バックグラウンド再生とミニプレーヤーに対応したカスタムプレーヤーで保存したメディアを再生。";
+"More Options" = "その他のオプション";
+"Play YouTube videos in the background and more, You can configure options from the settings." = "YouTube動画をバックグラウンド再生など、設定からオプションを構成できます。";
+"FollowMe" = "Twitterをフォロー";
+"Continue" = "続ける";
+
+/* uYou tab */
+"Downloading" = "ダウンロード中";
+"All" = "全て";
+"Video" = "動画";
+"Videos" = "動画";
+"Audio" = "音声";
+"Audios" = "音声";
+"TOTAL" = "合計";
+"DOWNLOADING" = "ダウンロード中";
+
+"Sorting" = "並び替え";
+"Video Title (Ascending)" = "動画タイトル(昇順)";
+"Video Title (Descending)" = "動画タイトル(降順)";
+"Download Date (Ascending)" = "ダウンロード日時(昇順)";
+"Download Date (Descending)" = "ダウンロード日時(降順)";
+
+"Audio Only" = "音声のみ";
+"Audio Only (mp4)" = "音声のみ(mp4)";
+"Downloading..." = "ダウンロード中...";
+"Adding Metadata to the M4A.." = "M4Aにメタデータを追加中...";
+"Waiting..." = "待機中...";
+"Waiting for download..." = "ダウンロード待機中...";
+"Paused" = "一時停止";
+"Completed" = "完了";
+"Play on YouTube" = "YouTubeで再生";
+"Open Channel" = "チャンネルを開く";
+"Rename" = "名前変更";
+"Cancel" = "キャンセル";
+"Done" = "完了";
+"Select All" = "すべて選択";
+"Share" = "共有";
+"Export to Music app" = "ミュージックアプリにエクスポート";
+"Export to Camera Roll" = "カメラロールにエクスポート";
+"Change Image" = "画像を変更";
+"Change Thumbnail" = "サムネイルを変更";
+"Download Original Thumbnail" = "オリジナルのサムネイルをダウンロード";
+"Save Thumbnail to Camera Roll" = "サムネイルをカメラロールに保存";
+"Save Album Art to Camera Roll" = "アルバムアートをカメラロールに保存";
+"Open in Filza" = "Filzaで開く";
+"Lyrics feature will be available soon" = "歌詞機能は近日公開予定";
+"Delete" = "削除";
+"Confirm" = "確認";
+"Copy Video Link" = "動画リンクをコピー";
+"Copy Audio Link" = "音声リンクをコピー";
+"Cancel Download" = "ダウンロードをキャンセル";
+"DeleteVideo" = "削除してもよろしいですか？"; //Output text will look like: Are you sure you want to delete (Video name)?
+"DeleteFilesCount" = "選択したファイルを削除してもよろしいですか？"; //Output text will look like: Are you sure you want to delete selected files (5)?
+"SelectedFilesCount" = "選択したファイル"; //Output text will look like: Selected files (5).
+"Select All" = "全選択";
+"Thumbnail" = "サムネイル";
+"Lyrics feature will be available soon" = "歌詞機能は近日公開予定";
+"I Understand" = "了解";
+"Save Image" = "画像を保存";
+"Save Gif" = "GIFを保存";
+
+/* Import to Music */
+"Import" = "インポート";
+"Change Artwork Image" = "アートワーク画像を変更";
+"IMPORT INFO" = "インポート情報";
+"Explicit" = "Explicit";
+"Kind" = "種類";
+"Title" = "タイトル";
+"Channel"  = "チャンネル";
+"Album" = "アルバム";
+"Artist" = "アーティスト";
+"Year" = "年";
+
+/* + button */
+"Please, paste the YouTube link or Video ID to start download" = "ダウンロードを開始するには、YouTubeのURLまたは動画IDを貼り付けてください";
+"YouTube URL or Video ID" = "YouTubeのURLまたは動画ID";
+"Download" = "ダウンロード";
+
+/* Popups */
+"Loading" = "読み込み中";
+"Download Started" = "ダウンロードを開始しました";
+"Saved!" = "保存しました!";
+"Error!" = "エラー!";
+"uYou did not find any quality to download" = "ダウンロード可能な画質が見つかりませんでした";
+"No links found" = "リンクが見つかりません";
+"Exported successfully" = "エクスポートに成功しました";
+"Renamed successfully" = "名前の変更に成功しました";
+"Downloading Thumbnail" = "サムネイルをダウンロード中";
+"Photo library access is disabled. Please give YouTube permission to access your photos library." = "写真ライブラリへのアクセスが無効化されています。YouTubeに写真ライブラリへのアクセスを許可してください。";
+"Image updated successfully" = "画像の更新に成功しました";
+"Invalid YouTube link" = "無効なYouTubeリンク";
+
+/* Download status */
+"Merging video with audio into MP4..." = "動画と音声をMP4にマージ中...";
+"Adding Metadata to the M4A..." = "M4Aにメタデータを追加中...";
+"Merging video with audio into MKV..." = "動画と音声をMKVにマージ中...";
+"Converting MKV video into MP4..." = "MKV動画をMP4に変換中...";
+"Error: Conversion cancelled by user" = "エラー: ユーザーによって変換がキャンセルされました";
+"ConversionFailedWithCode" = "エラー: 変換に失敗しました コード";
+
+/* Settings */
+"uYouSettings" = "uYouの設定を表示";
+"Show Formats" = "フォーマットを表示";
+
+"Download Quality" = "ダウンロード画質";
+"Always Ask" = "毎回確認する";
+"YT Video Quality on WiFi" = "Wi-Fi時のYT動画の画質";
+"YT Video Quality on Cellular" = "モバイルデータ通信時のYT動画の画質";
+"Default Playback Speed" = "デフォルトの再生速度";
+"Auto" = "自動";
+
+"Videos Download Location" = "動画のダウンロード場所";
+"uYou Folder Only" = "uYouフォルダのみ";
+"Camera Roll Only" = "カメラロールのみ";
+"Both" = "両方";
+
+"Player Gestures Controls" = "プレーヤージェスチャーコントロール";
+"SPLITTED AREAS" = "SPLITTED AREAS";
+"Top Area" = "上部";
+"Center Area" = "Center Area";
+"Bottom Area" = "下部";
+"Volume" = "音量";
+"Brightness" = "明るさ";
+"Seek" = "シーク";
+
+"SPEED & SENSITIVITY" = "SPEED & SENSITIVITY";
+"Speed" = "速度";
+"Activation Sensitivity" = "感度(起動距離)";
+"Default Speed = 250.\nDefault Sensitivity = 70.\nSensitivity: Adjusts the amount of finger movement required to activate the gesture on the video player." = "Default Speed = 250.\nDefault Sensitivity = 70.\nSensitivity: Adjusts the amount of finger movement required to activate the gesture on the video player.";
+
+"If the selected quality is not available, then uYou will choose a lower quality than the one you selected." = "If the selected quality is not available, then uYou will choose a lower quality than the one you selected.";
+
+"YOUTUBE SETTINGS" = "YOUTUBEの設定";
+"Default Startup Page" = "起動時のデフォルトページ";
+"Default" = "デフォルト";
+"Create" = "作成";
+"Subscriptions" = "登録チャンネル";
+"You/Library" = "You/Library";
+"Explore" = "探索";
+"Trending" = "トレンド";
+
+"Hide Tabs" = "タブを非表示";
+"YT Tabs" = "YTのタブ";
+"Hide uYou Tab" = "uYouタブを非表示";
+"Hide Shorts Tab" = "ショートタブを非表示";
+"Hide Create Tab" = "作成タブを非表示";
+"Hide Subscriptions Tab" = "登録チャンネルタブを非表示";
+"Hide You/Library Tab" = "Hide You/Library Tab";
+"Hide Trending Tab" = "トレンドタブを非表示";
+"Hide Explore Tab" = "探索タブを非表示";
+"Changing settings requires restarting the YouTube app." = "Changing settings requires restarting the YouTube app.";
+
+"Home" = "ホーム";
+"Disable Auto Play Video" = "自動再生を無効化";
+"Disable Auto Caption" = "自動字幕を無効化";
+"Hide Cast Button" = "キャストボタンを非表示";
+"Hide Notification Button" = "通知ボタンを非表示";
+"Ask Befor Casting" = "Ask Before Casting";
+"Hide Shorts Cells" = "ショート動画を非表示";
+
+"Hide uYou Button" = "uYouボタンを非表示";
+"Hide Fullscreen Button" = "全画面ボタンを非表示";
+"Hide Title and Channel Name" = "タイトルとチャンネル名を非表示";
+"Hide All Buttons" = "Hide All Buttons";
+"Hide Like Button" = "いいねボタンを非表示";
+"Hide Dislike Button" = "低評価ボタンを非表示";
+"Hide Comment Button" = "コメントボタンを非表示";
+"Hide Remix Button" = "リミックスボタンを非表示";
+"Hide Share Button" = "共有ボタンを非表示";
+"Always Show Progress Bar" = "プログレスバーを常に表示";
+
+"Video Player" = "動画プレーヤー";
+"uYou Repeat" = "uYouリピート";
+"uYou Fullscreen to The Right" = "uYouフルスクリーン動画を右に表示";
+"Playback Speed Controls" = "再生速度コントロール";
+"Auto Fullscreen" = "自動フルスクリーン";
+"No Suggested Videos at The Video End" = "No Suggested Videos at The Video End";
+"Fullscreen Always on The Right Side" = "常に右フルスクリーン";
+"uYou Gestures Controls" = "uYouジェスチャーコントロール";
+"Two Fingers Tap to Pause/Play" = "Two Fingers Tap to Pause/Play";
+"Replace Next with Fast Forward" = "Replace Next with Fast Forward";
+"uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app." = "uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app.";
+
+"Reorder Tabs" = "タブの並び替え";
+"ReorderTabs" = "タブの並び替え";
+
+"Other Settings" = "その他の設定";
+"Remove YouTube Ads" = "YouTube広告を削除";
+"Background Playback" = "バックグラウンド再生";
+"Allow HD On Cellular Data" = "モバイルデータ通信でのHDを許可";
+"Disable Age Restriction" = "年齢制限を無効化";
+"iPad Layout" = "iPadレイアウト";
+"Disable \"Video paused. Continue watching?\"" = "「再生を続けますか?」を無効化";
+
+"OTHERS" = "その他";
+"Open Downloads Folder in Filza" = "Filzaでダウンロードフォルダを開く";
+"Import From Cercube" = "Cercubeからインポート";
+"You can easily migrate all of your videos/audios from \"Cercube\" to \"uYou\" with a tap of a button!\n\nPlease choose one of the following:" = "ボタンをタップするだけで、\"Cercube\"から\"uYou\"にすべての動画/音声を簡単に移行できます!\n\n以下のいずれかを選択してください:";
+"Import From DLEasy" = "DLEasyからインポート";
+"You can easily migrate all of your videos/audios from \"DLEasy\" to \"uYou\" with a tap of a button!\n\nPlease choose one of the following:" = "ボタンをタップするだけで、\"DLEasy\"から\"uYou\"にすべての動画/音声を簡単に移行できます!\n\n以下のいずれかを選択してください:";
+"Please choose one of the following:" = "以下のいずれかを選択してください:";
+"Copy All" = "すべてコピー";
+"Move All" = "すべて移動";
+"Importing" = "インポート中";
+
+"Clear Downloading" = "ダウンロード中をクリア";
+"Are you sure you want to clear all currently downloading videos and audios?" = "Are you sure you want to clear all currently downloading videos and audios?";
+
+"Clear Downloaded" = "ダウンロード済みをクリア";
+"Are you sure you want to clear all currently downloaded videos and audios?" = "Are you sure you want to clear all currently downloaded videos and audios?";
+
+"Clear All" = "すべてクリア";
+"Are you sure you want to clear all currently downloading and downloaded videos and audios?" = "Are you sure you want to clear all currently downloading and downloaded videos and audios?";
+
+"UYOU UPDATES" = "UYOUのアップデート";
+"Automatically Check For Updates" = "自動的にアップデートを確認";
+"Check For Update" = "アップデートを確認";
+"UpToDate" = "最新バージョンのv.%@を使用しています。";
+"NewVersionOld" = "v.%@が利用可能になりました。常に最新バージョンにアップデートして、スムーズな体験をお楽しみください。";
+"NewVersion" = "現在のバージョン v.%@\n利用可能なバージョン v.%@\n\n最高の体験を得るために、最新バージョンにアップデートしてください。";
+"Unsupported YouTube Version" = "Unsupported YouTube Version";
+"UnsupportedVersionText" = "Your YouTube app version (%@) is not supported by uYou. For optimal performance, please update YouTube to at least version (%@)+. While you can continue to use the current version, please be aware that I cannot provide support for any crashes or issues that may occur.\n\nThank you for your understanding.";
+
+"SKIP" = "スキップ";
+"DON'T SHOW" = "表示しない";
+"DISMISS" = "閉じる";
+"UPDATE NOW" = "今すぐアップデート";
+
+"SOCIAL MEDIA" = "ソーシャルメディア";
+"Developer" = "開発者";
+"Support my" = "私をサポートしてください";
+"Developments" = "開発されている";
+"Donating" = "寄付によって";
+"You can support my iOS development by donating 🥰\n\n\"It’s not how much we give, but how much love we put into giving.\"\nMother Teresa" = "寄付することで、私のiOS開発を支援することができます 🥰\n\n\"大切なのはどれだけ与えるかではなく、どれだけの愛を込めて与えるかです。\"\nマザー・テレサ";
+"Designer" = "デザイナー";
+"Follow me on social media." = "ソーシャルメディアでフォローしてください。";
+"Coded with ❤️ by MiRO\nCopyright © 2024" = "MiROによって❤️でコーディングされました \nCopyright © 2024";

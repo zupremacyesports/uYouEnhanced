@@ -1,0 +1,242 @@
+/* uYou tab */
+"The best tweak for the YouTube app" = "最佳的 YouTube 插體工具";
+"Download Videos/Audio" = "下載影片/音訊";
+"Save your favorite videos for offline playback." = "儲存您喜愛的影片以離線播放";
+"Play Saved Media" = "播放已儲存的媒體";
+"Play your saved media in a custom player with background playback support and mini player." = "在自訂播放器中播放已儲存的媒體，支援背景播放和迷你播放器";
+"More Options" = "更多選項";
+"Play YouTube videos in the background and more, You can configure options from the settings." = "在背景播放 YouTube 影片等等，您可以從設定中配置選項";
+"FollowMe" = "在 X（Twitter）上跟隨我";
+"Continue" = "繼續";
+
+/* uYou tab */
+"Downloading" = "下載中";
+"All" = "全部";
+"Video" = "影片";
+"Videos" = "影片";
+"Audio" = "音訊";
+"Audios" = "音訊";
+"TOTAL" = "總數";
+"DOWNLOADING" = "下載中";
+
+"Sorting" = "排序";
+"Video Title (Ascending)" = "影片標題（升冪）";
+"Video Title (Descending)" = "影片標題（降冪）";
+"Download Date (Ascending)" = "下載日期（升冪）";
+"Download Date (Descending)" = "下載日期（降冪）";
+
+"Audio Only" = "僅音訊";
+"Audio Only (mp4)" = "僅音訊（mp4）";
+"Downloading..." = "下載中...";
+"Adding Metadata to the M4A.." = "正在將 Metadata 添加到 M4A...";
+"Waiting..." = "等待中...";
+"Waiting for download..." = "等待下載中...";
+"Paused" = "已暫停";
+"Completed" = "已完成";
+"Play on YouTube" = "在 YouTube 上播放";
+"Open Channel" = "開啟頻道";
+"Rename" = "重新命名";
+"Cancel" = "取消";
+"Done" = "完成";
+"Select All" = "全選";
+"Share" = "分享";
+"Export to Music app" = "匯出到音樂應用程式";
+"Export to Camera Roll" = "匯出到相簿";
+"Change Image" = "更換圖片";
+"Change Thumbnail" = "更換縮圖";
+"Download Original Thumbnail" = "下載原始縮圖";
+"Save Thumbnail to Camera Roll" = "儲存縮圖到相簿";
+"Save Album Art to Camera Roll" = "儲存專輯封面到相簿";
+"Open in Filza" = "在 Filza 中開啟";
+"Lyrics feature will be available soon" = "歌詞功能即將推出";
+"Delete" = "刪除";
+"Confirm" = "確認";
+"Copy Video Link" = "複製影片連結";
+"Copy Audio Link" = "複製音訊連結";
+"Cancel Download" = "取消下載";
+"DeleteVideo" = "您確定要刪除?"; //Output text will look like: Are you sure you want to delete (Video name)?
+"DeleteFilesCount" = "您確定要刪除已選的檔案?"; //Output text will look like: Are you sure you want to delete selected files (5)?
+"SelectedFilesCount" = "已選檔案"; //Output text will look like: Selected files (5).
+"Select All" = "全選";
+"Thumbnail" = "縮圖";
+"Lyrics feature will be available soon" = "歌詞功能即將推出";
+"I Understand" = "我了解";
+"Save Image" = "儲存圖片";
+"Save Gif" = "儲存 GIF";
+
+/* Import to Music */
+"Import" = "匯入";
+"Change Artwork Image" = "更換封面圖片";
+"IMPORT INFO" = "匯入資訊";
+"Explicit" = "限制級";
+"Kind" = "類型";
+"Title" = "標題";
+"Channel"  = "頻道";
+"Album" = "專輯";
+"Artist" = "演出者";
+"Year" = "年份";
+
+/* + button */
+"Please, paste the YouTube link or Video ID to start download" = "請貼上 YouTube 連結或影片 ID 開始下載";
+"YouTube URL or Video ID" = "YouTube 連結或影片 ID";
+"Download" = "下載";
+
+/* Popups */
+"Loading" = "載入中";
+"Download Started" = "下載已開始";
+"Saved!" = "已儲存！";
+"Error!" = "錯誤！";
+"uYou did not find any quality to download" = "uYou 找不到任何畫質可以下載";
+"No links found" = "找不到連結";
+"Exported successfully" = "成功匯出";
+"Renamed successfully" = "成功重新命名";
+"Downloading Thumbnail" = "下載縮圖";
+"Photo library access is disabled. Please give YouTube permission to access your photos library." = "相片取用權限已停用。請允許 YouTube 完整取用權限。";
+"Image updated successfully" = "成功更新圖片";
+"Invalid YouTube link" = "無效的 YouTube 連結";
+
+/* Download status */
+"Merging video with audio into MP4..." = "正在將影片與音訊合併成 MP4...";
+"Adding Metadata to the M4A..." = "正在添加 Metadata 到 M4A...";
+"Merging video with audio into MKV..." = "正在將影片與音訊合併成 MKV...";
+"Converting MKV video into MP4..." = "正在將 MKV 影片轉換成 MP4...";
+"Error: Conversion cancelled by user" = "錯誤：轉換被使用者取消";
+"ConversionFailedWithCode" = "錯誤：轉換失敗，代碼";
+
+/* Settings */
+"uYouSettings" = "顯示 uYou 設定";
+"Show Formats" = "顯示格式";
+
+"Download Quality" = "下載畫質";
+"Always Ask" = "總是詢問";
+"YT Video Quality on WiFi" = "使用 Wi-Fi 時的 YT 影片畫質";
+"YT Video Quality on Cellular" = "使用行動網路時的 YT 影片畫質";
+"Default Playback Speed" = "預設播放速度";
+"Auto" = "自動";
+
+"Videos Download Location" = "影片下載位置";
+"uYou Folder Only" = "僅 uYou 資料夾";
+"Camera Roll Only" = "僅照片應用程式";
+"Both" = "兩者皆儲存";
+
+"Player Gestures Controls" = "播放器手勢控制";
+"SPLITTED AREAS" = "SPLITTED AREAS";
+"Top Area" = "上方區域";
+"Center Area" = "Center Area";
+"Bottom Area" = "下方區域";
+"Volume" = "音量";
+"Brightness" = "亮度";
+"Seek" = "快轉/倒轉";
+
+"SPEED & SENSITIVITY" = "SPEED & SENSITIVITY";
+"Speed" = "速度";
+"Activation Sensitivity" = "靈敏度";
+"Default Speed = 250.\nDefault Sensitivity = 70.\nSensitivity: Adjusts the amount of finger movement required to activate the gesture on the video player." = "Default Speed = 250.\nDefault Sensitivity = 70.\nSensitivity: Adjusts the amount of finger movement required to activate the gesture on the video player.";
+
+"If the selected quality is not available, then uYou will choose a lower quality than the one you selected." = "If the selected quality is not available, then uYou will choose a lower quality than the one you selected.";
+
+"YOUTUBE SETTINGS" = "YOUTUBE 設定";
+"Default Startup Page" = "預設啟動頁面";
+"Default" = "預設";
+"Create" = "製作（+）";
+"Subscriptions" = "訂閱內容";
+"You/Library" = "You/Library";
+"Explore" = "探索";
+"Trending" = "發燒影片";
+
+"Hide Tabs" = "隱藏功能標籤";
+"YT Tabs" = "YT 標籤";
+"Hide uYou Tab" = "隱藏 uYou";
+"Hide Shorts Tab" = "隱藏 Shorts";
+"Hide Create Tab" = "隱藏製作（+）";
+"Hide Subscriptions Tab" = "隱藏訂閱";
+"Hide You/Library Tab" = "Hide You/Library Tab";
+"Hide Trending Tab" = "隱藏發燒影片";
+"Hide Explore Tab" = "隱藏探索";
+"Changing settings requires restarting the YouTube app." = "Changing settings requires restarting the YouTube app.";
+
+"Home" = "首頁";
+"Disable Auto Play Video" = "停用自動播放影片";
+"Disable Auto Caption" = "停用自動字幕";
+"Hide Cast Button" = "隱藏投放按鈕";
+"Hide Notification Button" = "隱藏通知按鈕";
+"Ask Befor Casting" = "Ask Before Casting";
+"Hide Shorts Cells" = "隱藏Shorts";
+
+"Hide uYou Button" = "隱藏 uYou 按鈕";
+"Hide Fullscreen Button" = "隱藏全螢幕按鈕";
+"Hide Title and Channel Name" = "隱藏標題和頻道名稱";
+"Hide All Buttons" = "Hide All Buttons";
+"Hide Like Button" = "隱藏讚按鈕";
+"Hide Dislike Button" = "隱藏不喜歡按鈕";
+"Hide Comment Button" = "隱藏評論按鈕";
+"Hide Remix Button" = "隱藏Remix按鈕";
+"Hide Share Button" = "隱藏分享按鈕";
+"Always Show Progress Bar" = "始終顯示進度條";
+
+"Video Player" = "影片播放器";
+"uYou Repeat" = "uYou 重複播放";
+"uYou Fullscreen to The Right" = "uYou 全螢幕顯示在右側";
+"Playback Speed Controls" = "播放速度控制";
+"Auto Fullscreen" = "自動全螢幕";
+"No Suggested Videos at The Video End" = "No Suggested Videos at The Video End";
+"Fullscreen Always on The Right Side" = "全螢幕總在右側";
+"uYou Gestures Controls" = "uYou 手勢控制";
+"Two Fingers Tap to Pause/Play" = "Two Fingers Tap to Pause/Play";
+"Replace Next with Fast Forward" = "Replace Next with Fast Forward";
+"uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app." = "uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app.";
+
+"Reorder Tabs" = "重新排序分頁";
+"ReorderTabs" = "重新排序分頁";
+
+"Other Settings" = "其它設定";
+"Remove YouTube Ads" = "移除 YouTube 廣告";
+"Background Playback" = "背景播放";
+"Allow HD On Cellular Data" = "允許使用行動網路時播放高畫質";
+"Disable Age Restriction" = "停用年齡限制";
+"iPad Layout" = "iPad 風格";
+"Disable \"Video paused. Continue watching?\"" = "停用 \"影片已暫停，要繼續觀賞嗎?\"";
+
+"OTHERS" = "其它";
+"Open Downloads Folder in Filza" = "在 Filza 中打開下載資料夾";
+"Import From Cercube" = "從 Cercube 匯入";
+"You can easily migrate all of your videos/audios from \"Cercube\" to \"uYou\" with a tap of a button!\n\nPlease choose one of the following:" = "您可以輕鬆將所有從 \"Cercube\" 下載的影片/音樂移動到 \"uYou\"，只需點一下按鈕！\n\n請選擇以下其中一項:";
+"Import From DLEasy" = "從 DLEasy 匯入";
+"You can easily migrate all of your videos/audios from \"DLEasy\" to \"uYou\" with a tap of a button!\n\nPlease choose one of the following:" = "您可以輕鬆將所有從 \"DLEasy\" 下載的影片/音樂移動到 \"uYou\"，只需點一下按鈕！\n\n請選擇以下其中一項:";
+"Please choose one of the following:" = "請選擇以下其中一項:";
+"Copy All" = "複製全部";
+"Move All" = "移動全部";
+"Importing" = "正在匯入";
+
+"Clear Downloading" = "清除下載中";
+"Are you sure you want to clear all currently downloading videos and audios?" = "Are you sure you want to clear all currently downloading videos and audios?";
+
+"Clear Downloaded" = "清除已下載";
+"Are you sure you want to clear all currently downloaded videos and audios?" = "Are you sure you want to clear all currently downloaded videos and audios?";
+
+"Clear All" = "清除全部";
+"Are you sure you want to clear all currently downloading and downloaded videos and audios?" = "Are you sure you want to clear all currently downloading and downloaded videos and audios?";
+
+"UYOU UPDATES" = "uYou 更新";
+"Automatically Check For Updates" = "自動檢查更新";
+"Check For Update" = "檢查更新";
+"UpToDate" = "您正在使用 v.%@ 這是最新版本";
+"NewVersionOld" = "v.%@ 現已推出。請確保始終升級到最新版本，以擁有無缺的使用體驗"; 
+"NewVersion" = "目前版本 v.%@\n可用版本 v.%@\n\n請升級到最新版本以獲得最佳體驗"; 
+"Unsupported YouTube Version" = "Unsupported YouTube Version";
+"UnsupportedVersionText" = "Your YouTube app version (%@) is not supported by uYou. For optimal performance, please update YouTube to at least version (%@)+. While you can continue to use the current version, please be aware that I cannot provide support for any crashes or issues that may occur.\n\nThank you for your understanding.";
+
+"SKIP" = "跳過";
+"DON'T SHOW" = "不再顯示";
+"DISMISS" = "關閉";
+"UPDATE NOW" = "立即更新";
+
+"SOCIAL MEDIA" = "社交媒體";
+"Developer" = "開發者";
+"Support my" = "支持我";
+"Developments" = "開發項目";
+"Donating" = "捐贈";
+"You can support my iOS development by donating 🥰\n\n\"It’s not how much we give, but how much love we put into giving.\"\nMother Teresa" = "您可以通過捐贈🥰來支持我的 iOS 開發\n\n\"重要的不是我們給多少，而在於我們在給予時用了多少愛\"\n德蕾莎修女";
+"Designer" = "設計師"; 
+"Follow me on social media." = "在社交媒體上關注我";
+"Coded with ❤️ by MiRO\nCopyright © 2024" = "由 MiRO 編寫❤️\n版權所有 © 2024";

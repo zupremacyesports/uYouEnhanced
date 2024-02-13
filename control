@@ -1,7 +1,7 @@
 Package: com.dvntm.uyoulocalization
 Name: uYouLocalization
 Depends: mobilesubstrate
-Version: 3.0
+Version: 3.0.2
 Architecture: iphoneos-arm
 Description: Localization support for uYou tweak.
 Maintainer: dvntm
