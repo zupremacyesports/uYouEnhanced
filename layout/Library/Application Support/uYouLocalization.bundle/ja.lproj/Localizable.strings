@@ -149,7 +149,7 @@
 "uYou Repeat" = "uYouリピート";
 "uYou Fullscreen to The Right" = "uYouフルスクリーン動画を右に表示";
 "Playback Speed Controls" = "再生速度コントロール";
-"Enable "uYou Gestures Controls"" = ""uYouジェスチャーコントロール"を有効化";
+"Enable \"uYou Gestures Controls\"" = "\"uYouジェスチャーコントロール\"を有効化";
 "uYou Gestures Controls: It can let you drag your finger left/right on the top/bottom of the video screen to adjust the volume/brightness/seek.\n\nChanging settings require restarting the YouTube app." = "uYouジェスチャーコントロール: 動画画面の上下を指で左右にドラッグすることで音量/明るさ/シークを調整できます。\n\n設定の変更にはアプリの再起動が必要です。";
 "Disable Auto Play Video" = "自動再生を無効化";
 "Hide Shorts Cells" = "ショート動画を非表示";
