@@ -104,6 +104,7 @@
 "ConversionFailedWithCode" = "錯誤：轉換失敗，代碼";
 
 /* Settings */
+"UYOU" = "uYou";
 "uYouSettings" = "顯示 uYou 設定";
 "Show Formats" = "顯示格式";
 
@@ -120,27 +121,27 @@
 "Both" = "兩者皆儲存";
 
 "Player Gestures Controls" = "播放器手勢控制";
-"SPLITTED AREAS" = "SPLITTED AREAS";
+"SPLITTED AREAS" = "劃分區域";
 "Top Area" = "上方區域";
-"Center Area" = "Center Area";
+"Center Area" = "中間區域";
 "Bottom Area" = "下方區域";
 "Volume" = "音量";
 "Brightness" = "亮度";
 "Seek" = "快轉/倒轉";
 
-"SPEED & SENSITIVITY" = "SPEED & SENSITIVITY";
+"SPEED & SENSITIVITY" = "速度與靈敏度";
 "Speed" = "速度";
 "Activation Sensitivity" = "靈敏度";
-"Default Speed = 250.\nDefault Sensitivity = 70.\nSensitivity: Adjusts the amount of finger movement required to activate the gesture on the video player." = "Default Speed = 250.\nDefault Sensitivity = 70.\nSensitivity: Adjusts the amount of finger movement required to activate the gesture on the video player.";
+"Default Speed = 250.\nDefault Sensitivity = 70.\nSensitivity: Adjusts the amount of finger movement required to activate the gesture on the video player." = "預設速度 = 250\n預設靈敏度 = 70\n靈敏度:在影片上手指移動多少距離才觸發手勢";
 
-"If the selected quality is not available, then uYou will choose a lower quality than the one you selected." = "If the selected quality is not available, then uYou will choose a lower quality than the one you selected.";
+"If the selected quality is not available, then uYou will choose a lower quality than the one you selected." = "如果選擇的畫質不可用，uYou 會選擇較低的畫質。";
 
-"YOUTUBE SETTINGS" = "YOUTUBE 設定";
+"YOUTUBE SETTINGS" = "YouTube 設定";
 "Default Startup Page" = "預設啟動頁面";
 "Default" = "預設";
 "Create" = "製作（+）";
 "Subscriptions" = "訂閱內容";
-"You/Library" = "You/Library";
+"You/Library" = "你的內容/媒體庫";
 "Explore" = "探索";
 "Trending" = "發燒影片";
 
@@ -150,41 +151,41 @@
 "Hide Shorts Tab" = "隱藏 Shorts";
 "Hide Create Tab" = "隱藏製作（+）";
 "Hide Subscriptions Tab" = "隱藏訂閱";
-"Hide You/Library Tab" = "Hide You/Library Tab";
+"Hide You/Library Tab" = "隱藏你的內容/媒體庫";
 "Hide Trending Tab" = "隱藏發燒影片";
 "Hide Explore Tab" = "隱藏探索";
-"Changing settings requires restarting the YouTube app." = "Changing settings requires restarting the YouTube app.";
+"Changing settings requires restarting the YouTube app." = "更改設定需要重新啟動 YouTube 應用程式";
 
 "Home" = "首頁";
 "Disable Auto Play Video" = "停用自動播放影片";
 "Disable Auto Caption" = "停用自動字幕";
 "Hide Cast Button" = "隱藏投放按鈕";
 "Hide Notification Button" = "隱藏通知按鈕";
-"Ask Befor Casting" = "Ask Before Casting";
+"Ask Befor Casting" = "投放前詢問";
 "Hide Shorts Cells" = "隱藏Shorts";
 
 "Hide uYou Button" = "隱藏 uYou 按鈕";
 "Hide Fullscreen Button" = "隱藏全螢幕按鈕";
 "Hide Title and Channel Name" = "隱藏標題和頻道名稱";
-"Hide All Buttons" = "Hide All Buttons";
+"Hide All Buttons" = "隱藏所有按鈕";
 "Hide Like Button" = "隱藏讚按鈕";
 "Hide Dislike Button" = "隱藏不喜歡按鈕";
 "Hide Comment Button" = "隱藏評論按鈕";
 "Hide Remix Button" = "隱藏Remix按鈕";
 "Hide Share Button" = "隱藏分享按鈕";
-"Always Show Progress Bar" = "始終顯示進度條";
+"Always Show Progress Bar" = "永遠顯示進度條";
 
 "Video Player" = "影片播放器";
 "uYou Repeat" = "uYou 重複播放";
 "uYou Fullscreen to The Right" = "uYou 全螢幕顯示在右側";
 "Playback Speed Controls" = "播放速度控制";
 "Auto Fullscreen" = "自動全螢幕";
-"No Suggested Videos at The Video End" = "No Suggested Videos at The Video End";
+"No Suggested Videos at The Video End" = "影片結束時不顯示建議影片";
 "Fullscreen Always on The Right Side" = "全螢幕總在右側";
 "uYou Gestures Controls" = "uYou 手勢控制";
-"Two Fingers Tap to Pause/Play" = "Two Fingers Tap to Pause/Play";
-"Replace Next with Fast Forward" = "Replace Next with Fast Forward";
-"uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app." = "uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app.";
+"Two Fingers Tap to Pause/Play" = "兩指點擊暫停/播放";
+"Replace Next with Fast Forward" = "將「下一部」替換為「快轉」";
+"uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app." = "uYou 手勢控制：這個功能讓您可以在影片畫面的上方、中間或下方左右滑動手指，來調整音量、亮度或快轉影片。\n\n更改設定需要重新啟動 YouTube 應用程式。";
 
 "Reorder Tabs" = "重新排序分頁";
 "ReorderTabs" = "重新排序分頁";
@@ -209,13 +210,13 @@
 "Importing" = "正在匯入";
 
 "Clear Downloading" = "清除下載中";
-"Are you sure you want to clear all currently downloading videos and audios?" = "Are you sure you want to clear all currently downloading videos and audios?";
+"Are you sure you want to clear all currently downloading videos and audios?" = "您確定要清除目前所有下載中的影片/音訊嗎?";
 
 "Clear Downloaded" = "清除已下載";
-"Are you sure you want to clear all currently downloaded videos and audios?" = "Are you sure you want to clear all currently downloaded videos and audios?";
+"Are you sure you want to clear all currently downloaded videos and audios?" = "您確定要清除目前所有已下載的影片/音訊嗎?";
 
 "Clear All" = "清除全部";
-"Are you sure you want to clear all currently downloading and downloaded videos and audios?" = "Are you sure you want to clear all currently downloading and downloaded videos and audios?";
+"Are you sure you want to clear all currently downloading and downloaded videos and audios?" = "您確定要清除目前所有下載中/已下載的影片/音訊嗎?";
 
 "UYOU UPDATES" = "uYou 更新";
 "Automatically Check For Updates" = "自動檢查更新";
@@ -223,8 +224,8 @@
 "UpToDate" = "您正在使用 v.%@ 這是最新版本";
 "NewVersionOld" = "v.%@ 現已推出。請確保始終升級到最新版本，以擁有無缺的使用體驗"; 
 "NewVersion" = "目前版本 v.%@\n可用版本 v.%@\n\n請升級到最新版本以獲得最佳體驗"; 
-"Unsupported YouTube Version" = "Unsupported YouTube Version";
-"UnsupportedVersionText" = "Your YouTube app version (%@) is not supported by uYou. For optimal performance, please update YouTube to at least version (%@)+. While you can continue to use the current version, please be aware that I cannot provide support for any crashes or issues that may occur.\n\nThank you for your understanding.";
+"Unsupported YouTube Version" = "不支援的 YouTube 版本";
+"UnsupportedVersionText" = "您的 YouTube 應用程式版本 (%@) 不被 uYou 支援。為達到最佳效能，請將 YouTube 更新到至少版本 (%@)+。您可以繼續使用目前的版本，但請注意，我無法為您提供任何可能發生的當機或問題的支援。\n\n感謝您的諒解。";
 
 "SKIP" = "跳過";
 "DON'T SHOW" = "不再顯示";
