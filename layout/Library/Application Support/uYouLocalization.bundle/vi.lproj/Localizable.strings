@@ -162,6 +162,10 @@
 "Hide Cast Button" = "Ẩn Nút Cast";
 "Hide Notification Button" = "Ẩn Nút thông báo";
 "Ask Befor Casting" = "Hỏi trước khi truyền";
+"Confirm Casting" = "Confirm Casting";
+"Are you sure you want to start casting?" = "Are you sure you want to start casting?";
+"Yes" = "Yes";
+"No" = "No";
 "Hide Shorts Cells" = "Ẩn các ô Shorts";
 
 "Hide uYou Button" = "Ẩn Nút uYou";

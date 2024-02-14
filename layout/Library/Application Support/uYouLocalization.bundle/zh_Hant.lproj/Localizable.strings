@@ -162,6 +162,10 @@
 "Hide Cast Button" = "隱藏投放按鈕";
 "Hide Notification Button" = "隱藏通知按鈕";
 "Ask Befor Casting" = "投放前詢問";
+"Confirm Casting" = "Confirm Casting";
+"Are you sure you want to start casting?" = "Are you sure you want to start casting?";
+"Yes" = "Yes";
+"No" = "No";
 "Hide Shorts Cells" = "隱藏Shorts";
 
 "Hide uYou Button" = "隱藏 uYou 按鈕";

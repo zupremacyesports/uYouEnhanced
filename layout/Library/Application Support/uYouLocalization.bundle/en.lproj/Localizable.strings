@@ -161,6 +161,10 @@
 "Hide Cast Button" = "Hide Cast Button";
 "Hide Notification Button" = "Hide Notification Button";
 "Ask Befor Casting" = "Ask Before Casting";
+"Confirm Casting" = "Confirm Casting";
+"Are you sure you want to start casting?" = "Are you sure you want to start casting?";
+"Yes" = "Yes";
+"No" = "No";
 "Hide Shorts Cells" = "Hide Shorts Cells";
 
 "Hide uYou Button" = "Hide uYou Button";

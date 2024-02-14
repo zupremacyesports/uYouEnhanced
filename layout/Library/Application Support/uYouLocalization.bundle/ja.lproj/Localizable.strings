@@ -161,6 +161,10 @@
 "Hide Cast Button" = "キャストボタンを非表示";
 "Hide Notification Button" = "通知ボタンを非表示";
 "Ask Befor Casting" = "Ask Before Casting";
+"Confirm Casting" = "Confirm Casting";
+"Are you sure you want to start casting?" = "Are you sure you want to start casting?";
+"Yes" = "Yes";
+"No" = "No";
 "Hide Shorts Cells" = "ショート動画を非表示";
 
 "Hide uYou Button" = "uYouボタンを非表示";

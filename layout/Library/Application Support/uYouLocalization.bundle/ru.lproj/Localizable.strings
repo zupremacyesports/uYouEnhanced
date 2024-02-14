@@ -161,6 +161,10 @@
 "Hide Cast Button" = "Скрыть кнопку трансляции";
 "Hide Notification Button" = "Скрыть кнопку уведомлений";
 "Ask Befor Casting" = "Спрашивать перед трансляцией";
+"Confirm Casting" = "Подтвердите трансляцию";
+"Are you sure you want to start casting?" = "Уверены, что хотите начать трансляцию экрана?";
+"Yes" = "Да";
+"No" = "Нет";
 "Hide Shorts Cells" = "Скрыть Shorts";
 
 "Hide uYou Button" = "Скрыть кнопку «uYou»";
