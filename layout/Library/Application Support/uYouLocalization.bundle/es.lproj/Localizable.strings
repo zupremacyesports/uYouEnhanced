@@ -119,28 +119,28 @@
 "Camera Roll Only" = "Solo carrete de Cámara";
 "Both" = "Ambos";
 
-"Player Gestures Controls" = "CONTROLES DE GESTOS DEL REPRODUCTOR";
-"SPLITTED AREAS" = "SPLITTED AREAS";
-"Top Area" = "Área Superior";
-"Center Area" = "Center Area";
-"Bottom Area" = "Área Inferior";
+"Player Gestures Controls" = "Controles gestuales del reproductor";
+"SPLITTED AREAS" = "Zonas divididas";
+"Top Area" = "Zona superior";
+"Center Area" = "Zona centro";
+"Bottom Area" = "Zona inferior";
 "Volume" = "Volumen";
 "Brightness" = "Brillo";
 "Seek" = "Búsqueda";
 
-"SPEED & SENSITIVITY" = "SPEED & SENSITIVITY";
+"SPEED & SENSITIVITY" = "VELOCIDAD Y SENSIBILIDAD";
 "Speed" = "Velocidad";
 "Activation Sensitivity" = "Sensibilidad de activación";
-"Default Speed = 250.\nDefault Sensitivity = 70.\nSensitivity: Adjusts the amount of finger movement required to activate the gesture on the video player." = "Default Speed = 250.\nDefault Sensitivity = 70.\nSensitivity: Adjusts the amount of finger movement required to activate the gesture on the video player.";
+"Default Speed = 250.\nDefault Sensitivity = 70.\nSensitivity: Adjusts the amount of finger movement required to activate the gesture on the video player." = "Velocidad por defecto = 250.\nSensibilidad por defecto = 70.\nSensibilidad: Ajusta la cantidad de movimiento del dedo necesaria para activar el gesto en el reproductor de vídeo.";
 
-"If the selected quality is not available, then uYou will choose a lower quality than the one you selected." = "If the selected quality is not available, then uYou will choose a lower quality than the one you selected.";
+"If the selected quality is not available, then uYou will choose a lower quality than the one you selected." = "Si la calidad seleccionada no está disponible, entonces uSe elegirá una calidad inferior a la seleccionada.";
 
 "YOUTUBE SETTINGS" = "AJUSTES DE YOUTUBE";
 "Default Startup Page" = "Página de inicio predeterminada";
 "Default" = "Predeterminada";
 "Create" = "Crear";
 "Subscriptions" = "Suscripciones";
-"You/Library" = "You/Library";
+"You/Library" = "Tú/Biblioteca";
 "Explore" = "Explorar";
 "Trending" = "Tendencias";
 
@@ -150,25 +150,25 @@
 "Hide Shorts Tab" = "Ocultar pestaña de Shorts";
 "Hide Create Tab" = "Ocultar pestaña de crear";
 "Hide Subscriptions Tab" = "Ocultar pestaña de Suscripciones";
-"Hide You/Library Tab" = "Hide You/Library Tab";
+"Hide You/Library Tab" = "Ocultar pestaña Tú/Biblioteca";
 "Hide Trending Tab" = "Ocultar pestaña de Tendencias";
 "Hide Explore Tab" = "Ocultar pestaña de Explorar";
-"Changing settings requires restarting the YouTube app." = "Changing settings requires restarting the YouTube app.";
+"Changing settings requires restarting the YouTube app." = "Para cambiar los ajustes es necesario reiniciar la aplicación de YouTube.";
 
 "Home" = "Inicio";
 "Disable Auto Play Video" = "Desactivar reproducción automática";
 "Disable Auto Caption" = "Desactivar subtítulos automáticos";
 "Hide Cast Button" = "Ocultar botón de transmitir";
 "Hide Notification Button" = "Ocultar botón de notificación";
-"Ask Befor Casting" = "Ask Before Casting";
+"Ask Befor Casting" = "Preguntar antes de emitir";
 "Hide Shorts Cells" = "Ocultar celdas de Shorts";
 
 "Hide uYou Button" = "Ocultar botón uYou";
 "Hide Fullscreen Button" = "Ocultar botón de Pantalla Completa";
 "Hide Title and Channel Name" = "Ocultar título y nombre del canal";
-"Hide All Buttons" = "Hide All Buttons";
-"Hide Like Button" = "Ocultar botón de Me Gusta";
-"Hide Dislike Button" = "Ocultar botón de No Me Gusta";
+"Hide All Buttons" = "Ocultar todos los botones";
+"Hide Like Button" = "Ocultar botón de Me gusta";
+"Hide Dislike Button" = "Ocultar botón de No me gusta";
 "Hide Comment Button" = "Ocultar botón de Comentarios";
 "Hide Remix Button" = "Ocultar botón de Remix";
 "Hide Share Button" = "Ocultar botón de Compartir";
@@ -179,12 +179,12 @@
 "uYou Fullscreen to The Right" = "uYou pantalla completa a la derecha";
 "Playback Speed Controls" = "Controles de velocidad de reproducción";
 "Auto Fullscreen" = "Pantalla completa automática";
-"No Suggested Videos at The Video End" = "No Suggested Videos at The Video End";
+"No Suggested Videos at The Video End" = "No hay vídeos sugeridos al final del vídeo";
 "Fullscreen Always on The Right Side" = "Pantalla completa siempre en el lado derecho";
 "uYou Gestures Controls" = "Controles de gestos de uYou";
-"Two Fingers Tap to Pause/Play" = "Two Fingers Tap to Pause/Play";
-"Replace Next with Fast Forward" = "Replace Next with Fast Forward";
-"uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app." = "uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app.";
+"Two Fingers Tap to Pause/Play" = "Toque con dos dedos para pausar/reproducir";
+"Replace Next with Fast Forward" = "Sustituir siguiente por avance rápido";
+"uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app." = "Controles gestuales uYou: Esta función te permite arrastrar el dedo hacia la izquierda o la derecha en la parte superior, central o inferior de la pantalla de vídeo para ajustar el volumen, el brillo o buscar el vídeo. Para cambiar los ajustes es necesario reiniciar la aplicación YouTube.";
 
 "Reorder Tabs" = "Reordenar pestañas";
 "ReorderTabs" = "Reordenar pestañas";
@@ -209,13 +209,13 @@
 "Importing" = "Importando";
 
 "Clear Downloading" = "Borrar descargas en curso";
-"Are you sure you want to clear all currently downloading videos and audios?" = "Are you sure you want to clear all currently downloading videos and audios?";
+"Are you sure you want to clear all currently downloading videos and audios?" = "¿Estás seguro de que quieres borrar todos los vídeos y audios descargados actualmente?";
 
 "Clear Downloaded" = "Borrar descargas realizadas";
-"Are you sure you want to clear all currently downloaded videos and audios?" = "Are you sure you want to clear all currently downloaded videos and audios?";
+"Are you sure you want to clear all currently downloaded videos and audios?" = "¿Estás seguro de que quieres borrar todos los vídeos y audios descargados actualmente?";
 
 "Clear All" = "Borrar todo";
-"Are you sure you want to clear all currently downloading and downloaded videos and audios?" = "Are you sure you want to clear all currently downloading and downloaded videos and audios?";
+"Are you sure you want to clear all currently downloading and downloaded videos and audios?" = "¿Estás seguro de que quieres borrar todos los vídeos y audios descargados actualmente?";
 
 "UYOU UPDATES" = "ACTUALIZACIONES DE UYOU";
 "Automatically Check For Updates" = "Comprobar actualizaciones automáticamente";
@@ -223,8 +223,8 @@
 "UpToDate" = "Estás usando la versión v.%@, que es la última.";
 "NewVersionOld" = "La versión v.%@ ya está disponible. Asegúrate de actualizar siempre a la última versión para garantizar una experiencia impecable e ininterrumpida.";
 "NewVersion" = "Versión actual v.%@\nVersión disponible v.%@\n\nPor favor, actualiza a la última versión para obtener la mejor experiencia.";
-"Unsupported YouTube Version" = "Unsupported YouTube Version";
-"UnsupportedVersionText" = "Your YouTube app version (%@) is not supported by uYou. For optimal performance, please update YouTube to at least version (%@)+. While you can continue to use the current version, please be aware that I cannot provide support for any crashes or issues that may occur.\n\nThank you for your understanding.";
+"Unsupported YouTube Version" = "Versión de YouTube no compatible";
+"UnsupportedVersionText" = "La versión (%@) de tu aplicación de YouTube no es compatible con uYou. Para obtener un rendimiento óptimo, actualiza YouTube al menos a la versión (%@)+. Aunque puedes seguir utilizando la versión actual, ten en cuenta que no puedo ofrecerte asistencia en caso de que se produzcan fallos o problemas.";
 
 "SKIP" = "SALTAR";
 "DON'T SHOW" = "NO MOSTRAR";
