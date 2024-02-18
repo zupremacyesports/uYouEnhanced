@@ -182,11 +182,13 @@
 "uYou Repeat" = "uYou repetir";
 "uYou Fullscreen to The Right" = "uYou pantalla completa a la derecha";
 "Playback Speed Controls" = "Controles de velocidad de reproducción";
-"Auto Fullscreen" = "Pantalla completa automática";
+"Disable Double Tap To Seek" = "Disable Double Tap To Seek";
+"Auto Play Videos in Fullscreen" = "Pantalla completa automática";
 "No Suggested Videos at The Video End" = "No hay vídeos sugeridos al final del vídeo";
 "Fullscreen Always on The Right Side" = "Pantalla completa siempre en el lado derecho";
 "uYou Gestures Controls" = "Controles de gestos de uYou";
 "Two Fingers Tap to Pause/Play" = "Toque con dos dedos para pausar/reproducir";
+"Hide Next/Previous Buttons" = "Hide Next/Previous Buttons";
 "Replace Next with Fast Forward" = "Sustituir siguiente por avance rápido";
 "uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app." = "Controles gestuales uYou: Esta función te permite arrastrar el dedo hacia la izquierda o la derecha en la parte superior, central o inferior de la pantalla de vídeo para ajustar el volumen, el brillo o buscar el vídeo. Para cambiar los ajustes es necesario reiniciar la aplicación YouTube.";
 

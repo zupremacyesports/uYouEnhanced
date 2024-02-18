@@ -182,11 +182,13 @@
 "uYou Repeat" = "Кнопка повтора видео";
 "uYou Fullscreen to The Right" = "Поворот экрана вправо";
 "Playback Speed Controls" = "Кнопки управления скоростью";
-"Auto Fullscreen" = "Открывать в полноэкранном режиме";
+"Disable Double Tap To Seek" = "Отключить перемотку двойным тапом";
+"Auto Play Videos in Fullscreen" = "Переходить в полноэкранный режим";
 "No Suggested Videos at The Video End" = "Убрать рекомендации в конце роликов";
 "Fullscreen Always on The Right Side" = "Полноэкранный режим с поворотом вправо";
 "uYou Gestures Controls" = "Управление жестами";
 "Two Fingers Tap to Pause/Play" = "Пауза/Воспр. нажатием двумя пальцами";
+"Hide Next/Previous Buttons" = "Скрыть кнопки След./Пред.";
 "Replace Next with Fast Forward" = "Заменить След./Пред. на перемотку";
 "uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app." = "Управление жестами uYou позволяет проводить пальцем влево и вправо по центру, нижней и верхней части плеера для регулировки громкости, яркости и перемотки. Для вступления настроек в силу перезапустите YouTube.";
 

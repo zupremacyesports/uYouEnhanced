@@ -183,11 +183,13 @@
 "uYou Repeat" = "Nút lặp lại Video";
 "uYou Fullscreen to The Right" = "uYou Toàn màn hình bên phải";
 "Playback Speed Controls" = "Kiểm soát tốc độ phát lại";
-"Auto Fullscreen" = "Tự động toàn màn hình";
+"Disable Double Tap To Seek" = "Disable Double Tap To Seek";
+"Auto Play Videos in Fullscreen" = "Tự động toàn màn hình";
 "No Suggested Videos at The Video End" = "Không có Video được đề xuất ở cuối Video";
 "Fullscreen Always on The Right Side" = "Toàn màn hình luôn phía bên phải";
 "uYou Gestures Controls" = "Điều khiển cử chỉ";
 "Two Fingers Tap to Pause/Play" = "Nhấn hai ngón tay để Dừng/Phát";
+"Hide Next/Previous Buttons" = "Hide Next/Previous Buttons";
 "Replace Next with Fast Forward" = "Thay thế tiếp theo bằng tua nhanh";
 "uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app." = "Điều khiển cử chỉ: Nó có thể cho phép bạn kéo ngón tay sang trái hoặc phải, trên hoặc dưới của màn hình video để điều chỉnh âm lượng, độ sáng hoặc tìm kiếm video.\nViệc thay đổi cài đặt, yêu cầu khởi động lại ứng dụng YouTube.";
 

@@ -183,11 +183,13 @@
 "uYou Repeat" = "uYou 重複播放";
 "uYou Fullscreen to The Right" = "uYou 全螢幕顯示在右側";
 "Playback Speed Controls" = "播放速度控制";
-"Auto Fullscreen" = "自動全螢幕";
+"Disable Double Tap To Seek" = "Disable Double Tap To Seek";
+"Auto Play Videos in Fullscreen" = "自動全螢幕";
 "No Suggested Videos at The Video End" = "影片結束時不顯示建議影片";
 "Fullscreen Always on The Right Side" = "全螢幕總在右側";
 "uYou Gestures Controls" = "uYou 手勢控制";
 "Two Fingers Tap to Pause/Play" = "兩指點擊暫停/播放";
+"Hide Next/Previous Buttons" = "Hide Next/Previous Buttons";
 "Replace Next with Fast Forward" = "將「下一部」替換為「快轉」";
 "uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app." = "uYou 手勢控制：這個功能讓您可以在影片畫面的上方、中間或下方左右滑動手指，來調整音量、亮度或快轉影片。\n\n更改設定需要重新啟動 YouTube 應用程式。";
 

@@ -182,11 +182,13 @@
 "uYou Repeat" = "uYou Repeat";
 "uYou Fullscreen to The Right" = "uYou Fullscreen to The Right";
 "Playback Speed Controls" = "Playback Speed Controls";
-"Auto Fullscreen" = "Auto Fullscreen";
+"Disable Double Tap To Seek" = "Disable Double Tap To Seek";
+"Auto Play Videos in Fullscreen" = "Auto Play Videos in Fullscreen";
 "No Suggested Videos at The Video End" = "No Suggested Videos at The Video End";
 "Fullscreen Always on The Right Side" = "Fullscreen Always on The Right Side";
 "uYou Gestures Controls" = "uYou Gestures Controls";
 "Two Fingers Tap to Pause/Play" = "Two Fingers Tap to Pause/Play";
+"Hide Next/Previous Buttons" = "Hide Next/Previous Buttons";
 "Replace Next with Fast Forward" = "Replace Next with Fast Forward";
 "uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app." = "uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app.";
 

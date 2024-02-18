@@ -24,16 +24,9 @@ static inline NSString *LOC(NSString *key) {
 %hook UILabel
 - (void)setText:(NSString *)text {
     NSString *localizedText = [uYouLocalizationBundle() localizedStringForKey:text value:nil table:nil];
-    NSArray *centered = @[@"SKIP", @"DISMISS", @"UPDATE NOW", @"DON'T SHOW", @"Cancel", @"Copy all", @"Move all"];
 
     if (localizedText && ![localizedText isEqualToString:text]) {
         text = localizedText;
-        self.adjustsFontSizeToFitWidth = YES;
-    }
-
-    // Make non-attributed buttons text centered
-    if ([centered containsObject:text]) {
-        self.textAlignment = NSTextAlignmentCenter;
         self.adjustsFontSizeToFitWidth = YES;
     }
 
@@ -105,6 +98,25 @@ static inline NSString *LOC(NSString *key) {
 }
 %end
 
+@interface SSBouncyButton : UIButton
+@end
+
+// Make non-attributed buttons text centered
+%hook SSBouncyButton
+- (void)setTitle:(NSString *)title forState:(UIControlState)state {
+    NSString *localizedText = [uYouLocalizationBundle() localizedStringForKey:title value:nil table:nil];
+    NSArray *centered = @[@"SKIP", @"DISMISS", @"UPDATE NOW", @"DON'T SHOW", @"Cancel", @"Copy all", @"Move all"];
+
+    if ([centered containsObject:title]) {
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        self.titleLabel.adjustsFontSizeToFitWidth = YES;
+        [self.titleLabel sizeToFit];
+    }
+
+    %orig(localizedText, state);
+}
+%end
+
 // Replace (translate) old text to the new one in Navbars
 %hook _UINavigationBarContentView
 - (void)setTitle:(NSString *)title {
@@ -153,8 +165,8 @@ static inline NSString *LOC(NSString *key) {
 
     // Update available (new msg)
     else if ([arg4 containsString:@"Please update to the latest version for the best experience."]) {
-        NSString *startOfMsg = [NSString stringWithFormat:@"Current version v.%@\nAvailable version v.", tweakVersion];
-        NSString *endOfMsg = @"\n\nPlease update to the latest version for the best experience.";
+        NSString *startOfMsg = @"Available version v.";
+        NSString *endOfMsg = @"\n\nPlease update";
         NSArray *components = [arg4 componentsSeparatedByString:startOfMsg];
 
         if (components.count > 1) {
