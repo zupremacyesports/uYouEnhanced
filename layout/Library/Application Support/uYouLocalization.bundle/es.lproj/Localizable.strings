@@ -161,9 +161,9 @@
 "Hide Cast Button" = "Ocultar botón de transmitir";
 "Hide Notification Button" = "Ocultar botón de notificación";
 "Ask Befor Casting" = "Preguntar antes de emitir";
-"Confirm Casting" = "Confirm Casting";
-"Are you sure you want to start casting?" = "Are you sure you want to start casting?";
-"Yes" = "Yes";
+"Confirm Casting" = "Confirmar emisión";
+"Are you sure you want to start casting?" = "¿Seguro que quieres empezar a emitir?";
+"Yes" = "Si";
 "No" = "No";
 "Hide Shorts Cells" = "Ocultar celdas de Shorts";
 
