@@ -183,13 +183,13 @@
 "uYou Repeat" = "Nút lặp lại Video";
 "uYou Fullscreen to The Right" = "uYou Toàn màn hình bên phải";
 "Playback Speed Controls" = "Kiểm soát tốc độ phát lại";
-"Disable Double Tap To Seek" = "Disable Double Tap To Seek";
+"Disable Double Tap To Seek" = "Tắt tính năng Nhấn đúp để tìm kiếm";
 "Auto Play Videos in Fullscreen" = "Tự động toàn màn hình";
 "No Suggested Videos at The Video End" = "Không có Video được đề xuất ở cuối Video";
 "Fullscreen Always on The Right Side" = "Toàn màn hình luôn phía bên phải";
 "uYou Gestures Controls" = "Điều khiển cử chỉ";
 "Two Fingers Tap to Pause/Play" = "Nhấn hai ngón tay để Dừng/Phát";
-"Hide Next/Previous Buttons" = "Hide Next/Previous Buttons";
+"Hide Next/Previous Buttons" = "Ẩn các nút Tiếp theo/Trước đó";
 "Replace Next with Fast Forward" = "Thay thế tiếp theo bằng tua nhanh";
 "uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app." = "Điều khiển cử chỉ: Nó có thể cho phép bạn kéo ngón tay sang trái hoặc phải, trên hoặc dưới của màn hình video để điều chỉnh âm lượng, độ sáng hoặc tìm kiếm video.\nViệc thay đổi cài đặt, yêu cầu khởi động lại ứng dụng YouTube.";
 
@@ -246,4 +246,4 @@
 "You can support my iOS development by donating 🥰\n\n\"It’s not how much we give, but how much love we put into giving.\"\nMother Teresa" = "Bạn có thể hỗ trợ sự phát triển iOS của tôi bằng cách quyên góp 🥰\n\n\"Quan trọng không phải là chúng ta cho đi bao nhiêu mà là chúng ta dành bao nhiêu tình yêu vào việc cho đi đó.\"\nMother Teresa";
 "Designer" = "Nhà thiết kế"; 
 "Follow me on social media." = "Theo dõi tôi trên mạng xã hội.";
-"Coded with ❤️ by MiRO\nCopyright © 2024" = "Làm bằng tất cả ❤️ bởi MiRO\nBản quyền © 2024\nDịch bởi Hiệpvk";
+"Coded with ❤️ by MiRO\nCopyright © 2024" = "Coded bằng ❤️ bởi MiRO\nBản quyền © 2024\nDịch bởi Hiệpvk";
