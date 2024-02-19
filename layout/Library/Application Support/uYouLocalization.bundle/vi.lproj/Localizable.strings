@@ -6,7 +6,7 @@
 "Play your saved media in a custom player with background playback support and mini player." = "Phát phương tiện đã lưu của bạn trong một trình phát tùy chỉnh với hỗ trợ phát lại nền và trình phát mini.";
 "More Options" = "Lựa chọn khác";
 "Play YouTube videos in the background and more, You can configure options from the settings." = "Phát video YouTube ở chế độ nền và hơn thế nữa. Bạn có thể định cấu hình các tùy chọn từ cài đặt.";
-"FollowMe" = "Theo dõi tôi trên Twitter";
+"FollowMe" = "Theo dõi tôi trên X";
 "Continue" = "Tiếp tục";
 
 /* uYou tab */
@@ -167,6 +167,7 @@
 "Yes" = "Có";
 "No" = "Không";
 "Hide Shorts Cells" = "Ẩn các ô Shorts";
+"Disable Startup To Shorts" = "Tắt tính năng tự đông tiếp tục Shorts";
 
 "Hide uYou Button" = "Ẩn Nút uYou";
 "Hide Fullscreen Button" = "Ẩn Nút đầy màn hình";
@@ -238,10 +239,10 @@
 "DISMISS" = "BỎ";
 "UPDATE NOW" = "CẬP NHẬT NGAY BÂY GIỜ";
 
-"SOCIAL MEDIA" = "LIÊN HỆ QUA CÁC TRANG MẠNG XÃ HỘI";
+"SOCIAL MEDIA" = "MẠNG XÃ HỘI";
 "Developer" = "Nhà phát triển";
-"Support my" = "Ủng hộ tôi";
-"Developments" = "Phát triển bởi";
+"Support my" = "Hỗ trợ tôi";
+"Developments" = "Phát triển";
 "Donating" = "Quyên góp";
 "You can support my iOS development by donating 🥰\n\n\"It’s not how much we give, but how much love we put into giving.\"\nMother Teresa" = "Bạn có thể hỗ trợ sự phát triển iOS của tôi bằng cách quyên góp 🥰\n\n\"Quan trọng không phải là chúng ta cho đi bao nhiêu mà là chúng ta dành bao nhiêu tình yêu vào việc cho đi đó.\"\nMother Teresa";
 "Designer" = "Nhà thiết kế"; 
