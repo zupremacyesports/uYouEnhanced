@@ -35,7 +35,7 @@
 "Completed" = "Hoàn thành";
 "Play on YouTube" = "Phát trên YouTube";
 "Open Channel" = "Mở kênh";
-"Rename" = "Đặt tên mới";
+"Rename" = "Đổi tên";
 "Cancel" = "Hủy";
 "Done" = "Xong";
 "Select All" = "Chọn tất cả";
@@ -92,7 +92,7 @@
 "Renamed successfully" = "Đổi tên thành công";
 "Downloading Thumbnail" = "Tải xuống hình thu nhỏ";
 "Photo library access is disabled. Please give YouTube permission to access your photos library." = "Quyền truy cập thư viện ảnh bị vô hiệu hóa. Vui lòng cấp cho YouTube quyền truy cập thư viện ảnh của bạn.";
-"Image updated successfully" = "Hình ảnh được cập nhật thành công";
+"Image updated successfully" = "Đã cập nhật hình ảnh thành công";
 "Invalid YouTube link" = "Liên kết YouTube không hợp lệ";
 
 /* Download status */
@@ -110,9 +110,9 @@
 
 "Download Quality" = "Chất lượng tải xuống";
 "Always Ask" = "Luôn hỏi";
-"YT Video Quality on WiFi" = "Chất lượng Video trên WiFi";
-"YT Video Quality on Cellular" = "Chất lượng Video trên dữ liệu di động";
-"Default Playback Speed" = "Tốc độ phát lại mặc định";
+"YT Video Quality on WiFi" = "Chất lượng Video trên mạng Wi-Fi";
+"YT Video Quality on Cellular" = "Chất lượng Video trên mạng di động";
+"Default Playback Speed" = "Tốc độ phát mặc định";
 "Auto" = "Tự động";
 
 "Videos Download Location" = "Vị trí tải xuống Video";
@@ -127,7 +127,7 @@
 "Bottom Area" = "Phía dưới trình thát";
 "Volume" = "Âm lượng";
 "Brightness" = "Độ sáng";
-"Seek" = "Tìm kiếm";
+"Seek" = "Tua";
 
 "SPEED & SENSITIVITY" = "TỐC ĐỘ & ĐỘ NHẠY";
 "Speed" = "Tốc độ";
@@ -158,16 +158,16 @@
 
 "Home" = "Trang chủ";
 "Disable Auto Play Video" = "Tắt Video tự động phát";
-"Disable Auto Caption" = "Tắt phụ đề tự động";
+"Disable Auto Caption" = "Tắt chú thích tự động";
 "Hide Cast Button" = "Ẩn Nút Cast";
 "Hide Notification Button" = "Ẩn Nút thông báo";
-"Ask Befor Casting" = "Hỏi trước khi truyền";
-"Confirm Casting" = "Xác nhận truyền";
-"Are you sure you want to start casting?" = "Bạn có chắc chắn muốn bắt đầu truyền không?";
+"Ask Befor Casting" = "Hỏi trước khi Cast";
+"Confirm Casting" = "Xác nhận Cast";
+"Are you sure you want to start casting?" = "Bạn có chắc chắn muốn bắt đầu Cast không?";
 "Yes" = "Có";
 "No" = "Không";
 "Hide Shorts Cells" = "Ẩn các ô Shorts";
-"Disable Startup To Shorts" = "Tắt tính năng tự đông tiếp tục Shorts";
+"Disable Startup To Shorts" = "Tắt tính năng khởi đông tiếp tục Shorts";
 
 "Hide uYou Button" = "Ẩn Nút uYou";
 "Hide Fullscreen Button" = "Ẩn Nút đầy màn hình";
@@ -183,24 +183,24 @@
 "Video Player" = "Trình phát Video";
 "uYou Repeat" = "Nút lặp lại Video";
 "uYou Fullscreen to The Right" = "uYou Toàn màn hình bên phải";
-"Playback Speed Controls" = "Kiểm soát tốc độ phát lại";
-"Disable Double Tap To Seek" = "Tắt tính năng Nhấn đúp để tìm kiếm";
+"Playback Speed Controls" = "Kiểm soát tốc độ phát";
+"Disable Double Tap To Seek" = "Tắt tình năng chạm 2 lần để tua";
 "Auto Play Videos in Fullscreen" = "Tự động toàn màn hình";
 "No Suggested Videos at The Video End" = "Không có Video được đề xuất ở cuối Video";
-"Fullscreen Always on The Right Side" = "Toàn màn hình luôn phía bên phải";
+"Fullscreen Always on The Right Side" = "Toàn màn hình luôn bên phải";
 "uYou Gestures Controls" = "Điều khiển cử chỉ";
-"Two Fingers Tap to Pause/Play" = "Nhấn hai ngón tay để Dừng/Phát";
+"Two Fingers Tap to Pause/Play" = "Chạm hai ngón tay để Tạm dừng/Phát";
 "Hide Next/Previous Buttons" = "Ẩn các nút Tiếp theo/Trước đó";
-"Replace Next with Fast Forward" = "Thay thế tiếp theo bằng tua nhanh";
-"uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app." = "Điều khiển cử chỉ: Nó có thể cho phép bạn kéo ngón tay sang trái hoặc phải, trên hoặc dưới của màn hình video để điều chỉnh âm lượng, độ sáng hoặc tìm kiếm video.\nViệc thay đổi cài đặt, yêu cầu khởi động lại ứng dụng YouTube.";
+"Replace Next with Fast Forward" = "Thay thế nút Tiếp theo bằng nút Tua nhanh";
+"uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app." = "Điều khiển cử chỉ: Nó có thể cho phép bạn kéo ngón tay sang trái hoặc phải, trên hoặc dưới của màn hình video để điều chỉnh âm lượng, độ sáng hoặc tua video.\nViệc thay đổi cài đặt, yêu cầu khởi động lại ứng dụng YouTube.";
 
 "Reorder Tabs" = "Sắp xếp lại các Tab";
 "ReorderTabs" = "Sắp xếp lại các Tab";
 
 "Other Settings" = "Cài đặt khác";
 "Remove YouTube Ads" = "Xóa quảng cáo YouTube";
-"Background Playback" = "Phát lại trong nền";
-"Allow HD On Cellular Data" = "Cho phép HD trên dữ liệu di động";
+"Background Playback" = "Phát trong nền";
+"Allow HD On Cellular Data" = "Cho phép HD trên mạng di động";
 "Disable Age Restriction" = "Tắt giới hạn độ tuổi";
 "iPad Layout" = "Giao diện iPad";
 "Disable \"Video paused. Continue watching?\"" = "Tắt \"Video tạm dừng. Tiếp tục xem?\"";
