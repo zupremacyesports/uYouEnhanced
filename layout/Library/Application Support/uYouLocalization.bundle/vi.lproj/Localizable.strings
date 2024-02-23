@@ -1,9 +1,9 @@
 /* uYou tab */
 "The best tweak for the YouTube app" = "Tinh chỉnh tốt nhất cho ứng dụng YouTube";
 "Download Videos/Audio" = "Tải Videos/Âm thanh";
-"Save your favorite videos for offline playback." = "Lưu các video yêu thích của bạn để phát lại ngoại tuyến.";
+"Save your favorite videos for offline playback." = "Lưu các video yêu thích của bạn để phát ngoại tuyến.";
 "Play Saved Media" = "Phát phương tiện đã lưu";
-"Play your saved media in a custom player with background playback support and mini player." = "Phát phương tiện đã lưu của bạn trong một trình phát tùy chỉnh với hỗ trợ phát lại nền và trình phát mini.";
+"Play your saved media in a custom player with background playback support and mini player." = "Phát phương tiện đã lưu của bạn trong một trình phát tùy chỉnh với hỗ trợ phát trong nền và trình phát mini.";
 "More Options" = "Lựa chọn khác";
 "Play YouTube videos in the background and more, You can configure options from the settings." = "Phát video YouTube ở chế độ nền và hơn thế nữa. Bạn có thể định cấu hình các tùy chọn từ cài đặt.";
 "FollowMe" = "Theo dõi tôi trên X";
@@ -124,7 +124,7 @@
 "SPLITTED AREAS" = "KHU VỰC CHIA";
 "Top Area" = "Phía trên trình phát";
 "Center Area" = "Trung tâm trình phát";
-"Bottom Area" = "Phía dưới trình thát";
+"Bottom Area" = "Phía dưới trình phát";
 "Volume" = "Âm lượng";
 "Brightness" = "Độ sáng";
 "Seek" = "Tua";
@@ -181,7 +181,7 @@
 "Always Show Progress Bar" = "Luôn hiển thị thanh tiến trình";
 
 "Video Player" = "Trình phát Video";
-"uYou Repeat" = "Nút lặp lại Video";
+"uYou Repeat" = "uYou lặp lại Video";
 "uYou Fullscreen to The Right" = "uYou Toàn màn hình bên phải";
 "Playback Speed Controls" = "Kiểm soát tốc độ phát";
 "Disable Double Tap To Seek" = "Tắt tình năng chạm 2 lần để tua";
