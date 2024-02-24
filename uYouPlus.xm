@@ -635,6 +635,7 @@ static BOOL didFinishLaunching;
     }
     if (IsEnabled(@"hideSponsorBlockButton_enabled")) { 
         self.sponsorBlockButton.hidden = YES;
+        self.sponsorBlockButton.frame = CGRectZero;
     }
 }
 %end
