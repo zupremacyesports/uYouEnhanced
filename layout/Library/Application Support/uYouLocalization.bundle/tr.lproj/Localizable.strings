@@ -1,0 +1,249 @@
+/* uYou tab */
+"The best tweak for the YouTube app" = "YouTube için en iyi Tweak";
+"Download Videos/Audio" = "Videoları/Sesi İndir";
+"Save your favorite videos for offline playback." = "Favori videolarını çevrimdışı oynatmak için kaydet.";
+"Play Saved Media" = "Kaydedilmiş Medyayı oynat";
+"Play your saved media in a custom player with background playback support and mini player." = "Kaydedilen medyanı arka planda oynatma desteği ve mini oynatıcıya sahip özel bir oynatıcıda oynat.";
+"More Options" = "Daha fazla seçenek";
+"Play YouTube videos in the background and more, You can configure options from the settings." = "YouTube videolarını arka planda oynat ve daha fazlasını yap. Seçenekleri ayarlardan yapılandırabilirsin.";
+"FollowMe" = "Beni X(Twitter)'de takip edin";
+"Continue" = "Devam et";
+
+/* uYou tab */
+"Downloading" = "Indiriliyor";
+"All" = "Hepsi";
+"Video" = "Video";
+"Videos" = "Videolar";
+"Audio" = "Ses";
+"Audios" = "Ses dosyaları";
+"TOTAL" = "TOPLAM";
+"DOWNLOADING" = "INDIRILIYOR";
+
+"Sorting" = "Sıralama";
+"Video Title (Ascending)" = "Video Başlığı (Artan)";
+"Video Title (Descending)" = "Video Başlığı (Azalan)";
+"Download Date (Ascending)" = "İndirme Tarihi (Artan)";
+"Download Date (Descending)" = "İndirme Tarihi (Azalan)";
+
+"Audio Only" = "Sadece ses";
+"Audio Only (mp4)" = "Yalnızca Ses (mp4)";
+"Downloading..." = "İndiriliyor...";
+"Adding Metadata to the M4A.." = "M4A'ya Meta Veri Ekleniyor...";
+"Waiting..." = "Bekleniyor...";
+"Waiting for download..." = "İndirme için bekleniyor...";
+"Paused" = "Duraklatıldı";
+"Completed" = "Tamamlandı";
+"Play on YouTube" = "YouTube'da oynat";
+"Open Channel" = "Kanalı Aç";
+"Rename" = "Yeniden Adlandır";
+"Cancel" = "İptal et";
+"Done" = "Bitti";
+"Select All" = "Hepsini seç";
+"Share" = "Paylaşmak";
+"Export to Music app" = "Müzik uygulamasına aktar";
+"Export to Camera Roll" = "Film Rulosuna Aktar";
+"Change Image" = "Görüntüyü Değiştir";
+"Change Thumbnail" = "Küçük Resmi Değiştir";
+"Download Original Thumbnail" = "Orijinal Küçük Resmi İndirin";
+"Save Thumbnail to Camera Roll" = "Küçük Resmi Film Rulosuna Kaydet";
+"Save Album Art to Camera Roll" = "Albüm Resmini Film Rulosuna Kaydet";
+"Open in Filza" = "Filza'da aç";
+"Lyrics feature will be available soon" = "Şarkı sözü özelliği yakında kullanıma sunulacak";
+"Delete" = "Sil";
+"Confirm" = "Onayla";
+"Copy Video Link" = "Video Bağlantısını Kopyala";
+"Copy Audio Link" = "Ses Bağlantısını Kopyala";
+"Cancel Download" = "İndirmeyi İptal Et";
+"DeleteVideo" = "Silmek istediğine emin misin"; //Çıktı metni şöyle görünecek: Silmek istediğine emin misin (Video adı)?
+"DeleteFilesCount" = "Seçili dosyaları silmek istediğinden emin misin?"; //Çıktı metni şöyle görünecektir: Seçili dosyaları silmek istediğinden emin misin? (5)?
+"SelectedFilesCount" = "Seçilen dosyalar"; //Çıktı metni şöyle görünecek: Seçilen dosyalar (5).
+"Select All" = "Hepsini seç";
+"Thumbnail" = "Küçük resim";
+"Lyrics feature will be available soon" = "Şarkı sözü özelliği yakında kullanıma sunulacak";
+"I Understand" = "Anladım";
+"Save Image" = "Resmi Kaydet";
+"Save Gif" = "Gif'i Kaydet";
+
+/* Import to Music */
+"Import" = "İçe aktar";
+"Change Artwork Image" = "Albüm Resimi görüntüsünü Değiştir";
+"IMPORT INFO" = "BİLGİLERİ EKLE";
+"Explicit" = "Müstehcen";
+"Kind" = "Tür";
+"Title" = "Başlık";
+"Channel"  = "Kanal";
+"Album" = "Albüm";
+"Artist" = "Sanatçı";
+"Year" = "Yıl";
+
+/* + button */
+"Please, paste the YouTube link or Video ID to start download" = "İndirmeye başlamak için lütfen YouTube bağlantısını veya Video Kimliğini yapıştır";
+"YouTube URL or Video ID" = "YouTube URL'si veya Video Kimliği";
+"Download" = "İndir";
+
+/* Popups */
+"Loading" = "Yükleniyor";
+"Download Started" = "İndirme başladı";
+"Saved!" = "Kaydedildi!";
+"Error!" = "Hata!";
+"uYou did not find any quality to download" = "uYou indirilecek herhangi bir kalite bulamadı";
+"No links found" = "Bağlantı bulunamadı";
+"Exported successfully" = "Başarıyla dışa aktarıldı";
+"Renamed successfully" = "Başarıyla yeniden adlandırıldı";
+"Downloading Thumbnail" = "Küçük Resim İndiriliyor";
+"Photo library access is disabled. Please give YouTube permission to access your photos library." = "Fotoğraf kitaplığına erişim devre dışı bırakıldı. Lütfen YouTube'un fotoğraf kitaplığına erişmesine izin ver.";
+"Image updated successfully" = "Resim başarıyla güncellendi";
+"Invalid YouTube link" = "Geçersiz YouTube bağlantısı";
+
+/* Download status */
+"Merging video with audio into MP4..." = "Video sesle MP4 biçiminde birleştiriliyor...";
+"Adding Metadata to the M4A..." = "M4A'ya Meta Veri Ekleniyor...";
+"Merging video with audio into MKV..." = "Video sesle MKV biçiminde birleştiriliyor...";
+"Converting MKV video into MP4..." = "MKV videosu MP4'e dönüştürülüyor...";
+"Error: Conversion cancelled by user" = "Hata: Dönüşüm kullanıcı tarafından iptal edildi";
+"ConversionFailedWithCode" = "Hata: Dönüştürme kodla başarısız oldu";
+
+/* Settings */
+"uYouSettings" = "uYou ayarlarını göster";
+"Show Formats" = "Formatları Göster";
+
+"Download Quality" = "İndirme Kalitesi";
+"Always Ask" = "Her zaman sor";
+"YT Video Quality on WiFi" = "WiFi'de YT Video Kalitesi";
+"YT Video Quality on Cellular" = "Hücresel Ağda YT Video Kalitesi";
+"Default Playback Speed" = "Varsayılan Oynatma Hızı";
+"Auto" = "Oto";
+
+"Videos Download Location" = "Videoların İndirme Konumu";
+"uYou Folder Only" = "Yalnızca "uYou" Klasörü";
+"Camera Roll Only" = "Yalnızca Film Rulosu";
+"Both" = "İkisi de";
+
+"Player Gestures Controls" = "Oynatıcı Hareketleri Kontrolleri";
+"SPLITTED AREAS" = "AYRILMIŞ ALANLAR";
+"Top Area" = "Üst Alan";
+"Center Area" = "Merkez Alan";
+"Bottom Area" = "Alt Alan";
+"Volume" = "Ses";
+"Brightness" = "Parlaklık";
+"Seek" = "Geçme";
+
+"SPEED & SENSITIVITY" = "HIZ & HASSASİYET";
+"Speed" = "Hız";
+"Activation Sensitivity" = "Etkinleştirme Hassasiyeti";
+"Default Speed = 250.\nDefault Sensitivity = 70.\nSensitivity: Adjusts the amount of finger movement required to activate the gesture on the video player." = "Varsayılan Hız = 250.\nVarsayılan Hassasiyet = 70.\nHassasiyet: Video oynatıcıda hareketi etkinleştirmek için gereken parmak hareketi miktarını ayarlar.";
+
+"If the selected quality is not available, then uYou will choose a lower quality than the one you selected." = "Seçilen kalite mevcut değilse, o zaman uYou seçtiğin kaliteden daha düşük bir kaliteyi seçecektir.";
+
+"YOUTUBE SETTINGS" = "YOUTUBE AYARLARI";
+"Default Startup Page" = "Varsayılan Başlangıç Sayfası";
+"Default" = "Varsayılan";
+"Create" = "Oluştur";
+"Subscriptions" = "Abonelikler";
+"You/Library" = "Siz/Kütüphane";
+"Explore" = "Keşfet";
+"Trending" = "Trendler";
+
+"Hide Tabs" = "Sekmeleri Gizle";
+"YT Tabs" = "YT Sekmeleri";
+"Hide uYou Tab" = "uYou Sekmesini Gizle";
+"Hide Shorts Tab" = "Shorts Sekmesini Gizle";
+"Hide Create Tab" = "Oluştur Sekmesini Gizle";
+"Hide Subscriptions Tab" = "Abonelikler Sekmesini Gizle";
+"Hide You/Library Tab" = "Siz/Kütüphane Sekmesini Gizle";
+"Hide Trending Tab" = "Trendler Sekmesini Gizle";
+"Hide Explore Tab" = "Keşfet Sekmesini Gizle";
+"Changing settings requires restarting the YouTube app." = "Ayarların değiştirilmesi YouTube uygulamasının yeniden başlatılmasını gerektirir.";
+
+"Home" = "Ana Sayfa";
+"Disable Auto Play Video" = "Videoyu Otomatik Oynatmayı Devre Dışı Bırak";
+"Disable Auto Caption" = "Otomatik Altyazıyı Devre Dışı Bırak";
+"Hide Cast Button" = "Yayınla Düğmesini Gizle";
+"Hide Notification Button" = "Bildirim Düğmesini Gizle";
+"Ask Befor Casting" = "Yayınlamadan Önce Sor";
+"Confirm Casting" = "Yayınlamayı Onayla";
+"Are you sure you want to start casting?" = "Yayınlamaya başlamak istediğinden emin misin?";
+"Yes" = "Evet";
+"No" = "Hayır";
+"Hide Shorts Cells" = "Shorts Hücrelerini Gizle";
+"Disable Startup To Shorts" = "Shorts'a Başlangıç'ı devre dışı bırak.";
+
+"Hide uYou Button" = "uYou Düğmesini Gizle";
+"Hide Fullscreen Button" = "Tam Ekran Düğmesini Gizle";
+"Hide Title and Channel Name" = "Başlığı ve Kanal Adını Gizle";
+"Hide All Buttons" = "Tüm Düğmeleri Gizle";
+"Hide Like Button" = "Beğen Düğmesini Gizle";
+"Hide Dislike Button" = "Beğenmedim Düğmesini Gizle";
+"Hide Comment Button" = "Yorum Düğmesini Gizle";
+"Hide Remix Button" = "Remix Düğmesini Gizle";
+"Hide Share Button" = "Paylaş Düğmesini Gizle";
+"Always Show Progress Bar" = "İlerleme Çubuğunu Her Zaman Göster";
+
+"Video Player" = "Video oynatıcı";
+"uYou Repeat" = "uYou Tekrar Et";
+"uYou Fullscreen to The Right" = "uYou Tam Ekran Sağa";
+"Playback Speed Controls" = "Oynatma Hızı Kontrolleri";
+"Disable Double Tap To Seek" = "Geçmek için Çift Dokunmayı Devre Dışı Bırak";
+"Auto Play Videos in Fullscreen" = "Videoları Tam Ekranda Otomatik Oynat";
+"No Suggested Videos at The Video End" = "Videonun Sonunda Önerilen Videoları kaldır";
+"Fullscreen Always on The Right Side" = "Tam Ekran Her Zaman Sağ Tarafta";
+"uYou Gestures Controls" = "uYou Hareket Kontrolleri";
+"Two Fingers Tap to Pause/Play" = "Duraklatmak/Oynatmak için İki Parmakla Dokun";
+"Hide Next/Previous Buttons" = "Sonraki/Önceki Düğmelerini Gizle";
+"Replace Next with Fast Forward" = "Sonraki düğmesini Hızlı İlerlet İle Değiştir";
+"uYou Gesture Controls: This feature allows you to drag your finger left or right on the top, center or bottom of the video screen to adjust the volume, brightness, or seek the video. Changing settings requires restarting the YouTube app." = "uYou Hareket Kontrolleri: Bu özellik, ses seviyesini, parlaklığı ayarlamak veya videoda bir yere geçmek için parmağınızı video ekranının üstünde, ortasında veya altında sola veya sağa sürüklemene olanak tanır. Ayarların değiştirilmesi YouTube uygulamasının yeniden başlatılmasını gerektirir.";
+
+"Reorder Tabs" = "Sekmeleri Yeniden Sırala";
+"ReorderTabs" = "Sekmeleri Yeniden Sırala";
+
+"Other Settings" = "Diğer ayarlar";
+"Remove YouTube Ads" = "YouTube Reklamlarını Kaldır";
+"Background Playback" = "Arka Planda Oynat";
+"Allow HD On Cellular Data" = "Hücresel Verilerde HD'ye İzin Ver";
+"Disable Age Restriction" = "Yaş Sınırlamasını Devre Dışı Bırak";
+"iPad Layout" = "iPad Düzeni";
+"Disable \"Video paused. Continue watching?\"" = "Şunu devre dışı bırak \"Video duraklatıldı. İzlemeye devam etmek istiyor musun?\"";
+
+"OTHERS" = "DIGERLERI";
+"Open Downloads Folder in Filza" = "Filza'da İndirilenler Klasörünü Aç";
+"Import From Cercube" = "Cercube'den İçe Aktar";
+"You can easily migrate all of your videos/audios from \"Cercube\" to \"uYou\" with a tap of a button!\n\nPlease choose one of the following:" = "Tek bir düğmeye dokunarak tüm videolarını/seslerini \"Cercube\" den \"uYou\" ya kolayca taşıyabilirsin!\n\nLütfen aşağıdakilerden birini seçin:";
+"Import From DLEasy" = "Import From DLEasy";
+"You can easily migrate all of your videos/audios from \"DLEasy\" to \"uYou\" with a tap of a button!\n\nPlease choose one of the following:" = "Tek bir düğmeye dokunarak tüm videolarını/seslerini \"DLEasy\" den \"uYou\" a kolayca taşıyabilirsin!\n\nLütfen aşağıdakilerden birini seçin:";
+"Please choose one of the following:" = "Lütfen aşağıdakilerden birini seç:";
+"Copy All" = "Hepsini kopyala";
+"Move All" = "Tümünü Taşı";
+"Importing" = "İçe aktarılıyor";
+
+"Clear Downloading" = "İndirmeyi Temizle";
+"Are you sure you want to clear all currently downloading videos and audios?" = "Şu anda indirilmekte olan tüm videoları ve sesleri temizlemek istediğinizden emin misiniz?";
+
+"Clear Downloaded" = "Clear Downloaded";
+"Are you sure you want to clear all currently downloaded videos and audios?" = "Şu anda indirilen tüm videoları ve sesleri temizlemek istediğinden emin misin?";
+
+"Clear All" = "Hepsini temizle";
+"Are you sure you want to clear all currently downloading and downloaded videos and audios?" = "Şu anda indirilen ve indirilen tüm videoları ve sesleri temizlemek istediğinden emin misin?";
+
+"UYOU UPDATES" = "UYOU GÜNCELLEMELERİ";
+"Automatically Check For Updates" = "Güncellemeleri Otomatik Olarak Kontrol Et";
+"Check For Update" = "Güncellemeyi Kontrol Et";
+"UpToDate" = "En son sürüm olan v.%@ 'yi kullanıyorsunuz.";
+"NewVersionOld" = "v.%@ artık mevcut. Kusursuz/kesintisiz bir deneyim yaşamak için lütfen her zaman en son sürüme güncellediğinden emin ol."; 
+"NewVersion" = "Mevcut sürüm v.%@\nMevcut sürüm v.%@\n\nEn iyi deneyim için lütfen en son sürüme güncelle."; 
+"Unsupported YouTube Version" = "Desteklenmeyen YouTube Sürümü";
+"UnsupportedVersionText" = "YouTube uygulama sürümünüz (%@) uYou tarafından desteklenmiyor. Optimum performans için lütfen YouTube'u en az (%@)+ sürümüne güncelle. Mevcut sürümü kullanmaya devam edebilirsin ancak oluşabilecek herhangi bir kilitlenme veya sorunla ilgili destek sağlayamayacağımı lütfen unutmayın.\n\nAnlayışın için teşekkür ederiz.";
+
+"SKIP" = "ATLA";
+"DON'T SHOW" = "GOSTERME";
+"DISMISS" = "GORMEZDEN GEL";
+"UPDATE NOW" = "SIMDI GUNCELLE";
+
+"SOCIAL MEDIA" = "SOSYAL MEDYA";
+"Developer" = "Geliştirici";
+"Support my" = "Beni destekle";
+"Developments" = "Geliştirmede katkısı olanlar";
+"Donating" = "Bağış yap";
+"You can support my iOS development by donating 🥰\n\n\"It’s not how much we give, but how much love we put into giving.\"\nMother Teresa" = "Bağış yaparak iOS gelişimimi destekleyebilirsin 🥰\n \n\"Önemli olan ne kadar verdiğimiz değil, vermeye ne kadar sevgi kattığımızdır.\"\nRahibe Teresa";
+"Designer" = "Tasarımcı"; 
+"Follow me on social media." = "Beni sosyal medyada takip et.";
+"Coded with ❤️ by MiRO\nCopyright © 2024" = "MiRO tarafından ❤️ ile kodlanmıştır\nTelif hakkı © 2024";
