@@ -10,6 +10,7 @@
 
 #import "uYouPlusThemes.h"
 #import "Tweaks/YouTubeHeader/YTAppDelegate.h"
+#import "Tweaks/YouTubeHeader/YTMainAppVideoPlayerOverlayViewController.h"
 #import "Tweaks/YouTubeHeader/YTIMenuConditionalServiceItemRenderer.h"
 #import "Tweaks/YouTubeHeader/YTVideoQualitySwitchOriginalController.h"
 #import "Tweaks/YouTubeHeader/YTIGuideResponse.h"
