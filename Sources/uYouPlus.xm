@@ -87,7 +87,7 @@ static NSString *accessGroupID() {
 %end
 %end
 
-// YouTube Premium Logo - @arichorn - this doesn't always function
+// YouTube Premium Logo - @arichornlover - this doesn't always function.
 %group gPremiumYouTubeLogo
 %hook YTHeaderLogoController
 - (void)setPremiumLogo:(BOOL)isPremiumLogo {
@@ -98,6 +98,60 @@ static NSString *accessGroupID() {
     return YES;
 }
 - (void)setTopbarLogoRenderer:(id)renderer {
+}
+%end
+
+// Workaround: uYou 3.0.3 Adblock fix.
+BOOL isAd(YTIElementRenderer *self) {
+    if ([NSUserDefaults.standardUserDefaults boolForKey:@"removeYouTubeAds"]) {
+        if (self != nil) {
+            NSString *description = [self description];
+            if ([description containsString:@"brand_promo"]
+                || [description containsString:@"statement_banner"]
+                || [description containsString:@"product_carousel"]
+                || [description containsString:@"product_engagement_panel"]
+                || [description containsString:@"product_item"]
+                || [description containsString:@"expandable_list"]
+                || [description containsString:@"text_search_ad"]
+                || [description containsString:@"text_image_button_layout"]
+                || [description containsString:@"carousel_headered_layout"]
+                || [description containsString:@"carousel_footered_layout"]
+                || [description containsString:@"square_image_layout"]
+                || [description containsString:@"landscape_image_wide_button_layout"]
+                || [description containsString:@"feed_ad_metadata"])
+                return YES;
+            }
+        }
+    return NO;
+}
+
+%hook YTSectionListViewController
+- (void)loadWithModel:(YTISectionListRenderer *)model {
+    if ([NSUserDefaults.standardUserDefaults boolForKey:@"removeYouTubeAds"]) {
+    NSMutableArray <YTISectionListSupportedRenderers *> *contentsArray = model.contentsArray;
+    NSIndexSet *removeIndexes = [contentsArray indexesOfObjectsPassingTest:^BOOL(YTISectionListSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
+        YTIItemSectionRenderer *sectionRenderer = renderers.itemSectionRenderer;
+        YTIItemSectionSupportedRenderers *firstObject = [sectionRenderer.contentsArray firstObject];
+        return firstObject.hasPromotedVideoRenderer || firstObject.hasCompactPromotedVideoRenderer || firstObject.hasPromotedVideoInlineMutedRenderer || isAd(firstObject.elementRenderer);
+    }];
+    [contentsArray removeObjectsAtIndexes:removeIndexes];
+    }
+    %orig;
+}
+%end
+
+%hook YTWatchNextResultsViewController
+- (void)loadWithModel:(YTISectionListRenderer *)watchNextResults {
+    if ([NSUserDefaults.standardUserDefaults boolForKey:@"removeYouTubeAds"]) {
+    NSMutableArray <YTISectionListSupportedRenderers *> *contentsArray = watchNextResults.contentsArray;
+    NSIndexSet *removeIndexes = [contentsArray indexesOfObjectsPassingTest:^BOOL(YTISectionListSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
+        YTIItemSectionRenderer *sectionRenderer = renderers.itemSectionRenderer;
+        YTIItemSectionSupportedRenderers *firstObject = [sectionRenderer.contentsArray firstObject];
+        return firstObject.hasPromotedVideoRenderer || firstObject.hasCompactPromotedVideoRenderer || firstObject.hasPromotedVideoInlineMutedRenderer || isAd(firstObject.elementRenderer);
+    }];
+    [contentsArray removeObjectsAtIndexes:removeIndexes];
+    }
+    %orig;
 }
 %end
 
@@ -491,6 +545,28 @@ static NSString *accessGroupID() {
 }
 %end
 
+// YTTapToSeek - https://github.com/bhackel/YTTapToSeek
+%group YTTTS_Tweak
+    %hook YTInlinePlayerBarContainerView
+    - (void)didPressScrubber:(id)arg1 {
+        %orig;
+        // Get access to the seekToTime method
+        YTMainAppVideoPlayerOverlayViewController *mainAppController = [self.delegate valueForKey:@"_delegate"];
+        YTPlayerViewController *playerViewController = [mainAppController valueForKey:@"parentViewController"];
+        // Get the X position of this tap from arg1
+        UIGestureRecognizer *gestureRecognizer = (UIGestureRecognizer *)arg1;
+        CGPoint location = [gestureRecognizer locationInView:self];
+        CGFloat x = location.x;
+        // Get the associated proportion of time using scrubRangeForScrubX
+        double timestampFraction = [self scrubRangeForScrubX:x];
+        // Get the timestamp from the fraction
+        double timestamp = [mainAppController totalTime] * timestampFraction;
+        // Jump to the timestamp
+        [playerViewController seekToTime:timestamp];
+    }
+    %end
+%end
+
 # pragma mark - Hide Notification Button && SponsorBlock Button && uYouPlus Button
 %hook YTRightNavigationButtons
 - (void)layoutSubviews {
@@ -570,6 +646,7 @@ static NSString *accessGroupID() {
 }
 %end
 
+/* DISABLED
 // Hide double tap to seek overlay - @arichornlover
 %hook YTInlinePlayerDoubleTapIndicatorView
 - (void)layoutSubviews {
@@ -579,6 +656,7 @@ static NSString *accessGroupID() {
     }
 }
 %end
+*/
 
 // Video Controls Overlay Options
 // Hide CC / Hide Autoplay switch / Hide YTMusic Button / Enable Share Button / Enable Save to Playlist Button
@@ -1293,6 +1371,9 @@ static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *ide
     }
     if (IS_ENABLED(@"disableLiveChatSection_enabled")) {
         %init(gDisableLiveChatSection);
+    }
+    if (IS_ENABLED(@"YTTapToSeek_enabled")) {
+        %init(YTTTS_Tweak);
     }
 
     // YTNoModernUI - @arichorn
