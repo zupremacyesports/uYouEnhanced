@@ -377,6 +377,36 @@ BOOL isAd(YTIElementRenderer *self) {
 - (BOOL)enablePlayerBarForVerticalVideoWhenControlsHiddenInFullscreen { return YES; }
 %end
 
+// Remove Premium Sections
+%hook YTInnerTubeCollectionViewController
+- (void)viewDidLoad {
+    %orig;
+    NSMutableArray *sectionsToRemove = [NSMutableArray array];
+    for (id renderer in self.sectionRenderers) {
+        if ([renderer respondsToSelector:@selector(title)]) {
+            NSString *title = [renderer performSelector:@selector(title)];
+            if ([title isEqualToString:@"Get YouTube Premium"] || [title isEqualToString:@"Your data in YouTube"]) {
+                [sectionsToRemove addObject:renderer];
+            }
+        }
+    }  
+    [self.sectionRenderers removeObjectsInArray:sectionsToRemove];
+}
+%end
+%hook YTIMultiPageMenuRenderer
+- (id)model {
+    id originalModel = %orig;
+    if ([originalModel isKindOfClass:NSClassFromString(@"YTBrowserModel")]) {
+        NSString *browseId = [originalModel valueForKey:@"browseId"];
+        if ([browseId isEqualToString:@"SPunlimited"] || [browseId isEqualToString:@"FEmemberships_and_purchases"]) {
+            return nil;
+        }
+    }    
+    return originalModel;
+}
+%end
+
+
 // YTNoTracking - @arichorn - https://github.com/arichorn/YTNoTracking/
 %hook UIApplication
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
