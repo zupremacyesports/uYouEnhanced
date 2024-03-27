@@ -71,7 +71,7 @@ jobs:
       - name: Set PATH environment variable
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH 
 
-      - name: Setup Theos
+      - name: Checkout Theos
         uses: actions/checkout@v4.1.1
         with:
           repository: theos/theos
@@ -99,6 +99,15 @@ jobs:
           mv *.sdk $THEOS/sdks
         env:
           THEOS: ${{ github.workspace }}/theos
+
+      - name: Setup Theos Jailed
+        if: ${{ inputs.decrypted_youtube_url != '' }}
+        uses: actions/checkout@v4.1.1
+        with:
+          repository: qnblackcat/theos-jailed
+          ref: master
+          path: theos-jailed
+          submodules: recursive
 
       - name: Install Theos Jailed
         if: ${{ inputs.decrypted_youtube_url != '' }}
