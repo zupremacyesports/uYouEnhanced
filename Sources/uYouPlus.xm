@@ -57,6 +57,71 @@ static NSString *accessGroupID() {
 }
 %end
 
+// Workaround: uYou 3.0.3 Adblock fix.
+%hook YTAdsInnerTubeContextDecorator
+- (void)decorateContext:(id)context {
+if ([NSUserDefaults.standardUserDefaults boolForKey:@"removeYouTubeAds"]) {}
+}
+%end
+
+%hook YTAccountScopedAdsInnerTubeContextDecorator
+- (void)decorateContext:(id)context {
+if ([NSUserDefaults.standardUserDefaults boolForKey:@"removeYouTubeAds"]) {}
+}
+%end
+BOOL isAd(YTIElementRenderer *self) {
+    if ([NSUserDefaults.standardUserDefaults boolForKey:@"removeYouTubeAds"]) {
+        if (self != nil) {
+            NSString *description = [self description];
+            if ([description containsString:@"brand_promo"]
+                || [description containsString:@"statement_banner"]
+                || [description containsString:@"product_carousel"]
+                || [description containsString:@"product_engagement_panel"]
+                || [description containsString:@"product_item"]
+                || [description containsString:@"expandable_list"]
+                || [description containsString:@"text_search_ad"]
+                || [description containsString:@"text_image_button_layout"]
+                || [description containsString:@"carousel_headered_layout"]
+                || [description containsString:@"carousel_footered_layout"]
+                || [description containsString:@"square_image_layout"]
+                || [description containsString:@"landscape_image_wide_button_layout"]
+                || [description containsString:@"feed_ad_metadata"])
+                return YES;
+        }
+    }
+    return NO;
+}
+
+%hook YTSectionListViewController
+- (void)loadWithModel:(YTISectionListRenderer *)model {
+    if ([NSUserDefaults.standardUserDefaults boolForKey:@"removeYouTubeAds"]) {
+        NSMutableArray <YTISectionListSupportedRenderers *> *contentsArray = model.contentsArray;
+        NSIndexSet *removeIndexes = [contentsArray indexesOfObjectsPassingTest:^BOOL(YTISectionListSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
+            YTIItemSectionRenderer *sectionRenderer = renderers.itemSectionRenderer;
+            YTIItemSectionSupportedRenderers *firstObject = [sectionRenderer.contentsArray firstObject];
+            return firstObject.hasPromotedVideoRenderer || firstObject.hasCompactPromotedVideoRenderer || firstObject.hasPromotedVideoInlineMutedRenderer || isAd(firstObject.elementRenderer);
+        }];
+        [contentsArray removeObjectsAtIndexes:removeIndexes];
+    }
+    %orig;
+}
+%end
+
+%hook YTWatchNextResultsViewController
+- (void)loadWithModel:(YTISectionListRenderer *)watchNextResults {
+    if ([NSUserDefaults.standardUserDefaults boolForKey:@"removeYouTubeAds"]) {
+        NSMutableArray <YTISectionListSupportedRenderers *> *contentsArray = watchNextResults.contentsArray;
+        NSIndexSet *removeIndexes = [contentsArray indexesOfObjectsPassingTest:^BOOL(YTISectionListSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
+            YTIItemSectionRenderer *sectionRenderer = renderers.itemSectionRenderer;
+            YTIItemSectionSupportedRenderers *firstObject = [sectionRenderer.contentsArray firstObject];
+            return firstObject.hasPromotedVideoRenderer || firstObject.hasCompactPromotedVideoRenderer || firstObject.hasPromotedVideoInlineMutedRenderer || isAd(firstObject.elementRenderer);
+        }];
+        [contentsArray removeObjectsAtIndexes:removeIndexes];
+    }
+    %orig;
+}
+%end
+
 // Hide YouTube Logo - @dayanch96
 %group gHideYouTubeLogo
 %hook YTHeaderLogoController
@@ -98,60 +163,6 @@ static NSString *accessGroupID() {
     return YES;
 }
 - (void)setTopbarLogoRenderer:(id)renderer {
-}
-%end
-
-// Workaround: uYou 3.0.3 Adblock fix.
-BOOL isAd(YTIElementRenderer *self) {
-    if ([NSUserDefaults.standardUserDefaults boolForKey:@"removeYouTubeAds"]) {
-        if (self != nil) {
-            NSString *description = [self description];
-            if ([description containsString:@"brand_promo"]
-                || [description containsString:@"statement_banner"]
-                || [description containsString:@"product_carousel"]
-                || [description containsString:@"product_engagement_panel"]
-                || [description containsString:@"product_item"]
-                || [description containsString:@"expandable_list"]
-                || [description containsString:@"text_search_ad"]
-                || [description containsString:@"text_image_button_layout"]
-                || [description containsString:@"carousel_headered_layout"]
-                || [description containsString:@"carousel_footered_layout"]
-                || [description containsString:@"square_image_layout"]
-                || [description containsString:@"landscape_image_wide_button_layout"]
-                || [description containsString:@"feed_ad_metadata"])
-                return YES;
-            }
-        }
-    return NO;
-}
-
-%hook YTSectionListViewController
-- (void)loadWithModel:(YTISectionListRenderer *)model {
-    if ([NSUserDefaults.standardUserDefaults boolForKey:@"removeYouTubeAds"]) {
-    NSMutableArray <YTISectionListSupportedRenderers *> *contentsArray = model.contentsArray;
-    NSIndexSet *removeIndexes = [contentsArray indexesOfObjectsPassingTest:^BOOL(YTISectionListSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
-        YTIItemSectionRenderer *sectionRenderer = renderers.itemSectionRenderer;
-        YTIItemSectionSupportedRenderers *firstObject = [sectionRenderer.contentsArray firstObject];
-        return firstObject.hasPromotedVideoRenderer || firstObject.hasCompactPromotedVideoRenderer || firstObject.hasPromotedVideoInlineMutedRenderer || isAd(firstObject.elementRenderer);
-    }];
-    [contentsArray removeObjectsAtIndexes:removeIndexes];
-    }
-    %orig;
-}
-%end
-
-%hook YTWatchNextResultsViewController
-- (void)loadWithModel:(YTISectionListRenderer *)watchNextResults {
-    if ([NSUserDefaults.standardUserDefaults boolForKey:@"removeYouTubeAds"]) {
-    NSMutableArray <YTISectionListSupportedRenderers *> *contentsArray = watchNextResults.contentsArray;
-    NSIndexSet *removeIndexes = [contentsArray indexesOfObjectsPassingTest:^BOOL(YTISectionListSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
-        YTIItemSectionRenderer *sectionRenderer = renderers.itemSectionRenderer;
-        YTIItemSectionSupportedRenderers *firstObject = [sectionRenderer.contentsArray firstObject];
-        return firstObject.hasPromotedVideoRenderer || firstObject.hasCompactPromotedVideoRenderer || firstObject.hasPromotedVideoInlineMutedRenderer || isAd(firstObject.elementRenderer);
-    }];
-    [contentsArray removeObjectsAtIndexes:removeIndexes];
-    }
-    %orig;
 }
 %end
 
