@@ -16,25 +16,6 @@ NSBundle *uYouPlusBundle() {
 }
 NSBundle *tweakBundle = uYouPlusBundle();
 
-// Keychain fix
-static NSString *accessGroupID() {
-    NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:
-                           (__bridge NSString *)kSecClassGenericPassword, (__bridge NSString *)kSecClass,
-                           @"bundleSeedID", kSecAttrAccount,
-                           @"", kSecAttrService,
-                           (id)kCFBooleanTrue, kSecReturnAttributes,
-                           nil];
-    CFDictionaryRef result = nil;
-    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
-    if (status == errSecItemNotFound)
-        status = SecItemAdd((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
-        if (status != errSecSuccess)
-            return nil;
-    NSString *accessGroup = [(__bridge NSDictionary *)result objectForKey:(__bridge NSString *)kSecAttrAccessGroup];
-
-    return accessGroup;
-}
-
 # pragma mark - Tweaks
 
 // Activate FLEX
@@ -183,98 +164,6 @@ BOOL isAd(YTIElementRenderer *self) {
 %end
 %end
 
-// IAmYouTube - https://github.com/PoomSmart/IAmYouTube/
-%hook YTVersionUtils
-+ (NSString *)appName { return YT_NAME; }
-+ (NSString *)appID { return YT_BUNDLE_ID; }
-%end
-
-%hook GCKBUtils
-+ (NSString *)appIdentifier { return YT_BUNDLE_ID; }
-%end
-
-%hook GPCDeviceInfo
-+ (NSString *)bundleId { return YT_BUNDLE_ID; }
-%end
-
-%hook OGLBundle
-+ (NSString *)shortAppName { return YT_NAME; }
-%end
-
-%hook GVROverlayView
-+ (NSString *)appName { return YT_NAME; }
-%end
-
-%hook OGLPhenotypeFlagServiceImpl
-- (NSString *)bundleId { return YT_BUNDLE_ID; }
-%end
-
-%hook APMAEU
-+ (BOOL)isFAS { return YES; }
-%end
-
-%hook GULAppEnvironmentUtil
-+ (BOOL)isFromAppStore { return YES; }
-%end
-
-%hook SSOConfiguration
-- (id)initWithClientID:(id)clientID supportedAccountServices:(id)supportedAccountServices {
-    self = %orig;
-    [self setValue:YT_NAME forKey:@"_shortAppName"];
-    [self setValue:YT_BUNDLE_ID forKey:@"_applicationIdentifier"];
-    return self;
-}
-%end
-
-%hook NSBundle
-- (NSString *)bundleIdentifier {
-    NSArray *address = [NSThread callStackReturnAddresses];
-    Dl_info info = {0};
-    if (dladdr((void *)[address[2] longLongValue], &info) == 0)
-        return %orig;
-    NSString *path = [NSString stringWithUTF8String:info.dli_fname];
-    if ([path hasPrefix:NSBundle.mainBundle.bundlePath])
-        return YT_BUNDLE_ID;
-    return %orig;
-}
-- (id)objectForInfoDictionaryKey:(NSString *)key {
-    if ([key isEqualToString:@"CFBundleIdentifier"])
-        return YT_BUNDLE_ID;
-    if ([key isEqualToString:@"CFBundleDisplayName"] || [key isEqualToString:@"CFBundleName"])
-        return YT_NAME;
-    return %orig;
-}
-// Fix Google Sign in by @PoomSmart & @level3tjg (qnblackcat/uYouPlus#684)
-- (NSDictionary *)infoDictionary {
-    NSMutableDictionary *info = %orig.mutableCopy;
-    NSString *altBundleIdentifier = info[@"ALTBundleIdentifier"];
-    if (altBundleIdentifier) info[@"CFBundleIdentifier"] = altBundleIdentifier;
-    return info;
-}
-%end
-
-// Fix login for YouTube 18.13.2 and higher - @BandarHL
-%hook SSOKeychainHelper
-+ (NSString *)accessGroup {
-    return accessGroupID();
-}
-+ (NSString *)sharedAccessGroup {
-    return accessGroupID();
-}
-%end
-
-// Fix login for YouTube 17.33.2 and higher - @BandarHL
-// https://gist.github.com/BandarHL/492d50de46875f9ac7a056aad084ac10
-%hook SSOKeychainCore
-+ (NSString *)accessGroup {
-    return accessGroupID();
-}
-
-+ (NSString *)sharedAccessGroup {
-    return accessGroupID();
-}
-%end
-
 // Fix App Group Directory by move it to document directory
 %hook NSFileManager
 - (NSURL *)containerURLForSecurityApplicationGroupIdentifier:(NSString *)groupIdentifier {
@@ -387,36 +276,6 @@ BOOL isAd(YTIElementRenderer *self) {
 %hook YTHotConfig
 - (BOOL)enablePlayerBarForVerticalVideoWhenControlsHiddenInFullscreen { return YES; }
 %end
-
-// Remove Premium Sections
-%hook YTInnerTubeCollectionViewController
-- (void)viewDidLoad {
-    %orig;
-    NSMutableArray *sectionsToRemove = [NSMutableArray array];
-    for (id renderer in self.sectionRenderers) {
-        if ([renderer respondsToSelector:@selector(title)]) {
-            NSString *title = [renderer performSelector:@selector(title)];
-            if ([title isEqualToString:@"Get YouTube Premium"] || [title isEqualToString:@"Your data in YouTube"]) {
-                [sectionsToRemove addObject:renderer];
-            }
-        }
-    }  
-    [self.sectionRenderers removeObjectsInArray:sectionsToRemove];
-}
-%end
-%hook YTIMultiPageMenuRenderer
-- (id)model {
-    id originalModel = %orig;
-    if ([originalModel isKindOfClass:NSClassFromString(@"YTBrowserModel")]) {
-        NSString *browseId = [originalModel valueForKey:@"browseId"];
-        if ([browseId isEqualToString:@"SPunlimited"] || [browseId isEqualToString:@"FEmemberships_and_purchases"]) {
-            return nil;
-        }
-    }    
-    return originalModel;
-}
-%end
-
 
 // YTNoTracking - @arichorn - https://github.com/arichorn/YTNoTracking/
 %hook UIApplication
@@ -642,6 +501,7 @@ BOOL isAd(YTIElementRenderer *self) {
 %end
 %end
 
+/* This is disabled due to "self.enableSnapToChapter" not existing.
 // Disable snap to chapter
 %hook YTSegmentableInlinePlayerBarView
 - (void)didMoveToWindow {
@@ -651,6 +511,7 @@ BOOL isAd(YTIElementRenderer *self) {
     }
 }
 %end
+*/
 
 // Disable Pinch to zoom
 %hook YTColdConfig
@@ -1023,30 +884,34 @@ BOOL isAd(YTIElementRenderer *self) {
 }
 %end
 
-// Hide the (Connect / Save) Buttons under the Video Player - 17.x.x and up - @PoomSmart (inspired by @arichornlover)
+// Hide the (Connect / Thanks / Save / Report) Buttons under the Video Player - 17.x.x and up - @PoomSmart (inspired by @arichornlover) DEPRECATED METHOD ⚠️
 %hook _ASDisplayView
 - (void)layoutSubviews {
     %orig;
     BOOL hideConnectButton = IS_ENABLED(@"hideConnectButton_enabled");
-//    BOOL hideShareButton = IS_ENABLED(@"hideShareButton_enabled"); // OLD
-//    BOOL hideRemixButton = IS_ENABLED(@"hideRemixButton_enabled"); // OLD
-//    BOOL hideThanksButton = IS_ENABLED(@"hideThanksButton_enabled"); // OLD
-//    BOOL hideAddToOfflineButton = IS_ENABLED(@"hideAddToOfflineButton_enabled"); // OLD
-//    BOOL hideClipButton = IS_ENABLED(@"hideClipButton_enabled"); // OLD
+//  BOOL hideShareButton = IS_ENABLED(@"hideShareButton_enabled"); // OLD
+//  BOOL hideRemixButton = IS_ENABLED(@"hideRemixButton_enabled"); // OLD
+    BOOL hideThanksButton = IS_ENABLED(@"hideThanksButton_enabled");
+//  BOOL hideAddToOfflineButton = IS_ENABLED(@"hideAddToOfflineButton_enabled"); // OLD
+//  BOOL hideClipButton = IS_ENABLED(@"hideClipButton_enabled"); // OLD
     BOOL hideSaveToPlaylistButton = IS_ENABLED(@"hideSaveToPlaylistButton_enabled");
+    BOOL hideReportButton = IS_ENABLED(@"hideReportButton_enabled");
 
     for (UIView *subview in self.subviews) {
         if ([subview.accessibilityLabel isEqualToString:@"connect account"]) {
             subview.hidden = hideConnectButton;
- //         subview.frame = hideConnectButton ? CGRectZero : subview.frame;
+        } else if ([subview.accessibilityLabel isEqualToString:@"Thanks"]) {
+            subview.hidden = hideThanksButton;
         } else if ([subview.accessibilityLabel isEqualToString:@"Save to playlist"]) {
             subview.hidden = hideSaveToPlaylistButton;
- //         subview.frame = hideSaveToPlaylistButton ? CGRectZero : subview.frame;
+        } else if ([subview.accessibilityLabel isEqualToString:@"Report"]) {
+            subview.hidden = hideReportButton;
         }
     }
 }
 %end
 
+// Hide the (Connect / Share / Remix / Thanks / Download / Clip / Save / Report) Buttons under the Video Player - 17.x.x and up - @PoomSmart (inspired by @arichornlover) - NEW METHOD
 static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *identifiers) {
     for (id child in [nodeController children]) {
         if ([child isKindOfClass:%c(ELMNodeController)]) {
