@@ -287,7 +287,32 @@ extern NSBundle *uYouPlusBundle();
     # pragma mark - UI interface options
     SECTION_HEADER(LOC(@"UI Interface Options"));
 
-    SWITCH_ITEM2(LOC(@"Low Contrast Mode"), LOC(@"This will lower the contrast of texts and buttons, similar to the old YouTube Interface. App restart is required."), @"lowContrastMode_enabled");
+YTSettingsSectionItem *lowContrastMode = [YTSettingsSectionItemClass
+    switchItemWithTitle:LOC(@"Low Contrast Mode")
+    titleDescription:LOC(@"This will lower the contrast of texts and buttons, similar to the old YouTube Interface. App restart is required.")
+    accessibilityIdentifier:nil
+    switchOn:IS_ENABLED(@"lowContrastMode_enabled")
+    switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
+        if (enabled) {
+            NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+            NSComparisonResult result1 = [appVersion compare:@"17.33.2" options:NSNumericSearch];
+            NSComparisonResult result2 = [appVersion compare:@"17.38.10" options:NSNumericSearch];
+            if (result1 == NSOrderedAscending || result2 == NSOrderedDescending) {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Incompatibile" message:[NSString stringWithFormat:@"LowContrastMode is only available for app versions between v17.33.2-v17.38.10. you are using v%@, \n\nWorkaround: if you want to use this then I recommend enabling \"Fix LowContrastMode\" Option.", appVersion] preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                [alert addAction:okAction];
+                [settingsViewController presentViewController:alert animated:YES completion:nil];
+                return NO;
+            }
+        }
+        [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"lowContrastMode_enabled"];
+        [settingsViewController reloadData];
+        SHOW_RELAUNCH_YT_SNACKBAR;
+        return YES;
+    }
+    settingItemId:0
+];
+[sectionItems addObject:lowContrastMode];
 YTSettingsSectionItem *lowContrastMode = [%c(YTSettingsSectionItem)
     itemWithTitle:@"Low Contrast Mode Selector"
     accessibilityIdentifier:nil
@@ -303,7 +328,7 @@ YTSettingsSectionItem *lowContrastMode = [%c(YTSettingsSectionItem)
     selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         if (contrastMode() == 0) {
             NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Incompatibile" message:[NSString stringWithFormat:@"LowContrastMode is only available for app versions between v17.33.2-v17.38.10. you aren't able to use this on v%@, if you want to use this then I recommend enabling \"Fix LowContrastMode\" Option.", appVersion] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Incompatibile" message:[NSString stringWithFormat:@"LowContrastMode is only available for app versions between v17.33.2-v17.38.10. you are using v%@, \n\nWorkaround: if you want to use this then I recommend enabling \"Fix LowContrastMode\" Option.", appVersion] preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
             [alert addAction:okAction];
             [settingsViewController presentViewController:alert animated:YES completion:nil];
