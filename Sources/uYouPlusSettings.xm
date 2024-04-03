@@ -313,7 +313,7 @@ YTSettingsSectionItem *lowContrastMode = [YTSettingsSectionItemClass
     settingItemId:0
 ];
 [sectionItems addObject:lowContrastMode];
-YTSettingsSectionItem *lowContrastMode = [%c(YTSettingsSectionItem)
+YTSettingsSectionItem *lowContrastModeButton = [%c(YTSettingsSectionItem)
     itemWithTitle:@"Low Contrast Mode Selector"
     accessibilityIdentifier:nil
     detailTextBlock:^NSString *() {
@@ -353,7 +353,7 @@ YTSettingsSectionItem *lowContrastMode = [%c(YTSettingsSectionItem)
         }
     }
 ];
-[sectionItems addObject:lowContrastMode];
+[sectionItems addObject:lowContrastModeButton];
     SWITCH_ITEM2(LOC(@"Fix LowContrastMode"), LOC(@"This will fix the LowContrastMode functionality by Spoofing to YouTube v17.38.10. App restart is required."), @"fixLowContrastMode_enabled");
     SWITCH_ITEM2(LOC(@"Disable Modern Buttons"), LOC(@"This will remove the new Modern / Chip Buttons in the YouTube App. but not all of them. App restart is required."), @"disableModernButtons_enabled");
     SWITCH_ITEM2(LOC(@"Disable Rounded Corners on Hints"), LOC(@"This will make the Hints in the App to not have Rounded Corners. App restart is required."), @"disableRoundedHints_enabled");
