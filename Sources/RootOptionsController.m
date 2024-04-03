@@ -1,6 +1,7 @@
 #import "RootOptionsController.h"
 #import "ColourOptionsController.h"
 #import "ColourOptionsController2.h"
+#import "AppIconOptionsController.h"
 
 @interface RootOptionsController ()
 @end
