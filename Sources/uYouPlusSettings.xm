@@ -303,7 +303,7 @@ YTSettingsSectionItem *lowContrastMode = [%c(YTSettingsSectionItem)
     selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         if (contrastMode() == 0) {
             NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Incompatibile" message:[NSString stringWithFormat:@"LowContrastMode's Customization is only available for app versions between v17.33.2-v17.38.10. you aren't able to use this on v%@", appVersion] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Incompatibile" message:[NSString stringWithFormat:@"LowContrastMode is only available for app versions between v17.33.2-v17.38.10. you aren't able to use this on v%@, if you want to use this then I recommend enabling \"Fix LowContrastMode\" Option.", appVersion] preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
             [alert addAction:okAction];
             [settingsViewController presentViewController:alert animated:YES completion:nil];
