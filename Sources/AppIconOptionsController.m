@@ -49,16 +49,3 @@
 }
 
 @end
-
-- (void)showAppIconOptions {
-    AppIconOptionsController *appIconOptionsController = [[AppIconOptionsController alloc] init];
-    UINavigationController *appIconOptionsNavController = [[UINavigationController alloc] initWithRootViewController:appIconOptionsController];
-    [self presentViewController:appIconOptionsNavController animated:YES completion:nil];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    UIBarButtonItem *appIconButton = [[UIBarButtonItem alloc] initWithTitle:@"App Icon" style:UIBarButtonItemStylePlain target:self action:@selector(showAppIconOptions)];
-    self.navigationItem.rightBarButtonItem = appIconButton;
-}
