@@ -35,8 +35,11 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"uYouPlus" ofType:@"bundle"];
     NSBundle *bundle = [NSBundle bundleWithPath:path];
     self.appIcons = [bundle pathsForResourcesOfType:@"png" inDirectory:@"AppIcons"];
-} else {
-    NSLog(@"Alternate icons are not supported on this device.");
+    
+    if ([UIApplication sharedApplication].supportsAlternateIcons) {
+    } else {
+        NSLog(@"Alternate icons are not supported on this device.");
+    }
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
