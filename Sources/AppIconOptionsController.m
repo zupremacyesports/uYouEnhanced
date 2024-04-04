@@ -4,8 +4,8 @@
 
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) UIImageView *iconPreview;
-
 @property (strong, nonatomic) NSArray<NSString *> *appIcons;
+@property (strong, nonatomic) NSString *selectedIconFile;
 
 @end
 
@@ -20,8 +20,14 @@
     self.collectionView.delegate = self;
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     [self.view addSubview:self.collectionView];
+    
+    UIButton *defaultButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    defaultButton.frame = CGRectMake(20, 100, 100, 40);
+    [defaultButton setTitle:@"Default" forState:UIControlStateNormal];
+    [defaultButton addTarget:self action:@selector(setDefaultIcon) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:defaultButton];
 
-    self.iconPreview = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 60, 60)];
+    self.iconPreview = [[UIImageView alloc] initWithFrame:CGRectMake(20, 150, 60, 60)];
     [self.view addSubview:self.iconPreview];
 
     NSString *path = [[NSBundle mainBundle] pathForResource:@"uYouPlus" ofType:@"bundle"];
@@ -38,7 +44,7 @@
 
     UIImage *appIconImage = [UIImage imageWithContentsOfFile:self.appIcons[indexPath.row]];
     UIImage *resizedIconImage = [self resizedImageWithImage:appIconImage];
-
+    
     UIImageView *imageView = [[UIImageView alloc] initWithImage:resizedIconImage];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.frame = cell.contentView.bounds;
@@ -48,9 +54,31 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    UIImage *selectedIconImage = [UIImage imageWithContentsOfFile:self.appIcons[indexPath.row]];
+    self.selectedIconFile = self.appIcons[indexPath.row];
+    UIImage *selectedIconImage = [UIImage imageWithContentsOfFile:self.selectedIconFile];
     UIImage *resizedSelectedIconImage = [self resizedImageWithImage:selectedIconImage];
     self.iconPreview.image = resizedSelectedIconImage;
+    
+    [[UIApplication sharedApplication] setAlternateIconName:[self.selectedIconFile lastPathComponent] completionHandler:^(NSError * _Nullable error){
+        if (error) {
+            NSLog(@"Error setting alternate icon: %@", error.localizedDescription);
+        } else {
+            NSLog(@"Alternate icon set successfully");
+        }
+    }];
+}
+
+- (void)setDefaultIcon {
+    self.iconPreview.image = nil;
+    self.selectedIconFile = nil;
+    
+    [[UIApplication sharedApplication] setAlternateIconName:nil completionHandler:^(NSError * _Nullable error){
+        if (error) {
+            NSLog(@"Error setting default icon: %@", error.localizedDescription);
+        } else {
+            NSLog(@"Default icon set successfully");
+        }
+    }];
 }
 
 - (UIImage *)resizedImageWithImage:(UIImage *)image {
