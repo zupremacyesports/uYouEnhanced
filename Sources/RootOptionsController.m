@@ -169,9 +169,16 @@
 @implementation RootOptionsController (Privates)
 
 - (void)showAppIconOptions {
-    AppIconOptionsController *appIconOptionsController = [[AppIconOptionsController alloc] init];
-    UINavigationController *appIconOptionsNavController = [[UINavigationController alloc] initWithRootViewController:appIconOptionsController];
-    [self presentViewController:appIconOptionsNavController animated:YES completion:nil];
+    if (@available(iOS 15.0, *)) {
+        AppIconOptionsController *appIconOptionsController = [[AppIconOptionsController alloc] init];
+        UINavigationController *appIconOptionsNavController = [[UINavigationController alloc] initWithRootViewController:appIconOptionsController];
+        [self presentViewController:appIconOptionsNavController animated:YES completion:nil];
+    } else {
+        NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Incompatible" message:[NSString stringWithFormat:@"Changing app icons is only available on iOS 15 and later.\nYour Device is currently using iOS %@.", systemVersion] preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 - (void)done {
