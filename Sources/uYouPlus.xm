@@ -30,6 +30,11 @@ static int contrastMode() {
 }
 //
 
+// Custom Icons Parch
+%hook UIApplication
+- (BOOL)supportsAlternateIcons { return YES; }
+%end
+
 # pragma mark - Tweaks
 
 // Activate FLEX
