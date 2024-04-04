@@ -15,6 +15,10 @@
     [super viewDidLoad];
     
     if ([[UIApplication sharedApplication] supportsAlternateIcons]) {
+        UIView *swipeIndicator = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 5)];
+        swipeIndicator.backgroundColor = [UIColor lightGrayColor];
+        [self.view addSubview:swipeIndicator];
+
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
         self.collectionView.dataSource = self;
