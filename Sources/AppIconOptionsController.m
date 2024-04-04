@@ -13,36 +13,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    if ([[UIApplication sharedApplication] supportsAlternateIcons]) {
-        UIView *swipeIndicator = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 5)];
-        swipeIndicator.backgroundColor = [UIColor lightGrayColor];
-        [self.view addSubview:swipeIndicator];
 
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
-        self.collectionView.dataSource = self;
-        self.collectionView.delegate = self;
-        [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
-        [self.view addSubview:self.collectionView];
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
+    [self.view addSubview:self.collectionView];
+    
+    UIButton *defaultButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    defaultButton.frame = CGRectMake(20, 100, 100, 40);
+    [defaultButton setTitle:@"Default" forState:UIControlStateNormal];
+    [defaultButton addTarget:self action:@selector(setDefaultIcon) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:defaultButton];
+    
+    self.iconPreview = [[UIImageView alloc] initWithFrame:CGRectMake(20, 150, 60, 60)];
+    self.iconPreview.layer.cornerRadius = 10.0;
+    self.iconPreview.clipsToBounds = YES;
+    [self.view addSubview:self.iconPreview];
         
-        UIButton *defaultButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        defaultButton.frame = CGRectMake(20, 100, 100, 40);
-        [defaultButton setTitle:@"Default" forState:UIControlStateNormal];
-        [defaultButton addTarget:self action:@selector(setDefaultIcon) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:defaultButton];
-        
-        self.iconPreview = [[UIImageView alloc] initWithFrame:CGRectMake(20, 150, 60, 60)];
-        self.iconPreview.layer.cornerRadius = 10.0;
-        self.iconPreview.clipsToBounds = YES;
-        [self.view addSubview:self.iconPreview];
-        
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"uYouPlus" ofType:@"bundle"];
-        NSBundle *bundle = [NSBundle bundleWithPath:path];
-        self.appIcons = [bundle pathsForResourcesOfType:@"png" inDirectory:@"AppIcons"];
-    } else {
-        NSLog(@"Alternate icons are not supported on this device.");
-    }
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"uYouPlus" ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:path];
+    self.appIcons = [bundle pathsForResourcesOfType:@"png" inDirectory:@"AppIcons"];
+} else {
+    NSLog(@"Alternate icons are not supported on this device.");
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
