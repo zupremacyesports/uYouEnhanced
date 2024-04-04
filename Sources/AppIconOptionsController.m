@@ -85,12 +85,28 @@
         [[UIApplication sharedApplication] setAlternateIconName:[self.selectedIconFile.lastPathComponent stringByDeletingPathExtension] completionHandler:^(NSError * _Nullable error){
             if (error) {
                 NSLog(@"Error setting alternate icon: %@", error.localizedDescription);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Failed to set alternate icon" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alert addAction:okAction];
+                    [self presentViewController:alert animated:YES completion:nil];
+                });
             } else {
                 NSLog(@"Alternate icon set successfully");
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Success" message:@"Alternate icon set successfully" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alert addAction:okAction];
+                    [self presentViewController:alert animated:YES completion:nil];
+                });
             }
         }];
     } else {
         NSLog(@"No icon selected to save");
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Icon Selected" message:@"Please select an icon before saving" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:nil];
     }
 }
 
