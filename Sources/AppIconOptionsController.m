@@ -37,7 +37,9 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
 
     UIImage *appIconImage = [UIImage imageWithContentsOfFile:self.appIcons[indexPath.row]];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:appIconImage];
+    UIImage *resizedIconImage = [self resizedImageWithImage:appIconImage];
+
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:resizedIconImage];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.frame = cell.contentView.bounds;
     [cell.contentView addSubview:imageView];
@@ -47,7 +49,18 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     UIImage *selectedIconImage = [UIImage imageWithContentsOfFile:self.appIcons[indexPath.row]];
-    self.iconPreview.image = selectedIconImage;
+    UIImage *resizedSelectedIconImage = [self resizedImageWithImage:selectedIconImage];
+    self.iconPreview.image = resizedSelectedIconImage;
+}
+
+- (UIImage *)resizedImageWithImage:(UIImage *)image {
+    CGFloat scale = [UIScreen mainScreen].scale;
+    CGSize newSize = CGSizeMake(image.size.width / scale, image.size.height / scale);
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, scale);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return resizedImage;
 }
 
 @end
