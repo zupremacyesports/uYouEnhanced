@@ -28,6 +28,8 @@
     [self.view addSubview:defaultButton];
 
     self.iconPreview = [[UIImageView alloc] initWithFrame:CGRectMake(20, 150, 60, 60)];
+    self.iconPreview.layer.cornerRadius = self.iconPreview.frame.size.width / 2;
+    self.iconPreview.clipsToBounds = YES;
     [self.view addSubview:self.iconPreview];
 
     NSString *path = [[NSBundle mainBundle] pathForResource:@"uYouPlus" ofType:@"bundle"];
@@ -48,6 +50,8 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:resizedIconImage];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.frame = cell.contentView.bounds;
+    imageView.layer.cornerRadius = image.frame.size.width / 2;
+    imageView.clipsToBounds = YES;
     [cell.contentView addSubview:imageView];
 
     return cell;
@@ -58,7 +62,9 @@
     UIImage *selectedIconImage = [UIImage imageWithContentsOfFile:self.selectedIconFile];
     UIImage *resizedSelectedIconImage = [self resizedImageWithImage:selectedIconImage];
     self.iconPreview.image = resizedSelectedIconImage;
-    
+    self.iconPreview.layer.cornerRadius = resizedSelectedIconImage.size.width / 2;
+    self.iconPreview.clipsToBounds = YES;
+
     [[UIApplication sharedApplication] setAlternateIconName:[self.selectedIconFile lastPathComponent] completionHandler:^(NSError * _Nullable error){
         if (error) {
             NSLog(@"Error setting alternate icon: %@", error.localizedDescription);
