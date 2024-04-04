@@ -50,7 +50,7 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:resizedIconImage];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.frame = cell.contentView.bounds;
-    imageView.layer.cornerRadius = image.frame.size.width / 2;
+    imageView.layer.cornerRadius = imageView.frame.size.width / 2;
     imageView.clipsToBounds = YES;
     [cell.contentView addSubview:imageView];
 
