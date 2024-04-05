@@ -30,27 +30,10 @@ static int contrastMode() {
 }
 //
 
-// Custom Icons Parch
+// Custom Icons Enabler
 %hook UIApplication
 - (BOOL)supportsAlternateIcons {
     return YES;
-}
-- (void)setAlternateIconName:(NSString *)name completionHandler:(void (^)(NSError * _Nullable error))completionHandler {
-    NSString *iconPath = [[[NSBundle mainBundle] pathForResource:@"uYouPlus" ofType:@"bundle"] stringByAppendingPathComponent:[NSString stringWithFormat:@"AppIcons/%@.png", name]];
-    
-    [[UIApplication sharedApplication] setAlternateIconName:name completionHandler:^(NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Error setting alternate icon: %@", error.localizedDescription);
-            if (completionHandler) {
-                completionHandler(error);
-            }
-        } else {
-            NSLog(@"Alternate icon set successfully");
-            if (completionHandler) {
-                completionHandler(nil);
-            }
-        }
-    }];
 }
 %end
 
