@@ -2,8 +2,8 @@
 
 # pragma mark - YouTube patches
 
-/*
 // Fix Google Sign in by @PoomSmart and @level3tjg (qnblackcat/uYouPlus#684)
+%group gGoogleSignInPatch
 %hook NSBundle
 - (NSDictionary *)infoDictionary {
     NSMutableDictionary *info = %orig.mutableCopy;
@@ -12,7 +12,7 @@
     return info;
 }
 %end
-*/
+%end
 
 // Workaround for MiRO92/uYou-for-YouTube#12, qnblackcat/uYouPlus#263
 %hook YTDataUtils
@@ -98,6 +98,7 @@ typedef NS_ENUM(NSInteger, ShareEntityType) {
     ShareEntityFieldVideo = 1,
     ShareEntityFieldPlaylist = 2,
     ShareEntityFieldChannel = 3,
+    ShareEntityFieldPost = 6,
     ShareEntityFieldClip = 8
 };
 
@@ -110,6 +111,7 @@ static inline NSString* extractIdWithFormat(GPBUnknownFieldSet *fields, NSIntege
     NSString *id = [[NSString alloc] initWithData:[idField.lengthDelimitedList firstObject] encoding:NSUTF8StringEncoding];
     return [NSString stringWithFormat:format, id];
 }
+
 static BOOL showNativeShareSheet(NSString *serializedShareEntity, UIView *sourceView) {
     GPBMessage *shareEntity = [%c(GPBMessage) deserializeFromString:serializedShareEntity];
     GPBUnknownFieldSet *fields = shareEntity.unknownFields;
@@ -139,6 +141,9 @@ static BOOL showNativeShareSheet(NSString *serializedShareEntity, UIView *source
         shareUrl = extractIdWithFormat(fields, ShareEntityFieldVideo, @"https://youtube.com/watch?v=%@");
 
     if (!shareUrl)
+        shareUrl = extractIdWithFormat(fields, ShareEntityFieldPost, @"https://youtube.com/post/%@");
+
+    if (!shareUrl)
         return NO;
 
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[shareUrl] applicationActivities:nil];
@@ -166,7 +171,7 @@ static BOOL showNativeShareSheet(NSString *serializedShareEntity, UIView *source
     YTIShareEntityEndpoint *shareEntityEndpoint = [self.command getExtension:shareEntityEndpointDescriptor];
     if (!shareEntityEndpoint.hasSerializedShareEntity)
         return %orig;
-    if (!showNativeShareSheet(shareEntityEndpoint.serializedShareEntity, self.fromView))
+    if (!showNativeShareSheet(shareEntityEndpoint.serializedShareEntity))
         return %orig;
 }
 %end
@@ -174,7 +179,7 @@ static BOOL showNativeShareSheet(NSString *serializedShareEntity, UIView *source
 /* ------------------- iPhone Layout ------------------- */
 
 %hook ELMPBShowActionSheetCommand
-- (void)executeWithCommandContext:(ELMCommandContext*)context handler:(id)_handler {
+- (void)executeWithCommandContext:(id)_context handler:(id)_handler {
     if (!self.hasOnAppear)
         return %orig;
     GPBExtensionDescriptor *innertubeCommandDescriptor = [%c(YTIInnertubeCommandExtensionRoot) innertubeCommand];
@@ -187,7 +192,7 @@ static BOOL showNativeShareSheet(NSString *serializedShareEntity, UIView *source
     YTIUpdateShareSheetCommand *updateShareSheetCommand = [innertubeCommand getExtension:updateShareSheetCommandDescriptor];
     if (!updateShareSheetCommand.hasSerializedShareEntity)
         return %orig;
-    if (!showNativeShareSheet(updateShareSheetCommand.serializedShareEntity, context.context.fromView))
+    if (!showNativeShareSheet(updateShareSheetCommand.serializedShareEntity))
         return %orig;
 }
 %end
@@ -331,6 +336,9 @@ static void refreshUYouAppearance() {
 
 %ctor {
     %init;
+    if (IS_ENABLED(@"googleSignInPatch_enabled")) {
+        %init(gGoogleSignInPatch);
+    }
     // if (@available(iOS 16, *)) {
     //     %init(iOS16);
     // }
